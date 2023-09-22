@@ -7,16 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         
-        title = "teste"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
-
-
 }
 

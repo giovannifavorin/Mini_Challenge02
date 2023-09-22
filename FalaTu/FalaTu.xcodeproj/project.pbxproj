@@ -9,17 +9,23 @@
 /* Begin PBXBuildFile section */
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
-		D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C262AB8C79E00A908E8 /* ViewController.swift */; };
+		D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C262AB8C79E00A908E8 /* MenuViewController.swift */; };
 		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
+		D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */; };
+		D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3D2AB8D87600A908E8 /* Banco.swift */; };
+		D9691C402AB8F65F00A908E8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3F2AB8F65F00A908E8 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D9691C262AB8C79E00A908E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9691C262AB8C79E00A908E8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9691C302AB8C79F00A908E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D9691C3D2AB8D87600A908E8 /* Banco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Banco.swift; path = FalaTu/View/Protocols/Banco.swift; sourceTree = SOURCE_ROOT; };
+		D9691C3F2AB8F65F00A908E8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		D9691C362AB8C7FB00A908E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9691C3D2AB8D87600A908E8 /* Banco.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -71,6 +78,8 @@
 		D9691C372AB8C80400A908E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9691C3A2AB8CE8900A908E8 /* Protocols */,
+				D9691C3F2AB8F65F00A908E8 /* MenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -78,7 +87,7 @@
 		D9691C382AB8C80D00A908E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D9691C262AB8C79E00A908E8 /* ViewController.swift */,
+				D9691C262AB8C79E00A908E8 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -91,6 +100,14 @@
 				D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		D9691C3A2AB8CE8900A908E8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */,
+				D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */,
+				D9691C402AB8F65F00A908E8 /* MenuView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
+				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
+				D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
