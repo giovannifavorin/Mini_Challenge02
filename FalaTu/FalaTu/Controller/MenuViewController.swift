@@ -25,8 +25,9 @@ class MenuViewController: UIViewController {
         
 //        view.addSubview(menuColletion)
         
-        menuModel.append(.init(image: UIImage(named: "ThePedra")!))
-        menuModel.append(.init(image: UIImage(named: "iconeMinhaFeria")!))
+        menuModel.append(.init(image: UIImage(named: "ThePedra")!, text: "jogo 1"))
+        menuModel.append(.init(image: UIImage(named: "iconeMinhaFeria")!, text: "Jogo 2"))
+        menuModel.append(.init(image: UIImage(named: "ThePedra")!, text: "jogo 3"))
     
         menuColletion.configureMenuCollection(with: menuModel)
         

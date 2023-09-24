@@ -10,8 +10,7 @@ import UIKit
 class MenuCollectioViewCell: UICollectionViewCell {
     
     
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.width
+    let size = UIScreen.main.bounds.size
     
     static let identifier = "MenuCollectioViewCell"
     
@@ -21,6 +20,8 @@ class MenuCollectioViewCell: UICollectionViewCell {
         image.image = UIImage(named: "questionmark")
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 15
+        image.clipsToBounds = true
+        image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -40,6 +41,24 @@ class MenuCollectioViewCell: UICollectionViewCell {
        return button
     }()
     
+    private lazy var mylabel: UILabel = {
+        let label = UILabel()
+        label.text = "Error"
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        label.font.withSize(24)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    private lazy var viewBase: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         print("entrei na viewcell menu")
@@ -55,21 +74,27 @@ class MenuCollectioViewCell: UICollectionViewCell {
 
 extension MenuCollectioViewCell: ViewModel{
     func addViews() {
-        addSubviewsEx(imageView, button)
+        addSubviewsEx(imageView, button, mylabel)
     }
     
     func addContrains() {
+        print("Tamanho width na cell: \(size.width)")
+        print("Tamanho height na cell: \(size.height)")
+
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: width/2),
-            imageView.heightAnchor.constraint(equalToConstant: height/2),
+            imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            
+            mylabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            mylabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mylabel.widthAnchor.constraint(equalTo: imageView.widthAnchor),
             
             button.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 26),
             button.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             button.widthAnchor.constraint(equalTo: imageView.widthAnchor),
             button.heightAnchor.constraint(equalToConstant: 54.77)
-
         ])
     }
     
@@ -80,8 +105,9 @@ extension MenuCollectioViewCell: ViewModel{
 
 
 extension MenuCollectioViewCell{
-    public func configure(with image: UIImage){
+    public func configure(with image: UIImage, and text: String){
         self.imageView.image = image
+        self.mylabel.text = text
     }
 }
 

@@ -18,8 +18,8 @@ class MenuColletionView: UIView {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.itemSize = .init(width: width, height: height)
+        layout.itemSize = .init(width: width, height: (height/2) + 100)
+        layout.collectionView?.backgroundColor = .blue
         
         let colletion = UICollectionView(frame: .zero, collectionViewLayout: layout)
         colletion.delegate = self
@@ -59,8 +59,9 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         let image = menuDataModel[indexPath.row].image
+        let tex = menuDataModel[indexPath.row].text
         
-        cell.configure(with: image)
+        cell.configure(with: image, and: tex)
         
         return cell
     }
@@ -73,11 +74,13 @@ extension MenuColletionView: ViewModel {
     }
     
     func addContrains() {
+        print("Tamanho width na colletion: \(width)")
+        print("Tamanho height na colletion: \(height)")
         NSLayoutConstraint.activate([
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: (height/2) * 0.5)
+            collectionView.heightAnchor.constraint(equalToConstant: (height/2) + 100)
         ])
     }
     
