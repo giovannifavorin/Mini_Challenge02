@@ -29,12 +29,14 @@ protocol ViewModel{
     func setupStyle()
 }
 
+//Calls all protocol methods
 extension ViewModel{
     
-    //Calls all protocol methods
     func setupViewModel(){
         addViews()
         addContrains()
         setupStyle()
     }
 }
+
+

@@ -12,4 +12,5 @@ import UIKit
 struct MenuDataModel{
     let image: UIImage
     let text: String
+    let tag: Int
 }
