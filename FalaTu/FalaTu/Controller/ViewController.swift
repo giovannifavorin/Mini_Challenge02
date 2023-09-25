@@ -16,7 +16,5 @@ class ViewController: UIViewController {
         title = "teste"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-
 }
 
