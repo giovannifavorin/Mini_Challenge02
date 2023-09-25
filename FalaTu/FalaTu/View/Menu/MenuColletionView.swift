@@ -25,15 +25,15 @@ class MenuColletionView: UIView {
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: width, height: (height/2) + 135)
-        layout.minimumInteritemSpacing = 20
+        layout.itemSize = .init(width: width, height: (height/2) + 125)
+        layout.minimumInteritemSpacing = 0
         
         // Create the collection view
         let colletion = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        colletion.register(MenuCollectioViewCell.self, forCellWithReuseIdentifier: MenuCollectioViewCell.identifier)
         colletion.backgroundColor = UIColor(named: "backgroundColor")
         colletion.delegate = self
         colletion.dataSource = self
-        colletion.register(MenuCollectioViewCell.self, forCellWithReuseIdentifier: MenuCollectioViewCell.identifier)
         colletion.translatesAutoresizingMaskIntoConstraints = false
         colletion.isPagingEnabled = true
         return colletion
@@ -105,7 +105,7 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
         // Retrieve data for the cell
         let image = menuDataModel[indexPath.row].image
         let text = menuDataModel[indexPath.row].text
-        let tag = menuDataModel[indexPath.row].tag
+        let tag = indexPath.row
         
         // Set the delegate and configure the cell
         cell.delegateButton = self.delegate

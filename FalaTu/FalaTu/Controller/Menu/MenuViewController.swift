@@ -17,11 +17,22 @@ class MenuViewController: UIViewController {
         return view
     }()
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        super.viewWillDisappear(animated)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         setupViewControllerModel()
     }
+    
 }
 
 
@@ -35,6 +46,8 @@ extension MenuViewController: ViewControllerModel{
     func addStyle() {
         view.backgroundColor = UIColor(named: "backgroundColor")
 //        navigationController?.isNavigationBarHidden = true
+//        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "button_back")
+//        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "button_back")
     }
     
     func addConstraints() {

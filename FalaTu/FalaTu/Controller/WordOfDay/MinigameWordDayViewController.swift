@@ -13,7 +13,7 @@ class MinigameWordDayViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
+        setupViewControllerModel()
 
     }
 }

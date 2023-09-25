@@ -11,11 +11,10 @@ class MultiplayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Multiplayer"
-        
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        setupViewControllerModel()
+
     }
 }
 
@@ -26,9 +25,10 @@ extension MultiplayerViewController: ViewControllerModel{
     
     func addStyle() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Palavra do dia"
+        title = "Multiplayer"
         view.backgroundColor = UIColor(named: "backgroundColor")
-
+        
+        
     }
     
     func addConstraints() {

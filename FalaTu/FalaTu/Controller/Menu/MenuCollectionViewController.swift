@@ -12,7 +12,6 @@ class MenuCollectionViewController: UICollectionViewController {
     private var menuModel = [MenuDataModel]()
     
     // Create an instance of MenuColletionView and set its delegate
-    // Also, set the 'translatesAutoresizingMaskIntoConstraints' property to 'false'
     private lazy var menuColletion: MenuColletionView = {
         let view = MenuColletionView()
         view.delegate = self
@@ -40,8 +39,9 @@ extension MenuCollectionViewController: ViewControllerModel {
     func addSubviews() {
         
         // Append data to 'menuModel' to populate the collection view
-        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Word of the Day", tag: 1))
-        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Multiplayer", tag: 2))
+        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Word of the Day"))
+        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Multiplayer"))
+
         
         // Configure the 'menuColletion' view with 'menuModel' data
         menuColletion.configureMenuCollection(with: menuModel)
@@ -69,19 +69,19 @@ extension MenuCollectionViewController: DelegateViewModel {
     // Handle button taps with different 'tag' values
     func didButton(tag: Int) {
         switch tag {
-            case 1:
-                // Navigate to 'MinigameWordDayViewController' when tag is 1
+            case 0:
+                // Navigate to 'MinigameWordDayViewController' when tag is 0
                 let minigameWordDay = MinigameWordDayViewController()
                 navigationController?.pushViewController(minigameWordDay, animated: true)
             
-            case 2:
-                // Navigate to 'MultiplayerViewController' when tag is 2
+            case 1:
+                // Navigate to 'MultiplayerViewController' when tag is 1
                 let multplayer = MultiplayerViewController()
                 navigationController?.pushViewController(multplayer, animated: true)
             
             default:
                 // Print a message for an invalid 'tag'
-                print("Tag informed when creating the invalid cell, It has to be 1 -> 'Word of the Day'. 2 -> 'Multiplayer")
+                print("Tag informed when creating the invalid cell, It has to be 0 -> 'Word of the Day'. 1 -> 'Multiplayer' ")
         }
     }
 }
