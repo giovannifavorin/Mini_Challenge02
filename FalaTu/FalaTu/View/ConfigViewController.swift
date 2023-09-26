@@ -2,7 +2,7 @@
 //  ConfigViewController.swift
 //  FalaTu
 //
-//  Created by Victor Assis on 22/09/23.
+//  Created by Victor Assis on 25/09/23.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class ConfigViewController: UIViewController {
     let toggleSwitch4 = UISwitch()
     let buttonCR = UIButton()
     let dividerView = UIView() // Adicione a view da barra
-    let roundedView = UIView()
+    let stackView = UIStackView() // Adicione o stack view
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,36 +34,13 @@ class ConfigViewController: UIViewController {
         // Adicione a barra divisora
         configureDivider()
         
-        // Posicionar os UISwitches e a barra na vista
-        positionTogglesAndDivider()
-        makeDivider()
+        // Posicionar os UISwitches, as barras e o título no stack view
+        configureStackView()
     }
 
     func configureToggle(_ toggle: UISwitch, title: String, initialStatus: Bool, selector: Selector) {
         toggle.isOn = initialStatus
         toggle.addTarget(self, action: selector, for: .valueChanged)
-        view.addSubview(toggle)
-    }
-
-    func positionTogglesAndDivider() {
-        let toggleWidth: CGFloat = 100
-        let toggleHeight: CGFloat = 30
-        let spacing: CGFloat = 20
-        let startY: CGFloat = 200
-
-        // Posicione os UISwitches na vista
-        toggleSwitch1.frame = CGRect(x: (view.frame.width - toggleWidth) / 2, y: startY, width: toggleWidth, height: toggleHeight)
-        toggleSwitch2.frame = CGRect(x: (view.frame.width - toggleWidth) / 2, y: startY + toggleHeight + spacing, width: toggleWidth, height: toggleHeight)
-        toggleSwitch3.frame = CGRect(x: (view.frame.width - toggleWidth) / 2, y: startY + 2 * (toggleHeight + spacing), width: toggleWidth, height: toggleHeight)
-        toggleSwitch4.frame = CGRect(x: (view.frame.width - toggleWidth) / 2, y: startY + 3 * (toggleHeight + spacing), width: toggleWidth, height: toggleHeight)
-
-        // Posicione a barra divisora
-        //dividerView.frame = CGRect(x: 0, y: startY + 2 * (toggleHeight + spacing), width: view.frame.width, height: 2)
-        /*NSLayoutConstraint.activate([
-            dividerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dividerView.widthAnchor.constraint(equalToConstant: 100)
-        ])*/
-        roundedView.frame = CGRect(x: 48, y: Int(startY) + 90, width: 270, height: 3)
     }
 
     @objc func switch1ValueChanged(_ sender: UISwitch) {
@@ -106,11 +83,7 @@ class ConfigViewController: UIViewController {
         buttonCR.layer.cornerRadius = 8
         buttonCR.addTarget(self, action: #selector(showCredits), for: .touchUpInside)
         
-        buttonCR.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            buttonCR.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonCR.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             buttonCR.widthAnchor.constraint(equalToConstant: 200),
             buttonCR.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -118,16 +91,55 @@ class ConfigViewController: UIViewController {
     
     func configureDivider() {
         dividerView.backgroundColor = .gray // Cor da barra divisora
-        view.addSubview(dividerView)
     }
     
-    func makeDivider(){
-        roundedView.backgroundColor = .black
-        roundedView.translatesAutoresizingMaskIntoConstraints = false
+    func configureStackView() {
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .center
+        stackView.distribution = .fill
         
-        // Define o raio do canto para criar o retângulo arredondado
-        roundedView.layer.cornerRadius = 2.5
-        view.addSubview(roundedView)
+        // Adicione os elementos ao stack view
+        stackView.addArrangedSubview(toggleSwitch1)
+        stackView.addArrangedSubview(toggleSwitch2)
+        stackView.addArrangedSubview(dividerView)
+        stackView.addArrangedSubview(toggleSwitch3)
+        stackView.addArrangedSubview(toggleSwitch4)
+        stackView.addArrangedSubview(buttonCR)
+        
+        // Adicione o stack view à vista
+        view.addSubview(stackView)
+        
+        // Configure as restrições do stack view
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        // Crie as barras arredondadas
+        createRoundedBars()
+    }
+    
+    func createRoundedBars() {
+        let bar1 = createRoundedBar()
+        let bar2 = createRoundedBar()
+        
+        stackView.addArrangedSubview(bar1)
+        stackView.addArrangedSubview(bar2)
+    }
+    
+    func createRoundedBar() -> UIView {
+        let roundedBar = UIView()
+        roundedBar.backgroundColor = .black
+        roundedBar.translatesAutoresizingMaskIntoConstraints = false
+        roundedBar.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        roundedBar.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        roundedBar.layer.cornerRadius = 2.5
+        
+        return roundedBar
     }
     
     @objc func showCredits() {
@@ -135,5 +147,4 @@ class ConfigViewController: UIViewController {
         print("Botão Créditos tocado")
     }
 }
-
 
