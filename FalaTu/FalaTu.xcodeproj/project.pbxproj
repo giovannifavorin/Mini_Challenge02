@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		26315BE62ABE29240048A370 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE52ABE29240048A370 /* InventoryView.swift */; };
 		26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE72ABE296A0048A370 /* InventoryViewController.swift */; };
-		26315BEA2ABF60850048A370 /* InventoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* InventoryModel.swift */; };
+		26315BEA2ABF60850048A370 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* StateModel.swift */; };
+		26315BF22AC36F580048A370 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF12AC36F580048A370 /* RegionModel.swift */; };
+		26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C262AB8C79E00A908E8 /* ViewController.swift */; };
@@ -19,7 +21,9 @@
 /* Begin PBXFileReference section */
 		26315BE52ABE29240048A370 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		26315BE72ABE296A0048A370 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
-		26315BE92ABF60850048A370 /* InventoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModel.swift; sourceTree = "<group>"; };
+		26315BE92ABF60850048A370 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
+		26315BF12AC36F580048A370 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
+		26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController.swift; sourceTree = "<group>"; };
 		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +74,8 @@
 		D9691C362AB8C7FB00A908E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				26315BE92ABF60850048A370 /* InventoryModel.swift */,
+				26315BE92ABF60850048A370 /* StateModel.swift */,
+				26315BF12AC36F580048A370 /* RegionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				D9691C262AB8C79E00A908E8 /* ViewController.swift */,
 				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
+				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,10 +179,12 @@
 			files = (
 				D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
-				26315BEA2ABF60850048A370 /* InventoryModel.swift in Sources */,
+				26315BEA2ABF60850048A370 /* StateModel.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
+				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
+				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,17 +9,19 @@
 
     class InventoryViewController: UIViewController {
 
-    var inventoryItems: [InventoryItem] = [
-    InventoryItem(stateName: "Amazonas", numberOfItemsUnlocked: 1),
-    InventoryItem(stateName: "Pará", numberOfItemsUnlocked: 0),
-    InventoryItem(stateName: "Roraima", numberOfItemsUnlocked: 0),
-    InventoryItem(stateName: "Amapá", numberOfItemsUnlocked: 0),
-    InventoryItem(stateName: "Tocantins", numberOfItemsUnlocked: 0)
-    ]
-
+        // Selected Region
+        var selectedRegion: RegionModel!
+        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        // Cor de fundo da view Inventário
+        view.backgroundColor = .systemBackground
+        
 
+        
+    
         setupUI()
     }
 
@@ -37,11 +39,11 @@
 
     // Subtítulo "Norte"
     let regionLabel = UILabel()
-    regionLabel.text = "Norte" // NOME DA REGIÃO
+    regionLabel.text = "\(selectedRegion.regionName)" // NOME DA REGIÃO
     regionLabel.font = .boldSystemFont(ofSize: 24)
     view.addSubview(regionLabel)
 
-    // ============================================ ESTADOS 1 / 5
+    // ============================================ ESTADOS x / y
     // StackView para os dois retângulos (HStack)
     let rectanglesStack = UIStackView()
         rectanglesStack.axis = .horizontal
@@ -60,7 +62,7 @@
     // Label Estados
     let statesLabel = UILabel()
         statesLabel.text = "Estados"
-        statesLabel.textColor = .white
+        statesLabel.textColor = .systemBackground
         statesLabel.textAlignment = .center
         statesLabel.translatesAutoresizingMaskIntoConstraints = false
         blackRoundedRectangle.addSubview(statesLabel)
@@ -75,10 +77,9 @@
         whiteRoundedRectangle.widthAnchor.constraint(equalToConstant: 50).isActive = true
         whiteRoundedRectangle.translatesAutoresizingMaskIntoConstraints = false
     
-            
     // Label progresso estados desbloqueados do usuário
     let statesUnlockedLabel = UILabel()
-        statesUnlockedLabel.text = "1 / \(inventoryItems.count)"
+        statesUnlockedLabel.text = "\(selectedRegion.numOfStatesUnlocked) / \(selectedRegion.numOfStates)"
         statesUnlockedLabel.textAlignment = .center
         statesUnlockedLabel.translatesAutoresizingMaskIntoConstraints = false
         whiteRoundedRectangle.addSubview(statesUnlockedLabel)
@@ -87,7 +88,7 @@
         rectanglesStack.addArrangedSubview(blackRoundedRectangle)
         rectanglesStack.addArrangedSubview(whiteRoundedRectangle)
         view.addSubview(rectanglesStack)
-    // ============================================ ESTADOS 1 / 5
+    // ============================================ ESTADOS x / y
 
         
     // ScrollView para os estados
@@ -126,34 +127,34 @@
         ])
         
 
-    var previousItemsStackView: UIStackView?
+        var previousItemsStackView: UIStackView?
         
-    for item in inventoryItems {
+        for state in selectedRegion.states {
         
-        let itemsStackView = createItemsStackView(withStateName: item.stateName,
-                                                  numOfItemsUnlocked: item.numberOfItemsUnlocked)
-        scrollView.addSubview(itemsStackView)
+            let itemsStackView = createItemsStackView(withStateName: state.stateName, numOfItemsUnlocked: state.numberOfItemsUnlocked)
+            scrollView.addSubview(itemsStackView)
         
-        itemsStackView.translatesAutoresizingMaskIntoConstraints = false
+            itemsStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            // Distância entre um estado e outro dentro do inventário
-            itemsStackView.topAnchor.constraint(equalTo: previousItemsStackView?.bottomAnchor ?? scrollView.topAnchor, constant: 20),
-            itemsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+            NSLayoutConstraint.activate([
+                // Distância entre um estado e outro dentro do inventário
+                itemsStackView.topAnchor.constraint(equalTo: previousItemsStackView?.bottomAnchor ?? scrollView.topAnchor, constant: 20),
+                itemsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
         
-        previousItemsStackView = itemsStackView
-    }
+            previousItemsStackView = itemsStackView
+        }
             
             // Configurar ContentSize da ScrollView
-            scrollView.contentSize = CGSize(width: view.frame.width, height: CGFloat(inventoryItems.count) * 240)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: CGFloat(selectedRegion.states.count) * 240)
         }
         
         func createItemsStackView(withStateName stateName: String, numOfItemsUnlocked numOfItems: Int) -> UIStackView {
-                    
+            let screenWidth = view.frame.size.width
+
             let itemsStackView = UIStackView()
             itemsStackView.axis = .vertical
-            itemsStackView.spacing = 10
+            itemsStackView.spacing = screenWidth/42 // distância entre fileiras (3x o cornerRadius)
             itemsStackView.distribution = .fillEqually
             
             var unlockedItemCount = 0  // Variável para rastrear o número de itens desbloqueados
@@ -161,7 +162,7 @@
             for lineIndex in 0..<2 {
                 let lineStackView = UIStackView()
                 lineStackView.axis = .horizontal
-                lineStackView.spacing = 10
+                lineStackView.spacing = screenWidth/42 // distância entre mesma fileira (3x o cornerRadius)
                 lineStackView.distribution = .fillEqually
                 
                 for itemIndex in 0..<5 {
@@ -179,11 +180,10 @@
                         itemButton.backgroundColor = .systemGray4
                         itemButton.isUserInteractionEnabled = false // Desativando a interação para os itens cinza
                     }
-                    
-                    itemButton.layer.cornerRadius = 30
+                    itemButton.layer.cornerRadius = screenWidth/14
                     itemButton.translatesAutoresizingMaskIntoConstraints = false
-                    itemButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-                    itemButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+                    itemButton.heightAnchor.constraint(equalToConstant: screenWidth/7).isActive = true
+                    itemButton.widthAnchor.constraint(equalToConstant: screenWidth/7).isActive = true
                     
                     lineStackView.addArrangedSubview(itemButton)
                 }

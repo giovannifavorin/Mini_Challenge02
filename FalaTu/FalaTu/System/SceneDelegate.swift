@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-        window?.rootViewController = UINavigationController(rootViewController: InventoryViewController())
+        window?.rootViewController = UINavigationController(rootViewController: RegionSelectionViewController())
+        
         
     }
 
