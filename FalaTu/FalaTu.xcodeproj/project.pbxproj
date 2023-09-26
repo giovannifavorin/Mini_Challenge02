@@ -10,6 +10,7 @@
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8682ABE24E800D8D098 /* ModelMenuData.swift */; };
+		B83A9D102ABE0B4600EEA07B /* CreditoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C262AB8C79E00A908E8 /* MenuViewController.swift */; };
@@ -27,6 +28,7 @@
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D958A8682ABE24E800D8D098 /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelMenuData.swift; path = FalaTu/Controller/Protocols/ModelMenuData.swift; sourceTree = SOURCE_ROOT; };
+		B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditoView.swift; sourceTree = SOURCE_ROOT; };
 		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				D9AE14A62AC0D43900173498 /* Menu */,
 				D9691C3A2AB8CE8900A908E8 /* Protocols */,
+				B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +249,8 @@
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
+				D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */,
+				B83A9D102ABE0B4600EEA07B /* CreditoView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegateViewModel.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
@@ -380,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 335BRL9A43;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -407,7 +412,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 335BRL9A43;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
