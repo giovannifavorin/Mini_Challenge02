@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B83A9D102ABE0B4600EEA07B /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A9D0F2ABE0B4600EEA07B /* CreditView.swift */; };
+		B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BA2AC36F8900A02945 /* Coordinator.swift */; };
+		B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8682ABE24E800D8D098 /* ModelMenuData.swift */; };
-		B83A9D102ABE0B4600EEA07B /* CreditoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C262AB8C79E00A908E8 /* MenuViewController.swift */; };
@@ -25,10 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B83A9D0F2ABE0B4600EEA07B /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditView.swift; path = FalaTu/View/Credits/CreditView.swift; sourceTree = SOURCE_ROOT; };
+		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D958A8682ABE24E800D8D098 /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelMenuData.swift; path = FalaTu/Controller/Protocols/ModelMenuData.swift; sourceTree = SOURCE_ROOT; };
-		B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditoView.swift; sourceTree = SOURCE_ROOT; };
 		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B84E50B72AC361DD00A02945 /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				B83A9D0F2ABE0B4600EEA07B /* CreditView.swift */,
+			);
+			path = Credits;
+			sourceTree = "<group>";
+		};
+		B84E50B92AC36F7100A02945 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B84E50BA2AC36F8900A02945 /* Coordinator.swift */,
+				B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		D958A8632ABE161D00D8D098 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +103,7 @@
 		D9691C212AB8C79E00A908E8 /* FalaTu */ = {
 			isa = PBXGroup;
 			children = (
+				B84E50B92AC36F7100A02945 /* Coordinator */,
 				D9691C362AB8C7FB00A908E8 /* Model */,
 				D9691C372AB8C80400A908E8 /* View */,
 				D9691C382AB8C80D00A908E8 /* Controller */,
@@ -103,9 +125,9 @@
 		D9691C372AB8C80400A908E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B84E50B72AC361DD00A02945 /* Credits */,
 				D9AE14A62AC0D43900173498 /* Menu */,
 				D9691C3A2AB8CE8900A908E8 /* Protocols */,
-				B83A9D0F2ABE0B4600EEA07B /* CreditoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,7 +135,7 @@
 		D9691C382AB8C80D00A908E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D9AE14A82AC0D49000173498 /* Multplayer */,
+				D9AE14A82AC0D49000173498 /* Multiplayer */,
 				D9AE14A72AC0D46E00173498 /* WordOfDay */,
 				D9AE14A92AC0D4D500173498 /* Menu */,
 				D958A8632ABE161D00D8D098 /* Protocols */,
@@ -157,12 +179,12 @@
 			path = WordOfDay;
 			sourceTree = "<group>";
 		};
-		D9AE14A82AC0D49000173498 /* Multplayer */ = {
+		D9AE14A82AC0D49000173498 /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
 				D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */,
 			);
-			path = Multplayer;
+			path = Multiplayer;
 			sourceTree = "<group>";
 		};
 		D9AE14A92AC0D4D500173498 /* Menu */ = {
@@ -243,14 +265,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */,
+				B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */,
 				D9AE14A32AC0D1CF00173498 /* MinigameWordDayViewController.swift in Sources */,
 				D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */,
 				D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
-				D9691C272AB8C79E00A908E8 /* ViewController.swift in Sources */,
-				B83A9D102ABE0B4600EEA07B /* CreditoView.swift in Sources */,
+				D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */,
+				B83A9D102ABE0B4600EEA07B /* CreditView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegateViewModel.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,

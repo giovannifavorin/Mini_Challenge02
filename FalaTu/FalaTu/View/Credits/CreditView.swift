@@ -1,6 +1,6 @@
 import UIKit
 
-class CreditoView: UIViewController {
+class CreditView: UIViewController {
     // Rótulo para exibir um texto
     let textLabel = makeHead(text: "Créditos")
     let Teste = makeBody(text: "Este jogo foi desenvolvido como atividade no Apple Developer Academy UCB, sob mentoria de Antônio Santos, Júlio Santos e Nadja Caldeira, Felipe Carvalho com Coordenação Pedagógica de Jair Barbosa.")
