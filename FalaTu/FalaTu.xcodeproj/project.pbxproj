@@ -16,11 +16,14 @@
 		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
 		D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */; };
 		D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3D2AB8D87600A908E8 /* Banco.swift */; };
-		D9AE14A12AC0C57400173498 /* DelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegateViewModel.swift */; };
+		D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */; };
 		D9AE14A32AC0D1CF00173498 /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */; };
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* MenuCollectionViewController.swift */; };
 		D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */; };
+		D9CAC3992AC362F200D2063C /* PerfilMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC3982AC362F200D2063C /* PerfilMainView.swift */; };
+		D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */; };
+		D9CAC39F2AC36BEB00D2063C /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC39E2AC36BEB00D2063C /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +38,14 @@
 		D9691C302AB8C79F00A908E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D9691C3D2AB8D87600A908E8 /* Banco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Banco.swift; path = FalaTu/View/Protocols/Banco.swift; sourceTree = SOURCE_ROOT; };
-		D9AE14A02AC0C57400173498 /* DelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewModel.swift; sourceTree = "<group>"; };
+		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
 		D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
+		D9CAC3982AC362F200D2063C /* PerfilMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilMainView.swift; sourceTree = "<group>"; };
+		D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		D9CAC39E2AC36BEB00D2063C /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */,
-				D9AE14A02AC0C57400173498 /* DelegateViewModel.swift */,
+				D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 		D9AE14A62AC0D43900173498 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				D9CAC39D2AC3642300D2063C /* Perfil */,
 				D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */,
 				D958A8612ABE115700D8D098 /* MenuColletionView.swift */,
 			);
@@ -167,8 +174,18 @@
 			children = (
 				D9691C262AB8C79E00A908E8 /* MenuViewController.swift */,
 				D9AE14AB2AC0D57400173498 /* MenuCollectionViewController.swift */,
+				D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		D9CAC39D2AC3642300D2063C /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				D9CAC3982AC362F200D2063C /* PerfilMainView.swift */,
+				D9CAC39E2AC36BEB00D2063C /* UserInformation.swift */,
+			);
+			path = Perfil;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,13 +258,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AE14A32AC0D1CF00173498 /* MinigameWordDayViewController.swift in Sources */,
+				D9CAC3992AC362F200D2063C /* PerfilMainView.swift in Sources */,
 				D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */,
 				D9691C272AB8C79E00A908E8 /* MenuViewController.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
+				D9CAC39F2AC36BEB00D2063C /* UserInformation.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
-				D9AE14A12AC0C57400173498 /* DelegateViewModel.swift in Sources */,
+				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
+				D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
 				D9AE14AC2AC0D57400173498 /* MenuCollectionViewController.swift in Sources */,

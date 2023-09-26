@@ -17,15 +17,32 @@ class MenuViewController: UIViewController {
         return view
     }()
     
+    
+    private lazy var myButton: UIButton = {
+        let button = UIButton(configuration: .filled())
+        button.configuration?.title = "Fulano"
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    private lazy var perfilViewController: PerfilViewController = {
+        return PerfilViewController()
+    }()
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated);
         super.viewWillDisappear(animated)
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +50,28 @@ class MenuViewController: UIViewController {
         setupViewControllerModel()
     }
     
+    
+    @objc
+    private func didButton(_ sender: UIButton!){
+        navigationController?.pushViewController(perfilViewController, animated: true)
+    }
+    
 }
 
 
 extension MenuViewController: ViewControllerModel{
     func addSubviews() {
+        
         addChild(colletionViewController)
         view.addSubview(colletionViewController.view)
         colletionViewController.didMove(toParent: self)
+        
+        
+        view.addSubview(myButton)
     }
     
     func addStyle() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
-//        navigationController?.isNavigationBarHidden = true
-//        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "button_back")
-//        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "button_back")
+        
     }
     
     func addConstraints() {
@@ -57,6 +81,12 @@ extension MenuViewController: ViewControllerModel{
             colletionViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             colletionViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            myButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            myButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+        ])
     }
 }
+
 

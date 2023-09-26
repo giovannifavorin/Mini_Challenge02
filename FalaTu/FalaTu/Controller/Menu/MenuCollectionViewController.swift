@@ -64,7 +64,7 @@ extension MenuCollectionViewController: ViewControllerModel {
 }
 
 // Extend the MenuCollectionViewController to conform to the DelegateViewModel protocol
-extension MenuCollectionViewController: DelegateViewModel {
+extension MenuCollectionViewController: DelegatebuttonColletionViewModel {
     
     // Handle button taps with different 'tag' values
     func didButton(tag: Int) {

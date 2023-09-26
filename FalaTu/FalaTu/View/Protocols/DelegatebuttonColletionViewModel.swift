@@ -9,6 +9,12 @@ import Foundation
 
 
 //Delegate responds by informing the controller that the button has been clicked
-protocol DelegateViewModel: AnyObject{
+protocol DelegatebuttonColletionViewModel: AnyObject{
     func didButton(tag: Int)
 }
+
+protocol DelegateButtonPerfil: AnyObject{
+    func didButton()
+}
+
+

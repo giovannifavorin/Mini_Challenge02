@@ -14,7 +14,7 @@ class MenuColletionView: UIView {
     let height = UIScreen.main.bounds.width
     
     // Delegate to handle button taps
-    weak var delegate: DelegateViewModel?
+    weak var delegate: DelegatebuttonColletionViewModel?
     
     // Data source for the collection view
     private var menuDataModel = [MenuDataModel]()
@@ -24,7 +24,7 @@ class MenuColletionView: UIView {
         
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.itemSize = .init(width: width, height: (height/2) + 125)
         layout.minimumInteritemSpacing = 0
         

@@ -55,7 +55,7 @@ class MenuCollectioViewCell: UICollectionViewCell {
        return button
     }()
     
-    weak var delegateButton: DelegateViewModel?
+    weak var delegateButton: DelegatebuttonColletionViewModel?
     
     override init(frame: CGRect){
         super.init(frame: frame)
