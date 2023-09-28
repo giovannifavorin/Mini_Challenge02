@@ -8,3 +8,20 @@
 import Foundation
 import UIKit
 
+enum Event {
+    
+}
+
+class MainCoordinator: Coordinator {
+    var navigationController: UINavigationController?
+    
+    func eventOcurred(with type: Event) {
+//        switch type {
+//
+//        }
+    }
+    
+    func start() {
+        
+    }
+}
