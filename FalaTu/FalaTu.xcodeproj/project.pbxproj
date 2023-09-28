@@ -20,6 +20,7 @@
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8682ABE24E800D8D098 /* ModelMenuData.swift */; };
+		9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D958A8682ABE24E800D8D098 /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelMenuData.swift; path = FalaTu/Controller/Protocols/ModelMenuData.swift; sourceTree = SOURCE_ROOT; };
+		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D9691C382AB8C80D00A908E8 /* Controller */,
 				D9691C392AB8C82A00A908E8 /* System */,
 				D9691C302AB8C79F00A908E8 /* Info.plist */,
+				9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */,
 			);
 			path = FalaTu;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
 				D9AE14AC2AC0D57400173498 /* MenuCollectionViewController.swift in Sources */,
+				9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
@@ -501,6 +505,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D9691C172AB8C79E00A908E8 /* Project object */;
 }
