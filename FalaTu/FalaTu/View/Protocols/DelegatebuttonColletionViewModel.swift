@@ -13,8 +13,13 @@ protocol DelegatebuttonColletionViewModel: AnyObject{
     func didButton(tag: Int)
 }
 
-protocol DelegateButtonPerfil: AnyObject{
-    func didButton()
-}
+//protocol DelegateButtonPerfil: AnyObject{
+//    func didButton()
+//}
 
+
+protocol DelegateUserPreferences: AnyObject{
+    var regionSelect: String? {get set}
+    func configureRegionLabel(region: String)
+}
 

@@ -11,6 +11,8 @@ class PerfilMainView: UIView {
 
     private var size = UIScreen.main.bounds.size
     
+    weak var delegateUserPreferences: DelegateUserPreferences?
+    
     private lazy var label: UILabel = {
         let label = UILabel()
         label.text = "Perfil"
@@ -20,7 +22,7 @@ class PerfilMainView: UIView {
         return label
     }()
     
-    private lazy var userInformationView: UserInformationView = {
+    lazy var userInformationView: UserInformationView = {
         let view = UserInformationView()
         view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +33,8 @@ class PerfilMainView: UIView {
         super.init(frame: frame)
         
         setupViewModel()
+        userInformationView.delegateUserPreferences  = self.delegateUserPreferences
+
     }
     
     required init?(coder: NSCoder) {

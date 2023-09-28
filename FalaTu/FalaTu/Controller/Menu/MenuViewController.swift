@@ -66,7 +66,6 @@ extension MenuViewController: ViewControllerModel{
         view.addSubview(colletionViewController.view)
         colletionViewController.didMove(toParent: self)
         
-        
         view.addSubview(myButton)
     }
     

@@ -10,9 +10,11 @@ import UIKit
 class PerfilViewController: UIViewController {
     
     private lazy var perfilView: PerfilMainView = {
-        return PerfilMainView()
+        let view = PerfilMainView()
+        return view
     }()
     
+    private var userRegionSelect: String?
     
     override func loadView() {
         self.view = perfilView
@@ -22,9 +24,8 @@ class PerfilViewController: UIViewController {
         super.viewDidLoad()
     
         setupViewControllerModel()
+        self.perfilView.delegateUserPreferences = self
     }
-
-    
 }
 
 
@@ -37,5 +38,23 @@ extension PerfilViewController: ViewControllerModel{
     
     func addConstraints() {
 
+    }
+    
+}
+
+extension PerfilViewController: DelegateUserPreferences{
+    func configureRegionLabel(region: String) {
+        print("regiao e \(region)")
+    }
+    
+    var regionSelect: String? {
+        get {
+            print("valor select: \(String(describing: userRegionSelect))")
+            return userRegionSelect
+        }
+        set {
+            print("valor select: \(String(describing: userRegionSelect))")
+            userRegionSelect = newValue
+        }
     }
 }
