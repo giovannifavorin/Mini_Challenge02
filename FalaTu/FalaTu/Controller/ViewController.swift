@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return self.items?.count ?? 0
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
         let person = self.items![indexPath.row]
@@ -40,8 +42,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func fetchPerfils() {
+        /*let palavras: [Palavra]?
+        self.items[0].dicio = NSSet(array: palavras)
+        
+        let set = self.items[0].dicio
+        let array = set as Array<Diicio>*/
+
         do {
-            self.items = try context.fetch(Perfil.fetchRequest())
+            self.items = try context.fetch(Perfil.fetchRequest())  
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
