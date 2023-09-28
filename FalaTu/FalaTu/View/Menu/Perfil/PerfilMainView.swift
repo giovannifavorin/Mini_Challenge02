@@ -20,8 +20,8 @@ class PerfilMainView: UIView {
         return label
     }()
     
-    private lazy var userInformationView: UserInformation = {
-        let view = UserInformation()
+    private lazy var userInformationView: UserInformationView = {
+        let view = UserInformationView()
         view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

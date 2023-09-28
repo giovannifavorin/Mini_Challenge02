@@ -81,7 +81,6 @@ extension MenuViewController: ViewControllerModel{
             colletionViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             colletionViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        
         NSLayoutConstraint.activate([
             myButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             myButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),

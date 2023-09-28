@@ -24,7 +24,7 @@ class MenuColletionView: UIView {
         
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.itemSize = .init(width: width, height: (height/2) + 125)
         layout.minimumInteritemSpacing = 0
         
