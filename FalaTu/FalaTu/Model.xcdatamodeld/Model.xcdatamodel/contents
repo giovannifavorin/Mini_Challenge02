@@ -7,6 +7,6 @@
         <attribute name="ofensiva" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="palavras" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="regiao" optional="YES" attributeType="String"/>
-        <relationship name="dicio" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Palavra" inverseName="perfis" inverseEntity="Palavra"/>
+        <relationship name="dicio" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Perfil"/>
     </entity>
 </model>
