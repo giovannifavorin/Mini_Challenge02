@@ -47,12 +47,10 @@ extension MenuCollectionViewController: ViewControllerModel {
         menuColletion.configureMenuCollection(with: menuModel)
     }
     
-    // Set the background color of the view
     func addStyle() {
         view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
-    // Define constraints to position 'menuColletion' within the view
     func addConstraints() {
         NSLayoutConstraint.activate([
             menuColletion.topAnchor.constraint(equalTo: view.topAnchor),
