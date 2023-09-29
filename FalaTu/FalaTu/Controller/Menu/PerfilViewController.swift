@@ -28,7 +28,7 @@ class PerfilViewController: UIViewController {
         setupViewControllerModel()
         self.perfilView.userInformationView.delegateUserPreferences = self
         
-//        fetchPerfil()
+        fetchPerfil()
         self.perfilView.userInformationView.cofigure(with: "teste")
     }
 }
@@ -54,7 +54,6 @@ extension PerfilViewController: ViewControllerModel{
         newProfile.id = IdPerfil
         newProfile.regiao = region
         
-        
         do{
             try self.context.save()
             print("salvei")
@@ -65,19 +64,29 @@ extension PerfilViewController: ViewControllerModel{
 //        self.fetchPerfil(region: region)
     }
     
+    func fetchPerfil(){
+        
+//        let fetchRequest = Perfil(context: self.context)
+        
+//        let fetch = try self.context.fetch(fetchRequest)
+        
+    }
+    
     
 //    func fetchPerfil(region: String){
 //
 //        let idPerfil = UUID()
 //        
 //        let fetchRequest = Perfil.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "id == %@", idPerfil as CVarArg)
+////        fetchRequest.predicate = NSPredicate(format: "id == %@", idPerfil as CVarArg)
 //
 //        do {
+//            print(idPerfil)
+//            let preferencesPerfil = try self.context.fetch(fetchRequest)
 //            
-//            let result = try self.context.fetch(fetchRequest)
+//            print(preferencesPerfil)
 //            
-//            if let existingProfile = result.first {
+//            if let existingProfile = preferencesPerfil.first {
 //                // O perfil já existe, você pode acessá-lo e atualizá-lo
 //                existingProfile.regiao = region
 //                // Outras atualizações conforme necessário
@@ -90,7 +99,7 @@ extension PerfilViewController: ViewControllerModel{
 //                // Outros atributos do novo perfil
 //                print("Novo perfil criado.")
 //            }
-//
+//            
 //            try self.context.save()
 //            print("Dados salvos com sucesso.")
 //        } catch {
