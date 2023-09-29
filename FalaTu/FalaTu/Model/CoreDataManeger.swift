@@ -25,6 +25,7 @@ class CoreDataManager {
         return container
     }()
 
+
     // MARK: - Core Data Saving support
 
      static func saveContext () {
