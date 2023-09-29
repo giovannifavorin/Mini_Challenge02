@@ -9,13 +9,15 @@ import UIKit
 
 class PerfilViewController: UIViewController {
     
+    let context = CoreDataManager.persistentContainer.viewContext
+
+    var preferencesPerfil: [Perfil]?
+    
     private lazy var perfilView: PerfilMainView = {
         let view = PerfilMainView()
         return view
     }()
-    
-    private var userRegionSelect: String?
-    
+        
     override func loadView() {
         self.view = perfilView
     }
@@ -24,7 +26,10 @@ class PerfilViewController: UIViewController {
         super.viewDidLoad()
     
         setupViewControllerModel()
-        self.perfilView.delegateUserPreferences = self
+        self.perfilView.userInformationView.delegateUserPreferences = self
+        
+//        fetchPerfil()
+        self.perfilView.userInformationView.cofigure(with: "teste")
     }
 }
 
@@ -40,21 +45,65 @@ extension PerfilViewController: ViewControllerModel{
 
     }
     
+    func saveInCoreData(region: String){
+        
+        let IdPerfil = UUID()
+        
+        let newProfile = Perfil(context: self.context)
+        
+        newProfile.id = IdPerfil
+        newProfile.regiao = region
+        
+        
+        do{
+            try self.context.save()
+            print("salvei")
+        }catch{
+            print("error in save region name")
+        }
+        
+//        self.fetchPerfil(region: region)
+    }
+    
+    
+//    func fetchPerfil(region: String){
+//
+//        let idPerfil = UUID()
+//        
+//        let fetchRequest = Perfil.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", idPerfil as CVarArg)
+//
+//        do {
+//            
+//            let result = try self.context.fetch(fetchRequest)
+//            
+//            if let existingProfile = result.first {
+//                // O perfil já existe, você pode acessá-lo e atualizá-lo
+//                existingProfile.regiao = region
+//                // Outras atualizações conforme necessário
+//                print("Perfil já existe e foi atualizado.")
+//            } else {
+//                // O perfil não existe, você cria um novo
+//                let newProfile = Perfil(context: self.context)
+//                newProfile.id = idPerfil
+//                newProfile.regiao = region
+//                // Outros atributos do novo perfil
+//                print("Novo perfil criado.")
+//            }
+//
+//            try self.context.save()
+//            print("Dados salvos com sucesso.")
+//        } catch {
+//            print("Erro ao buscar ou salvar dados do Core Data: \(error)")
+//        }
+//        
+//    }
 }
 
 extension PerfilViewController: DelegateUserPreferences{
     func configureRegionLabel(region: String) {
         print("regiao e \(region)")
-    }
-    
-    var regionSelect: String? {
-        get {
-            print("valor select: \(String(describing: userRegionSelect))")
-            return userRegionSelect
-        }
-        set {
-            print("valor select: \(String(describing: userRegionSelect))")
-            userRegionSelect = newValue
-        }
+        saveInCoreData(region: region)
+//        fetchPerfil(region: region)
     }
 }

@@ -19,7 +19,6 @@ protocol DelegatebuttonColletionViewModel: AnyObject{
 
 
 protocol DelegateUserPreferences: AnyObject{
-    var regionSelect: String? {get set}
     func configureRegionLabel(region: String)
 }
 

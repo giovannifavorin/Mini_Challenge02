@@ -82,36 +82,18 @@ class UserInformationView: UIView {
     private var myActionForMenu: [UIAction] {
         return [
             UIAction(title: "Norte", handler: { (action) in
-//                self.delegateUserPreferences?.regionSelect = "Norte"
-//                self.delegateUserPreferences?.configureRegionLabel(region: "Norte")
-
                 self.configureRegionLabel(region: "Norte")
             }),
             UIAction(title: "Sul", handler: { [self] (action) in
-//                self.delegateUserPreferences?.regionSelect = "Sul"
-//                print("\(String(describing: self.delegateUserPreferences?.regionSelect))")
-//                self.delegateUserPreferences?.configureRegionLabel(region: "Sul")
                 self.configureRegionLabel(region: "Sul")
-
             }),
             UIAction(title: "Nordeste", handler: { (action) in
-//                self.delegateUserPreferences?.regionSelect = "Nordeste"
-//                self.delegateUserPreferences?.configureRegionLabel(region: "Nordeste")
-
                 self.configureRegionLabel(region: "Nordeste")
-
             }),
             UIAction(title: "Centro-Oeste", handler: { (action) in
-//                self.delegateUserPreferences?.regionSelect = "Centro-Oeste"
-                
-//                self.delegateUserPreferences?.configureRegionLabel(region: "Centro-Oeste")
                 self.configureRegionLabel(region: "Centro-Oeste")
-
             }),
             UIAction(title: "Sudeste", handler: { (action) in
-//                self.delegateUserPreferences?.regionSelect = "Sudeste"
-                
-//                self.delegateUserPreferences?.configureRegionLabel(region: "Sudeste")
                 self.configureRegionLabel(region: "Sudeste")
             }),
         ]
@@ -133,57 +115,16 @@ class UserInformationView: UIView {
     
     init(){
         super.init(frame: .zero)
-        fetchPeople()
         setupViewModel()
     }
-    
-    var regionTeste: [Perfil]?
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // cotext
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    func fetchPeople(){
-        
-        //MARK: Buscando todos os obejetos do coreData e selvamos na lista
-        do{
-            self.regionTeste = try context.fetch(Perfil.fetchRequest())
-
-            
-            DispatchQueue.main.async {
-                self.configureRegionLabel(region: "")
-            }
-        }catch (let error){
-            print("Erro ao buscar dados do Core Data: \(error)")
-        }
-    }
-    
     private func configureRegionLabel(region: String){
-        self.labelRegion.text = "Região: \(region)"
+        self.labelRegion.text = "Regiao: \(region)"
         self.delegateUserPreferences?.configureRegionLabel(region: "\(region)")
-        
-        
-        //save dos dados
-        
-        let newProfile = Perfil(context: self.context)
-        
-        newProfile.nome = labelRegion.text
-        
-        
-        do{
-            try self.context.save()
-            print("salvei")
-        }catch{
-            print("error in save region name")
-        }
-        
-        //fetch
-        
-        self.fetchPeople()
     }
 }
 
