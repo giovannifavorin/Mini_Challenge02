@@ -9,13 +9,25 @@ import UIKit
 
 // Main viewController
 class MenuViewController: UIViewController {
+    //Proportions for buttons
+    let buttonsWidthPercentage: CGFloat = 0.15
+    let buttonsHeightPercentage: CGFloat = 0.06
+    //Proportions for logo
+    let logoWidthPercentage: CGFloat = 0.48
+    let logoHeightPercentage: CGFloat = 0.058
     
-    /// Essa é a view que eu fiz
-//    private lazy var homePage: HomePageButtons = {
-//        return HomePageButtons()
-//    }()
+    private lazy var logoView: UIImageView = {
+        let logoImage = UIImage(named: "game_logo")
+        
+        let logoView = UIImageView()
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        logoView.contentMode = .scaleAspectFit
+        logoView.image = logoImage
+        
+        return logoView
+    }()
     
-    private lazy var homeButton: UIButton = {
+    private lazy var inventoryButton: UIButton = {
         let inventoryButton = UIButton(type: .custom)
         inventoryButton.translatesAutoresizingMaskIntoConstraints = false
         let inventoryButtonImage = UIImage(named: "button_library")
@@ -26,19 +38,33 @@ class MenuViewController: UIViewController {
         return inventoryButton
     }()
     
+    private lazy var dictionaryButton: UIButton = {
+        let dictionaryButton = UIButton(type: .custom)
+        dictionaryButton.translatesAutoresizingMaskIntoConstraints = false
+        let dictionaryImage = UIImage(named: "button_dictionary")
+        dictionaryButton.setImage(dictionaryImage, for: .normal)
+        dictionaryButton.contentMode = .scaleAspectFit
+        dictionaryButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        dictionaryButton.tag = 1
+        return dictionaryButton
+    }()
+    
+    private lazy var configurationButton: UIButton = {
+        let configurationButton = UIButton(type: .custom)
+        configurationButton.translatesAutoresizingMaskIntoConstraints = false
+        let configurationImage = UIImage(named: "button_settings")
+        configurationButton.setImage(configurationImage, for: .normal)
+        configurationButton.contentMode = .scaleAspectFit
+        configurationButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        configurationButton.tag = 1
+        return configurationButton
+    }()
+    
     /// View que o Gustavo fez, a carrossel
     private lazy var carouselMenuComponent: CarouselMenuComponent = {
         let view = CarouselMenuComponent()
         view.view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-    
-    /// Button que leva para a view de perfis
-    private lazy var myButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
-        return button
     }()
     
     /// View de perfis
@@ -64,7 +90,6 @@ class MenuViewController: UIViewController {
     
     @objc
     private func didButton(_ sender: UIButton!) {
-        navigationController?.pushViewController(perfilViewController, animated: true)
         switch sender.tag {
         case 1:
             navigationController?.pushViewController(perfilViewController, animated: true)
@@ -76,16 +101,14 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: ViewControllerModel {
     func addSubviews() {
-//        addChild(homePage)
+        view.backgroundColor = .purple
         addChild(carouselMenuComponent)
         
-        view.addSubview(homeButton)
-        view.addSubview(myButton)
         view.addSubview(carouselMenuComponent.view)
-//        view.addSubview(homePage.view) // Adicione a homePage.view por último
-        
-        // Defina a interação para a carouselMenuComponent como verdadeira
-        carouselMenuComponent.view.isUserInteractionEnabled = true
+        view.addSubview(logoView)
+        view.addSubview(inventoryButton)
+        view.addSubview(dictionaryButton)
+        view.addSubview(configurationButton)
     }
     
     func addStyle() {
@@ -94,19 +117,41 @@ extension MenuViewController: ViewControllerModel {
     
     func addConstraints() {
         NSLayoutConstraint.activate([
-            // homeButton
-            homeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            homeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120),
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.16),
+            logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
+            logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            // homePage.view
-//            homePage.view.topAnchor.constraint(equalTo: view.topAnchor),
-//            homePage.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            homePage.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            homePage.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: logoWidthPercentage),
+            logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
             
-            // myButton
-            myButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            myButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            //INVENTORY
+            inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
+            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.14),
+            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
+            
+            inventoryButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
+            inventoryButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: buttonsHeightPercentage),
+            
+            //DICTIONARY
+            dictionaryButton.topAnchor.constraint(equalTo:  inventoryButton.topAnchor),
+            dictionaryButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            dictionaryButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 5),
+            
+            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            
+            //CONFIGURATION
+            configurationButton.topAnchor.constraint(equalTo:  inventoryButton.topAnchor),
+            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            configurationButton.trailingAnchor.constraint(equalTo: logoView.trailingAnchor),
+            
+            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            
+            carouselMenuComponent.view.topAnchor.constraint(equalTo: view.topAnchor),
+            carouselMenuComponent.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            carouselMenuComponent.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            carouselMenuComponent.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
 }

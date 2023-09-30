@@ -15,7 +15,6 @@
 		9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */; };
 		9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */; };
 		B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */; };
-		B83FA8192AC6138400722C97 /* HomePageButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA8182AC6138400722C97 /* HomePageButtons.swift */; };
 		B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */; };
 		B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BA2AC36F8900A02945 /* Coordinator.swift */; };
 		B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */; };
@@ -49,7 +48,6 @@
 		9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		B83FA8182AC6138400722C97 /* HomePageButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageButtons.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */,
 				D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */,
 				D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */,
-				B83FA8182AC6138400722C97 /* HomePageButtons.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -368,7 +365,6 @@
 				9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */,
 				D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
-				B83FA8192AC6138400722C97 /* HomePageButtons.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
 				D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */,
