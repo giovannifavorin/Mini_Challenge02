@@ -9,24 +9,26 @@ import UIKit
 
 // Main viewController
 class MenuViewController: UIViewController {
+    
     //Proportions for buttons
     let buttonsWidthPercentage: CGFloat = 0.15
     let buttonsHeightPercentage: CGFloat = 0.06
+    
     //Proportions for logo
     let logoWidthPercentage: CGFloat = 0.48
     let logoHeightPercentage: CGFloat = 0.058
     
+    ///Imagem da logo
     private lazy var logoView: UIImageView = {
         let logoImage = UIImage(named: "game_logo")
-        
         let logoView = UIImageView()
         logoView.translatesAutoresizingMaskIntoConstraints = false
         logoView.contentMode = .scaleAspectFit
         logoView.image = logoImage
-        
         return logoView
     }()
     
+    ///Configuração do botao de inventário
     private lazy var inventoryButton: UIButton = {
         let inventoryButton = UIButton(type: .custom)
         inventoryButton.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,7 @@ class MenuViewController: UIViewController {
         return inventoryButton
     }()
     
+    ///Configuração do botão de dicionário
     private lazy var dictionaryButton: UIButton = {
         let dictionaryButton = UIButton(type: .custom)
         dictionaryButton.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +52,7 @@ class MenuViewController: UIViewController {
         return dictionaryButton
     }()
     
+    ///Configuração do botão de configuration
     private lazy var configurationButton: UIButton = {
         let configurationButton = UIButton(type: .custom)
         configurationButton.translatesAutoresizingMaskIntoConstraints = false
@@ -72,14 +76,17 @@ class MenuViewController: UIViewController {
         return PerfilViewController()
     }()
     
+    /// View de configurações
     private lazy var configViewController: ConfigViewController = {
         return ConfigViewController()
     }()
     
+    /// View de seleção de região do inventário
     private lazy var regionSelectionViewController: RegionSelectionViewController = {
         return RegionSelectionViewController()
     }()
     
+    /// View do dicionário
     private lazy var dictionaryViewController: DictionaryViewController = {
         return DictionaryViewController()
     }()
@@ -96,12 +103,11 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViewControllerModel()
     }
     
-    @objc
-    private func didButton(_ sender: UIButton!) {
+    /// Configuração das açoes dos botões
+    @objc private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
             navigationController?.pushViewController(regionSelectionViewController, animated: true)
@@ -118,8 +124,9 @@ class MenuViewController: UIViewController {
 extension MenuViewController: ViewControllerModel {
     func addSubviews() {
         view.backgroundColor = .purple
+        //Adicionando a viewController
         addChild(carouselMenuComponent)
-        
+        //Adicionando as views
         view.addSubview(carouselMenuComponent.view)
         view.addSubview(logoView)
         view.addSubview(inventoryButton)
@@ -133,6 +140,7 @@ extension MenuViewController: ViewControllerModel {
     
     func addConstraints() {
         NSLayoutConstraint.activate([
+            //LOGO
             logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.16),
             logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -164,6 +172,7 @@ extension MenuViewController: ViewControllerModel {
             configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
             configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
+            //CAROUSEL
             carouselMenuComponent.view.topAnchor.constraint(equalTo: view.topAnchor),
             carouselMenuComponent.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             carouselMenuComponent.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
