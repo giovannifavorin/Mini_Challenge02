@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuCollectionViewController: UICollectionViewController {
+class CarouselMenuComponent: UICollectionViewController {
     
     private var menuModel = [MenuDataModel]()
     
@@ -33,7 +33,7 @@ class MenuCollectionViewController: UICollectionViewController {
 }
 
 // Extend the MenuCollectionViewController to conform to the ViewControllerModel protocol
-extension MenuCollectionViewController: ViewControllerModel {
+extension CarouselMenuComponent: ViewControllerModel {
     
     // Add subviews to the 'menuColletion' view and populate 'menuModel'
     func addSubviews() {
@@ -48,7 +48,7 @@ extension MenuCollectionViewController: ViewControllerModel {
     }
     
     func addStyle() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = .clear
     }
     
     func addConstraints() {
@@ -62,7 +62,7 @@ extension MenuCollectionViewController: ViewControllerModel {
 }
 
 // Extend the MenuCollectionViewController to conform to the DelegateViewModel protocol
-extension MenuCollectionViewController: DelegatebuttonColletionViewModel {
+extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
     
     // Handle button taps with different 'tag' values
     func didButton(tag: Int) {

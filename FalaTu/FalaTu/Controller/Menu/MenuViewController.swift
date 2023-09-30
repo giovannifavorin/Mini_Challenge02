@@ -7,48 +7,50 @@
 
 import UIKit
 
-//Main viewController
+// Main viewController
 class MenuViewController: UIViewController {
     
-    private lazy var homePage: HomePage = {
-        return HomePage()
-    }()
+    /// Essa é a view que eu fiz
+//    private lazy var homePage: HomePageButtons = {
+//        return HomePageButtons()
+//    }()
     
     private lazy var homeButton: UIButton = {
-        let button = UIButton(configuration: .filled())
-        button.configuration?.title = "Fulano"
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
-        button.tag = 1
-        return button
+        let inventoryButton = UIButton(type: .custom)
+        inventoryButton.translatesAutoresizingMaskIntoConstraints = false
+        let inventoryButtonImage = UIImage(named: "button_library")
+        inventoryButton.setImage(inventoryButtonImage, for: .normal)
+        inventoryButton.contentMode = .scaleAspectFit
+        inventoryButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        inventoryButton.tag = 1
+        return inventoryButton
     }()
     
-    private lazy var colletionViewController: MenuCollectionViewController = {
-        let view = MenuCollectionViewController()
+    /// View que o Gustavo fez, a carrossel
+    private lazy var carouselMenuComponent: CarouselMenuComponent = {
+        let view = CarouselMenuComponent()
         view.view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    
+    /// Button que leva para a view de perfis
     private lazy var myButton: UIButton = {
-        let button = UIButton(configuration: .filled())
-        button.configuration?.title = "Fulano"
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         return button
     }()
     
-    
+    /// View de perfis
     private lazy var perfilViewController: PerfilViewController = {
         return PerfilViewController()
     }()
     
-    
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -58,73 +60,53 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         setupViewControllerModel()
-        
-        let dividerView = UIView()
-        dividerView.backgroundColor = .black
-        dividerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Define o raio do canto para criar o retângulo arredondado
-        dividerView.layer.cornerRadius = 2.5
-        dividerView.contentMode = .scaleAspectFit
-        
-        //Proportions
-        let dividerWidthPercentage: CGFloat = 0.59
-        let dividerHeightPercentage: CGFloat = 0.007
-        
-        view.addSubview(dividerView)
-        
-        NSLayoutConstraint.activate([
-            dividerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            dividerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            dividerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: dividerWidthPercentage),
-            dividerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: dividerHeightPercentage),
-        ])
     }
     
     @objc
-    private func didButton(_ sender: UIButton!){
+    private func didButton(_ sender: UIButton!) {
         navigationController?.pushViewController(perfilViewController, animated: true)
-        if(sender.tag == 1) {
-            navigationController?.pushViewController(homePage, animated: true)
+        switch sender.tag {
+        case 1:
+            navigationController?.pushViewController(perfilViewController, animated: true)
+        default:
+            return
         }
     }
-    
 }
 
-
-extension MenuViewController: ViewControllerModel{
+extension MenuViewController: ViewControllerModel {
     func addSubviews() {
-        
-        addChild(colletionViewController)
-        view.addSubview(colletionViewController.view)
-        colletionViewController.didMove(toParent: self)
-        
+//        addChild(homePage)
+        addChild(carouselMenuComponent)
         
         view.addSubview(homeButton)
         view.addSubview(myButton)
+        view.addSubview(carouselMenuComponent.view)
+//        view.addSubview(homePage.view) // Adicione a homePage.view por último
+        
+        // Defina a interação para a carouselMenuComponent como verdadeira
+        carouselMenuComponent.view.isUserInteractionEnabled = true
     }
     
     func addStyle() {
-        
+        // Adicione qualquer estilo necessário aqui
     }
     
     func addConstraints() {
         NSLayoutConstraint.activate([
-            colletionViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            colletionViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            colletionViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            colletionViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+            // homeButton
             homeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             homeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120),
             
+            // homePage.view
+//            homePage.view.topAnchor.constraint(equalTo: view.topAnchor),
+//            homePage.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            homePage.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            homePage.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // myButton
             myButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             myButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            
-            
         ])
     }
 }
-
-

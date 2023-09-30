@@ -31,7 +31,7 @@ class MenuColletionView: UIView {
         // Create the collection view
         let colletion = UICollectionView(frame: .zero, collectionViewLayout: layout)
         colletion.register(MenuCollectioViewCell.self, forCellWithReuseIdentifier: MenuCollectioViewCell.identifier)
-        colletion.backgroundColor = UIColor(named: "backgroundColor")
+        colletion.backgroundColor = .clear
         colletion.delegate = self
         colletion.dataSource = self
         colletion.translatesAutoresizingMaskIntoConstraints = false
