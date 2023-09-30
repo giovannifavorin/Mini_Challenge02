@@ -16,6 +16,7 @@ class ConfigViewController: UIViewController {
     let colorBlindModeToggle = UISwitch()
     let creditsButton = UIButton()
     let dividerView = UIView() // Adicione a view da barra
+    let creditView: CreditView = CreditView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +96,7 @@ class ConfigViewController: UIViewController {
     }
     
     @objc func showCredits() {
-        // Implemente a lógica para mostrar os créditos quando o botão for tocado
-        print("Botão Créditos tocado")
+        navigationController?.pushViewController(creditView, animated: true)
     }
 }
 

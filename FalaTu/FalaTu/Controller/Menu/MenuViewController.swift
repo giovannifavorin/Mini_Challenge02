@@ -45,7 +45,7 @@ class MenuViewController: UIViewController {
         dictionaryButton.setImage(dictionaryImage, for: .normal)
         dictionaryButton.contentMode = .scaleAspectFit
         dictionaryButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
-        dictionaryButton.tag = 1
+        dictionaryButton.tag = 2
         return dictionaryButton
     }()
     
@@ -56,7 +56,7 @@ class MenuViewController: UIViewController {
         configurationButton.setImage(configurationImage, for: .normal)
         configurationButton.contentMode = .scaleAspectFit
         configurationButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
-        configurationButton.tag = 1
+        configurationButton.tag = 3
         return configurationButton
     }()
     
@@ -70,6 +70,18 @@ class MenuViewController: UIViewController {
     /// View de perfis
     private lazy var perfilViewController: PerfilViewController = {
         return PerfilViewController()
+    }()
+    
+    private lazy var configViewController: ConfigViewController = {
+        return ConfigViewController()
+    }()
+    
+    private lazy var regionSelectionViewController: RegionSelectionViewController = {
+        return RegionSelectionViewController()
+    }()
+    
+    private lazy var dictionaryViewController: DictionaryViewController = {
+        return DictionaryViewController()
     }()
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,7 +104,11 @@ class MenuViewController: UIViewController {
     private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
-            navigationController?.pushViewController(perfilViewController, animated: true)
+            navigationController?.pushViewController(regionSelectionViewController, animated: true)
+        case 2:
+            navigationController?.pushViewController(dictionaryViewController, animated: true)
+        case 3:
+            navigationController?.pushViewController(configViewController, animated: true)
         default:
             return
         }
