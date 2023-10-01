@@ -79,8 +79,8 @@ extension BoardViewController {
         
         cell.layer.cornerRadius = 4
         cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
-        cell.layer.borderWidth = 3
-        cell.layer.borderColor = UIColor.systemGray.cgColor // cor da borda do quadrado
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor.systemGray2.cgColor // cor da borda do quadrado
         
         let guesses = datasource?.currentGuesses ?? []
         // Se temos uma letra

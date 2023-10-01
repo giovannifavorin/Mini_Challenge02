@@ -42,8 +42,8 @@ class KeyboardViewController: UIViewController, UICollectionViewDelegateFlowLayo
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor), 
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 30)
         ])
         
         // Preencher o teclado
@@ -84,7 +84,7 @@ extension KeyboardViewController {
         let margin: CGFloat = 20
         let size: CGFloat = (collectionView.frame.size.width-margin)/10
         
-        return CGSize(width: size, height: size*1.5)
+        return CGSize(width: size, height: size*1.2) // tamanho das teclas
     }
     
     // Função para alinhar o teclado
