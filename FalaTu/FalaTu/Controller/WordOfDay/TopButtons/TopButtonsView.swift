@@ -10,6 +10,7 @@ import UIKit
 
 class TopButtonsViewController: UIViewController {
     
+    
     // Exit Button
     let exitButton: UIButton = {
         let button1 = UIButton(type: .custom)
@@ -40,9 +41,6 @@ class TopButtonsViewController: UIViewController {
         return button3
     }()
 
-        
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

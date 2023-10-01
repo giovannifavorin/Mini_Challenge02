@@ -245,12 +245,12 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */,
 				26556EEA2AC64BAB00D1F476 /* Minigame01MainView.swift */,
 				26556EF22AC74B3100D1F476 /* BottomButtons */,
 				26556EEF2AC66A3500D1F476 /* TopButtons */,
 				26556EEC2AC651B300D1F476 /* Board */,
 				26556EE22AC6107300D1F476 /* KeyboardViewController.swift */,
-				D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */,
 				26556EE32AC6107300D1F476 /* KeyCell.swift */,
 				26556EE82AC61D4700D1F476 /* ButtonsViewController.swift */,
 			);

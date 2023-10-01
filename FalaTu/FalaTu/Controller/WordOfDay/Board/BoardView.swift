@@ -62,7 +62,6 @@ extension BoardView: ViewModel {
     
     func setupStyle() {
         collectionView.backgroundColor = .systemGray5
-        collectionView.layer.frame.size = CGSize(width: collectionView.frame.size.width + 10, height: collectionView.frame.size.height + 20)
         
         borderedView.layer.cornerRadius = 10
         borderedView.layer.borderColor = UIColor.systemGray6.cgColor // cor da borda ao redor do quadro

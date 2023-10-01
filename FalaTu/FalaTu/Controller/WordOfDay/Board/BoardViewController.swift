@@ -54,7 +54,7 @@ extension BoardViewController: ViewControllerModel {
     }
     
     func addStyle() {
-        
+        //boardView.backgroundColor = .blue
     }
 }
 
@@ -107,6 +107,6 @@ extension BoardViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //
+  
     }
 }

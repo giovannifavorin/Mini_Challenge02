@@ -28,43 +28,29 @@ class MinigameWordDayViewController: UIViewController {
 
         setupViewControllerModel()
         
-        bottomButtonsVC.sendButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
-    @objc func buttonPressed() {
-        print("aprtorou")
-    }
-    
-    @objc func showTutorialModal() {
-        let alertController = UIAlertController(title: "Tutorial", message: "Seu tutorial aqui", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-
-  
 }
 
 extension MinigameWordDayViewController: ViewControllerModel{
-
-    
-    
     func addConstraints() {
         NSLayoutConstraint.activate([
-            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            // Top Buttons
+            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -10),
             topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+
+            // Board View
             boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 30),
-            boardVC.view.bottomAnchor.constraint(equalTo: bottomButtonsVC.view.topAnchor, constant: 30),
+            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 10),
             boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
 
-            bottomButtonsVC.view.centerXAnchor.constraint(equalTo: boardVC.view.centerXAnchor),
-            bottomButtonsVC.view.bottomAnchor.constraint(equalTo: keyboardVC.view.topAnchor, constant: -20),
-            
-            keyboardVC.view.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor),
+            // Bottom Buttons
+            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor),
+            bottomButtonsVC.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            // Keyboard
+            keyboardVC.view.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 20),
             keyboardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             keyboardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             keyboardVC.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -76,8 +62,7 @@ extension MinigameWordDayViewController: ViewControllerModel{
         addChild(topButtonsVC)
         topButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topButtonsVC.view)
-
-
+        
         // Board Principal
         addChild(boardVC)
         boardVC.didMove(toParent: self)
@@ -90,15 +75,13 @@ extension MinigameWordDayViewController: ViewControllerModel{
         addChild(bottomButtonsVC)
         bottomButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomButtonsVC.view)
-        
+
         // Teclado
         addChild(keyboardVC)
         keyboardVC.didMove(toParent: self)
         keyboardVC.delegate = self
         keyboardVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(keyboardVC.view)
-        
-        topButtonsVC.tutorialButton.addTarget(self, action: #selector(showTutorialModal), for: .touchUpInside)
     }
     
     func addStyle() {
@@ -110,8 +93,7 @@ extension MinigameWordDayViewController: ViewControllerModel{
 // Preencher teclado
 extension MinigameWordDayViewController: KeyboardViewControllerDelegate {
     func keyboardViewControllerDelegate(_ vc: KeyboardViewController, didTapKey letter: Character) {
-        // Ao clicar na tecla
-        // update nos guesses
+        // Ao clicar na tecla = update nos guesses
         var stop = false
         
         for i in 0..<guesses.count {
@@ -135,14 +117,6 @@ extension MinigameWordDayViewController: BoardViewControllerDatasource {
     var currentGuesses: [[Character?]] {
         return guesses
     }
-    
-    
-
-    
-
-
-
-    
     func boxColor(at indexPath: IndexPath) -> UIColor? {
         
         let rowIndex = indexPath.section
@@ -152,8 +126,6 @@ extension MinigameWordDayViewController: BoardViewControllerDatasource {
         guard count == 5 else { // APENAS MOSTRAMOS A COR QUANDO FOR IGUAL A 5 (completar a fileira)
             return nil
         }
-        
-        
         
         let indexAnswer = Array(answer) // TRANSFORMANDO A RESPOSTA EM UM ARRAY
 
@@ -165,11 +137,8 @@ extension MinigameWordDayViewController: BoardViewControllerDatasource {
         if indexAnswer[indexPath.row] == letter {
             return .systemGreen
         }
-        
         return .systemOrange
     }
-    
-
 }
 
 
