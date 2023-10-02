@@ -125,6 +125,7 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
 
 // PREENCHER QUADRO =========================================================================
 extension MinigameWordDayViewController: BoardViewControllerDatasource {
+
     var currentGuesses: [[Character?]] {
         return guesses
     }

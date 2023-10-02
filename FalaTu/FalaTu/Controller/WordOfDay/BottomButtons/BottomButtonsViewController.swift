@@ -10,7 +10,6 @@ import UIKit
 class BottomButtonsViewController: UIViewController {
     
     private let bottomButtonsView = BottomButtonsView()
-    let minigameVC = MinigameWordDayViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
