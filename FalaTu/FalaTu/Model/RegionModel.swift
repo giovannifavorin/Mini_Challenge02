@@ -12,105 +12,67 @@ struct RegionModel {
     var states: [StateModel]
 }
 
-// REGIÃO NORTE ====================================================================================
-var state1_AM = StateModel(stateName: "Amazonas", numberOfItemsUnlocked: 3)
-var state2_PA = StateModel(stateName: "Pará", numberOfItemsUnlocked: 0)
-var state3_RR = StateModel(stateName: "Roraima", numberOfItemsUnlocked: 0)
-var state4_AP = StateModel(stateName: "Amapá", numberOfItemsUnlocked: 0)
-var state5_AC = StateModel(stateName: "Acre", numberOfItemsUnlocked: 0)
-var state6_TO = StateModel(stateName: "Tocantins", numberOfItemsUnlocked: 0)
-var state7_RO = StateModel(stateName: "Rondônia", numberOfItemsUnlocked: 3)
+func createState(name: String, numberOfItemsUnlocked: Int, words: [String]) -> StateModel {
+    return StateModel(stateName: name, numberOfItemsUnlocked: numberOfItemsUnlocked, words: words)
+}
 
-// Array - estados da região NORTE
-let states_Norte = [state1_AM, state2_PA, state3_RR, state4_AP, state5_AC, state6_TO, state7_RO]
+func createRegion(regionName: String, statesData: [(String, Int, [String])]) -> RegionModel {
+    let states = statesData.map { createState(name: $0.0, numberOfItemsUnlocked: $0.1, words: $0.2) }
+    let numOfStates = states.count
+    let numOfStatesUnlocked = states.filter { $0.numberOfItemsUnlocked > 0 }.count // Estados desbloqueados = tem pelo menos UM item desbloqueado
+    return RegionModel(regionName: regionName, numOfStates: numOfStates, numOfStatesUnlocked: numOfStatesUnlocked, states: states)
+}
 
-// Número de estados desbloqueados = se já desbloqueou algum item do estado
-let numOfStatesUnlocked_Norte = states_Norte.filter { $0.numberOfItemsUnlocked > 0 }.count
+func getRandomWord() -> String? {
+    guard let randomRegion = regions_BR.randomElement(),
+          let randomState = randomRegion.states.randomElement(),
+          let randomWord = randomState.words.randomElement() else {
+        return nil
+    }
+    return randomWord
+}
 
-// Criando instância de RegionModel com os estados
-let region_Norte = RegionModel(regionName: "Norte",
-                               numOfStates: states_Norte.count,
-                               numOfStatesUnlocked: numOfStatesUnlocked_Norte,
-                               states: states_Norte)
+// Criando instâncias de RegionModel para cada região com palavras associadas a cada estado
+let regions_BR: [RegionModel] = [
+    createRegion(regionName: "Norte", statesData: [
+        ("Amazonas", 3, ["testeAM1", "testeAM2", "testeAM3"]),
+        ("Pará", 3, ["testePA1", "testePA2", "testePA3"]),
+        ("Roraima", 3, ["testeRR1", "testeRR2", "testeRR3"]),
+        ("Amapá", 3, ["testeAP1", "testeAP2", "testeAP3"]),
+        ("Acre", 3, ["testeAC1", "testeAC2", "testeAC3"]),
+        ("Tocantins", 3, ["testeTO1", "testeTO2", "testeTO3"]),
+        ("Rondônia", 3, ["testeRO1", "testeRO2", "testeRO3"])
+    ]),
+    createRegion(regionName: "Nordeste", statesData: [
+        ("Maranhão", 3, ["testeMA1", "testeMA2", "testeMA3"]),
+        ("Piauí", 3, ["testePI1", "testePI2", "testePI3"]),
+        ("Ceará", 3, ["testeCE1", "testeCE2", "testeCE3"]),
+        ("Rio Grande do Norte", 3, ["testeRN1", "testeRN2", "testeRN3"]),
+        ("Paraíba", 3, ["testePB1", "testePB2", "testePB3"]),
+        ("Pernambuco", 3, ["testePE1", "testePE2", "testePE3"]),
+        ("Alagoas", 3, ["testeAL1", "testeAL2", "testeAL3"]),
+        ("Sergipe", 3, ["testeSE1", "testeSE2", "testeSE3"]),
+        ("Bahia", 3, ["testeBA1", "testeBA2", "testeBA3"])
+    ]),
+    createRegion(regionName: "Centro-Oeste", statesData: [
+        ("Mato Grosso", 3, ["testeMT1", "testeMT2", "testeMT3"]),
+        ("Mato Grosso do Sul", 3, ["testeMS1", "testeMS2", "testeMS3"]),
+        ("Goiás", 3, ["testeGO1", "testeGO2", "testeGO3"]),
+        ("Distrito Federal", 3, ["testeDF1", "testeDF2", "testeDF3"])
+    ]),
+    createRegion(regionName: "Sudeste", statesData: [
+        ("São Paulo", 3, ["testeSP1", "testeSP2", "testeSP3"]),
+        ("Rio de Janeiro", 3, ["testeRJ1", "testeRJ2", "testeRJ3"]),
+        ("Espírito Santo", 3, ["testeES1", "testeES2", "testeES3"]),
+        ("Minas Gerais", 3, ["testeMG1", "testeMG2", "testeMG3"])
+    ]),
+    createRegion(regionName: "Sul", statesData: [
+        ("Rio Grande do Sul", 3, ["testeRS1", "testeRS2", "testeRS3"]),
+        ("Santa Catarina", 3, ["testeSC1", "testeSC2", "testeSC3"]),
+        ("Paraná", 3, ["testePR1", "testePR2", "testePR3"])
+    ])
+]
 
-// REGIÃO NORDESTE ====================================================================================
-var state1_MA = StateModel(stateName: "Maranhão", numberOfItemsUnlocked: 0)
-var state2_PI = StateModel(stateName: "Piauí", numberOfItemsUnlocked: 0)
-var state3_CE = StateModel(stateName: "Ceará", numberOfItemsUnlocked: 0)
-var state4_RN = StateModel(stateName: "Rio Grande do Norte", numberOfItemsUnlocked: 0)
-var state5_PB = StateModel(stateName: "Paraíba", numberOfItemsUnlocked: 0)
-var state6_PE = StateModel(stateName: "Pernambuco", numberOfItemsUnlocked: 0)
-var state7_AL = StateModel(stateName: "Alagoas", numberOfItemsUnlocked: 0)
-var state8_SE = StateModel(stateName: "Sergipe", numberOfItemsUnlocked: 0)
-var state9_BA = StateModel(stateName: "Bahia", numberOfItemsUnlocked: 0)
 
-// Array - estados da região NORDESTE
-let states_Nordeste = [state1_MA, state2_PI, state3_CE, state4_RN, state5_PB, state6_PE, state7_AL, state8_SE, state9_BA]
 
-// Número de estados desbloqueados = se já desbloqueou algum item do estado
-let numOfStatesUnlocked_Nordeste = states_Nordeste.filter { $0.numberOfItemsUnlocked > 0 }.count
 
-// Criando instância de RegionModel com os estados
-let region_Nordeste = RegionModel(regionName: "Nordeste",
-                                  numOfStates: states_Nordeste.count,
-                                  numOfStatesUnlocked: numOfStatesUnlocked_Nordeste,
-                                  states: states_Nordeste)
-
-// REGIÃO CENTRO-OESTE ====================================================================================
-var state1_MT = StateModel(stateName: "Mato Grosso", numberOfItemsUnlocked: 0)
-var state2_MS = StateModel(stateName: "Mato Grosso do Sul", numberOfItemsUnlocked: 0)
-var state3_GO = StateModel(stateName: "Goiás", numberOfItemsUnlocked: 0)
-var state4_DF = StateModel(stateName: "Distrito Federal", numberOfItemsUnlocked: 0)
-
-// Array - estados da região CENTRO-OESTE
-let states_CentroOeste = [state1_MT, state2_MS, state3_GO, state4_DF]
-
-// Número de estados desbloqueados = se já desbloqueou algum item do estado
-let numOfStatesUnlocked_CentroOeste = states_CentroOeste.filter { $0.numberOfItemsUnlocked > 0 }.count
-
-// Criando instância de RegionModel com os estados
-let region_CentroOeste = RegionModel(regionName: "Centro-Oeste",
-                                      numOfStates: states_CentroOeste.count,
-                                      numOfStatesUnlocked: numOfStatesUnlocked_CentroOeste,
-                                      states: states_CentroOeste)
-
-// REGIÃO SUDESTE ====================================================================================
-var state1_SP = StateModel(stateName: "São Paulo", numberOfItemsUnlocked: 0)
-var state2_RJ = StateModel(stateName: "Rio de Janeiro", numberOfItemsUnlocked: 0)
-var state3_ES = StateModel(stateName: "Espírito Santo", numberOfItemsUnlocked: 0)
-var state4_MG = StateModel(stateName: "Minas Gerais", numberOfItemsUnlocked: 0)
-
-// Array - estados da região SUDESTE
-let states_Sudeste = [state1_SP, state2_RJ, state3_ES, state4_MG]
-
-// Número de estados desbloqueados = se já desbloqueou algum item do estado
-let numOfStatesUnlocked_Sudeste = states_Sudeste.filter { $0.numberOfItemsUnlocked > 0 }.count
-
-// Criando instância de RegionModel com os estados
-let region_Sudeste = RegionModel(regionName: "Sudeste",
-                                  numOfStates: states_Sudeste.count,
-                                  numOfStatesUnlocked: numOfStatesUnlocked_Sudeste,
-                                  states: states_Sudeste)
-
-// REGIÃO SUL ====================================================================================
-var state1_RS = StateModel(stateName: "Rio Grande do Sul", numberOfItemsUnlocked: 0)
-var state2_SC = StateModel(stateName: "Santa Catarina", numberOfItemsUnlocked: 0)
-var state3_PR = StateModel(stateName: "Paraná", numberOfItemsUnlocked: 3)
-
-// Array - estados da região SUL
-let states_Sul = [state1_RS, state2_SC, state3_PR]
-
-// Número de estados desbloqueados = se já desbloqueou algum item do estado
-let numOfStatesUnlocked_Sul = states_Sul.filter { $0.numberOfItemsUnlocked > 0 }.count
-
-// Criando instância de RegionModel com os estados
-let region_Sul = RegionModel(regionName: "Sul",
-                            numOfStates: states_Sul.count,
-                            numOfStatesUnlocked: numOfStatesUnlocked_Sul,
-                            states: states_Sul)
-
-let regions_BR = [region_Norte,
-                  region_Nordeste,
-                  region_CentroOeste,
-                  region_Sudeste,
-                  region_Sul]
