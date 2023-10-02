@@ -27,8 +27,6 @@ class CoreDataManager {
         return container
     }()
     
-    var perfil = [Perfil]()
-
     // MARK: - Core Data Saving support
 
       func saveContext () {
