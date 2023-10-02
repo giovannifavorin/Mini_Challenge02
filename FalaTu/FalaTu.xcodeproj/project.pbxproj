@@ -26,7 +26,6 @@
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
 		D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */; };
-		D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3D2AB8D87600A908E8 /* Banco.swift */; };
 		D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */; };
 		D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D989DD832AC7073F00C282AB /* CoreDataManeger.swift */; };
 		D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */; };
@@ -61,7 +60,6 @@
 		D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9691C302AB8C79F00A908E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		D9691C3D2AB8D87600A908E8 /* Banco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Banco.swift; path = FalaTu/View/Protocols/Banco.swift; sourceTree = SOURCE_ROOT; };
 		D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeRagingView.swift; sourceTree = "<group>"; };
 		D989DD832AC7073F00C282AB /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
 		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
@@ -85,6 +83,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B808092D2ACB3D720063C31A /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				D9AE14A72AC0D46E00173498 /* WordOfDay */,
+				D9AE14A82AC0D49000173498 /* Multiplayer */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		B808092E2ACB3D910063C31A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B80809302ACB3DB20063C31A /* ViewProtocols */,
+				B808092F2ACB3D9C0063C31A /* ViewControllerProtocols */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B808092F2ACB3D9C0063C31A /* ViewControllerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */,
+			);
+			path = ViewControllerProtocols;
+			sourceTree = "<group>";
+		};
+		B80809302ACB3DB20063C31A /* ViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */,
+				D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */,
+			);
+			path = ViewProtocols;
+			sourceTree = "<group>";
+		};
+		B80809312ACB3DF00063C31A /* ConfigurationSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				B83FA81A2AC61EB300722C97 /* Configurations */,
+			);
+			path = ConfigurationSettingsView;
+			sourceTree = "<group>";
+		};
+		B80809332ACB3E490063C31A /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				B80809352ACB3E6E0063C31A /* SubViews */,
+				B80809342ACB3E5F0063C31A /* ViewControllers */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		B80809342ACB3E5F0063C31A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */,
+				D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */,
+				D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B80809352ACB3E6E0063C31A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				D9CAC39D2AC3642300D2063C /* Perfil */,
+				B80809382ACB3F2B0063C31A /* CarouselView */,
+				B83FA81C2AC61F3100722C97 /* Dictionary */,
+				B87CA8292AC7496C00291AF8 /* Inventory */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B80809362ACB3EDD0063C31A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
+				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B80809372ACB3EF00063C31A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26315BE52ABE29240048A370 /* InventoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B80809382ACB3F2B0063C31A /* CarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */,
+				D958A8612ABE115700D8D098 /* MenuColletionView.swift */,
+			);
+			path = CarouselView;
+			sourceTree = "<group>";
+		};
 		B83FA81A2AC61EB300722C97 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,14 +189,6 @@
 				B84E50B72AC361DD00A02945 /* Credits */,
 			);
 			path = Configurations;
-			sourceTree = "<group>";
-		};
-		B83FA81B2AC61F0600722C97 /* Inventory */ = {
-			isa = PBXGroup;
-			children = (
-				26315BE52ABE29240048A370 /* InventoryView.swift */,
-			);
-			path = Inventory;
 			sourceTree = "<group>";
 		};
 		B83FA81C2AC61F3100722C97 /* Dictionary */ = {
@@ -130,18 +219,10 @@
 		B87CA8292AC7496C00291AF8 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
-				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
-				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
+				B80809372ACB3EF00063C31A /* View */,
+				B80809362ACB3EDD0063C31A /* ViewController */,
 			);
 			path = Inventory;
-			sourceTree = "<group>";
-		};
-		D958A8632ABE161D00D8D098 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		D9691C162AB8C79E00A908E8 = {
@@ -163,13 +244,14 @@
 		D9691C212AB8C79E00A908E8 /* FalaTu */ = {
 			isa = PBXGroup;
 			children = (
-				B84E50B92AC36F7100A02945 /* Coordinator */,
-				D9691C362AB8C7FB00A908E8 /* Model */,
-				D9691C372AB8C80400A908E8 /* View */,
-				D9691C382AB8C80D00A908E8 /* Controller */,
 				D9691C392AB8C82A00A908E8 /* System */,
 				D9691C302AB8C79F00A908E8 /* Info.plist */,
-				9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */,
+				B808092D2ACB3D720063C31A /* Games */,
+				B80809332ACB3E490063C31A /* MainPage */,
+				B80809312ACB3DF00063C31A /* ConfigurationSettingsView */,
+				B808092E2ACB3D910063C31A /* Protocols */,
+				D9691C362AB8C7FB00A908E8 /* Model */,
+				B84E50B92AC36F7100A02945 /* Coordinator */,
 			);
 			path = FalaTu;
 			sourceTree = "<group>";
@@ -177,37 +259,13 @@
 		D9691C362AB8C7FB00A908E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D9691C3D2AB8D87600A908E8 /* Banco.swift */,
+				9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */,
 				D958A8682ABE24E800D8D098 /* ModelMenuData.swift */,
 				26315BE92ABF60850048A370 /* StateModel.swift */,
 				26315BF12AC36F580048A370 /* RegionModel.swift */,
 				D989DD832AC7073F00C282AB /* CoreDataManeger.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D9691C372AB8C80400A908E8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B83FA81C2AC61F3100722C97 /* Dictionary */,
-				B83FA81B2AC61F0600722C97 /* Inventory */,
-				B83FA81A2AC61EB300722C97 /* Configurations */,
-				D9AE14A62AC0D43900173498 /* Menu */,
-				D9691C3A2AB8CE8900A908E8 /* Protocols */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D9691C382AB8C80D00A908E8 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B87CA8292AC7496C00291AF8 /* Inventory */,
-				D9AE14A82AC0D49000173498 /* Multiplayer */,
-				D9AE14A72AC0D46E00173498 /* WordOfDay */,
-				D9AE14A92AC0D4D500173498 /* Menu */,
-				D958A8632ABE161D00D8D098 /* Protocols */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		D9691C392AB8C82A00A908E8 /* System */ = {
@@ -218,25 +276,6 @@
 				D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */,
 			);
 			path = System;
-			sourceTree = "<group>";
-		};
-		D9691C3A2AB8CE8900A908E8 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */,
-				D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		D9AE14A62AC0D43900173498 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */,
-				D958A8612ABE115700D8D098 /* MenuColletionView.swift */,
-				D9CAC39D2AC3642300D2063C /* Perfil */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
@@ -253,16 +292,6 @@
 				D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */,
 			);
 			path = Multiplayer;
-			sourceTree = "<group>";
-		};
-		D9AE14A92AC0D4D500173498 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */,
-				D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */,
-				D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		D9CAC39D2AC3642300D2063C /* Perfil */ = {
@@ -367,7 +396,6 @@
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
-				D9691C3E2AB8D87600A908E8 /* Banco.swift in Sources */,
 				26315BEA2ABF60850048A370 /* StateModel.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
 				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
