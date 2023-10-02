@@ -7,81 +7,90 @@
 
 import UIKit
 
-// UI
-// TECLADO
-// GAME BOARD
-// CORES - LARANJA E VERDE
-
-class MinigameWordDayViewController: UIViewController {
+class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate {
     
     //RESPOSTA CORRETA
-    let answer = "gremi"
+    var answer: String = ""
+    // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
     
-    let keyboardVC = KeyboardViewController()
-    let boardVC = BoardViewController()
+    // Botões de cima
     let topButtonsVC = TopButtonsViewController()
-    let bottomButtonsVC = BottomButtonsViewController()
-        
+    // Botões de baixo
+    let bottomButtons = BottomButtonsViewController()
+    // Teclado
+    let keyboard = KeyboardView()
+    // Quadro central
+    let boardVC = BoardViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViewControllerModel()
         
+        // Pegando palavra aleatória do banco de palavras
+        if let randomWord = getRandomWord() {
+            answer = randomWord
+            print(randomWord)
+        } else {
+            answer = "error"
+            print("Erro ao obter palavra aleatória")
+        }
     }
 }
 
-extension MinigameWordDayViewController: ViewControllerModel{
+// CONFIGS VIEW CONTROLLER =========================================================================
+extension MinigameWordDayViewController: ViewControllerModel {
     func addConstraints() {
         NSLayoutConstraint.activate([
             // Top Buttons
-            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -10),
+            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
             // Board View
-            boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 10),
+            boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
             boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
 
             // Bottom Buttons
-            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor),
-            bottomButtonsVC.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bottomButtons.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor),
+            bottomButtons.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
             // Keyboard
-            keyboardVC.view.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 20),
-            keyboardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            keyboardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            keyboardVC.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 20),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
     func addSubviews() {
         // Botões de cima (3)
         addChild(topButtonsVC)
-        topButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topButtonsVC.view)
+        topButtonsVC.didMove(toParent: self)
+        topButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
         
         // Board Principal
         addChild(boardVC)
-        boardVC.didMove(toParent: self)
-        boardVC.view
-            .translatesAutoresizingMaskIntoConstraints = false
-        boardVC.datasource = self
         view.addSubview(boardVC.view)
+        boardVC.didMove(toParent: self)
+        boardVC.view.translatesAutoresizingMaskIntoConstraints = false
+        boardVC.datasource = self
         
         // Botões de baixo (3)
-        addChild(bottomButtonsVC)
-        bottomButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bottomButtonsVC.view)
+        addChild(bottomButtons)
+        view.addSubview(bottomButtons.view)
+        bottomButtons.didMove(toParent: self)
+        bottomButtons.view.translatesAutoresizingMaskIntoConstraints = false
 
         // Teclado
-        addChild(keyboardVC)
-        keyboardVC.didMove(toParent: self)
-        keyboardVC.delegate = self
-        keyboardVC.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(keyboardVC.view)
+        view.addSubview(keyboard)
+        keyboard.translatesAutoresizingMaskIntoConstraints = false
+        keyboard.delegate = self
     }
     
     func addStyle() {
@@ -90,9 +99,9 @@ extension MinigameWordDayViewController: ViewControllerModel{
     }
 }
 
-// Preencher teclado
-extension MinigameWordDayViewController: KeyboardViewControllerDelegate {
-    func keyboardViewControllerDelegate(_ vc: KeyboardViewController, didTapKey letter: Character) {
+// PREENCHER TECLADO =========================================================================
+extension MinigameWordDayViewController: KeyboardViewDelegate {
+    func keyTapped(_ letter: Character) {
         // Ao clicar na tecla = update nos guesses
         var stop = false
         
@@ -111,8 +120,10 @@ extension MinigameWordDayViewController: KeyboardViewControllerDelegate {
         boardVC.reloadData()
     }
 }
+    
 
 
+// PREENCHER QUADRO =========================================================================
 extension MinigameWordDayViewController: BoardViewControllerDatasource {
     var currentGuesses: [[Character?]] {
         return guesses

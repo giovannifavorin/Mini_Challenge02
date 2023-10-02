@@ -7,21 +7,19 @@
 
 import UIKit
 
-// LETRAS (TECLADO E BOARD)
 class KeyCell: UICollectionViewCell {
     static let identifier = "KeyCell"
     
     let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black // COR DE TODAS AS LETRAS
+        label.textColor = .black
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .medium)
-        
         return label
-    } ()
+    }()
     
-    override init (frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         
@@ -32,10 +30,8 @@ class KeyCell: UICollectionViewCell {
             label.topAnchor.constraint(equalTo: contentView.topAnchor),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        
     }
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -45,7 +41,6 @@ class KeyCell: UICollectionViewCell {
         label.text = nil
     }
     
-    // Configurar a letra para o que for preciso que apareça
     func configure(with letter: Character) {
         label.text = String(letter).uppercased()
     }
@@ -59,10 +54,10 @@ class KeyCell: UICollectionViewCell {
         self.layer.masksToBounds = true
         
         // Adicionar sombra
-        self.layer.shadowColor = UIColor.black.cgColor // Cor da sombra
-        self.layer.shadowOffset = CGSize(width: 0, height: 2) // Deslocamento da sombra (0 para horizontal, 2 para vertical)
-        self.layer.shadowOpacity = 0.5 // Opacidade da sombra (0 a 1)
-        self.layer.shadowRadius = 1.0 // Raio da sombra
-        self.layer.masksToBounds = false // Permitir que a sombra se estenda além dos limites da célula
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 1.0
+        self.layer.masksToBounds = false
     }
 }

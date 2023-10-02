@@ -10,5 +10,6 @@ import Foundation
 struct StateModel {
     var stateName: String
     var numberOfItemsUnlocked: Int
+    var words: [String]
 }
 

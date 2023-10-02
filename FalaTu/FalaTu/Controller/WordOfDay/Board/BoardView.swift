@@ -5,7 +5,6 @@
 //  Created by Leonardo Mota on 28/09/23.
 //
 
-import Foundation
 import UIKit
 
 class BoardView: UIView {
@@ -48,18 +47,18 @@ extension BoardView: ViewModel {
     
     func addContrains() {
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 80),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            borderedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            borderedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            borderedView.topAnchor.constraint(equalTo: topAnchor),
+            borderedView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            borderedView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: -30),
-            borderedView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: 30),
-            borderedView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: -30),
-            borderedView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 30)
+            collectionView.leadingAnchor.constraint(equalTo: borderedView.leadingAnchor, constant: 40),
+            collectionView.trailingAnchor.constraint(equalTo: borderedView.trailingAnchor, constant: -40),
+            collectionView.topAnchor.constraint(equalTo: borderedView.topAnchor, constant: 40),
+            collectionView.bottomAnchor.constraint(equalTo: borderedView.bottomAnchor, constant: -40),
         ])
     }
-    
+
     func setupStyle() {
         collectionView.backgroundColor = .systemGray5
         

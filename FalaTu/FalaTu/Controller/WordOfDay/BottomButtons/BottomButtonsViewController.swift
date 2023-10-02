@@ -5,81 +5,54 @@
 //  Created by Leonardo Mota on 29/09/23.
 //
 
-import Foundation
 import UIKit
 
 class BottomButtonsViewController: UIViewController {
     
-
-
-    // Crie uma stack horizontal para os botões
-    let buttonStackView : UIStackView = {
-        let buttonStackView = UIStackView()
-        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        buttonStackView.axis = .horizontal
-        buttonStackView.alignment = .center
-        buttonStackView.distribution = .equalSpacing
-        buttonStackView.spacing = 16 // Espaçamento entre os botões na stack
-        return buttonStackView
-    }()
-            
-
-        // Crie e adicione os botões à stack
-    let tipButton: UIButton = {
-        let button1 = UIButton()
-        button1.setImage(UIImage(named: "TipButton"), for: .normal)
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        button1.widthAnchor.constraint(equalToConstant: 52).isActive = true
-        button1.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        return button1
-    }()
-       
-
-    let sendButton: UIButton = {
-        let button2 = UIButton()
-        button2.setImage(UIImage(named: "SendButton"), for: .normal)
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        return button2
-    }()
-        
-    
-    let giveLetterButton: UIButton = {
-        let button3 = UIButton()
-        button3.setImage(UIImage(named: "GiveLetterButton"), for: .normal)
-        button3.translatesAutoresizingMaskIntoConstraints = false
-        button3.widthAnchor.constraint(equalToConstant: 52).isActive = true
-        button3.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        return button3
-    }()
+    private let bottomButtonsView = BottomButtonsView()
+    let minigameVC = MinigameWordDayViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViewControllerModel()
+    }
+    
+    @objc private func tipButtonAction(sender: UIButton) {
+        print("dica POP-UP")
+    }
+
+    @objc private func sendButtonAction(sender: UIButton) {
+        print("enviar")
+    }
+
+    @objc private func giveLetterButtonAction(sender: UIButton) {
+        print("dar letra")
+        //print(minigameVC.answer)
     }
 }
 
-extension BottomButtonsViewController: ViewControllerModel{
-    
+extension BottomButtonsViewController: ViewControllerModel {
     func addSubviews() {
-        view.addSubview(buttonStackView)
-        buttonStackView.addArrangedSubview(tipButton)
-        buttonStackView.addArrangedSubview(sendButton)
-        buttonStackView.addArrangedSubview(giveLetterButton)
+        view.addSubview(bottomButtonsView)
+        bottomButtonsView.translatesAutoresizingMaskIntoConstraints = false
+
+        bottomButtonsView.tipButton.addTarget(self, action: #selector(tipButtonAction), for: .touchUpInside)
+        bottomButtonsView.sendButton.addTarget(self, action: #selector(sendButtonAction), for: .touchUpInside)
+        bottomButtonsView.giveLetterButton.addTarget(self, action: #selector(giveLetterButtonAction), for: .touchUpInside)
     }
     
+    func addStyle() {
+    }
     
     func addConstraints() {
         NSLayoutConstraint.activate([
+            bottomButtonsView.topAnchor.constraint(equalTo: view.topAnchor),
+            bottomButtonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButtonsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomButtonsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            buttonStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            view.topAnchor.constraint(equalTo: tipButton.topAnchor),
+            bottomButtonsView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-
-    
-    func addStyle() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
-    }
 }
+

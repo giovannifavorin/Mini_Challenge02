@@ -5,14 +5,12 @@
 //  Created by Leonardo Mota on 28/09/23.
 //
 
-import Foundation
 import UIKit
 
-class TopButtonsViewController: UIViewController {
-    
+class TopButtonsView: UIView {
     
     // Exit Button
-    let exitButton: UIButton = {
+    lazy var exitButton: UIButton = {
         let button1 = UIButton(type: .custom)
         button1.setImage(UIImage(named: "ExitButton"), for: .normal)
         button1.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +20,7 @@ class TopButtonsViewController: UIViewController {
     }()
 
     // Tutorial Button
-    let tutorialButton: UIButton = {
+    lazy var tutorialButton: UIButton = {
         let button2 = UIButton(type: .custom)
         button2.setImage(UIImage(named: "TutorialButton"), for: .normal)
         button2.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +30,7 @@ class TopButtonsViewController: UIViewController {
     }()
 
     // Config Button
-    let configButton: UIButton = {
+    lazy var configButton: UIButton = {
         let button3 = UIButton(type: .custom)
         button3.setImage(UIImage(named: "ConfigButton"), for: .normal)
         button3.translatesAutoresizingMaskIntoConstraints = false
@@ -40,36 +38,34 @@ class TopButtonsViewController: UIViewController {
         button3.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return button3
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupViewControllerModel()
+    
+    // Initializer
+    init(){
+        super.init(frame: .zero)
+        setupViewModel()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
 }
 
-extension TopButtonsViewController: ViewControllerModel{
-    
-    func addSubviews() {
-        view.addSubview(exitButton)
-        view.addSubview(tutorialButton)
-        view.addSubview(configButton)
+extension TopButtonsView: ViewModel {
+    func addViews() {
+        addSubview(exitButton)
+        addSubview(tutorialButton)
+        addSubview(configButton)
     }
     
-    
-    func addConstraints() {
+    func addContrains() {
         NSLayoutConstraint.activate([
-            
-            exitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            tutorialButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            exitButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            tutorialButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             configButton.trailingAnchor.constraint(equalTo: tutorialButton.leadingAnchor, constant: -20),
-            
-            
         ])
     }
-
     
-    func addStyle() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
+    func setupStyle() {
+        backgroundColor = .clear
     }
 }

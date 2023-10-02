@@ -49,12 +49,11 @@ extension BoardViewController: ViewControllerModel {
             boardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             boardView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             boardView.topAnchor.constraint(equalTo: view.topAnchor),
-            boardView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            boardView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     func addStyle() {
-        //boardView.backgroundColor = .blue
     }
 }
 
