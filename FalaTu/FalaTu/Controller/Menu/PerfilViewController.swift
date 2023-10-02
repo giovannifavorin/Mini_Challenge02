@@ -9,7 +9,7 @@ import UIKit
 
 class PerfilViewController: UIViewController {
     
-    let context = CoreDataManager.persistentContainer.viewContext
+    let context = CoreDataManager.shared.persistentContainer.viewContext
 
     var preferencesPerfil: [Perfil]?
     

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Dicionario" representedClassName="Dicionario" syncable="YES" codeGenerationType="class">
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="regiao" optional="YES" attributeType="String"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+        <relationship name="profiles" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Perfil" inverseName="palavra" inverseEntity="Perfil"/>
+    </entity>
     <entity name="Perfil" representedClassName="Perfil" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="jogostotais" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -7,6 +14,6 @@
         <attribute name="ofensiva" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="palavras" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="regiao" optional="YES" attributeType="String"/>
-        <relationship name="dicio" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Perfil"/>
+        <relationship name="palavra" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dicionario" inverseName="profiles" inverseEntity="Dicionario"/>
     </entity>
 </model>
