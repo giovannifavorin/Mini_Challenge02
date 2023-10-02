@@ -12,26 +12,27 @@
 		26315BEA2ABF60850048A370 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* StateModel.swift */; };
 		26315BF22AC36F580048A370 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF12AC36F580048A370 /* RegionModel.swift */; };
 		26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */; };
-		26556EE52AC6107300D1F476 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EE12AC6107300D1F476 /* BoardViewController.swift */; };
-		26556EE62AC6107300D1F476 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EE22AC6107300D1F476 /* KeyboardViewController.swift */; };
-		26556EE72AC6107300D1F476 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EE32AC6107300D1F476 /* KeyCell.swift */; };
-		26556EEB2AC64BAB00D1F476 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EEA2AC64BAB00D1F476 /* Minigame01MainView.swift */; };
-		26556EEE2AC6521400D1F476 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EED2AC6521400D1F476 /* BoardView.swift */; };
-		26556EF12AC66A5A00D1F476 /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EF02AC66A5A00D1F476 /* TopButtonsView.swift */; };
-		26556EF42AC74B4600D1F476 /* BottomButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26556EF32AC74B4600D1F476 /* BottomButtonsViewController.swift */; };
-		26DB99B42ACA556D00AF809F /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB99B32ACA556D00AF809F /* KeyboardView.swift */; };
-		26DB99B82ACA646600AF809F /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB99B72ACA646600AF809F /* TopButtonsViewController.swift */; };
-		26DB99BA2ACA713C00AF809F /* BottomButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB99B92ACA713C00AF809F /* BottomButtonsView.swift */; };
 		9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */; };
 		9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */; };
 		B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */; };
 		B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */; };
 		B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BA2AC36F8900A02945 /* Coordinator.swift */; };
 		B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */; };
+		B850DFBC2ACB479B0021BAE3 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFBB2ACB479B0021BAE3 /* BoardView.swift */; };
+		B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFBD2ACB480A0021BAE3 /* BoardViewController.swift */; };
+		B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC12ACB57190021BAE3 /* BottomButtonsView.swift */; };
+		B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC32ACB57340021BAE3 /* BottomButtonsViewController.swift */; };
+		B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC62ACB57600021BAE3 /* KeyboardView.swift */; };
+		B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */; };
+		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
+		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
+		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
+		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
+		B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */; };
+		B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
-		D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8682ABE24E800D8D098 /* ModelMenuData.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
 		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
@@ -39,7 +40,6 @@
 		D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */; };
 		D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D989DD832AC7073F00C282AB /* CoreDataManeger.swift */; };
 		D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */; };
-		D9AE14A32AC0D1CF00173498 /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */; };
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */; };
 		D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */; };
@@ -54,27 +54,28 @@
 		26315BE92ABF60850048A370 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
 		26315BF12AC36F580048A370 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
 		26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController.swift; sourceTree = "<group>"; };
-		26556EE12AC6107300D1F476 /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		26556EE22AC6107300D1F476 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
-		26556EE32AC6107300D1F476 /* KeyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
-		26556EEA2AC64BAB00D1F476 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
-		26556EED2AC6521400D1F476 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		26556EF02AC66A5A00D1F476 /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
-		26556EF32AC74B4600D1F476 /* BottomButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsViewController.swift; sourceTree = "<group>"; };
-		26DB99B32ACA556D00AF809F /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
-		26DB99B72ACA646600AF809F /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
-		26DB99B92ACA713C00AF809F /* BottomButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsView.swift; sourceTree = "<group>"; };
 		9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B850DFBB2ACB479B0021BAE3 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		B850DFBD2ACB480A0021BAE3 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		B850DFC12ACB57190021BAE3 /* BottomButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsView.swift; sourceTree = "<group>"; };
+		B850DFC32ACB57340021BAE3 /* BottomButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsViewController.swift; sourceTree = "<group>"; };
+		B850DFC62ACB57600021BAE3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
+		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
+		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
+		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
+		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
-		D958A8682ABE24E800D8D098 /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelMenuData.swift; path = FalaTu/Controller/Protocols/ModelMenuData.swift; sourceTree = SOURCE_ROOT; };
-		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeRagingView.swift; sourceTree = "<group>"; };
 		D989DD832AC7073F00C282AB /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
 		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
-		D9AE14A22AC0D1CF00173498 /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
@@ -236,6 +236,43 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		B850DFBF2ACB56EB0021BAE3 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				B850DFBB2ACB479B0021BAE3 /* BoardView.swift */,
+				B850DFBD2ACB480A0021BAE3 /* BoardViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		B850DFC02ACB56FC0021BAE3 /* BottomButtons */ = {
+			isa = PBXGroup;
+			children = (
+				B850DFC12ACB57190021BAE3 /* BottomButtonsView.swift */,
+				B850DFC32ACB57340021BAE3 /* BottomButtonsViewController.swift */,
+			);
+			path = BottomButtons;
+			sourceTree = "<group>";
+		};
+		B850DFC52ACB574B0021BAE3 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B850DFC62ACB57600021BAE3 /* KeyboardView.swift */,
+				B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		B850DFCA2ACB57910021BAE3 /* Minigame */ = {
+			isa = PBXGroup;
+			children = (
+				B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */,
+				B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */,
+				B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */,
+			);
+			path = Minigame;
+			sourceTree = "<group>";
+		};
 		B87CA8292AC7496C00291AF8 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,20 +282,20 @@
 			path = Inventory;
 			sourceTree = "<group>";
 		};
+		B8D2A5922ACB580E00C4F59A /* TopButtons */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */,
+				B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */,
+			);
+			path = TopButtons;
+			sourceTree = "<group>";
+		};
 		D9691C162AB8C79E00A908E8 = {
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
-				D9691C202AB8C79E00A908E8 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		D9691C202AB8C79E00A908E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D9691C1F2AB8C79E00A908E8 /* FalaTu.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D9691C212AB8C79E00A908E8 /* FalaTu */ = {
@@ -280,10 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */,
-				D958A8682ABE24E800D8D098 /* ModelMenuData.swift */,
 				26315BE92ABF60850048A370 /* StateModel.swift */,
 				26315BF12AC36F580048A370 /* RegionModel.swift */,
 				D989DD832AC7073F00C282AB /* CoreDataManeger.swift */,
+				B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,11 +338,11 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
-				26DB99B62ACA56E400AF809F /* Minigame */,
-				26DB99B52ACA56D400AF809F /* Keyboard */,
-				26556EF22AC74B3100D1F476 /* BottomButtons */,
-				26556EEF2AC66A3500D1F476 /* TopButtons */,
-				26556EEC2AC651B300D1F476 /* Board */,
+				B8D2A5922ACB580E00C4F59A /* TopButtons */,
+				B850DFCA2ACB57910021BAE3 /* Minigame */,
+				B850DFC52ACB574B0021BAE3 /* Keyboard */,
+				B850DFC02ACB56FC0021BAE3 /* BottomButtons */,
+				B850DFBF2ACB56EB0021BAE3 /* Board */,
 			);
 			path = WordOfDay;
 			sourceTree = "<group>";
@@ -372,7 +409,7 @@
 				Base,
 			);
 			mainGroup = D9691C162AB8C79E00A908E8;
-			productRefGroup = D9691C202AB8C79E00A908E8 /* Products */;
+			productRefGroup = D9691C162AB8C79E00A908E8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -397,40 +434,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26556EEE2AC6521400D1F476 /* BoardView.swift in Sources */,
 				B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */,
-				26556EE62AC6107300D1F476 /* KeyboardViewController.swift in Sources */,
 				B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */,
-				26556EF42AC74B4600D1F476 /* BottomButtonsViewController.swift in Sources */,
-				D9AE14A32AC0D1CF00173498 /* MinigameWordDayViewController.swift in Sources */,
 				D9CAC3992AC362F200D2063C /* PerfilMainView.swift in Sources */,
-				D958A8692ABE24E800D8D098 /* ModelMenuData.swift in Sources */,
+				B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */,
+				B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */,
+				B850DFBC2ACB479B0021BAE3 /* BoardView.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
+				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
 				D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
-				26DB99BA2ACA713C00AF809F /* BottomButtonsView.swift in Sources */,
+				B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
+				B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */,
 				D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */,
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
+				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
 				D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
+				B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
 				D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */,
 				B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */,
+				B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */,
 				9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */,
 				D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
+				B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
 				26315BEA2ABF60850048A370 /* StateModel.swift in Sources */,
-				26556EEB2AC64BAB00D1F476 /* Minigame01MainView.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
 				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
+				B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
-				26DB99B82ACA646600AF809F /* TopButtonsViewController.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
+				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

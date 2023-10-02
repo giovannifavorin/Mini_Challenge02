@@ -57,7 +57,7 @@ extension BoardView: ViewModel {
             borderedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             borderedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             borderedView.topAnchor.constraint(equalTo: topAnchor),
-            borderedView.bottomAnchor.constraint(equalTo: bottomAnchor),            
+            borderedView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             collectionView.leadingAnchor.constraint(equalTo: borderedView.leadingAnchor, constant: 40),
             collectionView.trailingAnchor.constraint(equalTo: borderedView.trailingAnchor, constant: -40),
