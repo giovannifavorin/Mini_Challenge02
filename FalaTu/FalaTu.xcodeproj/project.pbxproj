@@ -26,6 +26,9 @@
 		B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */; };
 		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
 		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
+		B866D4EC2ACC93A500EF32AE /* DefeatViewMinigame01.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */; };
+		B866D4EE2ACC93D400EF32AE /* VictoryViewMinigame01.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */; };
+		B866D4F12ACCA67200EF32AE /* EndMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
 		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
 		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
@@ -68,6 +71,10 @@
 		B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
+		B866D4E22ACC872100EF32AE /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
+		B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatViewMinigame01.swift; sourceTree = "<group>"; };
+		B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryViewMinigame01.swift; sourceTree = "<group>"; };
+		B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
@@ -75,7 +82,6 @@
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
-		D9691C1F2AB8C79E00A908E8 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -273,6 +279,24 @@
 			path = Minigame;
 			sourceTree = "<group>";
 		};
+		B866D4E52ACC932300EF32AE /* End */ = {
+			isa = PBXGroup;
+			children = (
+				B866D4E62ACC933400EF32AE /* View */,
+				B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */,
+			);
+			path = End;
+			sourceTree = "<group>";
+		};
+		B866D4E62ACC933400EF32AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */,
+				B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B87CA8292AC7496C00291AF8 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +362,7 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				B866D4E52ACC932300EF32AE /* End */,
 				B8D2A5922ACB580E00C4F59A /* TopButtons */,
 				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B850DFC52ACB574B0021BAE3 /* Keyboard */,
@@ -382,7 +407,7 @@
 			);
 			name = FalaTu;
 			productName = FalaTu;
-			productReference = D9691C1F2AB8C79E00A908E8 /* FalaTu.app */;
+			productReference = B866D4E22ACC872100EF32AE /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -444,12 +469,15 @@
 				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
 				D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
+				B866D4EC2ACC93A500EF32AE /* DefeatViewMinigame01.swift in Sources */,
 				B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
+				B866D4F12ACCA67200EF32AE /* EndMinigame01ViewController.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
 				B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */,
 				D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */,
+				B866D4EE2ACC93D400EF32AE /* VictoryViewMinigame01.swift in Sources */,
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
 				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
 				D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */,
