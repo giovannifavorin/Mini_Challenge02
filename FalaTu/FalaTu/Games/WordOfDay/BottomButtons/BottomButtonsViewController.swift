@@ -7,9 +7,23 @@
 
 import UIKit
 
+protocol GiveLetterDelegate: AnyObject {
+    func giveLetterButtonPressed()
+}
+
+protocol BottomButtonsDelegate: AnyObject {
+    func sendButtonPressed()
+    func tipButtonPressed()
+    
+}
+
 class BottomButtonsViewController: UIViewController {
     
     private let bottomButtonsView = BottomButtonsView()
+    private let boardVC = BoardViewController()
+    
+    weak var delegate: BottomButtonsDelegate?
+    weak var delegateLetter: GiveLetterDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,16 +31,16 @@ class BottomButtonsViewController: UIViewController {
     }
     
     @objc private func tipButtonAction(sender: UIButton) {
-        print("dica POP-UP")
+        delegate?.tipButtonPressed()
     }
 
     @objc private func sendButtonAction(sender: UIButton) {
-        print("enviar")
+        delegate?.sendButtonPressed()
     }
 
+
     @objc private func giveLetterButtonAction(sender: UIButton) {
-        print("dar letra")
-        //print(minigameVC.answer)
+        delegateLetter?.giveLetterButtonPressed()
     }
 }
 

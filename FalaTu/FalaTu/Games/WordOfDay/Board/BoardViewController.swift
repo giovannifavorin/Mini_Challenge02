@@ -18,9 +18,10 @@ protocol BoardViewControllerDatasource: AnyObject {
 class BoardViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     weak var datasource: BoardViewControllerDatasource?
+    var shouldShowColors = false
     
     // VIEW
-    private var boardView: BoardView!
+    var boardView: BoardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class BoardViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     public func reloadData() {
         boardView.collectionView.reloadData()
     }
+    
  }
 
 extension BoardViewController: ViewControllerModel {
@@ -49,7 +51,7 @@ extension BoardViewController: ViewControllerModel {
             boardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             boardView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             boardView.topAnchor.constraint(equalTo: view.topAnchor),
-            boardView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            boardView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -77,14 +79,22 @@ extension BoardViewController {
         }
         
         cell.layer.cornerRadius = 4
-        cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
-        cell.layer.borderWidth = 2
-        cell.layer.borderColor = UIColor.systemGray2.cgColor // cor da borda de cada quadrado
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.systemGray.cgColor // cor da borda do quadrado
+        cell.backgroundColor = .systemGray5
         
         let guesses = datasource?.currentGuesses ?? []
         // Se temos uma letra
         if let letter = guesses[indexPath.section][indexPath.row] {
-            cell.configure(with: letter)
+            if letter == "⌫" {
+                print("apagar")
+            } else {
+                cell.configure(with: letter)
+                
+                cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
+            }
+            
+            
         }
         return cell
     }
@@ -106,6 +116,7 @@ extension BoardViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-  
+        
     }
+
 }

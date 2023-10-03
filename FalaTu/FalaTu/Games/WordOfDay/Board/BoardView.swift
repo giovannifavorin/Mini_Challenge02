@@ -27,13 +27,6 @@ class BoardView: UIView {
         return borderedView
     }()
     
-//    func updateCollectionViewHeight() {
-//        let totalItemsHeight = CGFloat(collectionView.numberOfSections) * itemHeight // Substitua "numberOfItems" e "itemHeight" pelos valores reais
-//        let totalHeight = totalItemsHeight + 80 // 40 de margem superior e 40 de margem inferior para a collectionView
-//
-//        borderedViewHeightConstraint.constant = totalHeight + 40 // 20 de margem superior e 20 de margem inferior para a borderedView
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -54,6 +47,13 @@ extension BoardView: ViewModel {
     
     func addContrains() {
         NSLayoutConstraint.activate([
+            
+            
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            
             borderedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             borderedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             borderedView.topAnchor.constraint(equalTo: topAnchor),
@@ -67,7 +67,9 @@ extension BoardView: ViewModel {
     }
 
     func setupStyle() {
-        collectionView.backgroundColor = .systemGray5 // cor de fundo de todos quadrados
+        //collectionView.backgroundColor = .systemGray5 // cor de fundo de todos quadrados
+        
+        collectionView.backgroundColor = .clear
         
         borderedView.layer.cornerRadius = 10
         borderedView.layer.borderColor = UIColor.systemGray6.cgColor // cor da borda ao redor do quadro
