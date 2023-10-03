@@ -11,6 +11,7 @@ class TopButtonsView: UIView {
     
     // Exit Button
     lazy var exitButton: UIButton = {
+        
         let button1 = UIButton(type: .custom)
         button1.setImage(UIImage(named: "ExitButton"), for: .normal)
         button1.translatesAutoresizingMaskIntoConstraints = false
@@ -60,8 +61,8 @@ extension TopButtonsView: ViewModel {
     func addContrains() {
         NSLayoutConstraint.activate([
             exitButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tutorialButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            configButton.trailingAnchor.constraint(equalTo: tutorialButton.leadingAnchor, constant: -20),
+            configButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            tutorialButton.trailingAnchor.constraint(equalTo: configButton.leadingAnchor, constant: -20),
         ])
     }
     

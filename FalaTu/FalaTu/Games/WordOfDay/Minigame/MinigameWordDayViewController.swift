@@ -23,6 +23,16 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     // Quadro central
     let boardVC = BoardViewController()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,18 +57,18 @@ extension MinigameWordDayViewController: ViewControllerModel {
             topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
+            
             // Board View
             boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
             boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
-
+            
             // Bottom Buttons
             bottomButtons.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor),
             bottomButtons.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
+            
             // Keyboard
             keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 20),
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -86,7 +96,7 @@ extension MinigameWordDayViewController: ViewControllerModel {
         view.addSubview(bottomButtons.view)
         bottomButtons.didMove(toParent: self)
         bottomButtons.view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         // Teclado
         view.addSubview(keyboard)
         keyboard.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +104,7 @@ extension MinigameWordDayViewController: ViewControllerModel {
     }
     
     func addStyle() {
-       // view.backgroundColor = UIColor(named: "backgroundColor")
+        // view.backgroundColor = UIColor(named: "backgroundColor")
         view.backgroundColor = .systemBackground
     }
 }
@@ -120,12 +130,12 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
         boardVC.reloadData()
     }
 }
-    
+
 
 
 // PREENCHER QUADRO =========================================================================
 extension MinigameWordDayViewController: BoardViewControllerDatasource {
-
+    
     var currentGuesses: [[Character?]] {
         return guesses
     }
@@ -140,7 +150,7 @@ extension MinigameWordDayViewController: BoardViewControllerDatasource {
         }
         
         let indexAnswer = Array(answer) // TRANSFORMANDO A RESPOSTA EM UM ARRAY
-
+        
         // Tem uma letra?
         guard let letter = guesses[indexPath.section][indexPath.row], indexAnswer.contains(letter) else {
             return nil // se não tiver nenhuma letra, nil
