@@ -22,3 +22,7 @@ protocol DelegateUserPreferences: AnyObject{
     func configureRegionLabel(region: String)
 }
 
+protocol DelegatePopUPhint: AnyObject{
+    func didButton()
+}
+
