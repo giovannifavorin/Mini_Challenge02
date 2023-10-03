@@ -23,15 +23,22 @@ func createRegion(regionName: String, statesData: [(String, Int, [String: String
     return RegionModel(regionName: regionName, numOfStates: numOfStates, numOfStatesUnlocked: numOfStatesUnlocked, states: states)
 }
 
-// devolve uma palavra aleatória com a sua dica
+// Devolve uma palavra aleatória com exatamente 5 caracteres e sua dica
 func getRandomWordAndHint() -> (word: String, hint: String)? {
     guard let randomRegion = regions_BR.randomElement(),
-          let randomState = randomRegion.states.randomElement(),
-          let (word, hint) = randomState.words.randomElement() else {
+          let randomState = randomRegion.states.randomElement() else {
         return nil
     }
-    return (word, hint)
+    
+    // Filtra palavras com 5 caracteres e pega um elemento aleatório
+    if let (word, hint) = randomState.words.filter({ $0.key.count == 5 }).randomElement() {
+        return (word, hint)
+    } else {
+        // Se não encontrar uma palavra com 5 caracteres, chama recursivamente a função para tentar novamente
+        return getRandomWordAndHint()
+    }
 }
+
 
 // Criando instâncias de RegionModel para cada região com palavras associadas a cada estado
 let regions_BR: [RegionModel] = [
@@ -39,7 +46,7 @@ let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 3,
-         ["testeAM1": "dicaAM1",
+         ["teste": "dicaAM1",
           "testeAM2": "dicaAM2",
           "testeAM3": "dicaAM3"]),
         

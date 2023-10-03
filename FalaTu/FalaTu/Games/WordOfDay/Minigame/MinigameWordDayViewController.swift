@@ -177,33 +177,30 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     }
 
     func sendButtonPressed() {
-        var totalGuessesLeft: Int = 6
-        var totalGuessesWithFive = 0
-        
-        for row in guesses {
-            let count = row.compactMap({ $0 }).count
-            if count == 5 {
-                totalGuessesWithFive += 1
-                totalGuessesLeft -= 1
-            }
+        guard boardVC.currentRow < guesses.count, guesses[boardVC.currentRow].compactMap( { $0 }).count == 5 else {
+            print("\n\n\nlinha atual incompleta")
+            print("linha atual: \(boardVC.currentRow)")
+            print("itens preenchidos: \(guesses[boardVC.currentRow].compactMap( { $0 }).count)")
+            print("o que está sendo preenchido: \(guesses[boardVC.currentRow].compactMap({ $0 })) ")
+            return
         }
-        
-        // Se ainda tiverem chances
-        if totalGuessesLeft > 0 {
-            if totalGuessesWithFive > 0 {
-                print("Pode enviar! \(totalGuessesWithFive) tentativas com 5 letras.")
-                print("resta \(totalGuessesLeft)")
-                // Lógica para verificar as respostas e atribuir cores às letras
-                // ...
-            } else {
-                print("Não pode enviar. \(totalGuessesWithFive) tentativas com 5 letras.")
-                print("faltam \(totalGuessesLeft)\n")
-            }
+        // Adicione uma nova tupla para a próxima linha antes de incrementar currentRow
+        print("\npode preencher a \(boardVC.currentRow)")
+        let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
+
+        print("resposta do usuário na linha \(boardVC.currentRow) = \(userAnswer)")
+        if String(userAnswer) == answer {
+            print("acertou!")
         } else {
-            print("acabou")
-            navigationController?.pushViewController(perfilViewController, animated: true)
+            print("ainda não!")
         }
         
+        
+        
+        boardVC.currentRow += 1
+        
+        boardVC.sendButtonPressed = true
+        boardVC.boardView.collectionView.reloadData()
     }
 
 }

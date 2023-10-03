@@ -18,7 +18,8 @@ protocol BoardViewControllerDatasource: AnyObject {
 class BoardViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     weak var datasource: BoardViewControllerDatasource?
-    var shouldShowColors = false
+    var sendButtonPressed = false
+    var currentRow: Int = 0
     
     // VIEW
     var boardView: BoardView!
