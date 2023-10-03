@@ -145,7 +145,15 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
 extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControllerDatasource {
 
     func tipButtonPressed() {
-        print("DICA: \(hint)")
+        let popUpHint: PopUpHintViewController = {
+            let viewController = PopUpHintViewController()
+            viewController.modalPresentationStyle = .overFullScreen
+            return viewController
+        }()
+        
+        popUpHint.popUpView.configure(hint: hint)
+        
+        present(popUpHint, animated: false)
     }
     
 
