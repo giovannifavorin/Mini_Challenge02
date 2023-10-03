@@ -46,7 +46,7 @@ let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 3,
-         ["teste": "dicaAM1",
+         ["clara": "gatinha demais!",
           "testeAM2": "dicaAM2",
           "testeAM3": "dicaAM3"]),
         
