@@ -14,7 +14,7 @@ protocol KeyboardViewDelegate: AnyObject {
 class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     weak var delegate: KeyboardViewDelegate?
     
-    private let letters = ["qwertyuiop", "asdfghjklç", "zxcvbnm"]
+    private let letters = ["qwertyuiop", "asdfghjklç", "zxcvbnm⌫"] // Adicionando o caractere de delete
     private var keys: [[Character]] = []
 
     private let collectionView: UICollectionView = {
@@ -104,8 +104,8 @@ extension KeyboardView: ViewModel {
     
     func addContrains() {
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 30)
         ])

@@ -11,6 +11,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     
     //RESPOSTA CORRETA
     var answer: String = ""
+    var hint: String = ""
     // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
     
@@ -23,15 +24,20 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     // Quadro central
     let boardVC = BoardViewController()
     
+    private lazy var perfilViewController: PerfilViewController = {
+        return PerfilViewController()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViewControllerModel()
         
         // Pegando palavra aleatória do banco de palavras
-        if let randomWord = getRandomWord() {
-            answer = randomWord
-            print(randomWord)
+        if let randomWordAndHint = getRandomWordAndHint() {
+            answer = randomWordAndHint.word
+            hint = randomWordAndHint.hint
+            print("Palavra: \(answer)")
         } else {
             answer = "error"
             print("Erro ao obter palavra aleatória")
@@ -52,10 +58,10 @@ extension MinigameWordDayViewController: ViewControllerModel {
             boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
-            boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
+            boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.48), // arrumar
 
             // Bottom Buttons
-            bottomButtons.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor),
+            bottomButtons.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
             bottomButtons.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
@@ -86,6 +92,7 @@ extension MinigameWordDayViewController: ViewControllerModel {
         view.addSubview(bottomButtons.view)
         bottomButtons.didMove(toParent: self)
         bottomButtons.view.translatesAutoresizingMaskIntoConstraints = false
+        bottomButtons.delegate = self
 
         // Teclado
         view.addSubview(keyboard)
@@ -124,26 +131,33 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
 
 
 // PREENCHER QUADRO =========================================================================
-extension MinigameWordDayViewController: BoardViewControllerDatasource {
+// SEND BUTTON =========================================================================
+extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControllerDatasource {
 
+    func tipButtonPressed() {
+        print("DICA: \(hint)")
+    }
+    
+
+    
     var currentGuesses: [[Character?]] {
         return guesses
     }
+    
+    
     func boxColor(at indexPath: IndexPath) -> UIColor? {
         
         let rowIndex = indexPath.section
-        let count = guesses[rowIndex].compactMap({ $0 }).count // compactMap se livra de todos elementos NIL
+        let count = guesses[rowIndex].compactMap({ $0 }).count
         
-        
-        guard count == 5 else { // APENAS MOSTRAMOS A COR QUANDO FOR IGUAL A 5 (completar a fileira)
+        guard count == 5 else {
             return nil
         }
         
-        let indexAnswer = Array(answer) // TRANSFORMANDO A RESPOSTA EM UM ARRAY
-
-        // Tem uma letra?
-        guard let letter = guesses[indexPath.section][indexPath.row], indexAnswer.contains(letter) else {
-            return nil // se não tiver nenhuma letra, nil
+        let indexAnswer = Array(answer)
+        
+        guard let letter = guesses[rowIndex][indexPath.row], indexAnswer.contains(letter) else {
+            return nil
         }
         
         if indexAnswer[indexPath.row] == letter {
@@ -151,7 +165,39 @@ extension MinigameWordDayViewController: BoardViewControllerDatasource {
         }
         return .systemOrange
     }
+
+    func sendButtonPressed() {
+        var totalGuessesLeft: Int = 6
+        var totalGuessesWithFive = 0
+        
+        for row in guesses {
+            let count = row.compactMap({ $0 }).count
+            if count == 5 {
+                totalGuessesWithFive += 1
+                totalGuessesLeft -= 1
+            }
+        }
+        
+        // Se ainda tiverem chances
+        if totalGuessesLeft > 0 {
+            if totalGuessesWithFive > 0 {
+                print("Pode enviar! \(totalGuessesWithFive) tentativas com 5 letras.")
+                print("resta \(totalGuessesLeft)")
+                // Lógica para verificar as respostas e atribuir cores às letras
+                // ...
+            } else {
+                print("Não pode enviar. \(totalGuessesWithFive) tentativas com 5 letras.")
+                print("faltam \(totalGuessesLeft)\n")
+            }
+        } else {
+            print("acabou")
+            navigationController?.pushViewController(perfilViewController, animated: true)
+        }
+        
+    }
+
 }
+
 
 
 
