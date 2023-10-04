@@ -42,8 +42,22 @@ class KeyCell: UICollectionViewCell {
     }
     
     func configure(with letter: Character) {
-        label.text = String(letter).uppercased()
+        if letter == "⌫" {
+            // BOTÃO DE APAGAR
+            label.font = .systemFont(ofSize: 24, weight: .medium)
+            label.textColor = .white
+            self.backgroundColor = .blue
+            label.text = String(letter)
+            
+            // OUTROS BOTÕES
+        } else {
+            label.font = .systemFont(ofSize: 16, weight: .medium)
+            label.textColor = .black
+            label.text = String(letter).uppercased()
+            self.backgroundColor = .white 
+        }
     }
+
     
     func configureColorCell(with color: UIColor) {
         self.backgroundColor = color

@@ -8,10 +8,13 @@
 import UIKit
 
 class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate {
-    
+    var isRowSent: [Bool] = Array(repeating: false, count: 6) // numberOfSections é o número total de seções na sua coleção
+
     //RESPOSTA CORRETA
     var answer: String = ""
     var hint: String = ""
+    var meaning: String = ""
+    
     // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
     
@@ -44,10 +47,11 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
         setupViewControllerModel()
         
         // Pegando palavra aleatória do banco de palavras
-        if let randomWordAndHint = getRandomWordAndHint() {
-            answer = randomWordAndHint.word
-            hint = randomWordAndHint.hint
-            print("Palavra: \(answer)")
+        if let random_Word_Hint_Meaning = getRandom_Word_Hint_Meaning() {
+            answer = random_Word_Hint_Meaning.word
+            hint = random_Word_Hint_Meaning.hint
+            meaning = random_Word_Hint_Meaning.meaning
+            print("Palavra: \(answer), significado: \(meaning)")
         } else {
             answer = "error"
             print("Erro ao obter palavra aleatória")
@@ -111,34 +115,52 @@ extension MinigameWordDayViewController: ViewControllerModel {
     }
     
     func addStyle() {
-        // view.backgroundColor = UIColor(named: "backgroundColor")
-        view.backgroundColor = .systemBackground
+         view.backgroundColor = UIColor(named: "backgroundColor")
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "pattern")
+//        backgroundImage.contentMode = .scaleAspectFill
+//        view.insertSubview(backgroundImage, at: 0)
     }
 }
 
 // PREENCHER TECLADO =========================================================================
 extension MinigameWordDayViewController: KeyboardViewDelegate {
     func keyTapped(_ letter: Character) {
+        // Permitir a entrada de letras na primeira linha sempre
+        if boardVC.currentRow == 0 {
+            handleLetterInput(letter, inRow: 0)
+        } else {
+            guard isRowSent[boardVC.currentRow - 1] else {
+                // Se a linha anterior não foi enviada, não permita a entrada de letras
+                return
+            }
+            handleLetterInput(letter, inRow: boardVC.currentRow)
+        }
+    }
+
+    private func handleLetterInput(_ letter: Character, inRow row: Int) {
         // Ao clicar na tecla = update nos guesses
-        var stop = false
-        
-        for i in 0..<guesses.count {
-            for j in 0..<guesses[i].count {
-                if guesses[i][j] == nil {
-                    guesses[i][j] = letter
-                    stop = true
-                    break
+        if letter == "⌫" {
+            // Remover a letra da última célula preenchida da linha atual
+            for j in (0..<guesses[row].count).reversed() {
+                if guesses[row][j] != nil {
+                    guesses[row][j] = nil
+                    boardVC.reloadData()
+                    return
                 }
             }
-            if stop {
-                break
+        } else {
+            // Adicionar a letra na primeira célula vazia da linha atual
+            for j in 0..<guesses[row].count {
+                if guesses[row][j] == nil {
+                    guesses[row][j] = letter
+                    boardVC.reloadData()
+                    return
+                }
             }
         }
-        boardVC.reloadData()
     }
 }
-
-
 
 // PREENCHER QUADRO =========================================================================
 // SEND BUTTON =========================================================================
@@ -168,14 +190,15 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let rowIndex = indexPath.section
         let count = guesses[rowIndex].compactMap({ $0 }).count
         
-        guard count == 5 else {
+        guard count == 5, isRowSent[rowIndex] else {
             return nil
         }
         
         let indexAnswer = Array(answer)
         
         guard let letter = guesses[rowIndex][indexPath.row], indexAnswer.contains(letter) else {
-            return nil
+            return .systemGray
+            
         }
         
         if indexAnswer[indexPath.row] == letter {
@@ -185,32 +208,30 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     }
 
     func sendButtonPressed() {
-        var totalGuessesLeft: Int = 6
-        var totalGuessesWithFive = 0
-        
-        for row in guesses {
-            let count = row.compactMap({ $0 }).count
-            if count == 5 {
-                totalGuessesWithFive += 1
-                totalGuessesLeft -= 1
-            }
+        guard boardVC.currentRow < guesses.count, guesses[boardVC.currentRow].compactMap( { $0 }).count == 5 else {
+            print("\n\n\nlinha atual incompleta")
+            print("linha atual: \(boardVC.currentRow)")
+            print("itens preenchidos: \(guesses[boardVC.currentRow].compactMap( { $0 }).count)")
+            print("o que está sendo preenchido: \(guesses[boardVC.currentRow].compactMap({ $0 })) ")
+            return
         }
-        
-        // Se ainda tiverem chances
-        if totalGuessesLeft > 0 {
-            if totalGuessesWithFive > 0 {
-                print("Pode enviar! \(totalGuessesWithFive) tentativas com 5 letras.")
-                print("resta \(totalGuessesLeft)")
-                // Lógica para verificar as respostas e atribuir cores às letras
-                // ...
-            } else {
-                print("Não pode enviar. \(totalGuessesWithFive) tentativas com 5 letras.")
-                print("faltam \(totalGuessesLeft)\n")
-            }
-        } else {
-            print("acabou")
+        // Adicione uma nova tupla para a próxima linha antes de incrementar currentRow
+        print("\npode preencher a \(boardVC.currentRow)")
+        let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
+
+        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
+        // SE ACERTAR A PALAVRA
+        if String(userAnswer) == answer {
             navigationController?.pushViewController(perfilViewController, animated: true)
+            
+        // SE NÃO
+        } else {
+            print("ainda não!")
         }
+        
+        isRowSent[boardVC.currentRow] = true
+        boardVC.currentRow += 1
+        boardVC.boardView.collectionView.reloadData()
     }
 }
 
