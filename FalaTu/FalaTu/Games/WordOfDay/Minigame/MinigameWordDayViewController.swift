@@ -126,34 +126,41 @@ extension MinigameWordDayViewController: ViewControllerModel {
 // PREENCHER TECLADO =========================================================================
 extension MinigameWordDayViewController: KeyboardViewDelegate {
     func keyTapped(_ letter: Character) {
+        // Permitir a entrada de letras na primeira linha sempre
+        if boardVC.currentRow == 0 {
+            handleLetterInput(letter, inRow: 0)
+        } else {
+            guard isRowSent[boardVC.currentRow - 1] else {
+                // Se a linha anterior não foi enviada, não permita a entrada de letras
+                return
+            }
+            handleLetterInput(letter, inRow: boardVC.currentRow)
+        }
+    }
+
+    private func handleLetterInput(_ letter: Character, inRow row: Int) {
         // Ao clicar na tecla = update nos guesses
         if letter == "⌫" {
-            for i in (0..<guesses.count).reversed() {
-                for j in (0..<guesses[i].count).reversed() {
-                    if guesses[i][j] != nil {
-                        guesses[i][j] = nil
-                        boardVC.reloadData()
-                        return
-                    }
+            // Remover a letra da última célula preenchida da linha atual
+            for j in (0..<guesses[row].count).reversed() {
+                if guesses[row][j] != nil {
+                    guesses[row][j] = nil
+                    boardVC.reloadData()
+                    return
                 }
             }
         } else {
-            // Adicionar a letra na primeira célula vazia encontrada
-            for i in 0..<guesses.count {
-                for j in 0..<guesses[i].count {
-                    if guesses[i][j] == nil {
-                        guesses[i][j] = letter
-                        boardVC.reloadData()
-                        return
-                    }
+            // Adicionar a letra na primeira célula vazia da linha atual
+            for j in 0..<guesses[row].count {
+                if guesses[row][j] == nil {
+                    guesses[row][j] = letter
+                    boardVC.reloadData()
+                    return
                 }
             }
         }
     }
 }
-
-
-
 
 // PREENCHER QUADRO =========================================================================
 // SEND BUTTON =========================================================================
@@ -213,8 +220,11 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
         print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
+        // SE ACERTAR A PALAVRA
         if String(userAnswer) == answer {
-            print("acertou!")
+            navigationController?.pushViewController(perfilViewController, animated: true)
+            
+        // SE NÃO
         } else {
             print("ainda não!")
         }

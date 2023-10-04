@@ -33,7 +33,7 @@ func getRandom_Word_Hint_Meaning() -> (word: String, hint: String, meaning: Stri
             return nil
     }
 
-    if let (word, (hint, meaning)) = randomState.words.randomElement() {
+    if let (word, (hint, meaning)) = randomState.words.randomElement(), word.count == 5 {
         return (word, hint, meaning)
     } else {
         return getRandom_Word_Hint_Meaning()
@@ -48,7 +48,7 @@ let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 3,
-         ["testeAM1": ("dicaAM1", "significadoAM1"),
+         ["brabo": ("legal", "significa legal"),
           "testeAM2": ("dicaAM2", "significadoAM2")]),
         
         ("Pará", 3,
