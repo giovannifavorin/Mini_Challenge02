@@ -10,6 +10,6 @@ import Foundation
 struct StateModel {
     var stateName: String
     var numberOfItemsUnlocked: Int
-    var words: [String : String] // palavras associadas às suas dicas
+    var words: [String : (String, String)] // palavras associadas às suas dicas e significados
 }
 

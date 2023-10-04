@@ -12,6 +12,8 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     //RESPOSTA CORRETA
     var answer: String = ""
     var hint: String = ""
+    var meaning: String = ""
+    
     // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
     
@@ -44,10 +46,11 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
         setupViewControllerModel()
         
         // Pegando palavra aleatória do banco de palavras
-        if let randomWordAndHint = getRandomWordAndHint() {
-            answer = randomWordAndHint.word
-            hint = randomWordAndHint.hint
-            print("Palavra: \(answer)")
+        if let random_Word_Hint_Meaning = getRandom_Word_Hint_Meaning() {
+            answer = random_Word_Hint_Meaning.word
+            hint = random_Word_Hint_Meaning.hint
+            meaning = random_Word_Hint_Meaning.meaning
+            print("Palavra: \(answer), significado: \(meaning)")
         } else {
             answer = "error"
             print("Erro ao obter palavra aleatória")
@@ -111,8 +114,11 @@ extension MinigameWordDayViewController: ViewControllerModel {
     }
     
     func addStyle() {
-        // view.backgroundColor = UIColor(named: "backgroundColor")
-        view.backgroundColor = .systemBackground
+         view.backgroundColor = UIColor(named: "backgroundColor")
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "pattern")
+//        backgroundImage.contentMode = .scaleAspectFill
+//        view.insertSubview(backgroundImage, at: 0)
     }
 }
 
@@ -120,23 +126,31 @@ extension MinigameWordDayViewController: ViewControllerModel {
 extension MinigameWordDayViewController: KeyboardViewDelegate {
     func keyTapped(_ letter: Character) {
         // Ao clicar na tecla = update nos guesses
-        var stop = false
-        
-        for i in 0..<guesses.count {
-            for j in 0..<guesses[i].count {
-                if guesses[i][j] == nil {
-                    guesses[i][j] = letter
-                    stop = true
-                    break
+        if letter == "⌫" {
+            for i in (0..<guesses.count).reversed() {
+                for j in (0..<guesses[i].count).reversed() {
+                    if guesses[i][j] != nil {
+                        guesses[i][j] = nil
+                        boardVC.reloadData()
+                        return
+                    }
                 }
             }
-            if stop {
-                break
+        } else {
+            // Adicionar a letra na primeira célula vazia encontrada
+            for i in 0..<guesses.count {
+                for j in 0..<guesses[i].count {
+                    if guesses[i][j] == nil {
+                        guesses[i][j] = letter
+                        boardVC.reloadData()
+                        return
+                    }
+                }
             }
         }
-        boardVC.reloadData()
     }
 }
+
 
 
 
@@ -175,7 +189,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let indexAnswer = Array(answer)
         
         guard let letter = guesses[rowIndex][indexPath.row], indexAnswer.contains(letter) else {
-            return nil
+            return .systemGray
         }
         
         if indexAnswer[indexPath.row] == letter {
@@ -196,7 +210,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         print("\npode preencher a \(boardVC.currentRow)")
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
-        print("resposta do usuário na linha \(boardVC.currentRow) = \(userAnswer)")
+        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer))")
         if String(userAnswer) == answer {
             print("acertou!")
         } else {

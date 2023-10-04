@@ -20,6 +20,7 @@ class BoardViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     weak var datasource: BoardViewControllerDatasource?
     var sendButtonPressed = false
     var currentRow: Int = 0
+    var selectedRow: Int?
     
     // VIEW
     var boardView: BoardView!
@@ -87,14 +88,9 @@ extension BoardViewController {
         let guesses = datasource?.currentGuesses ?? []
         // Se temos uma letra
         if let letter = guesses[indexPath.section][indexPath.row] {
-            if letter == "⌫" {
-                print("apagar")
-            } else {
-                cell.configure(with: letter)
-                
-                cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
-            }
-            
+     
+        cell.configure(with: letter)
+        cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
             
         }
         return cell
@@ -117,7 +113,7 @@ extension BoardViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
     }
 
 }
