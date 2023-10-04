@@ -8,7 +8,8 @@
 import UIKit
 
 class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate {
-    
+    var isRowSent: [Bool] = Array(repeating: false, count: 6) // numberOfSections é o número total de seções na sua coleção
+
     //RESPOSTA CORRETA
     var answer: String = ""
     var hint: String = ""
@@ -182,7 +183,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let rowIndex = indexPath.section
         let count = guesses[rowIndex].compactMap({ $0 }).count
         
-        guard count == 5 else {
+        guard count == 5, isRowSent[rowIndex] else {
             return nil
         }
         
@@ -190,6 +191,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         
         guard let letter = guesses[rowIndex][indexPath.row], indexAnswer.contains(letter) else {
             return .systemGray
+            
         }
         
         if indexAnswer[indexPath.row] == letter {
@@ -210,18 +212,15 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         print("\npode preencher a \(boardVC.currentRow)")
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
-        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer))")
+        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
         if String(userAnswer) == answer {
             print("acertou!")
         } else {
             print("ainda não!")
         }
         
-        
-        
+        isRowSent[boardVC.currentRow] = true
         boardVC.currentRow += 1
-        
-        boardVC.sendButtonPressed = true
         boardVC.boardView.collectionView.reloadData()
     }
 

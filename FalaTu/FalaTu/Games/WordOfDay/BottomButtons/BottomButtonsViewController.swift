@@ -14,7 +14,6 @@ protocol GiveLetterDelegate: AnyObject {
 protocol BottomButtonsDelegate: AnyObject {
     func sendButtonPressed()
     func tipButtonPressed()
-    
 }
 
 class BottomButtonsViewController: UIViewController {

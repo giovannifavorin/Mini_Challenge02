@@ -113,7 +113,9 @@ extension BoardViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let selectedRow = indexPath.section * 5 + indexPath.row // Calcular a posição do item clicado
+        print("Clicou no item \(selectedRow + 1)")
     }
+
 
 }
