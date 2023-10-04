@@ -14,6 +14,8 @@
 		26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */; };
 		9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */; };
 		9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */; };
+		B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */; };
+		B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */; };
 		B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */; };
 		B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */; };
 		B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BA2AC36F8900A02945 /* Coordinator.swift */; };
@@ -26,9 +28,6 @@
 		B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */; };
 		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
 		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
-		B866D4EC2ACC93A500EF32AE /* DefeatViewMinigame01.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */; };
-		B866D4EE2ACC93D400EF32AE /* VictoryViewMinigame01.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */; };
-		B866D4F12ACCA67200EF32AE /* EndMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
 		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
 		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
@@ -59,6 +58,9 @@
 		26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController.swift; sourceTree = "<group>"; };
 		9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryMinigame01ViewController.swift; sourceTree = "<group>"; };
+		B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatMinigame01ViewController.swift; sourceTree = "<group>"; };
+		B801D9F82ACDDF6900693477 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -71,10 +73,6 @@
 		B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
-		B866D4E22ACC872100EF32AE /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
-		B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatViewMinigame01.swift; sourceTree = "<group>"; };
-		B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryViewMinigame01.swift; sourceTree = "<group>"; };
-		B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
@@ -282,19 +280,10 @@
 		B866D4E52ACC932300EF32AE /* End */ = {
 			isa = PBXGroup;
 			children = (
-				B866D4E62ACC933400EF32AE /* View */,
-				B866D4F02ACCA67200EF32AE /* EndMinigame01ViewController.swift */,
+				B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */,
+				B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */,
 			);
 			path = End;
-			sourceTree = "<group>";
-		};
-		B866D4E62ACC933400EF32AE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B866D4EB2ACC93A500EF32AE /* DefeatViewMinigame01.swift */,
-				B866D4ED2ACC93D400EF32AE /* VictoryViewMinigame01.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B87CA8292AC7496C00291AF8 /* Inventory */ = {
@@ -319,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
+				B801D9F82ACDDF6900693477 /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,7 +397,7 @@
 			);
 			name = FalaTu;
 			productName = FalaTu;
-			productReference = B866D4E22ACC872100EF32AE /* FalaTu.app */;
+			productReference = B801D9F82ACDDF6900693477 /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -469,15 +459,12 @@
 				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
 				D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
-				B866D4EC2ACC93A500EF32AE /* DefeatViewMinigame01.swift in Sources */,
 				B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
-				B866D4F12ACCA67200EF32AE /* EndMinigame01ViewController.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
 				B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */,
 				D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */,
-				B866D4EE2ACC93D400EF32AE /* VictoryViewMinigame01.swift in Sources */,
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
 				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
 				D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */,
@@ -492,8 +479,10 @@
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
+				B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
 				26315BEA2ABF60850048A370 /* StateModel.swift in Sources */,
+				B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
 				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
 				B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */,
@@ -627,7 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -654,7 +643,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

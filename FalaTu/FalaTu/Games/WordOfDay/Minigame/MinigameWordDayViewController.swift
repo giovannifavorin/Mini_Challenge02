@@ -203,9 +203,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             print("acabou")
             navigationController?.pushViewController(perfilViewController, animated: true)
         }
-        
     }
-
 }
 
 
