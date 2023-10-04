@@ -13,9 +13,10 @@ struct RegionModel {
 }
 
 // Função para criar estado
-func createState(name: String, numberOfItemsUnlocked: Int, wordsWithHints: [String: (String, String)]) -> StateModel {
+func createState(name: String, numberOfItemsUnlocked: Int = 0, wordsWithHints: [String: (String, String)]) -> StateModel {
     return StateModel(stateName: name, numberOfItemsUnlocked: numberOfItemsUnlocked, words: wordsWithHints)
 }
+
 
 
 // Função para criar região
@@ -26,20 +27,29 @@ func createRegion(regionName: String, statesData: [(String, Int, [String: (Strin
     return RegionModel(regionName: regionName, numOfStates: numOfStates, numOfStatesUnlocked: numOfStatesUnlocked, states: states)
 }
 
-// Devolve uma palavra aleatória com exatamente 5 caracteres, sua dica e significado
-func getRandom_Word_Hint_Meaning() -> (word: String, hint: String, meaning: String)? {
+// Devolve uma palavra aleatória com exatamente 5 caracteres, sua dica, significado E O ESTADO QUE ELA PERTENCE
+func getRandom_Word_Hint_Meaning() -> (word: String, hint: String, meaning: String, region: RegionModel)? {
     guard let randomRegion = regions_BR.randomElement(),
         let randomState = randomRegion.states.randomElement() else {
             return nil
     }
 
     if let (word, (hint, meaning)) = randomState.words.randomElement(), word.count == 5 {
-        return (word, hint, meaning)
+        return (word, hint, meaning, randomRegion)
     } else {
         return getRandom_Word_Hint_Meaning()
     }
 }
 
+
+// Incrementando pontuação para Região de palavra acertada
+func incrementRandomStateItemsUnlocked(in region: inout RegionModel) {
+    guard let randomStateIndex = region.states.indices.randomElement() else {
+        return
+    }
+    
+    region.states[randomStateIndex].numberOfItemsUnlocked += 1
+}
 
 
 
@@ -47,31 +57,31 @@ func getRandom_Word_Hint_Meaning() -> (word: String, hint: String, meaning: Stri
 let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
-        ("Amazonas", 3,
+        ("Amazonas", 0,
          ["brabo": ("legal", "significa legal"),
           "testeAM2": ("dicaAM2", "significadoAM2")]),
         
-        ("Pará", 3,
+        ("Pará", 0,
          ["testePA1": ("dicaPA1", "significadoPA1"),
           "testePA2": ("dicaPA2", "significadoPA2")]),
         
-        ("Roraima", 3,
+        ("Roraima", 0,
          ["testeRR1": ("dicaRR1", "significadoRR1"),
           "testeRR2": ("dicaRR2", "significadoRR2")]),
         
-        ("Amapá", 3,
+        ("Amapá", 0,
          ["testeAP1": ("dicaAP1", "significadoAP1"),
           "testeAP2": ("dicaAP2", "significadoAP2")]),
         
-        ("Acre", 3,
+        ("Acre", 0,
          ["testeAC1": ("dicaAC1", "significadoAC1"),
           "testeAC2": ("dicaAC2", "significadoAC2")]),
         
-        ("Tocantins", 3,
+        ("Tocantins", 0,
          ["testeTO1": ("dicaTO1", "significadoTO1"),
           "testeTO2": ("dicaTO2", "significadoTO2")]),
         
-        ("Rondônia", 3,
+        ("Rondônia", 0,
          ["testeRO1": ("dicaRO1", "significadoRO1"),
           "testeRO2": ("dicaRO2", "significadoRO2")])
     ]),

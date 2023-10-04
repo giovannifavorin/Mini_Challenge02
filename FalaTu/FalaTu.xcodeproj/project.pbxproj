@@ -62,7 +62,6 @@
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatMinigame01ViewController.swift; sourceTree = "<group>"; };
-		B801D9F82ACDDF6900693477 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -359,9 +358,9 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B866D4E52ACC932300EF32AE /* End */,
 				B8D2A5922ACB580E00C4F59A /* TopButtons */,
-				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B850DFC52ACB574B0021BAE3 /* Keyboard */,
 				B850DFC02ACB56FC0021BAE3 /* BottomButtons */,
 				B850DFBF2ACB56EB0021BAE3 /* Board */,
@@ -625,7 +624,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -652,7 +651,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
