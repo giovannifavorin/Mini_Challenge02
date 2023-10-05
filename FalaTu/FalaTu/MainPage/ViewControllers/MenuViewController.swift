@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     let buttonsHeightPercentage: CGFloat = 0.06
     
     //Proportions for logo
-    let logoWidthPercentage: CGFloat = 0.48
+    let logoWidthPercentage: CGFloat = 0.6
     let logoHeightPercentage: CGFloat = 0.058
     
     ///Imagem da logo
@@ -23,10 +23,28 @@ class MenuViewController: UIViewController {
         let logoImage = UIImage(named: "game_logo")
         let logoView = UIImageView()
         logoView.translatesAutoresizingMaskIntoConstraints = false
-        logoView.contentMode = .scaleAspectFit
+        logoView.contentMode = .scaleAspectFill
         logoView.image = logoImage
         return logoView
     }()
+    
+    
+    private lazy var frameTop: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "MolduraTop")
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    private lazy var frameBotton: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "MolduraBotton")
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     
     ///Configuração do botao de inventário
     private lazy var inventoryButton: UIButton = {
@@ -34,7 +52,7 @@ class MenuViewController: UIViewController {
         inventoryButton.translatesAutoresizingMaskIntoConstraints = false
         let inventoryButtonImage = UIImage(named: "button_library")
         inventoryButton.setImage(inventoryButtonImage, for: .normal)
-        inventoryButton.contentMode = .scaleAspectFit
+        inventoryButton.contentMode = .scaleAspectFill
         inventoryButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         inventoryButton.tag = 1
         return inventoryButton
@@ -46,7 +64,7 @@ class MenuViewController: UIViewController {
         dictionaryButton.translatesAutoresizingMaskIntoConstraints = false
         let dictionaryImage = UIImage(named: "button_dictionary")
         dictionaryButton.setImage(dictionaryImage, for: .normal)
-        dictionaryButton.contentMode = .scaleAspectFit
+        dictionaryButton.contentMode = .scaleAspectFill
         dictionaryButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         dictionaryButton.tag = 2
         return dictionaryButton
@@ -58,10 +76,19 @@ class MenuViewController: UIViewController {
         configurationButton.translatesAutoresizingMaskIntoConstraints = false
         let configurationImage = UIImage(named: "button_settings")
         configurationButton.setImage(configurationImage, for: .normal)
-        configurationButton.contentMode = .scaleAspectFit
+        configurationButton.contentMode = .scaleAspectFill
         configurationButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         configurationButton.tag = 3
         return configurationButton
+    }()
+    
+    private lazy var imagebackground: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bg_home")
+        image.alpha = 0.3
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        return image
     }()
     
     /// View que o Gustavo fez, a carrossel
@@ -90,6 +117,8 @@ class MenuViewController: UIViewController {
     private lazy var dictionaryViewController: DictionaryViewController = {
         return DictionaryViewController()
     }()
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -123,60 +152,79 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: ViewControllerModel {
     func addSubviews() {
-        view.backgroundColor = .purple
         //Adicionando a viewController
         addChild(carouselMenuComponent)
         //Adicionando as views
+        view.addSubview(imagebackground)
+        view.addSubview(frameTop)
+        view.addSubview(frameBotton)
         view.addSubview(carouselMenuComponent.view)
         view.addSubview(logoView)
         view.addSubview(inventoryButton)
-        view.addSubview(dictionaryButton)
-        view.addSubview(configurationButton)
+//        view.addSubview(dictionaryButton)
+//        view.addSubview(configurationButton)
+//        view.sendSubviewToBack(imagebackground)
     }
     
     func addStyle() {
-        // Adicione qualquer estilo necessário aqui
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     func addConstraints() {
         NSLayoutConstraint.activate([
-            //LOGO
-            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.16),
-            logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
-            logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            //frame image top
+            frameTop.topAnchor.constraint(equalTo: view.topAnchor),
+            frameTop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            frameTop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameTop.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
+            
+            //frame image Botton
+            frameBotton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            frameBotton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            frameBotton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameBotton.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
+            
+            //LOGO
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.20),
+//            logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
+            logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: logoWidthPercentage),
             logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
-            
-            //INVENTORY
-            inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
-            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.14),
-            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
-            
-            inventoryButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
-            inventoryButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: buttonsHeightPercentage),
-            
-            //DICTIONARY
-            dictionaryButton.topAnchor.constraint(equalTo:  inventoryButton.topAnchor),
-            dictionaryButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-            dictionaryButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 5),
-            
-            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-            
-            //CONFIGURATION
-            configurationButton.topAnchor.constraint(equalTo:  inventoryButton.topAnchor),
-            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-            configurationButton.trailingAnchor.constraint(equalTo: logoView.trailingAnchor),
-            
-            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
             //CAROUSEL
             carouselMenuComponent.view.topAnchor.constraint(equalTo: view.topAnchor),
             carouselMenuComponent.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             carouselMenuComponent.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             carouselMenuComponent.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            //INVENTORY
+            inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
+//            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
+//            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
+            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            inventoryButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
+            inventoryButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
+            
+//            //DICTIONARY
+//            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
+//            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
+//            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+//            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+//            
+//            //CONFIGURATION
+//            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+//            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
+//            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+//            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            
+            
         ])
     }
 }

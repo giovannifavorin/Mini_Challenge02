@@ -1,17 +1,28 @@
 {
   "images" : [
     {
-      "filename" : "game_logo.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "logoblack 1.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "logoblack.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "logowhite.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

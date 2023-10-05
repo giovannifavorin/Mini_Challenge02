@@ -89,9 +89,10 @@ extension PopUpView: ViewModel{
     
     func addContrains() {
         NSLayoutConstraint.activate([
-            backGround.bottomAnchor.constraint(equalTo: bottomAnchor),
-            backGround.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backGround.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backGround.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backGround.centerYAnchor.constraint(equalTo: centerYAnchor),
+//            backGround.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            backGround.trailingAnchor.constraint(equalTo: trailingAnchor),
             backGround.heightAnchor.constraint(equalToConstant: 167),
             backGround.widthAnchor.constraint(equalToConstant: size.width),
             
