@@ -27,10 +27,10 @@ class KeyboardViewController: UIViewController, KeyboardViewDelegate {
         view.addSubview(keyboardView)
         
         NSLayoutConstraint.activate([
-            keyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            keyboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            keyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             keyboardView.topAnchor.constraint(equalTo: view.topAnchor),
-            keyboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 30)
+            keyboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 

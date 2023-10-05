@@ -32,6 +32,16 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     // Derrota
     let defeatVC = DefeatMinigame01ViewController()
     
+    // Background - padrão sem cores
+    private lazy var imagebackground: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bg_home")
+        image.alpha = 0.1
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
     // VARIÁVEIS PARA CONTROLAR TEMPO
     var startTime: Date?
     var endTime: Date?
@@ -60,6 +70,12 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
 extension MinigameWordDayViewController: ViewControllerModel {
     func addConstraints() {
         NSLayoutConstraint.activate([
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             // Top Buttons
             topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -80,11 +96,14 @@ extension MinigameWordDayViewController: ViewControllerModel {
             keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 20),
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10)
         ])
     }
     
     func addSubviews() {
+        // Background
+        view.addSubview(imagebackground)
+        
         // Botões de cima (3)
         addChild(topButtonsVC)
         view.addSubview(topButtonsVC.view)
@@ -113,10 +132,6 @@ extension MinigameWordDayViewController: ViewControllerModel {
     
     func addStyle() {
          view.backgroundColor = UIColor(named: "backgroundColor")
-//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-//        backgroundImage.image = UIImage(named: "pattern")
-//        backgroundImage.contentMode = .scaleAspectFill
-//        view.insertSubview(backgroundImage, at: 0)
     }
 }
 

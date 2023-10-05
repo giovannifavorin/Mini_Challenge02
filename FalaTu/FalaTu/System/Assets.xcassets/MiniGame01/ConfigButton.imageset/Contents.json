@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ConfigButton.png",
+      "filename" : "config_button.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

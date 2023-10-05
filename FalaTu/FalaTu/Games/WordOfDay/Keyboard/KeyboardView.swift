@@ -65,30 +65,35 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         }
         let letter = keys[indexPath.section][indexPath.row]
         cell.configure(with: letter)
-        cell.configureStyle(cornerRadius: 8)
+        cell.configureStyle(cornerRadius: 4)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let margin: CGFloat = 20
-        let size: CGFloat = (collectionView.frame.size.width - margin) / 10
-        return CGSize(width: size, height: size * 1.2)
+        let margin: CGFloat = 30
+        let screenWidth = collectionView.frame.size.width
+        let cellWidth = (screenWidth - margin) / 12
+        return CGSize(width: cellWidth, height: cellWidth * 1.5)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        var left: CGFloat = 1
-        var right: CGFloat = 1
 
-        let margin: CGFloat = 20
-        let size: CGFloat = (collectionView.frame.size.width - margin) / 10
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        var left: CGFloat = 2
+        var right: CGFloat = 2
+
+        let margin: CGFloat = 30
+        let size: CGFloat = (collectionView.frame.size.width-margin)/12
         let count: CGFloat = CGFloat(collectionView.numberOfItems(inSection: section))
-        let inset: CGFloat = (collectionView.frame.size.width - (size * count) - (2 * count)) / 2
+
+        let inset: CGFloat = (collectionView.frame.size.width - (size * count) - (2 * count))/2
 
         left = inset
         right = inset
 
-        return UIEdgeInsets(top: 2, left: left, bottom: 2, right: right)
+        return UIEdgeInsets(top: 4, left: left, bottom: 4, right: right)
     }
+
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)

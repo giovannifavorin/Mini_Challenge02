@@ -18,7 +18,7 @@ class TopButtonsViewController: UIViewController {
 
     @objc private func exitButtonAction(sender: UIButton) {
         print("Sair")
-        navigationController?.pushViewController(MenuViewController(), animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     @objc private func tutorialButtonAction(sender: UIButton) {
