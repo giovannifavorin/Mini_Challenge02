@@ -28,6 +28,8 @@
 		B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFC82ACB57780021BAE3 /* KeyboardViewController.swift */; };
 		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
 		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
+		B85802482ACF35380063C7BA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B85802472ACF35380063C7BA /* SnapKit */; };
+		B858024A2ACF35380063C7BA /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B85802492ACF35380063C7BA /* SnapKit-Dynamic */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
 		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
 		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
@@ -60,7 +62,7 @@
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatMinigame01ViewController.swift; sourceTree = "<group>"; };
-		B801D9F82ACDDF6900693477 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B801D9F82ACDDF6900693477 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -101,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85802482ACF35380063C7BA /* SnapKit in Frameworks */,
+				B858024A2ACF35380063C7BA /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
-				B801D9F82ACDDF6900693477 /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,6 +399,10 @@
 			dependencies = (
 			);
 			name = FalaTu;
+			packageProductDependencies = (
+				B85802472ACF35380063C7BA /* SnapKit */,
+				B85802492ACF35380063C7BA /* SnapKit-Dynamic */,
+			);
 			productName = FalaTu;
 			productReference = B801D9F82ACDDF6900693477 /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
@@ -424,6 +431,9 @@
 				Base,
 			);
 			mainGroup = D9691C162AB8C79E00A908E8;
+			packageReferences = (
+				B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D9691C162AB8C79E00A908E8;
 			projectDirPath = "";
 			projectRoot = "";
@@ -685,6 +695,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B85802472ACF35380063C7BA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B85802492ACF35380063C7BA /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */ = {
