@@ -44,6 +44,9 @@ class UserInformationView: UIView {
     
     private lazy var viewOffensive: ModeRagingView = {
         let view = ModeRagingView()
+        var dicioShow = CoreDataManager()
+        var offensiveShow = dicioShow.perfis()
+        offensiveShow.first?.ofensiva
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
@@ -53,6 +56,9 @@ class UserInformationView: UIView {
     
     private lazy var viewWords: ModeRagingView = {
         let view = ModeRagingView()
+        var dicioShow = CoreDataManager()
+        var palavrasShow = dicioShow.perfis()
+        palavrasShow.first?.palavras
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
@@ -63,6 +69,9 @@ class UserInformationView: UIView {
     
     private lazy var viewTotalGames: ModeRagingView = {
         let view = ModeRagingView()
+        var dicioShow = CoreDataManager()
+        var totalGameShow = dicioShow.perfis()
+        totalGameShow.first?.jogostotais
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
