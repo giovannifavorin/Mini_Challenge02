@@ -22,7 +22,7 @@ class MenuColletionView: UIView {
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: width*0.6, height: width*0.6)
+        layout.itemSize = .init(width: width*0.60, height: width*0.63)
 //        layout.minimumLineSpacing = 21
         layout.sectionInset = UIEdgeInsets(top: 10, left: width/5, bottom: 0, right: width/5)
       
@@ -125,20 +125,6 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
         self.delegate?.didButton(tag: indexPath.row)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        let screenWidth = bounds.width
-//        let cellWidth = screenWidth * 0.8
-//        let cellHeight: CGFloat = 260
-//        return CGSize(width: cellWidth, height: cellHeight)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        let horizontalPadding: CGFloat = 100
-////        let verticalPadding: CGFloat = 16.0
-//
-//        return UIEdgeInsets(top: 0, left: horizontalPadding, bottom: 0, right: horizontalPadding)
-//    }
     
     
 //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
