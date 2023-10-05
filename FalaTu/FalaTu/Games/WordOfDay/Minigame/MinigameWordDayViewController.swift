@@ -14,6 +14,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     var answer: String = ""
     var hint: String = ""
     var meaning: String = ""
+    var answer_region: RegionModel!
     
     // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
@@ -26,20 +27,15 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     let keyboard = KeyboardView()
     // Quadro central
     let boardVC = BoardViewController()
+    // Vitória
+    let victoryVC = VictoryMinigame01ViewController()
+    // Derrota
+    let defeatVC = DefeatMinigame01ViewController()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    private lazy var perfilViewController: PerfilViewController = {
-        return PerfilViewController()
-    }()
+    // VARIÁVEIS PARA CONTROLAR TEMPO
+    var startTime: Date?
+    var endTime: Date?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +47,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
             answer = random_Word_Hint_Meaning.word
             hint = random_Word_Hint_Meaning.hint
             meaning = random_Word_Hint_Meaning.meaning
+            answer_region = random_Word_Hint_Meaning.region
             print("Palavra: \(answer), significado: \(meaning)")
         } else {
             answer = "error"
@@ -126,6 +123,9 @@ extension MinigameWordDayViewController: ViewControllerModel {
 // PREENCHER TECLADO =========================================================================
 extension MinigameWordDayViewController: KeyboardViewDelegate {
     func keyTapped(_ letter: Character) {
+        if startTime == nil {
+            startTime = Date() // registrando o tempo quando o usuário começar a digitar
+        }
         // Permitir a entrada de letras na primeira linha sempre
         if boardVC.currentRow == 0 {
             handleLetterInput(letter, inRow: 0)
@@ -220,13 +220,27 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
         print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
+        
         // SE ACERTAR A PALAVRA
         if String(userAnswer) == answer {
-            navigationController?.pushViewController(perfilViewController, animated: true)
+            endTime = Date() // Registra o tempo quando o usuário acertar a palavra
+            let timeElapsed = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
+            print("tempo total: \(timeElapsed) segundos")
+            for state in answer_region.states {
+                print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
+            }
+            incrementRandomStateItemsUnlocked(in: &answer_region)
             
+            for state in answer_region.states {
+                print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
+            }
+            
+            
+            
+            navigationController?.pushViewController(victoryVC, animated: true)
         // SE NÃO
         } else {
-            print("ainda não!")
+            print("não acertou a resposta ainda")
         }
         
         isRowSent[boardVC.currentRow] = true
