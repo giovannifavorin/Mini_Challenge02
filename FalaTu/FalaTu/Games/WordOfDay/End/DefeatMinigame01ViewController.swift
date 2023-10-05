@@ -139,92 +139,45 @@ class DefeatMinigame01ViewController: UIViewController {
         scoreBox.addSubview(timeLabel)
         scoreBox2.addSubview(regionLabel)
         
-        background.snp.makeConstraints { make in
+        background.snp.makeConstraints { make in /*PLANO DE FUNDO*/
             make.edges.equalToSuperview()
         }
         
-        buttonStackView.snp.makeConstraints { make in
+        buttonStackView.snp.makeConstraints { make in /*BOTÕES*/
             make.height.equalTo(60)
             make.top.equalTo(scoreBoardBackground.snp.bottom).offset(60)
             make.left.right.equalToSuperview().inset(60)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        scoreBoardBackground.snp.makeConstraints { make in
+        scoreBoardBackground.snp.makeConstraints { make in /*PLACAR*/
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.right.left.equalToSuperview().inset(10)
         }
         
-        labelStackView.snp.makeConstraints { make in
+        labelStackView.snp.makeConstraints { make in /*TÍTULO LABEL*/
             make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         
-        scoreBox.snp.makeConstraints { make in
+        scoreBox.snp.makeConstraints { make in /*SCORE BOX*/
             make.top.equalToSuperview().offset(250)
             make.left.equalTo(scoreBoardBackground.snp.left).offset(50)
         }
         
-        scoreBox2.snp.makeConstraints { make in
+        scoreBox2.snp.makeConstraints { make in /*SCORE BOX*/
             make.top.equalToSuperview().offset(250)
             make.right.equalTo(scoreBoardBackground.snp.right).offset(-50)
         }
         
-        timeLabel.snp.makeConstraints { make in
+        timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
             make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
         }
         
-        regionLabel.snp.makeConstraints { make in
+        regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
             make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
         }
-        
-        //        containerStackView.snp.makeConstraints { make in
-        //            make.center.equalToSuperview()
-        //            make.edges.equalToSuperview().inset(40)
-        //        }
-        
-        //        labelStackView.addArrangedSubview(lostLabelTitle)
-        //        labelStackView.addArrangedSubview(lostLabelBody)
-        
-        
-        // Adicione a UIImageView à hierarquia de visualização
-        //
-        //
-        //        scoreBoardBackground.addSubview(labelStackView)
-        
-        //
-        //        view.addSubview(regionLabel)
-        
-        // Configure as restrições para preencher a tela inteira
-        //        NSLayoutConstraint.activate([
-        //            background.topAnchor.constraint(equalTo: view.topAnchor),
-        //            background.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        //            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        //            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        
-        //            scoreBoardBackground.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        //            scoreBoardBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 1),
-        //            scoreBoardBackground.bottomAnchor.constraint(equalTo: buttonStackView.topAnchor, constant: -20),
-        
-        //            labelStackView.topAnchor.constraint(equalTo: scoreBoardBackground.topAnchor, constant: 85),
-        //            labelStackView.centerXAnchor.constraint(equalTo: scoreBoardBackground.centerXAnchor),
-        //
-        
-        //            labelStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        //            labelStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        //            timeLabel.widthAnchor.constraint(equalToConstant: 10)
-        //            timeLabel.topAnchor.constraint(equalTo: scoreBoardBackground.topAnchor, constant: 10),
-        //            timeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 54),
-        //            timeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -223),
-        //            timeLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -250),
-        //
-        //            buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-        //            buttonStackView.centerXAnchor.constraint(equalTo: scoreBoardBackground.centerXAnchor),
-        //            buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -88),
-        
-        //        ])
     }
-    
 }
