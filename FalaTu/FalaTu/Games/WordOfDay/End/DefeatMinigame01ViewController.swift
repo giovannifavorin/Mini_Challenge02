@@ -50,9 +50,23 @@ class DefeatMinigame01ViewController: UIViewController {
         return label
     }()
     
+    private lazy var scoreBox: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "box_score")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    private lazy var scoreBox2: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "box_score")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     private lazy var scoreBoardBackground: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "DefeatScoreboard")
+        image.image = UIImage(named: "scoreboardDefeat")
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -90,13 +104,6 @@ class DefeatMinigame01ViewController: UIViewController {
         return stackView
     }()
     
-    //    private lazy var containerStackView: UIStackView = {
-    //        let container = UIStackView()
-    //        container.axis = .vertical
-    //        container.spacing = 30
-    //        return container
-    //    }()
-    
     @objc private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
@@ -116,34 +123,27 @@ class DefeatMinigame01ViewController: UIViewController {
         // Adicione os botões à stack view
         buttonStackView.addArrangedSubview(shareButton)
         buttonStackView.addArrangedSubview(backButton)
-        let containerView = UIView()
-        containerView.backgroundColor = .red
         
-        //        containerStackView.addArrangedSubview(scoreBoardBackground)
-        //        containerStackView.addArrangedSubview(buttonStackView)
+        labelStackView.addArrangedSubview(lostLabelTitle)
+        labelStackView.addArrangedSubview(lostLabelBody)
         
         view.addSubview(background)
         view.addSubview(scoreBoardBackground)
         view.addSubview(buttonStackView)
         
-        labelStackView.addArrangedSubview(lostLabelTitle)
-        labelStackView.addArrangedSubview(lostLabelBody)
-        
-        //        containerView.addSubview(scoreBoardBackground)
-        //        containerView.addSubview(buttonStackView)
-        
         scoreBoardBackground.addSubview(labelStackView)
+        
+        scoreBoardBackground.addSubview(scoreBox)
+        scoreBoardBackground.addSubview(scoreBox2)
+        
+        scoreBox.addSubview(timeLabel)
+        scoreBox2.addSubview(regionLabel)
         
         background.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        //        containerView.snp.makeConstraints { make in
-        //            make.edges.equalToSuperview()
-        //        }
-        
         buttonStackView.snp.makeConstraints { make in
-            //            make.bottom.equalToSuperview()
             make.height.equalTo(60)
             make.top.equalTo(scoreBoardBackground.snp.bottom).offset(60)
             make.left.right.equalToSuperview().inset(60)
@@ -151,13 +151,32 @@ class DefeatMinigame01ViewController: UIViewController {
         }
         
         scoreBoardBackground.snp.makeConstraints { make in
-            //            make.bottom.equalToSuperview().offset(60)
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.right.left.equalToSuperview().inset(10)
         }
         
         labelStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(60)
+            make.centerX.equalToSuperview()
+        }
+        
+        scoreBox.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(250)
+            make.left.equalTo(scoreBoardBackground.snp.left).offset(50)
+        }
+        
+        scoreBox2.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(250)
+            make.right.equalTo(scoreBoardBackground.snp.right).offset(-50)
+        }
+        
+        timeLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.centerX.equalToSuperview()
+        }
+        
+        regionLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
         }
         
