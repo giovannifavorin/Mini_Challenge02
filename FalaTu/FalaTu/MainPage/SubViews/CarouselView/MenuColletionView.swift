@@ -9,14 +9,11 @@ import UIKit
 
 class MenuColletionView: UIView {
 
-    // Get the width and height of the screen
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.width
     
-    // Delegate to handle button taps
     weak var delegate: DelegatebuttonColletionViewModel?
-    
-    // Data source for the collection view
+
     private var menuDataModel = [MenuDataModel]()
     
     // Collection view for displaying menu items
@@ -24,9 +21,11 @@ class MenuColletionView: UIView {
         
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: width, height: (height/2) + 125)
-        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        layout.itemSize = .init(width: width*0.6, height: width*0.6)
+//        layout.minimumLineSpacing = 21
+        layout.sectionInset = UIEdgeInsets(top: 10, left: width/5, bottom: 0, right: width/5)
+      
         
         // Create the collection view
         let colletion = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -36,7 +35,18 @@ class MenuColletionView: UIView {
         colletion.dataSource = self
         colletion.translatesAutoresizingMaskIntoConstraints = false
         colletion.isPagingEnabled = true
+        colletion.showsHorizontalScrollIndicator = false
         return colletion
+    }()
+    
+    private lazy var pageControl: UIPageControl = {
+        let page = UIPageControl()
+        page.numberOfPages = 2
+        page.currentPageIndicatorTintColor = UIColor(named: "PageControlColor")
+        page.pageIndicatorTintColor = UIColor(named: "PageControlColor")
+        page.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        page.translatesAutoresizingMaskIntoConstraints = false
+        return page
     }()
     
     // Initializer
@@ -61,19 +71,21 @@ extension MenuColletionView: ViewModel {
     
     // Define constraints for the collection view
     func addContrains() {
-        print("Collection width: \(width)")
-        print("Collection height: \(height)")
+
         NSLayoutConstraint.activate([
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: (height/2) + 135)
+            collectionView.heightAnchor.constraint(equalToConstant: width*0.6),
+            
+//            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor)
         ])
     }
     
-    // Configure the view's style
+
     func setupStyle() {
-        // Set background color or other styling if needed
+
     }
     
     // Configure the collection view with data
@@ -102,16 +114,56 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
             fatalError("Error in MenuColletionView")
         }
         
-        // Retrieve data for the cell
         let image = menuDataModel[indexPath.row].image
-        let text = menuDataModel[indexPath.row].text
-        let tag = indexPath.row
-        
-        // Set the delegate and configure the cell
-        cell.delegateButton = self.delegate
-        cell.configure(with: image, and: text, and: tag)
+
+        cell.configure(with: image)
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.didButton(tag: indexPath.row)
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        let screenWidth = bounds.width
+//        let cellWidth = screenWidth * 0.8
+//        let cellHeight: CGFloat = 260
+//        return CGSize(width: cellWidth, height: cellHeight)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        let horizontalPadding: CGFloat = 100
+////        let verticalPadding: CGFloat = 16.0
+//
+//        return UIEdgeInsets(top: 0, left: horizontalPadding, bottom: 0, right: horizontalPadding)
+//    }
+    
+    
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        let width = collectionView.frame.width
+//        let contentOffsetX = collectionView.contentOffset.x
+//
+//        // Verifique se contentOffsetX é um valor finito
+//        if contentOffsetX.isFinite {
+//            let currentPage = Int((contentOffsetX + width / 2) / width)
+//            
+//            // Atualize o currentPage do pageControl
+//            pageControl.currentPage = currentPage
+//            
+//            // Aplicar animação de escala apenas ao currentPage
+//            for (index, dotView) in pageControl.subviews.enumerated() {
+//                if index == currentPage {
+//                    UIView.animate(withDuration: 0.2) {
+//                        dotView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2) // Aumenta o tamanho temporariamente
+//                    } completion: { _ in
+//                        UIView.animate(withDuration: 0.2) {
+//                            dotView.transform = .identity // Retorna ao tamanho original
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
-

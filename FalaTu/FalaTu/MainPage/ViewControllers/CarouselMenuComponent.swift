@@ -39,8 +39,8 @@ extension CarouselMenuComponent: ViewControllerModel {
     func addSubviews() {
         
         // Append data to 'menuModel' to populate the collection view
-        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Word of the Day"))
-        menuModel.append(.init(image: UIImage(named: "asset")!, text: "Multiplayer"))
+        menuModel.append(.init(image: UIImage(named: "asset")!))
+//        menuModel.append(.init(image: UIImage(named: "asset")!))
 
         
         // Configure the 'menuColletion' view with 'menuModel' data
@@ -70,7 +70,7 @@ extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
             case 0:
                 // Navigate to 'MinigameWordDayViewController' when tag is 0
                 let minigameWordDay = MinigameWordDayViewController()
-                navigationController?.pushViewController(minigameWordDay, animated: true)
+                navigationController?.pushViewController(minigameWordDay, animated: false)
             
             case 1:
                 // Navigate to 'MultiplayerViewController' when tag is 1
