@@ -42,7 +42,7 @@ class CoreDataManager {
                 return person
             }else{
                 let perfil = Perfil(context: self.context)
-                CoreDataManager.saveContext()
+                saveContext()
                 return perfil
             }
         }catch {
@@ -56,25 +56,25 @@ class CoreDataManager {
         newPerson.nome = "Carros 2"
         newPerson.regiao = "RegiÃ£o: Norte"
         
-        CoreDataManager.saveContext()
+        saveContext()
     }
     
     func updateNamePerfil(name: String){
         let perfil = fetchPerfil()
         perfil.nome = name
-        CoreDataManager.saveContext()
+        saveContext()
     }
     
     func updateRegionPerfil(region: String){
         let perfil = fetchPerfil()
         perfil.regiao = region
-        CoreDataManager.saveContext()
+        saveContext()
     }
     
     // MARK: - Core Data Saving support
 
-     static func saveContext () {
-        let context = persistentContainer.viewContext
+    func saveContext () {
+        let context = CoreDataManager.persistentContainer.viewContext
          
         if context.hasChanges {
             do {
@@ -87,7 +87,7 @@ class CoreDataManager {
     }
     
     func perfil(nome: String, regiao: String, palavras: Int64, ofensiva: Int64, jogostotais: Int64, id: UUID) -> Perfil{
-        let perfil = Perfil(context: persistentContainer.viewContext)
+        let perfil = Perfil(context: CoreDataManager.persistentContainer.viewContext)
         perfil.nome = nome
         perfil.regiao = regiao
         perfil.palavras = palavras
@@ -98,7 +98,7 @@ class CoreDataManager {
     }
     
     func dicionario(titulo: String, regiao: String, descricao: String, id: UUID) -> Dicionario{
-        let dicionario = Dicionario(context: persistentContainer.viewContext)
+        let dicionario = Dicionario(context: CoreDataManager.persistentContainer.viewContext)
         dicionario.titulo = titulo
         dicionario.regiao = regiao
         dicionario.descricao = descricao
@@ -111,7 +111,7 @@ class CoreDataManager {
         
         do{
             fetchedPerfis = try
-            persistentContainer.viewContext.fetch(request)
+            CoreDataManager.persistentContainer.viewContext.fetch(request)
         } catch let error {
             print("Error fetching profiles \(error)")
         }
@@ -126,7 +126,7 @@ class CoreDataManager {
         var fetchedDicionarios: [Dicionario] = []
         
         do{
-            fetchedDicionarios = try persistentContainer.viewContext.fetch(request)
+            fetchedDicionarios = try CoreDataManager.persistentContainer.viewContext.fetch(request)
         } catch let error{
             print("Error fetching \(error)")
         }
@@ -135,13 +135,13 @@ class CoreDataManager {
     }
     
     func deleteDicio(dicionario: Dicionario){
-        let context = persistentContainer.viewContext
+        let context = CoreDataManager.persistentContainer.viewContext
         context.delete(dicionario)
         saveContext()
     }
     
     func deletePerfil(perfil: Perfil){
-        let context = persistentContainer.viewContext
+        let context = CoreDataManager.persistentContainer.viewContext
         context.delete(perfil)
         saveContext()
     }
