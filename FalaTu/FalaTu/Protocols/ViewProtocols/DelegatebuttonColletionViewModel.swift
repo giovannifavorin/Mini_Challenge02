@@ -13,16 +13,21 @@ protocol DelegatebuttonColletionViewModel: AnyObject{
     func didButton(tag: Int)
 }
 
-//protocol DelegateButtonPerfil: AnyObject{
-//    func didButton()
-//}
-
-
 protocol DelegateUserPreferences: AnyObject{
-    func configureRegionLabel(region: String)
+    func configureNamePerfil(name: String)
+    func presentPopUP(index: IndexPath)
+    func changeImage()
+}
+
+protocol DelegatePopUpView: AnyObject{
+    func didButon(tag: Int)
+}
+
+protocol DelegateUpdateInButtonPerfil: AnyObject{
+    func updateName(name: String)
+    func updateImage()
 }
 
 protocol DelegatePopUPhint: AnyObject{
     func didButton()
 }
-
