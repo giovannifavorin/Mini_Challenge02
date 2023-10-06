@@ -58,6 +58,7 @@
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */; };
 		D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */; };
+		D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FAB2742AD09E8A00F1658C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,13 +106,14 @@
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D9691C302AB8C79F00A908E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		D96BEF9A2AD090DB007CF2EA /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/gustavohorestee/Documents/Mini02-29:08/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewHintGame.swift; sourceTree = "<group>"; };
 		D989DD832AC7073F00C282AB /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
 		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
+		D9FAB2732AD09E7E00F1658C /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FAB2742AD09E8A00F1658C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
+				D9FAB2732AD09E7E00F1658C /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -389,6 +392,7 @@
 			children = (
 				D9691C222AB8C79E00A908E8 /* AppDelegate.swift */,
 				D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */,
+				D9FAB2742AD09E8A00F1658C /* Assets.xcassets */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -445,7 +449,7 @@
 				B85802492ACF35380063C7BA /* SnapKit-Dynamic */,
 			);
 			productName = FalaTu;
-			productReference = D96BEF9A2AD090DB007CF2EA /* FalaTu.app */;
+			productReference = D9FAB2732AD09E7E00F1658C /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -489,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
