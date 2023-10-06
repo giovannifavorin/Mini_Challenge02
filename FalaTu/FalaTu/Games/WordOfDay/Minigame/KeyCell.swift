@@ -18,19 +18,10 @@ class KeyCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    }
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
-        backgroundColor = .white
         
         contentView.addSubview(label)
         NSLayoutConstraint.activate([

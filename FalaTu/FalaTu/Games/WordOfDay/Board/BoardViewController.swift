@@ -81,16 +81,16 @@ extension BoardViewController {
         }
         
         cell.layer.cornerRadius = 4
-        cell.layer.borderWidth = 3
+        cell.layer.borderWidth = 2.5
         cell.layer.borderColor = UIColor.systemGray.cgColor // cor da borda do quadrado
-        cell.backgroundColor = .systemGray5
+        cell.backgroundColor = UIColor(named: "backgroundColor")
         
         let guesses = datasource?.currentGuesses ?? []
         // Se temos uma letra
         if let letter = guesses[indexPath.section][indexPath.row] {
-     
-        cell.configure(with: letter)
-        cell.backgroundColor = datasource?.boxColor(at: indexPath) // cor de fundo do quadrado
+            let defaultBoxColor = UIColor(named: "backgroundColor") // cor dos quadrados enquanto digita antes de confirmar
+            cell.configure(with: letter)
+            cell.backgroundColor = datasource?.boxColor(at: indexPath) ?? defaultBoxColor // cor de fundo do quadrado
             
         }
         return cell
@@ -113,8 +113,7 @@ extension BoardViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedRow = indexPath.section * 5 + indexPath.row // Calcular a posição do item clicado
-        print("Clicou no item \(selectedRow + 1)")
+ 
     }
 
 

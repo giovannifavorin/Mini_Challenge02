@@ -93,10 +93,10 @@ extension MinigameWordDayViewController: ViewControllerModel {
             bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             // Keyboard
-            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 20),
+            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 30),
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10)
+            keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -201,7 +201,6 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     
     
     func boxColor(at indexPath: IndexPath) -> UIColor? {
-        
         let rowIndex = indexPath.section
         let count = guesses[rowIndex].compactMap({ $0 }).count
         
@@ -230,38 +229,40 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             print("o que está sendo preenchido: \(guesses[boardVC.currentRow].compactMap({ $0 })) ")
             return
         }
-        // Adicione uma nova tupla para a próxima linha antes de incrementar currentRow
-        print("\npode preencher a \(boardVC.currentRow)")
+
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
-        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
-        
-        // SE ACERTAR A PALAVRA
         if String(userAnswer) == answer {
-            endTime = Date() // Registra o tempo quando o usuário acertar a palavra
+            // Se o jogador acertar a resposta
+            endTime = Date()
             let timeElapsed = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
             print("tempo total: \(timeElapsed) segundos")
-            for state in answer_region.states {
-                print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
-            }
+            
             incrementRandomStateItemsUnlocked(in: &answer_region)
             
             for state in answer_region.states {
                 print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
             }
-            
-            
-            
-            navigationController?.pushViewController(victoryVC, animated: true)
-        // SE NÃO
+            // Chama view de vitória
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.navigationController?.pushViewController(self.victoryVC, animated: true)
+//            }
+            // navigationController?.pushViewController(victoryVC, animated: true)
         } else {
-            print("não acertou a resposta ainda")
+            // Se o jogador não acertar a resposta
+            isRowSent[boardVC.currentRow] = true
+            boardVC.currentRow += 1
+            boardVC.boardView.collectionView.reloadData()
+            
+            if boardVC.currentRow >= guesses.count {
+                // Se o jogador não acertar após 6 tentativas
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.navigationController?.pushViewController(self.defeatVC, animated: true)
+                }
+            }
         }
-        
-        isRowSent[boardVC.currentRow] = true
-        boardVC.currentRow += 1
-        boardVC.boardView.collectionView.reloadData()
     }
+
 }
 
 

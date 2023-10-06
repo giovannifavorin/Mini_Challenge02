@@ -7,21 +7,27 @@
 
     import UIKit
 
-    class InventoryViewController: UIViewController {
+class InventoryViewController: UIViewController {
 
-        // Selected Region
-        var selectedRegion: RegionModel!
-        
+    // Selected Region
+    var selectedRegion: RegionModel!
+    
+    // Background - padrão sem cores
+    private lazy var imagebackground: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bg_home")
+        image.alpha = 0.1
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        selectedRegion = regions_BR [0]
         // Cor de fundo da view Inventário
-        view.backgroundColor = .systemBackground
-        
+        view.backgroundColor = UIColor(named: "backgroundColor")
 
-        
-    
         setupUI()
     }
 
@@ -30,6 +36,9 @@
     extension InventoryViewController {
         
     private func setupUI() {
+        //Background
+        view.addSubview(imagebackground)
+        
     // Título "INVENTÁRIO"
     let inventoryTitleLabel = UILabel()
     inventoryTitleLabel.text = "INVENTÁRIO"
@@ -105,6 +114,8 @@
     scrollView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
+            
+            
             inventoryTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             inventoryTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 

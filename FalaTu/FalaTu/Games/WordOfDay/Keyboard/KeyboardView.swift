@@ -19,7 +19,7 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 2
+        layout.minimumInteritemSpacing = 3
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(KeyCell.self, forCellWithReuseIdentifier: KeyCell.identifier)
@@ -66,11 +66,12 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         let letter = keys[indexPath.section][indexPath.row]
         cell.configure(with: letter)
         cell.configureStyle(cornerRadius: 4)
+        
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let margin: CGFloat = 30
+        let margin: CGFloat = 20
         let screenWidth = collectionView.frame.size.width
         let cellWidth = (screenWidth - margin) / 12
         return CGSize(width: cellWidth, height: cellWidth * 1.5)
@@ -79,11 +80,11 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        var left: CGFloat = 2
-        var right: CGFloat = 2
+        var left: CGFloat = 1
+        var right: CGFloat = 1
 
-        let margin: CGFloat = 30
-        let size: CGFloat = (collectionView.frame.size.width-margin)/12
+        let margin: CGFloat = 20
+        let size: CGFloat = (collectionView.frame.size.width-margin) / 11
         let count: CGFloat = CGFloat(collectionView.numberOfItems(inSection: section))
 
         let inset: CGFloat = (collectionView.frame.size.width - (size * count) - (2 * count))/2

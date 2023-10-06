@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2618337E2ACF65A80035F72A /* RegiaoNorteMapaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */; };
+		261833802ACF668C0035F72A /* MapaDivisoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */; };
+		261833822AD077E90035F72A /* RegionSelectionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261833812AD077E90035F72A /* RegionSelectionViewController2.swift */; };
 		26315BE62ABE29240048A370 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE52ABE29240048A370 /* InventoryView.swift */; };
 		26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE72ABE296A0048A370 /* InventoryViewController.swift */; };
 		26315BEA2ABF60850048A370 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* StateModel.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiaoNorteMapaView.swift; sourceTree = "<group>"; };
+		2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaDivisoesView.swift; sourceTree = "<group>"; };
+		261833812AD077E90035F72A /* RegionSelectionViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController2.swift; sourceTree = "<group>"; };
 		26315BE52ABE29240048A370 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		26315BE72ABE296A0048A370 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		26315BE92ABF60850048A370 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
@@ -189,6 +195,9 @@
 			children = (
 				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
 				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
+				261833812AD077E90035F72A /* RegionSelectionViewController2.swift */,
+				2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */,
+				2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -473,6 +482,8 @@
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
 				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
 				D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */,
+				261833802ACF668C0035F72A /* MapaDivisoesView.swift in Sources */,
+				261833822AD077E90035F72A /* RegionSelectionViewController2.swift in Sources */,
 				B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
 				B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */,
@@ -504,6 +515,7 @@
 				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
 				B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
+				2618337E2ACF65A80035F72A /* RegiaoNorteMapaView.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
 			);
