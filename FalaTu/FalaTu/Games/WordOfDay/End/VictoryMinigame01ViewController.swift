@@ -91,7 +91,7 @@ class VictoryMinigame01ViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "button_backmenu"), for: .normal)
         button.contentMode = .scaleAspectFill
-        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showSimpleModal), for: .touchUpInside)
         button.tag = 2
         return button
     }()
@@ -120,6 +120,12 @@ class VictoryMinigame01ViewController: UIViewController {
         default:
             return
         }
+    }
+    
+    @IBAction func showSimpleModal(_ sender: Any) {
+        let modalVC = ModalViewController()
+        modalVC.modalPresentationStyle = .overFullScreen // Define o estilo de apresentação da modal
+        present(modalVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
