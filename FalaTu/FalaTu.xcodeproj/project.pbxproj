@@ -17,6 +17,16 @@
 		B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */; };
 		B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */; };
 		B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */; };
+		B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF292AD07832005D5A5E /* AvatarColletionView.swift */; };
+		B808EF2C2AD07851005D5A5E /* FileCustonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */; };
+		B808EF2E2AD0786F005D5A5E /* ModeRagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */; };
+		B8368E172AD078A100C38E83 /* PerfilMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E162AD078A100C38E83 /* PerfilMainView.swift */; };
+		B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */; };
+		B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */; };
+		B8368E222AD0832F00C38E83 /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E212AD0832F00C38E83 /* UserInformationView.swift */; };
+		B8368E242AD0836200C38E83 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E232AD0836200C38E83 /* PerfilViewController.swift */; };
+		B8368E262AD0838A00C38E83 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E252AD0838A00C38E83 /* UserDefaults.swift */; };
+		B8368E282AD086E500C38E83 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E272AD086E500C38E83 /* PopUpViewController.swift */; };
 		B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */; };
 		B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BA2AC36F8900A02945 /* Coordinator.swift */; };
 		B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */; };
@@ -36,23 +46,19 @@
 		B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */; };
 		B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */; };
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
-		B8D6DF332ACF2656009B08A9 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF312ACF2656009B08A9 /* PopUpView.swift */; };
 		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
 		D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */; };
-		D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */; };
 		D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */; };
-		D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */; };
+		D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */; };
 		D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D989DD832AC7073F00C282AB /* CoreDataManeger.swift */; };
 		D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */; };
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */; };
 		D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */; };
-		D9CAC3992AC362F200D2063C /* PerfilMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC3982AC362F200D2063C /* PerfilMainView.swift */; };
-		D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */; };
-		D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CAC39E2AC36BEB00D2063C /* UserInformationView.swift */; };
+		D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FAB2742AD09E8A00F1658C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +72,16 @@
 		B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B808EF292AD07832005D5A5E /* AvatarColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColletionView.swift; sourceTree = "<group>"; };
+		B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCustonButton.swift; sourceTree = "<group>"; };
+		B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeRagingView.swift; sourceTree = "<group>"; };
+		B8368E162AD078A100C38E83 /* PerfilMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilMainView.swift; sourceTree = "<group>"; };
+		B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewPerfilImage.swift; sourceTree = "<group>"; };
+		B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8368E212AD0832F00C38E83 /* UserInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
+		B8368E232AD0836200C38E83 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		B8368E252AD0838A00C38E83 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		B8368E272AD086E500C38E83 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		B83FA81D2AC61F7600722C97 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		B84E50BA2AC36F8900A02945 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B84E50BC2AC36F9800A02945 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -83,25 +99,21 @@
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
-		B8D6DF312ACF2656009B08A9 /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
-		D93DF1022ACC896E00FDA198 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9691C302AB8C79F00A908E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeRagingView.swift; sourceTree = "<group>"; };
+		D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewHintGame.swift; sourceTree = "<group>"; };
 		D989DD832AC7073F00C282AB /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
 		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
-		D9CAC3982AC362F200D2063C /* PerfilMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilMainView.swift; sourceTree = "<group>"; };
-		D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
-		D9CAC39E2AC36BEB00D2063C /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
+		D9FAB2732AD09E7E00F1658C /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FAB2742AD09E8A00F1658C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +184,10 @@
 		B80809342ACB3E5F0063C31A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B8368E232AD0836200C38E83 /* PerfilViewController.swift */,
 				B803C07B2AC5F14A000A1D66 /* MenuViewController.swift */,
 				D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */,
-				D9CAC39B2AC3636B00D2063C /* PerfilViewController.swift */,
+				B8368E272AD086E500C38E83 /* PopUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -214,6 +227,20 @@
 				D958A8612ABE115700D8D098 /* MenuColletionView.swift */,
 			);
 			path = CarouselView;
+			sourceTree = "<group>";
+		};
+		B8368E202AD0831C00C38E83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B808EF292AD07832005D5A5E /* AvatarColletionView.swift */,
+				B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */,
+				B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */,
+				B8368E162AD078A100C38E83 /* PerfilMainView.swift */,
+				B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */,
+				B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */,
+				B8368E212AD0832F00C38E83 /* UserInformationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B83FA81A2AC61EB300722C97 /* Configurations */ = {
@@ -318,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */,
-				B8D6DF312ACF2656009B08A9 /* PopUpView.swift */,
+				D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */,
 			);
 			name = PopUp;
 			path = FalaTu/Games/WordOfDay/PopUp;
@@ -328,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
-				D93DF1022ACC896E00FDA198 /* FalaTu.app */,
+				D9FAB2732AD09E7E00F1658C /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,6 +382,7 @@
 				26315BF12AC36F580048A370 /* RegionModel.swift */,
 				D989DD832AC7073F00C282AB /* CoreDataManeger.swift */,
 				B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */,
+				B8368E252AD0838A00C38E83 /* UserDefaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,7 +392,7 @@
 			children = (
 				D9691C222AB8C79E00A908E8 /* AppDelegate.swift */,
 				D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */,
-				D9691C2B2AB8C79F00A908E8 /* Assets.xcassets */,
+				D9FAB2742AD09E8A00F1658C /* Assets.xcassets */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -395,9 +423,7 @@
 		D9CAC39D2AC3642300D2063C /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				D9CAC3982AC362F200D2063C /* PerfilMainView.swift */,
-				D9CAC39E2AC36BEB00D2063C /* UserInformationView.swift */,
-				D97417F22AC4A87600C47DF0 /* ModeRagingView.swift */,
+				B8368E202AD0831C00C38E83 /* Views */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -423,7 +449,7 @@
 				B85802492ACF35380063C7BA /* SnapKit-Dynamic */,
 			);
 			productName = FalaTu;
-			productReference = D93DF1022ACC896E00FDA198 /* FalaTu.app */;
+			productReference = D9FAB2732AD09E7E00F1658C /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -467,7 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9691C2C2AB8C79F00A908E8 /* Assets.xcassets in Resources */,
+				D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,26 +505,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84E50BD2AC36F9800A02945 /* MainCoordinator.swift in Sources */,
+				B808EF2C2AD07851005D5A5E /* FileCustonButton.swift in Sources */,
 				B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */,
-				D9CAC3992AC362F200D2063C /* PerfilMainView.swift in Sources */,
 				B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */,
+				B8368E222AD0832F00C38E83 /* UserInformationView.swift in Sources */,
 				B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */,
+				B8368E262AD0838A00C38E83 /* UserDefaults.swift in Sources */,
 				B850DFBC2ACB479B0021BAE3 /* BoardView.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
 				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
-				D9CAC39F2AC36BEB00D2063C /* UserInformationView.swift in Sources */,
 				B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */,
+				B8368E172AD078A100C38E83 /* PerfilMainView.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
 				B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */,
 				D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */,
 				D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */,
 				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
 				B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */,
-				D97417F32AC4A87600C47DF0 /* ModeRagingView.swift in Sources */,
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
 				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
-				D9CAC39C2AC3636B00D2063C /* PerfilViewController.swift in Sources */,
-				B8D6DF332ACF2656009B08A9 /* PopUpView.swift in Sources */,
+				B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
 				B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
@@ -508,6 +534,8 @@
 				9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */,
 				D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */,
 				B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */,
+				B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */,
+				B8368E242AD0836200C38E83 /* PerfilViewController.swift in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
@@ -517,8 +545,12 @@
 				B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
 				26315BF22AC36F580048A370 /* RegionModel.swift in Sources */,
+				B808EF2E2AD0786F005D5A5E /* ModeRagingView.swift in Sources */,
 				B850DFC92ACB57780021BAE3 /* KeyboardViewController.swift in Sources */,
+				B8368E282AD086E500C38E83 /* PopUpViewController.swift in Sources */,
+				D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
+				B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
 			);
@@ -648,7 +680,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -675,7 +707,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

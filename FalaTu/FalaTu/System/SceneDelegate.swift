@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: VictoryMinigame01ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: PerfilViewController())
         window?.makeKeyAndVisible()
     }
 
@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        CoreDataManager.shared.saveContext()
+        CoreDataManager.saveContext()
     }
 
 

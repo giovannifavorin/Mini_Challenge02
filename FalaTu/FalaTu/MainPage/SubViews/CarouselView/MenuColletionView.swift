@@ -124,32 +124,4 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.delegate?.didButton(tag: indexPath.row)
     }
-    
-    
-    
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        let width = collectionView.frame.width
-//        let contentOffsetX = collectionView.contentOffset.x
-//
-//        // Verifique se contentOffsetX é um valor finito
-//        if contentOffsetX.isFinite {
-//            let currentPage = Int((contentOffsetX + width / 2) / width)
-//            
-//            // Atualize o currentPage do pageControl
-//            pageControl.currentPage = currentPage
-//            
-//            // Aplicar animação de escala apenas ao currentPage
-//            for (index, dotView) in pageControl.subviews.enumerated() {
-//                if index == currentPage {
-//                    UIView.animate(withDuration: 0.2) {
-//                        dotView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2) // Aumenta o tamanho temporariamente
-//                    } completion: { _ in
-//                        UIView.animate(withDuration: 0.2) {
-//                            dotView.transform = .identity // Retorna ao tamanho original
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 }

@@ -123,3 +123,4 @@ extension PopUpViewHintGame: ViewModel{
         self.labelWhichHint.text = "\"\(hint)\""
     }
 }
+

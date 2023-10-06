@@ -4,13 +4,12 @@
 //
 //  Created by Gustavo Horestee Santos Barros on 03/10/23.
 //
-
 import UIKit
 
 class PopUpHintViewController: UIViewController {
 
-    lazy var popUpView: PopUpView = {
-        return PopUpView()
+    lazy var popUpView: PopUpViewHintGame = {
+        return PopUpViewHintGame()
     }()
     
     override func loadView() {
