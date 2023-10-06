@@ -10,7 +10,7 @@ import UIKit
 
 struct MenuDataModel{
     let image: UIImage
-    let text: String
+//    let text: String
 }
 
 struct AvatarModelData{

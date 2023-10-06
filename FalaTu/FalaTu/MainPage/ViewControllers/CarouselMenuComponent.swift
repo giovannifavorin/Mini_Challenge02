@@ -39,7 +39,7 @@ extension CarouselMenuComponent: ViewControllerModel {
     func addSubviews() {
         
         // Append data to 'menuModel' to populate the collection view
-        menuModel.append(.init(image: UIImage(named: "asset")!))
+        menuModel.append(.init(image: (UIImage(named: "asset") ?? UIImage(named: "asset"))!))
 //        menuModel.append(.init(image: UIImage(named: "asset")!))
 
         

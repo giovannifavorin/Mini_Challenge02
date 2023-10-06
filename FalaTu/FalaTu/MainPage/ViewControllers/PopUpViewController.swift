@@ -13,8 +13,8 @@ class PopUpViewController: UIViewController {
     
     weak var delegado: DelegateUserPreferences?
     
-    lazy var popUpView: PopUpView = {
-        return PopUpView()
+    lazy var popUpView: PopUpViewPerfilImage = {
+        return PopUpViewPerfilImage()
     }()
     
     override func loadView() {

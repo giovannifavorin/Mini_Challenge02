@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpView: UIView {
+class PopUpViewPerfilImage: UIView {
     let defaults = UserDefaults.standard
     
     weak var delegatePopUp: DelegatePopUpView?
@@ -104,7 +104,7 @@ class PopUpView: UIView {
 }
 
 
-extension PopUpView: ViewModel{
+extension PopUpViewPerfilImage: ViewModel{
     func addViews() {
         addSubviewsEx(cellPopUp, buttonBack, labelAvatarBlocked, labelWordHits, imageView, labelState, buttonSelect)
     }
@@ -151,7 +151,7 @@ extension PopUpView: ViewModel{
 }
 
 
-extension PopUpView{
+extension PopUpViewPerfilImage{
     public func configure(labelAvatarBlocked: String, labelWordHits: String, labelState: String, imageAvatarView: UIImage, tag: Int){
         self.labelAvatarBlocked.text = labelAvatarBlocked
         self.labelWordHits.text = labelWordHits
