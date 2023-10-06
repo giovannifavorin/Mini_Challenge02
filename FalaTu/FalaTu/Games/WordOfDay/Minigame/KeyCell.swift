@@ -18,17 +18,18 @@ class KeyCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         
         contentView.addSubview(label)
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             label.topAnchor.constraint(equalTo: contentView.topAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
         ])
     }
 
@@ -51,7 +52,7 @@ class KeyCell: UICollectionViewCell {
             
             // OUTROS BOTÕES
         } else {
-            label.font = .systemFont(ofSize: 16, weight: .medium)
+            label.font = .systemFont(ofSize: 16, weight: .bold)
             label.textColor = .black
             label.text = String(letter).uppercased()
             self.backgroundColor = .white 
@@ -68,10 +69,10 @@ class KeyCell: UICollectionViewCell {
         self.layer.masksToBounds = true
         
         // Adicionar sombra
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowRadius = 1.0
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0
         self.layer.masksToBounds = false
     }
 }

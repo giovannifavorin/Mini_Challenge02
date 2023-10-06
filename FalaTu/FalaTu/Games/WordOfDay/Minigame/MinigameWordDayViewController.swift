@@ -14,6 +14,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     var answer: String = ""
     var hint: String = ""
     var meaning: String = ""
+    var answer_region: RegionModel!
     
     // TENTATIVAS E TAMANHO DAS PALAVRAS
     private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5), count: 6) // são 6 tentativas de acerto com 5 caracteres cada
@@ -26,20 +27,25 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     let keyboard = KeyboardView()
     // Quadro central
     let boardVC = BoardViewController()
+    // Vitória
+    let victoryVC = VictoryMinigame01ViewController()
+    // Derrota
+    let defeatVC = DefeatMinigame01ViewController()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    private lazy var perfilViewController: PerfilViewController = {
-        return PerfilViewController()
+    // Background - padrão sem cores
+    private lazy var imagebackground: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bg_home")
+        image.alpha = 0.1
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        return image
     }()
+    
+    // VARIÁVEIS PARA CONTROLAR TEMPO
+    var startTime: Date?
+    var endTime: Date?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +57,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
             answer = random_Word_Hint_Meaning.word
             hint = random_Word_Hint_Meaning.hint
             meaning = random_Word_Hint_Meaning.meaning
+            answer_region = random_Word_Hint_Meaning.region
             print("Palavra: \(answer), significado: \(meaning)")
         } else {
             answer = "error"
@@ -63,6 +70,12 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
 extension MinigameWordDayViewController: ViewControllerModel {
     func addConstraints() {
         NSLayoutConstraint.activate([
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             // Top Buttons
             topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -80,14 +93,17 @@ extension MinigameWordDayViewController: ViewControllerModel {
             bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             // Keyboard
-            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 20),
+            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 30),
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
     func addSubviews() {
+        // Background
+        view.addSubview(imagebackground)
+        
         // Botões de cima (3)
         addChild(topButtonsVC)
         view.addSubview(topButtonsVC.view)
@@ -116,16 +132,15 @@ extension MinigameWordDayViewController: ViewControllerModel {
     
     func addStyle() {
          view.backgroundColor = UIColor(named: "backgroundColor")
-//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-//        backgroundImage.image = UIImage(named: "pattern")
-//        backgroundImage.contentMode = .scaleAspectFill
-//        view.insertSubview(backgroundImage, at: 0)
     }
 }
 
 // PREENCHER TECLADO =========================================================================
 extension MinigameWordDayViewController: KeyboardViewDelegate {
     func keyTapped(_ letter: Character) {
+        if startTime == nil {
+            startTime = Date() // registrando o tempo quando o usuário começar a digitar
+        }
         // Permitir a entrada de letras na primeira linha sempre
         if boardVC.currentRow == 0 {
             handleLetterInput(letter, inRow: 0)
@@ -186,7 +201,6 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     
     
     func boxColor(at indexPath: IndexPath) -> UIColor? {
-        
         let rowIndex = indexPath.section
         let count = guesses[rowIndex].compactMap({ $0 }).count
         
@@ -215,24 +229,40 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             print("o que está sendo preenchido: \(guesses[boardVC.currentRow].compactMap({ $0 })) ")
             return
         }
-        // Adicione uma nova tupla para a próxima linha antes de incrementar currentRow
-        print("\npode preencher a \(boardVC.currentRow)")
+
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
-        print("resposta do usuário na linha \(boardVC.currentRow) = \(String(userAnswer)), resposta certa: \(answer)")
-        // SE ACERTAR A PALAVRA
         if String(userAnswer) == answer {
-            navigationController?.pushViewController(perfilViewController, animated: true)
+            // Se o jogador acertar a resposta
+            endTime = Date()
+            let timeElapsed = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
+            print("tempo total: \(timeElapsed) segundos")
             
-        // SE NÃO
+            incrementRandomStateItemsUnlocked(in: &answer_region)
+            
+            for state in answer_region.states {
+                print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
+            }
+            // Chama view de vitória
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.navigationController?.pushViewController(self.victoryVC, animated: true)
+//            }
+            // navigationController?.pushViewController(victoryVC, animated: true)
         } else {
-            print("ainda não!")
+            // Se o jogador não acertar a resposta
+            isRowSent[boardVC.currentRow] = true
+            boardVC.currentRow += 1
+            boardVC.boardView.collectionView.reloadData()
+            
+            if boardVC.currentRow >= guesses.count {
+                // Se o jogador não acertar após 6 tentativas
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.navigationController?.pushViewController(self.defeatVC, animated: true)
+                }
+            }
         }
-        
-        isRowSent[boardVC.currentRow] = true
-        boardVC.currentRow += 1
-        boardVC.boardView.collectionView.reloadData()
     }
+
 }
 
 

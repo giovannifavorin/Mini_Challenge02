@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2618337E2ACF65A80035F72A /* RegiaoNorteMapaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */; };
+		261833802ACF668C0035F72A /* MapaDivisoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */; };
 		26315BE62ABE29240048A370 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE52ABE29240048A370 /* InventoryView.swift */; };
 		26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE72ABE296A0048A370 /* InventoryViewController.swift */; };
 		26315BEA2ABF60850048A370 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* StateModel.swift */; };
@@ -77,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiaoNorteMapaView.swift; sourceTree = "<group>"; };
+		2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaDivisoesView.swift; sourceTree = "<group>"; };
 		26315BE52ABE29240048A370 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		26315BE72ABE296A0048A370 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		26315BE92ABF60850048A370 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		B8B3C2BE2AD0AC26005F354A /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +132,6 @@
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
-		D9FAB2732AD09E7E00F1658C /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/gustavohorestee/Documents/Mini02-29:08/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		D9FAB2742AD09E8A00F1658C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +227,8 @@
 			children = (
 				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
 				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
+				2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */,
+				2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
 				D93A468E2AD0A44600CB127B /* Frameworks */,
+				B8B3C2BE2AD0AC26005F354A /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -422,10 +429,10 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B866D4E52ACC932300EF32AE /* End */,
 				B8D6DF2F2ACF2656009B08A9 /* PopUp */,
 				B8D2A5922ACB580E00C4F59A /* TopButtons */,
-				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B850DFC52ACB574B0021BAE3 /* Keyboard */,
 				B850DFC02ACB56FC0021BAE3 /* BottomButtons */,
 				B850DFBF2ACB56EB0021BAE3 /* Board */,
@@ -472,7 +479,7 @@
 				D93A46912AD0A44600CB127B /* SnapKit-Dynamic */,
 			);
 			productName = FalaTu;
-			productReference = D9FAB2732AD09E7E00F1658C /* FalaTu.app */;
+			productReference = B8B3C2BE2AD0AC26005F354A /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -537,6 +544,7 @@
 				B850DFBC2ACB479B0021BAE3 /* BoardView.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,
 				B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */,
+				261833802ACF668C0035F72A /* MapaDivisoesView.swift in Sources */,
 				B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */,
 				B8368E172AD078A100C38E83 /* PerfilMainView.swift in Sources */,
 				D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */,
@@ -574,6 +582,7 @@
 				D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
 				B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */,
+				2618337E2ACF65A80035F72A /* RegiaoNorteMapaView.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
 			);

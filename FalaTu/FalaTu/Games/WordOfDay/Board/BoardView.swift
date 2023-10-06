@@ -47,13 +47,6 @@ extension BoardView: ViewModel {
     
     func addContrains() {
         NSLayoutConstraint.activate([
-            
-            
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
-            
             borderedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             borderedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             borderedView.topAnchor.constraint(equalTo: topAnchor),
@@ -67,8 +60,6 @@ extension BoardView: ViewModel {
     }
 
     func setupStyle() {
-        //collectionView.backgroundColor = .systemGray5 // cor de fundo de todos quadrados
-        
         collectionView.backgroundColor = .clear
         
         borderedView.layer.cornerRadius = 10

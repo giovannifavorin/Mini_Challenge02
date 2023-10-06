@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "TutorialButton.png",
+      "filename" : "tutorial_button.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -70,7 +70,7 @@ extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
             case 0:
                 // Navigate to 'MinigameWordDayViewController' when tag is 0
                 let minigameWordDay = MinigameWordDayViewController()
-                navigationController?.pushViewController(minigameWordDay, animated: false)
+                navigationController?.pushViewController(minigameWordDay, animated: true)
             
             case 1:
                 // Navigate to 'MultiplayerViewController' when tag is 1
