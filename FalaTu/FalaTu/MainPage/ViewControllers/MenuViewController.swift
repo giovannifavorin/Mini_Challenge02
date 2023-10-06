@@ -10,6 +10,19 @@ import UIKit
 // Main viewController
 class MenuViewController: UIViewController {
     
+    let defults = UserDefaults.standard
+    let coreData = CoreDataManager.coreDataManager
+    
+    private lazy var custonButtonPerfil: CustonButton = {
+        let button = CustonButton()
+        button.buttonText = "\(String(describing: coreData.fetchPerfil().nome!))"
+        button.imageViewLeft = defults.imageProfile
+        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tag = 4
+        return button
+    }()
+    
     //Proportions for buttons
     let buttonsWidthPercentage: CGFloat = 0.15
     let buttonsHeightPercentage: CGFloat = 0.06
@@ -133,6 +146,8 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
+        
+        self.perfilViewController.delegateUpdateButtonPerfil = self
     }
     
     /// Configuração das açoes dos botões
@@ -144,6 +159,8 @@ class MenuViewController: UIViewController {
             navigationController?.pushViewController(dictionaryViewController, animated: true)
         case 3:
             navigationController?.pushViewController(configViewController, animated: true)
+        case 4:
+            navigationController?.pushViewController(perfilViewController, animated: true)
         default:
             return
         }
@@ -161,9 +178,10 @@ extension MenuViewController: ViewControllerModel {
         view.addSubview(carouselMenuComponent.view)
         view.addSubview(logoView)
         view.addSubview(inventoryButton)
-//        view.addSubview(dictionaryButton)
-//        view.addSubview(configurationButton)
-//        view.sendSubviewToBack(imagebackground)
+        //        view.addSubview(dictionaryButton)
+        //        view.addSubview(configurationButton)
+        //        view.sendSubviewToBack(imagebackground)
+        view.addSubview(custonButtonPerfil)
     }
     
     func addStyle() {
@@ -193,7 +211,7 @@ extension MenuViewController: ViewControllerModel {
             
             //LOGO
             logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.20),
-//            logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
+            //            logoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.74),
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: logoWidthPercentage),
             logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
@@ -206,25 +224,40 @@ extension MenuViewController: ViewControllerModel {
             
             //INVENTORY
             inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
-//            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
-//            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
+            //            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
+            //            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
             inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inventoryButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
             inventoryButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
             
-//            //DICTIONARY
-//            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
-//            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
-//            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-//            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-//            
-//            //CONFIGURATION
-//            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-//            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
-//            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-//            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            //            //DICTIONARY
+            //            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
+            //            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
+            //            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            //
+            //            //CONFIGURATION
+            //            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            //            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
+            //            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            //            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            
+            custonButtonPerfil.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            custonButtonPerfil.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            custonButtonPerfil.heightAnchor.constraint(equalToConstant: 40),
+            custonButtonPerfil.widthAnchor.constraint(equalToConstant: 142),
             
             
         ])
+    }
+}
+
+extension MenuViewController: DelegateUpdateInButtonPerfil{
+    func updateName(name: String) {
+        self.custonButtonPerfil.buttonText = name
+    }
+    
+    func updateImage() {
+        self.custonButtonPerfil.imageViewLeft = defults.imageProfile
     }
 }

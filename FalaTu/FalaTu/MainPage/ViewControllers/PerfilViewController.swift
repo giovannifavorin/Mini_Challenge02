@@ -61,15 +61,15 @@ class PerfilViewController: UIViewController {
         
         self.perfilView.userInformationView.viewOffensive.configure(labelText: "Ofensiva",
                                                                     labelNumber: "10",
-                                                                    image: UIImage(named: "ConfigButton")!)
+                                                                    image: UIImage(named: "ofensiva")!)
         
         self.perfilView.userInformationView.viewTotalGames.configure(labelText: "Total de Jogos",
                                                                      labelNumber: "1",
-                                                                     image: UIImage(named: "ConfigButton")!)
+                                                                     image: UIImage(named: "totalDeJogos")!)
         
         self.perfilView.userInformationView.viewWords.configure(labelText: "Palavras",
                                                                 labelNumber: "110",
-                                                                image: UIImage(named: "ConfigButton")!)
+                                                                image: UIImage(named: "palavras")!)
         
        
         listSelectAvatar?.append(AvatarModelData(name: "Gustavo",
