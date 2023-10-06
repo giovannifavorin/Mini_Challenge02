@@ -66,7 +66,6 @@ class UserInformationView: UIView {
         return view
     }()
     
-    
     private lazy var viewTotalGames: ModeRagingView = {
         let view = ModeRagingView()
         var dicioShow = CoreDataManager()
@@ -78,7 +77,7 @@ class UserInformationView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private lazy var labelRegion: UILabel = {
         let label = UILabel()
         label.text = "Região: Norte"

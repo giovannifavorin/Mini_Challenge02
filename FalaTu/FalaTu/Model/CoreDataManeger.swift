@@ -27,6 +27,7 @@ class CoreDataManager {
         return container
     }()
     
+    
     // MARK: - Core Data Saving support
 
       func saveContext () {
@@ -89,4 +90,17 @@ class CoreDataManager {
         
         return fetchedDicionarios
     }
+    
+    func deleteDicio(dicionario: Dicionario){
+        let context = persistentContainer.viewContext
+        context.delete(dicionario)
+        saveContext()
+    }
+    
+    func deletePerfil(perfil: Perfil){
+        let context = persistentContainer.viewContext
+        context.delete(perfil)
+        saveContext()
+    }
+
 }
