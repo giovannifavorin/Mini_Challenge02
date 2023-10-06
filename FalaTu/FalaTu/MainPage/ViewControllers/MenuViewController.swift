@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     
     private lazy var custonButtonPerfil: CustonButton = {
         let button = CustonButton()
-        button.buttonText = "\(String(describing: coreData.fetchPerfil().nome!))"
+        button.buttonText = "\(String(describing: coreData.fetchPerfil().nome ?? "Carlos"))"
         button.imageViewLeft = defults.imageProfile
         button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
