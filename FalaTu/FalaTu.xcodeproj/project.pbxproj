@@ -46,10 +46,8 @@
 		B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */; };
 		B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */; };
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
+		B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8E47F782AD2E3C7008F5187 /* SnapKit */; };
 		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
-		D93A46902AD0A44600CB127B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D93A468F2AD0A44600CB127B /* SnapKit */; };
-		D93A46922AD0A44600CB127B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D93A46912AD0A44600CB127B /* SnapKit-Dynamic */; };
-		D93A46952AD0A45C00CB127B /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D93A46912AD0A44600CB127B /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
@@ -71,7 +69,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D93A46952AD0A45C00CB127B /* SnapKit-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,12 +110,12 @@
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
-		B8B3C2BE2AD0AC26005F354A /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
+		B8E47F6F2AD2DE3A008F5187 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
@@ -140,8 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93A46902AD0A44600CB127B /* SnapKit in Frameworks */,
-				D93A46922AD0A44600CB127B /* SnapKit-Dynamic in Frameworks */,
+				B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,19 +368,10 @@
 			path = FalaTu/Games/WordOfDay/PopUp;
 			sourceTree = SOURCE_ROOT;
 		};
-		D93A468E2AD0A44600CB127B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D9691C162AB8C79E00A908E8 = {
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
-				D93A468E2AD0A44600CB127B /* Frameworks */,
-				B8B3C2BE2AD0AC26005F354A /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -475,11 +462,10 @@
 			);
 			name = FalaTu;
 			packageProductDependencies = (
-				D93A468F2AD0A44600CB127B /* SnapKit */,
-				D93A46912AD0A44600CB127B /* SnapKit-Dynamic */,
+				B8E47F782AD2E3C7008F5187 /* SnapKit */,
 			);
 			productName = FalaTu;
-			productReference = B8B3C2BE2AD0AC26005F354A /* FalaTu.app */;
+			productReference = B8E47F6F2AD2DE3A008F5187 /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -507,7 +493,7 @@
 			);
 			mainGroup = D9691C162AB8C79E00A908E8;
 			packageReferences = (
-				B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B8E47F772AD2E3C7008F5187 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D9691C162AB8C79E00A908E8;
 			projectDirPath = "";
@@ -714,13 +700,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 335BRL9A43;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,13 +728,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 335BRL9A43;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,7 +773,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		B8E47F772AD2E3C7008F5187 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -796,15 +784,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D93A468F2AD0A44600CB127B /* SnapKit */ = {
+		B8E47F782AD2E3C7008F5187 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = B8E47F772AD2E3C7008F5187 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		D93A46912AD0A44600CB127B /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B85802462ACF35380063C7BA /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 
