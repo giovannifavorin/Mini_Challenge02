@@ -139,7 +139,7 @@ class MenuViewController: UIViewController {
     @objc private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
-            navigationController?.pushViewController(regionSelectionViewController, animated: true)
+            navigationController?.pushViewController(InventoryViewController(), animated: true)
         case 2:
             navigationController?.pushViewController(dictionaryViewController, animated: true)
         case 3:
