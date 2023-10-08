@@ -114,7 +114,14 @@ class VictoryMinigame01ViewController: UIViewController {
     @objc private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
-            print("clico 1")
+            // Botão de compartilhar foi pressionado
+            let textToShare = "Texto que você deseja compartilhar."
+            if let imageToShare = UIImage(named: "button_share") {
+                let objectsToShare: [Any] = [textToShare, imageToShare]
+                let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // Para iPad
+                self.present(activityViewController, animated: true, completion: nil)
+            }
         case 2:
             print("clico 2")
         default:

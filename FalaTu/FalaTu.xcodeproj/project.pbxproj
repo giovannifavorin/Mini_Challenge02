@@ -110,12 +110,12 @@
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		B8C97F912AD32F9B008B6453 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
-		B8E47F6F2AD2DE3A008F5187 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FalaTu.app; path = "/Users/giovannifavorin/Documents/Academy/Mini_Challenge02/FalaTu/build/Debug-iphoneos/FalaTu.app"; sourceTree = "<absolute>"; };
 		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
@@ -372,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				D9691C212AB8C79E00A908E8 /* FalaTu */,
+				B8C97F912AD32F9B008B6453 /* FalaTu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -465,7 +466,7 @@
 				B8E47F782AD2E3C7008F5187 /* SnapKit */,
 			);
 			productName = FalaTu;
-			productReference = B8E47F6F2AD2DE3A008F5187 /* FalaTu.app */;
+			productReference = B8C97F912AD32F9B008B6453 /* FalaTu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
