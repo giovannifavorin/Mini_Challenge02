@@ -31,10 +31,8 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     let victoryVC = VictoryMinigame01ViewController()
     // Derrota
     let defeatVC = DefeatMinigame01ViewController()
-    
-    // tempo levado - GANHAR E PERDER
-    var timeElapsed_WIN: Double! = nil
-    var timeElapsed_DEFEAT: Double! = nil
+    // tempo levado
+    var timeElapsed: Double! = nil
     
     // Background - padrão sem cores
     private lazy var imagebackground: UIImageView = {
@@ -48,7 +46,8 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     
     // VARIÁVEIS PARA CONTROLAR TEMPO
     var startTime: Date?
-    var endTime: Date?
+    var endTimeWin: Date?
+    var endTimeDefeat: Date?
 
     
     override func viewDidLoad() {
@@ -181,6 +180,7 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
     }
 }
 
+// PREENCHER QUADRO =========================================================================
 // SEND BUTTON =========================================================================
 extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControllerDatasource {
 
@@ -195,6 +195,8 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         
         present(popUpHint, animated: false)
     }
+    
+
     
     var currentGuesses: [[Character?]] {
         return guesses
@@ -237,9 +239,9 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         if String(userAnswer) == answer {
             
             // Se o jogador acertar a resposta
-            endTime = Date()
-            timeElapsed_WIN = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
-            print("tempo total: \(timeElapsed_WIN!) segundos")
+            endTimeWin = Date()
+            timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
+            print("tempo total: \(timeElapsed!) segundos")
             
             // TESTE PARA PONTUAÇÃO
             incrementRandomStateItemsUnlocked(in: &answer_region)
@@ -251,7 +253,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.victoryVC.wordOfDay = self.answer
                 self.victoryVC.meaningOfWord = self.meaning
-                self.victoryVC.timeTaken = self.timeElapsed_WIN
+                self.victoryVC.timeTaken = self.timeElapsed
                 self.victoryVC.regionAnswer = self.answer_region
                 self.navigationController?.pushViewController(self.victoryVC, animated: true)
             }
@@ -259,14 +261,17 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             
         // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
         } else {
+            print("\n\nGUESSES COUNT: \(guesses.count)")
+            // tempo
+            endTimeDefeat = Date()
+            timeElapsed = endTimeDefeat?.timeIntervalSince(startTime ?? Date()) ?? 0
+            print("tempo até agora: \(timeElapsed!) segundos")
             
-            // Registra o tempo
-            endTime = Date()
-            timeElapsed_DEFEAT = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
             // Se o jogador não acertar a resposta
             isRowSent[boardVC.currentRow] = true
-
-            boardVC.currentRow += 1  // MEXER (index)
+            //while boardVC.currentRow <= guesses.count {
+                boardVC.currentRow += 1
+            //}
 
             boardVC.boardView.collectionView.reloadData()
             
@@ -276,7 +281,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     
                     // NÃO CONSEGUIU
-                    self.defeatVC.timeTaken = self.timeElapsed_DEFEAT
+                    self.defeatVC.timeTaken = self.timeElapsed
                     self.defeatVC.regionAnswer = self.answer_region
                     self.navigationController?.pushViewController(self.defeatVC, animated: true)
                 }
