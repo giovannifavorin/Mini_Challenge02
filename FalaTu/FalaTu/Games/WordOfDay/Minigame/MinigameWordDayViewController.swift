@@ -236,11 +236,12 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
 
         // ACERTO DE RESPOSTA ======================================================================
         if String(userAnswer) == answer {
+            // Desativa o botão após acerto
+            bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
             
-            // Se o jogador acertar a resposta
+            // tempo
             endTimeWin = Date()
             timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
-            print("tempo total: \(timeElapsed!) segundos")
             
             // TESTE PARA PONTUAÇÃO
             incrementRandomStateItemsUnlocked(in: &answer_region)
