@@ -236,6 +236,8 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
 
         // ACERTO DE RESPOSTA ======================================================================
         if String(userAnswer) == answer {
+            isRowSent[boardVC.currentRow] = true
+            boardVC.boardView.collectionView.reloadData()
             // Desativa o botão após acerto
             bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
             
@@ -276,6 +278,10 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
 
             // Quando chegar no limite de tentativas
             } else {
+                // Mandou
+                isRowSent[boardVC.currentRow] = true
+                boardVC.boardView.collectionView.reloadData()
+                // desativa o botão após perder tudo
                 bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
                 // Se o jogador não acertar após 6 tentativas
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
