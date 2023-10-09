@@ -22,7 +22,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     // Botões de cima
     let topButtonsVC = TopButtonsViewController()
     // Botões de baixo
-    let bottomButtons = BottomButtonsViewController()
+    let bottomButtonsVC = BottomButtonsViewController()
     // Teclado
     let keyboard = KeyboardView()
     // Quadro central
@@ -91,12 +91,12 @@ extension MinigameWordDayViewController: ViewControllerModel {
             boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.48), // arrumar
 
             // Bottom Buttons
-            bottomButtons.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
-            bottomButtons.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomButtons.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
+            bottomButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             // Keyboard
-            keyboard.topAnchor.constraint(equalTo: bottomButtons.view.bottomAnchor, constant: 30),
+            keyboard.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 30),
             keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -121,11 +121,11 @@ extension MinigameWordDayViewController: ViewControllerModel {
         boardVC.datasource = self
         
         // Botões de baixo (3)
-        addChild(bottomButtons)
-        view.addSubview(bottomButtons.view)
-        bottomButtons.didMove(toParent: self)
-        bottomButtons.view.translatesAutoresizingMaskIntoConstraints = false
-        bottomButtons.delegate = self
+        addChild(bottomButtonsVC)
+        view.addSubview(bottomButtonsVC.view)
+        bottomButtonsVC.didMove(toParent: self)
+        bottomButtonsVC.view.translatesAutoresizingMaskIntoConstraints = false
+        bottomButtonsVC.delegate = self
 
         // Teclado
         view.addSubview(keyboard)
@@ -228,8 +228,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         guard boardVC.currentRow < guesses.count, guesses[boardVC.currentRow].compactMap( { $0 }).count == 5 else {
             print("\n\n\nlinha atual incompleta")
             print("linha atual: \(boardVC.currentRow)")
-            print("itens preenchidos: \(guesses[boardVC.currentRow].compactMap( { $0 }).count)")
-            print("o que está sendo preenchido: \(guesses[boardVC.currentRow].compactMap({ $0 })) ")
+            print("itens preenchidos: \(guesses[boardVC.currentRow].compactMap( { $0 }).count) = \(guesses[boardVC.currentRow].compactMap({ $0 }))")
             return
         }
 
@@ -261,25 +260,24 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             
         // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
         } else {
-            print("\n\nGUESSES COUNT: \(guesses.count)")
             // tempo
             endTimeDefeat = Date()
             timeElapsed = endTimeDefeat?.timeIntervalSince(startTime ?? Date()) ?? 0
             print("tempo até agora: \(timeElapsed!) segundos")
             
-            // Se o jogador não acertar a resposta
+            // Se o jogador não acertar a resposta -> aquela fileira foi finalizada
             isRowSent[boardVC.currentRow] = true
-            //while boardVC.currentRow <= guesses.count {
-                boardVC.currentRow += 1
-            //}
-
-            boardVC.boardView.collectionView.reloadData()
             
-            // VERIFICA QUANTAS TENTATIVAS FALTAM
-            if boardVC.currentRow >= guesses.count {
+            // Enquanto houverem tentativas
+            if boardVC.currentRow < guesses.count - 1{
+                boardVC.currentRow += 1
+                boardVC.boardView.collectionView.reloadData()
+
+            // Quando chegar no limite de tentativas
+            } else {
+                bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
                 // Se o jogador não acertar após 6 tentativas
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    
                     // NÃO CONSEGUIU
                     self.defeatVC.timeTaken = self.timeElapsed
                     self.defeatVC.regionAnswer = self.answer_region

@@ -18,7 +18,7 @@ protocol BottomButtonsDelegate: AnyObject {
 
 class BottomButtonsViewController: UIViewController {
     
-    private let bottomButtonsView = BottomButtonsView()
+    public let bottomButtonsView = BottomButtonsView()
     private let boardVC = BoardViewController()
     
     weak var delegate: BottomButtonsDelegate?
