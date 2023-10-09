@@ -162,7 +162,6 @@ class DefeatMinigame01ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuVC = MenuViewController()
         view.backgroundColor = UIColor(named: "backgroundColor")
         
         // Adicione os botões à stack view
