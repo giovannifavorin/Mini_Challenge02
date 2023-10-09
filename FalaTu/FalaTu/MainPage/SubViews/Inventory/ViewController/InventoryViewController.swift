@@ -31,10 +31,8 @@ class InventoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedRegion = regions_BR[0]
-        
+        selectedRegion = regions_BR[4]
         setupViewControllerModel()
-        
         createAllStatesWithItems()
     }
 
