@@ -11,12 +11,13 @@ class PerfilMainView: UIView {
 
     private var size = UIScreen.main.bounds.size
         
-    lazy var labelPerfil: UILabel = {
+    private lazy var labelPerfil: UILabel = {
         let label = UILabel()
         label.text = "Perfil"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 32, weight: .heavy)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -60,14 +61,32 @@ extension PerfilMainView: ViewModel {
     }
     
     func addContrains() {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
+    }
+    
+    func setupStyle() {
+        backgroundColor = UIColor(named: "backgroundColor")
+    }
+}
+
+extension PerfilMainView{
+    private func contrainsiPhone(){
+        print("Contrins para iphones ativas ")
         NSLayoutConstraint.activate([
+            
+            labelPerfil.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            labelPerfil.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
             // Restrições para userInformationView
             userInformationView.topAnchor.constraint(equalTo: topAnchor),
             userInformationView.leadingAnchor.constraint(equalTo: leadingAnchor),
             userInformationView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            userInformationView.heightAnchor.constraint(equalToConstant: size.height*0.57)
-            userInformationView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.57)
-//            userInformationView.heightAnchor.
+            userInformationView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.27)
         ])
 
         NSLayoutConstraint.activate([
@@ -83,8 +102,35 @@ extension PerfilMainView: ViewModel {
         ])
     }
     
-    func setupStyle() {
-        backgroundColor = UIColor(named: "backgroundColor")
+    
+    private func contrainsiPad(){
+        print("Contrins para iPads ativas")
+
+        labelSelectAvatar.font = .systemFont(ofSize: 30, weight: .semibold)
+        
+        NSLayoutConstraint.activate([
+            
+            labelPerfil.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            labelPerfil.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            // Restrições para userInformationView
+            userInformationView.topAnchor.constraint(equalTo: topAnchor),
+            userInformationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            userInformationView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            userInformationView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7)
+        ])
+
+        NSLayoutConstraint.activate([
+            // Restrições para labelSelectAvatar
+            labelSelectAvatar.topAnchor.constraint(equalTo: userInformationView.bottomAnchor, constant: 20),
+            labelSelectAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: size.width/9),
+           
+            // Restrições para collectionView
+            collectionView.topAnchor.constraint(equalTo: labelSelectAvatar.bottomAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -size.width/9),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: size.width/9),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
 }
 

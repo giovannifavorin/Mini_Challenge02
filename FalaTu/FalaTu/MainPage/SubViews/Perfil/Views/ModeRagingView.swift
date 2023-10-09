@@ -10,7 +10,7 @@ import UIKit
 class ModeRagingView: UIView {
 
     
-    private lazy var labelNumber: UILabel = {
+     lazy var labelNumber: UILabel = {
         let view = UILabel()
         view.text = "00"
         view.font = .boldSystemFont(ofSize: 20)
@@ -20,7 +20,7 @@ class ModeRagingView: UIView {
     }()
 
     
-    private lazy var labelText: UILabel = {
+     lazy var labelText: UILabel = {
         let view = UILabel()
         view.text = "nill pai"
         view.font = .systemFont(ofSize: 14)
@@ -29,7 +29,7 @@ class ModeRagingView: UIView {
     }()
     
     
-    private lazy var imageView: UIImageView = {
+     lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "questionmark")
         image.contentMode = .scaleAspectFill
@@ -56,8 +56,33 @@ extension ModeRagingView: ViewModel{
     }
     
     func addContrains() {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            configureItensForiPads()
+            contrainsiPad()
+            
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
+    }
+    
+    func setupStyle() {
+        backgroundColor = .clear
+    }
+}
 
+extension ModeRagingView{
+    public func configure(labelText: String?, labelNumber: String?, image: UIImage){
+        self.labelText.text = labelText
+        self.labelNumber.text = labelNumber
+        self.imageView.image = image
+        
+    }
+}
 
+extension ModeRagingView{
+
+    private func contrainsiPhone(){
         NSLayoutConstraint.activate([
             labelText.centerXAnchor.constraint(equalTo: centerXAnchor),
             labelText.topAnchor.constraint(equalTo: topAnchor, constant: 13),
@@ -75,17 +100,28 @@ extension ModeRagingView: ViewModel{
         ])
     }
     
-    func setupStyle() {
-        backgroundColor = .clear
-        
-    }
-}
+    
+    private func contrainsiPad(){
+        NSLayoutConstraint.activate([
+            
+            labelText.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            labelText.topAnchor.constraint(equalTo: topAnchor, constant: 13),
 
-extension ModeRagingView{
-    public func configure(labelText: String?, labelNumber: String?, image: UIImage){
-        self.labelText.text = labelText
-        self.labelNumber.text = labelNumber
-        self.imageView.image = image
-        
+            
+            labelNumber.topAnchor.constraint(equalTo: labelText.bottomAnchor),
+            labelNumber.centerXAnchor.constraint(equalTo: labelText.centerXAnchor),
+            labelNumber.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            
+            imageView.bottomAnchor.constraint(equalTo: labelText.topAnchor, constant: -5),
+            imageView.centerXAnchor.constraint(equalTo: labelText.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 25),
+            imageView.widthAnchor.constraint(equalToConstant: 25),
+        ])
+    }
+    
+    private func configureItensForiPads(){
+        labelNumber.font = .systemFont(ofSize: 30, weight: .bold)
+        labelText.font = .systemFont(ofSize: 18, weight: .regular)
     }
 }

@@ -43,12 +43,11 @@ extension MenuCollectioViewCell: ViewModel{
     }
     
     func addContrains() {
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: size.width*0.6),
-            imageView.heightAnchor.constraint(equalToConstant: size.width*0.6),
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
     }
     
     func setupStyle() {
@@ -60,6 +59,28 @@ extension MenuCollectioViewCell: ViewModel{
 extension MenuCollectioViewCell{
     public func configure(with image: UIImage){
         self.imageView.image = image
+    }
+}
+
+extension MenuCollectioViewCell{
+    private func contrainsiPhone(){
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: size.width*0.6),
+            imageView.heightAnchor.constraint(equalToConstant: size.width*0.6),
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: size.width*0.40),
+            imageView.heightAnchor.constraint(equalToConstant: size.width*0.40),
+        ])
     }
 }
 

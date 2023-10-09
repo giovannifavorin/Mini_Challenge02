@@ -35,7 +35,7 @@ extension UserDefaults{
                 return image
             } else {
                 print("Imagem inválida ou não encontrada, usando imagem padrão")
-                return UIImage(named: "asset") ?? UIImage()
+                return UIImage(named: "1") ?? UIImage()
             }
         }
         

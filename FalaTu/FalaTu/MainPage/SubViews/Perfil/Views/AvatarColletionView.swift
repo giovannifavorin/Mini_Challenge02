@@ -7,7 +7,6 @@ class AvatarColletionView: UIView {
     weak var delegatePopUp: DelegateUserPreferences?
     
     private var listaImages: [AvatarModelData] = []
-//    private var avatarModel: [AvatarModelData]?
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -23,6 +22,14 @@ class AvatarColletionView: UIView {
         return colletion
     }()
     
+    private lazy var imageBlock: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.image = UIImage(named: "block")!
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +47,7 @@ class AvatarColletionView: UIView {
 
 extension AvatarColletionView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listaImages.count
+        return listaImages.count*2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,10 +57,15 @@ extension AvatarColletionView: UICollectionViewDelegate, UICollectionViewDataSou
             fatalError("error in AvatarColletionView")
         }
         
-        let image = listaImages[indexPath.row].image
+        if indexPath.row < listaImages.count{
+            let image = listaImages[indexPath.row].image
+            cell.imageView.image = image
+        }else{
+            let image = imageBlock.image
+            cell.imageView.image = image
+        }
         
-        cell.imageView.image = image
-    
+
         return cell
     }
     
@@ -62,7 +74,12 @@ extension AvatarColletionView: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegatePopUp?.presentPopUP(index: indexPath)
+        if indexPath.row < listaImages.count{
+            self.delegatePopUp?.presentPopUP(index: indexPath)
+        }else{
+            print("person invalid")
+        }
+        
     }
 }
 
@@ -73,12 +90,11 @@ extension AvatarColletionView: ViewModel{
     }
     
     func addContrains() {
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
     }
     
     func setupStyle() {
@@ -86,8 +102,44 @@ extension AvatarColletionView: ViewModel{
     }
 }
 
+
 extension AvatarColletionView{
     public func configure( data: [AvatarModelData]){
         self.listaImages = data
     }
 }
+
+
+extension AvatarColletionView{
+    private func contrainsiPhone(){
+        print("Contrins para iphones ativas ")
+        NSLayoutConstraint.activate([
+            
+            imageBlock.heightAnchor.constraint(equalToConstant: 20),
+            imageBlock.widthAnchor.constraint(equalToConstant: 20),
+            
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
+        print("Contrins para iPads ativas")
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .init(width: size.width / 6, height: size.width / 6)
+        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 0)
+        collectionView.collectionViewLayout = layout
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+}
+

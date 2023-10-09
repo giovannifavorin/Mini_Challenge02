@@ -15,7 +15,7 @@ class UserInformationView: UIView {
     private var randomName: String?
     weak var delegateUserPreferences: DelegateUserPreferences?
     
-    
+
     private lazy var viewBackgroundUserPreferences: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "bg_Userprofile")
@@ -33,7 +33,7 @@ class UserInformationView: UIView {
     
    lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "asset")
+        image.image = UIImage(named: "1")
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 40
@@ -81,24 +81,6 @@ class UserInformationView: UIView {
         return view
     }()
     
-    
-    let dividerLeft: UIView = {
-        let divider = UIView()
-        divider.layer.cornerRadius = 2
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor(named: "dividerForImage")
-        return divider
-    }()
-    
-    let dividerRight: UIView = {
-        let divider = UIView()
-        divider.backgroundColor = .clear
-        divider.layer.cornerRadius = 4
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor(named: "dividerForImage")
-        return divider
-    }()
-    
     let dividerName: UIView = {
         let divider = UIView()
         divider.backgroundColor = .clear
@@ -121,83 +103,34 @@ class UserInformationView: UIView {
         super.init(frame: .zero)
         setupViewModel()
     }
-        
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }
 
 
 extension UserInformationView: ViewModel{
     func addViews() {
-        addSubviewsEx(backgroundImage,imageView,viewBackgroundUserPreferences, myTextField, viewOffensive, viewTotalGames, viewWords, dividerName, dividerRight, dividerLeft)
+        addSubviewsEx(backgroundImage,imageView,viewBackgroundUserPreferences, myTextField, viewOffensive, viewTotalGames, viewWords, dividerName)
         
 
     }
     
     func addContrains() {
-        NSLayoutConstraint.activate([
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            print("Contrins para iPads ativas")
+            contrainsiPad()
+            configureItensForiPads()
             
-            backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 20),
-            
-            imageView.widthAnchor.constraint(equalToConstant: 140),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 127),
-            
-            viewBackgroundUserPreferences.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
-            viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor),
-            viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor),
-            viewBackgroundUserPreferences.heightAnchor.constraint(equalToConstant: size.width*0.45),
-            
-            myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 30),
-            myTextField.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
-            myTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45.5),
-            myTextField.heightAnchor.constraint(equalToConstant: 35),
-//            myTextField.widthAnchor.constraint(equalTo: widthAnchor, constant: 45.5),
-        ])
-        
-        NSLayoutConstraint.activate([
-            
-            dividerName.topAnchor.constraint(equalTo: myTextField.bottomAnchor, constant: 5),
-            dividerName.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
-            dividerName.heightAnchor.constraint(equalToConstant: 2),
-            dividerName.widthAnchor.constraint(equalToConstant: 304),
-            
-            viewTotalGames.centerXAnchor.constraint(equalTo: viewBackgroundUserPreferences.centerXAnchor),
-            viewTotalGames.topAnchor.constraint(equalTo: dividerName.bottomAnchor, constant: 30),
-            viewTotalGames.widthAnchor.constraint(equalToConstant: 104),
-            viewTotalGames.heightAnchor.constraint(equalToConstant: 60),
-            
-            dividerLeft.trailingAnchor.constraint(equalTo: viewTotalGames.leadingAnchor, constant: -22.5),
-            dividerLeft.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
-            dividerLeft.heightAnchor.constraint(equalToConstant: 80),
-            dividerLeft.widthAnchor.constraint(equalToConstant: 2),
-            
-            dividerRight.leadingAnchor.constraint(equalTo: viewTotalGames.trailingAnchor, constant: 22.5),
-            dividerRight.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
-            dividerRight.heightAnchor.constraint(equalToConstant: 80),
-            dividerRight.widthAnchor.constraint(equalToConstant: 2),
-            
-            viewOffensive.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
-            viewOffensive.centerYAnchor.constraint(equalTo: dividerLeft.centerYAnchor),
-            viewOffensive.widthAnchor.constraint(equalToConstant: 60),
-            viewOffensive.heightAnchor.constraint(equalToConstant: 60),
-
-            viewWords.trailingAnchor.constraint(equalTo: viewBackgroundUserPreferences.trailingAnchor, constant: -45.5),
-            viewWords.centerYAnchor.constraint(equalTo: dividerRight.centerYAnchor),
-            viewWords.widthAnchor.constraint(equalToConstant: 60),
-            viewWords.heightAnchor.constraint(equalToConstant: 60)
-        ])
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            print("Contrins para iphones ativas ")
+            contrainsiPhone()
+        }
     }
     
     func setupStyle() {
         backgroundColor = UIColor(named: "backgroundColor")
-//        backgroundColor = .red
         randomName = namesDefaults.randomElement()
         myTextField.text = randomName
 
@@ -218,13 +151,118 @@ extension UserInformationView: UITextFieldDelegate{
         myTextField.resignFirstResponder()
         return true
     }
-}
-
-
-extension UserInformationView{
     public func cofigure(name: String, image: UIImage){
         myTextField.text = name
         self.imageView.image = image
     }
 }
+
+
+extension UserInformationView{
+
+    private func contrainsiPhone(){
+        
+        NSLayoutConstraint.activate([
+            
+            backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 25),
+            
+            imageView.widthAnchor.constraint(equalToConstant: 140),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 127),
+            
+            viewBackgroundUserPreferences.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
+            viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor),
+            viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor),
+            viewBackgroundUserPreferences.heightAnchor.constraint(equalToConstant: size.width*0.45),
+            
+            myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 30),
+            myTextField.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
+            myTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45.5),
+            myTextField.heightAnchor.constraint(equalToConstant: 35),
+        ])
+        
+        NSLayoutConstraint.activate([
+            
+            dividerName.topAnchor.constraint(equalTo: myTextField.bottomAnchor, constant: 5),
+            dividerName.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
+            dividerName.heightAnchor.constraint(equalToConstant: 2),
+            dividerName.widthAnchor.constraint(equalToConstant: 304),
+            
+            viewTotalGames.centerXAnchor.constraint(equalTo: viewBackgroundUserPreferences.centerXAnchor),
+            viewTotalGames.topAnchor.constraint(equalTo: dividerName.bottomAnchor, constant: 30),
+            viewTotalGames.widthAnchor.constraint(equalToConstant: 104),
+            viewTotalGames.heightAnchor.constraint(equalToConstant: 60),
+            
+            viewOffensive.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
+            viewOffensive.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
+            viewOffensive.widthAnchor.constraint(equalToConstant: 60),
+            viewOffensive.heightAnchor.constraint(equalToConstant: 60),
+
+            viewWords.trailingAnchor.constraint(equalTo: viewBackgroundUserPreferences.trailingAnchor, constant: -45.5),
+            viewWords.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
+            viewWords.widthAnchor.constraint(equalToConstant: 60),
+            viewWords.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
+        
+        NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 20),
+            
+            imageView.widthAnchor.constraint(equalToConstant: 140),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 127),
+            
+            viewBackgroundUserPreferences.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
+            viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor),
+            viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor),
+            viewBackgroundUserPreferences.heightAnchor.constraint(equalToConstant: size.width*0.3),
+            
+            myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 30),
+            myTextField.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: size.width/9),
+            myTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -size.width/9),
+            myTextField.heightAnchor.constraint(equalToConstant: 35),
+        ])
+        
+        NSLayoutConstraint.activate([
+            
+            dividerName.topAnchor.constraint(equalTo: myTextField.bottomAnchor, constant: 5),
+            dividerName.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: size.width/9),
+            dividerName.trailingAnchor.constraint(equalTo: viewBackgroundUserPreferences.trailingAnchor, constant: -size.width/9),
+            dividerName.heightAnchor.constraint(equalToConstant: 2),
+            
+            viewTotalGames.centerXAnchor.constraint(equalTo: viewBackgroundUserPreferences.centerXAnchor),
+            viewTotalGames.topAnchor.constraint(equalTo: dividerName.bottomAnchor, constant: 60),
+            viewTotalGames.widthAnchor.constraint(equalToConstant: 104),
+            viewTotalGames.heightAnchor.constraint(equalToConstant: 60),
+            
+            viewOffensive.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: size.width/9),
+            viewOffensive.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
+            viewOffensive.widthAnchor.constraint(equalToConstant: 60),
+            viewOffensive.heightAnchor.constraint(equalToConstant: 60),
+
+            viewWords.trailingAnchor.constraint(equalTo: viewBackgroundUserPreferences.trailingAnchor, constant: -size.width/9),
+            viewWords.centerYAnchor.constraint(equalTo: viewTotalGames.centerYAnchor),
+            viewWords.widthAnchor.constraint(equalToConstant: 60),
+            viewWords.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    private func configureItensForiPads(){
+        myTextField.font = .systemFont(ofSize: 30, weight: .heavy)
+        backgroundImage.contentMode = .scaleAspectFill
+    }
+}
+
+
+
 

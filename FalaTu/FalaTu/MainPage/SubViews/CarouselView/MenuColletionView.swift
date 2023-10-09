@@ -9,22 +9,19 @@ import UIKit
 
 class MenuColletionView: UIView {
 
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.width
+    let size = UIScreen.main.bounds.size
     
     weak var delegate: DelegatebuttonColletionViewModel?
 
     private var menuDataModel = [MenuDataModel]()
     
-    // Collection view for displaying menu items
     private lazy var collectionView: UICollectionView = {
         
         // Configure collection view layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: width*0.60, height: width*0.63)
-//        layout.minimumLineSpacing = 21
-        layout.sectionInset = UIEdgeInsets(top: 10, left: width/5, bottom: 0, right: width/5)
+        layout.itemSize = .init(width: size.width*0.60, height: size.width*0.63)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: size.width/5, bottom: 0, right: size.width/5)
       
         
         // Create the collection view
@@ -36,20 +33,10 @@ class MenuColletionView: UIView {
         colletion.translatesAutoresizingMaskIntoConstraints = false
         colletion.isPagingEnabled = true
         colletion.showsHorizontalScrollIndicator = false
+//        colletion.backgroundColor = .red
         return colletion
     }()
-    
-    private lazy var pageControl: UIPageControl = {
-        let page = UIPageControl()
-        page.numberOfPages = 2
-        page.currentPageIndicatorTintColor = UIColor(named: "PageControlColor")
-        page.pageIndicatorTintColor = UIColor(named: "PageControlColor")
-        page.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        page.translatesAutoresizingMaskIntoConstraints = false
-        return page
-    }()
-    
-    // Initializer
+
     init(){
         super.init(frame: .zero)
         print("Entered init")
@@ -61,26 +48,19 @@ class MenuColletionView: UIView {
     }
 }
 
-// Extension conforming to the ViewModel protocol
+
 extension MenuColletionView: ViewModel {
     
-    // Add the collection view as a subview
     func addViews() {
         addSubviewsEx(collectionView)
     }
     
-    // Define constraints for the collection view
     func addContrains() {
-
-        NSLayoutConstraint.activate([
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: width*0.6),
-            
-//            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor)
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
     }
     
 
@@ -94,6 +74,8 @@ extension MenuColletionView: ViewModel {
         collectionView.reloadData()
     }
 }
+
+
 
 // Extension conforming to UICollectionViewDelegate and UICollectionViewDataSource
 extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -123,5 +105,32 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.delegate?.didButton(tag: indexPath.row)
+    }
+}
+
+extension MenuColletionView{
+    private func contrainsiPhone(){
+        
+        NSLayoutConstraint.activate([
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: size.width*0.6)
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .init(width: size.width*0.40, height: size.width*0.40)
+        layout.sectionInset = .init(top: 0, left: size.width*0.2, bottom: 0, right: size.width*0.2)
+        collectionView.collectionViewLayout = layout
+        
+        NSLayoutConstraint.activate([
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: size.width*0.42)
+        ])
     }
 }

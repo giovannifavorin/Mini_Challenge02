@@ -18,12 +18,22 @@ class PerfilViewController: UIViewController {
         let view = PerfilMainView()
         return view
     }()
+    
+    private lazy var buttonBack: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "buttonBackPerfil"), for: .normal)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     
+    
     @objc
-    private func backButtonTapped() {
+    private func backButtonTapped(_ sender: UIButton!) {
         navigationController?.popViewController(animated: true)
     }
+    
     private lazy var popUpViewController: PopUpViewController = {
        let view = PopUpViewController()
        view.modalPresentationStyle = .overFullScreen
@@ -39,7 +49,7 @@ class PerfilViewController: UIViewController {
 
         addDelegates()
         configureSubViewWithData()
-        navigationItem.titleView = perfilView.labelPerfil
+        setupUI()
     }
     
     private func addDelegates(){
@@ -105,6 +115,16 @@ class PerfilViewController: UIViewController {
     
         
         self.perfilView.collectionView.configure(data: listSelectAvatar!)
+    }
+    
+    func setupUI(){
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        view.addSubview(buttonBack)
+
+        NSLayoutConstraint.activate([
+            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        ])
     }
 }
 

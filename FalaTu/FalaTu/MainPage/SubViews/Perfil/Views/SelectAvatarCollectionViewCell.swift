@@ -16,7 +16,8 @@ class SelectAvatarCollectionViewCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
-        image.layer.cornerRadius = 30
+        image.layer.cornerRadius = 15
+        image.backgroundColor = UIColor(named: "blockIconperfil")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -39,17 +40,38 @@ extension SelectAvatarCollectionViewCell: ViewModel{
     }
     
     func addContrains() {
-        NSLayoutConstraint.activate([
-            
-            imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            
-            imageView.heightAnchor.constraint(equalToConstant: 75),
-            imageView.widthAnchor.constraint(equalToConstant: 75)
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
     }
     
     func setupStyle() {
         backgroundColor = UIColor(named: "backgroundColor")
     }
 
+}
+
+extension SelectAvatarCollectionViewCell{
+    private func contrainsiPhone(){
+        print("Contrins para iphones ativas ")
+        NSLayoutConstraint.activate([
+            
+            imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 75),
+            imageView.widthAnchor.constraint(equalToConstant: 75)
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
+        print("Contrins para iPads ativas")
+        NSLayoutConstraint.activate([
+            
+            imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 100),
+            imageView.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
 }

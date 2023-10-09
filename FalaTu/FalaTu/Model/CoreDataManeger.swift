@@ -16,6 +16,9 @@ class CoreDataManager {
     
     static let coreDataManager = CoreDataManager()
     
+    private let namesDefaults: [String] = ["Fulano", "Ciclano", "Sasi", "Boitatá", "CurupiraYE"]
+    private var randomName: String?
+    
     static var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Model")
@@ -31,6 +34,8 @@ class CoreDataManager {
     
     init(){
         print("Inicializei o core data")
+        randomName = namesDefaults.randomElement()
+        
         initialPerfil()
     }
     
@@ -53,8 +58,7 @@ class CoreDataManager {
     private func initialPerfil(){
         let newPerson = Perfil(context: self.context)
         
-        newPerson.nome = "Carros 2"
-        newPerson.regiao = "RegiÃ£o: Norte"
+        newPerson.nome = "\(String(describing: randomName!))"
         
         saveContext()
     }
@@ -65,11 +69,6 @@ class CoreDataManager {
         saveContext()
     }
     
-    func updateRegionPerfil(region: String){
-        let perfil = fetchPerfil()
-        perfil.regiao = region
-        saveContext()
-    }
     
     // MARK: - Core Data Saving support
 
