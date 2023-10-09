@@ -116,7 +116,7 @@ class DefeatMinigame01ViewController: UIViewController {
                 self.present(activityViewController, animated: true, completion: nil)
             }
         case 2:
-            print("clico 2")
+            navigationController?.pushViewController(MenuViewController(), animated: true)
         default:
             return
         }
