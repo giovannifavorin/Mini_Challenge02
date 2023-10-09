@@ -9,6 +9,15 @@ import UIKit
 import SnapKit
 
 class VictoryMinigame01ViewController: UIViewController {
+
+    // palavra acertada (do dia)
+    public var wordOfDay: String! = nil
+    // significado
+    public var meaningOfWord: String! = nil
+    // tempo levado para acertar
+    public var timeTaken: Double! = nil
+    // Região de onde a palavra do dia é
+    public var regionAnswer: RegionModel! = nil
     
     private lazy var background: UIImageView = {
         let background = UIImageView()
@@ -17,33 +26,86 @@ class VictoryMinigame01ViewController: UIViewController {
         return background
     }()
     
+    // TEMPO
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tempo"
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
+
+        // Define a primeira parte do texto com um estilo específico
+        let attributedString = NSMutableAttributedString(string: "TEMPO\n",
+                                                         attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
+
+        // Define a segunda parte do texto com um estilo diferente
+        let timeFormatted = String(format: "%.2f", timeTaken)
+        let timeTaken = NSAttributedString(string: "\(timeFormatted)",
+                                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
+
+        // Adiciona as duas partes ao attributedString
+        attributedString.append(timeTaken)
+
+        // Define o texto do label com o attributedString
+        label.attributedText = attributedString
+
         return label
     }()
-    
+
+    // REGIÃO
     private lazy var regionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Região"
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
+
+        // Define a primeira parte do texto com um estilo específico
+        let attributedString = NSMutableAttributedString(string: "REGIÃO\n",
+                                                         attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
+
+        // Define a segunda parte do texto com um estilo diferente
+        let regionAnswer = NSAttributedString(string: "\(regionAnswer!.regionName.uppercased())",
+                                              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
+
+        // Adiciona as duas partes ao attributedString
+        attributedString.append(regionAnswer)
+
+        // Define o texto do label com o attributedString
+        label.attributedText = attributedString
+
         return label
     }()
     
-    private lazy var lostLabelTitle: UILabel = {
+
+    // PALAVRA DO DIA
+    private lazy var phraseLabel: UILabel = {
         let label = UILabel()
-        label.text = "A palavra do dia é..."
+        label.font = .systemFont(ofSize: 20, weight: .light)
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
+
+        // Define a primeira parte do texto com um estilo específico
+        let attributedString = NSMutableAttributedString(string: "A palavra do dia é...\n",
+                                                         attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .light)])
+
+        // Define a segunda parte do texto com um estilo diferente
+        let correctAnswerAttributedString = NSAttributedString(string: "\(wordOfDay!.uppercased())",
+                                                               attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50, weight: .bold)])
+
+        // Adiciona as duas partes ao attributedString
+        attributedString.append(correctAnswerAttributedString)
+
+        // Define o texto do label com o attributedString
+        label.attributedText = attributedString
+
         return label
     }()
-    
+
+
+    // SIGNIFICADO DA PALAVRA
     private lazy var lostLabelBody: UILabel = {
         let label = UILabel()
-        label.text = "Expressão para surpresa, \n indignação"
+        label.text = "\(meaningOfWord!)"
         label.numberOfLines = 0
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
@@ -135,8 +197,10 @@ class VictoryMinigame01ViewController: UIViewController {
         present(modalVC, animated: true, completion: nil)
     }
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         view.backgroundColor = UIColor(named: "backgroundColor")
         
@@ -144,7 +208,7 @@ class VictoryMinigame01ViewController: UIViewController {
         buttonStackView.addArrangedSubview(shareButton)
         buttonStackView.addArrangedSubview(backButton)
         
-        labelStackView.addArrangedSubview(lostLabelTitle)
+        labelStackView.addArrangedSubview(phraseLabel)
         labelStackView.addArrangedSubview(lostLabelBody)
         
         view.addSubview(background)

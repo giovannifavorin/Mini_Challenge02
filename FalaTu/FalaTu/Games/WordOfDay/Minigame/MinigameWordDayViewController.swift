@@ -32,6 +32,10 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     // Derrota
     let defeatVC = DefeatMinigame01ViewController()
     
+    // tempo levado - GANHAR E PERDER
+    var timeElapsed_WIN: Double! = nil
+    var timeElapsed_DEFEAT: Double! = nil
+    
     // Background - padrão sem cores
     private lazy var imagebackground: UIImageView = {
         let image = UIImageView()
@@ -177,7 +181,6 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
     }
 }
 
-// PREENCHER QUADRO =========================================================================
 // SEND BUTTON =========================================================================
 extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControllerDatasource {
 
@@ -192,8 +195,6 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         
         present(popUpHint, animated: false)
     }
-    
-
     
     var currentGuesses: [[Character?]] {
         return guesses
@@ -232,31 +233,51 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
 
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
+        // ACERTO DE RESPOSTA ======================================================================
         if String(userAnswer) == answer {
+            
             // Se o jogador acertar a resposta
             endTime = Date()
-            let timeElapsed = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
-            print("tempo total: \(timeElapsed) segundos")
+            timeElapsed_WIN = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
+            print("tempo total: \(timeElapsed_WIN!) segundos")
             
+            // TESTE PARA PONTUAÇÃO
             incrementRandomStateItemsUnlocked(in: &answer_region)
-            
             for state in answer_region.states {
                 print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
             }
-            // Chama view de vitória
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                self.navigationController?.pushViewController(self.victoryVC, animated: true)
-//            }
-            // navigationController?.pushViewController(victoryVC, animated: true)
+            
+            // CHAMADA VIEW DE VITÓRIA
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.victoryVC.wordOfDay = self.answer
+                self.victoryVC.meaningOfWord = self.meaning
+                self.victoryVC.timeTaken = self.timeElapsed_WIN
+                self.victoryVC.regionAnswer = self.answer_region
+                self.navigationController?.pushViewController(self.victoryVC, animated: true)
+            }
+
+            
+        // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
         } else {
+            
+            // Registra o tempo
+            endTime = Date()
+            timeElapsed_DEFEAT = endTime?.timeIntervalSince(startTime ?? Date()) ?? 0
             // Se o jogador não acertar a resposta
             isRowSent[boardVC.currentRow] = true
-            boardVC.currentRow += 1
+
+            boardVC.currentRow += 1  // MEXER (index)
+
             boardVC.boardView.collectionView.reloadData()
             
+            // VERIFICA QUANTAS TENTATIVAS FALTAM
             if boardVC.currentRow >= guesses.count {
                 // Se o jogador não acertar após 6 tentativas
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    
+                    // NÃO CONSEGUIU
+                    self.defeatVC.timeTaken = self.timeElapsed_DEFEAT
+                    self.defeatVC.regionAnswer = self.answer_region
                     self.navigationController?.pushViewController(self.defeatVC, animated: true)
                 }
             }

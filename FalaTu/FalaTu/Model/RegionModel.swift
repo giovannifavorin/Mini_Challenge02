@@ -18,8 +18,6 @@ func createState(name: String, numberOfItemsUnlocked: Int = 0, wordsWithHints: [
     return StateModel(stateName: name, numberOfItemsUnlocked: numberOfItemsUnlocked, words: wordsWithHints)
 }
 
-
-
 // Função para criar região
 func createRegion(regionName: String, statesData: [(String, Int, [String: (String, String)])]) -> RegionModel {
     let states = statesData.map { createState(name: $0.0, numberOfItemsUnlocked: $0.1, wordsWithHints: $0.2) }
@@ -61,7 +59,7 @@ let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 2,
-         ["brabo": ("legal", "significa legal"),
+         ["brabo": ("legal", "é utilizada para descrever algo ou alguém que é muito bom, habilidoso ou impressionante. Ela sugere um alto nível de excelência ou destaque em alguma área específica."),
           "testeAM2": ("dicaAM2", "significadoAM2")]),
         
         ("Pará", 0,
