@@ -101,14 +101,14 @@ class VictoryMinigame01ViewController: UIViewController {
         return label
     }()
     
-    
     // SIGNIFICADO DA PALAVRA
-    private lazy var lostLabelBody: UILabel = {
+    private lazy var meaningLabelBody: UILabel = {
         let label = UILabel()
         label.text = "\(meaningOfWord!)"
-        label.numberOfLines = 0
         label.textAlignment = .center
-        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -202,7 +202,7 @@ class VictoryMinigame01ViewController: UIViewController {
         buttonStackView.addArrangedSubview(backButton)
         
         labelStackView.addArrangedSubview(phraseLabel)
-        labelStackView.addArrangedSubview(lostLabelBody)
+//        labelStackView.addArrangedSubview(meaningLabelBody)
         
         view.addSubview(background)
         view.addSubview(scoreBoardBackground)
@@ -213,6 +213,7 @@ class VictoryMinigame01ViewController: UIViewController {
         scoreBoardBackground.addSubview(scoreBoardStars)
         
         scoreBoardStars.addSubview(labelStackView)
+        scoreBoardBackground.addSubview(meaningLabelBody)
         
         scoreBox.addSubview(timeLabel)
         scoreBox2.addSubview(regionLabel)
@@ -240,17 +241,23 @@ class VictoryMinigame01ViewController: UIViewController {
         }
         
         labelStackView.snp.makeConstraints { make in /*TÍTULO LABEL*/
-            make.center.equalTo(scoreBoardStars.snp.center)
+            make.top.equalTo(scoreBoardStars.snp.top).offset(20)
+            make.centerX.equalTo(scoreBoardStars.snp.centerX)
+        }
+        
+        meaningLabelBody.snp.makeConstraints { make in
+            make.top.equalTo(labelStackView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(20)
         }
         
         scoreBox.snp.makeConstraints { make in /*SCORE BOX*/
-            make.top.equalToSuperview().offset(250)
+            make.top.equalTo(meaningLabelBody.snp.bottom).offset(40)
             make.left.equalTo(scoreBoardBackground.snp.left).offset(50)
             make.width.equalTo(view.frame.width * 0.29)
         }
         
         scoreBox2.snp.makeConstraints { make in /*SCORE BOX*/
-            make.top.equalToSuperview().offset(250)
+            make.top.equalTo(meaningLabelBody.snp.bottom).offset(40)
             make.right.equalTo(scoreBoardBackground.snp.right).offset(-50)
             make.width.equalTo(view.frame.width * 0.29)
         }
