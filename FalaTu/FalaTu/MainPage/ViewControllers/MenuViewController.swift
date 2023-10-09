@@ -147,6 +147,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
+        navigationItem.hidesBackButton = true
         
         self.perfilViewController.delegateUpdateButtonPerfil = self
     }
@@ -279,62 +280,62 @@ extension MenuViewController{
     
     
     private func contrainsiPad(){
-            NSLayoutConstraint.activate([
-                
-                //background image
-                imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
-                imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                
-                //frame image top
-                frameTop.topAnchor.constraint(equalTo: view.topAnchor),
-                frameTop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                frameTop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                frameTop.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
-                
-                //frame image Botton
-                frameBotton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                frameBotton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                frameBotton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                frameBotton.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
-                
-                //LOGO
-                logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.20),
-                logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoView.widthAnchor.constraint(equalToConstant: view.frame.width*0.40),
-                logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
-                
-                //CAROUSEL
-                carouselMenuComponent.view.topAnchor.constraint(equalTo: view.topAnchor),
-                carouselMenuComponent.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                carouselMenuComponent.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                carouselMenuComponent.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                
-                //INVENTORY
-                inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
-                //            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
-                //            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
-                inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                inventoryButton.widthAnchor.constraint(equalToConstant: 100),
-                inventoryButton.heightAnchor.constraint(equalToConstant: 100),
-                
-                //            //DICTIONARY
-                //            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
-                //            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
-                //            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-                //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-                //
-                //            //CONFIGURATION
-                //            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-                //            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
-                //            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-                //            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-                
-                custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
-                custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
-                custonButtonPerfil.heightAnchor.constraint(equalToConstant: 50),
-                custonButtonPerfil.widthAnchor.constraint(equalToConstant: view.frame.width*0.20),
-            ])
+        NSLayoutConstraint.activate([
+            
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            //frame image top
+            frameTop.topAnchor.constraint(equalTo: view.topAnchor),
+            frameTop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            frameTop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameTop.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
+            
+            //frame image Botton
+            frameBotton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            frameBotton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            frameBotton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameBotton.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
+            
+            //LOGO
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.20),
+            logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoView.widthAnchor.constraint(equalToConstant: view.frame.width*0.40),
+            logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
+            
+            //CAROUSEL
+            carouselMenuComponent.view.topAnchor.constraint(equalTo: view.topAnchor),
+            carouselMenuComponent.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            carouselMenuComponent.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            carouselMenuComponent.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            //INVENTORY
+            inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
+            //            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
+            //            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
+            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            inventoryButton.widthAnchor.constraint(equalToConstant: 100),
+            inventoryButton.heightAnchor.constraint(equalToConstant: 100),
+            
+            //            //DICTIONARY
+            //            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
+            //            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
+            //            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            //
+            //            //CONFIGURATION
+            //            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            //            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
+            //            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            //            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            
+            custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
+            custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
+            custonButtonPerfil.heightAnchor.constraint(equalToConstant: 50),
+            custonButtonPerfil.widthAnchor.constraint(equalToConstant: view.frame.width*0.20),
+        ])
     }
 }

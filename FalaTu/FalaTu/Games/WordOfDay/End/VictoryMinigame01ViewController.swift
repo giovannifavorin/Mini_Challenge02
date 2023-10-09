@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class VictoryMinigame01ViewController: UIViewController {
-
+    
     // palavra acertada (do dia)
     public var wordOfDay: String! = nil
     // significado
@@ -32,50 +32,50 @@ class VictoryMinigame01ViewController: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
-
+        
         // Define a primeira parte do texto com um estilo específico
         let attributedString = NSMutableAttributedString(string: "TEMPO\n",
                                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
-
+        
         // Define a segunda parte do texto com um estilo diferente
         let timeFormatted = String(format: "%.2f", timeTaken)
         let timeTaken = NSAttributedString(string: "\(timeFormatted)",
                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
-
+        
         // Adiciona as duas partes ao attributedString
         attributedString.append(timeTaken)
-
+        
         // Define o texto do label com o attributedString
         label.attributedText = attributedString
-
+        
         return label
     }()
-
+    
     // REGIÃO
     private lazy var regionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
-
+        
         // Define a primeira parte do texto com um estilo específico
         let attributedString = NSMutableAttributedString(string: "REGIÃO\n",
                                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
-
+        
         // Define a segunda parte do texto com um estilo diferente
         let regionAnswer = NSAttributedString(string: "\(regionAnswer!.regionName.uppercased())",
                                               attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
-
+        
         // Adiciona as duas partes ao attributedString
         attributedString.append(regionAnswer)
-
+        
         // Define o texto do label com o attributedString
         label.attributedText = attributedString
-
+        
         return label
     }()
     
-
+    
     // PALAVRA DO DIA
     private lazy var phraseLabel: UILabel = {
         let label = UILabel()
@@ -83,25 +83,25 @@ class VictoryMinigame01ViewController: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
-
+        
         // Define a primeira parte do texto com um estilo específico
         let attributedString = NSMutableAttributedString(string: "A palavra do dia é...\n",
                                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .light)])
-
+        
         // Define a segunda parte do texto com um estilo diferente
         let correctAnswerAttributedString = NSAttributedString(string: "\(wordOfDay!.uppercased())",
                                                                attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50, weight: .bold)])
-
+        
         // Adiciona as duas partes ao attributedString
         attributedString.append(correctAnswerAttributedString)
-
+        
         // Define o texto do label com o attributedString
         label.attributedText = attributedString
-
+        
         return label
     }()
-
-
+    
+    
     // SIGNIFICADO DA PALAVRA
     private lazy var lostLabelBody: UILabel = {
         let label = UILabel()
@@ -153,7 +153,7 @@ class VictoryMinigame01ViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "button_backmenu"), for: .normal)
         button.contentMode = .scaleAspectFill
-        button.addTarget(self, action: #selector(showSimpleModal), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         button.tag = 2
         return button
     }()
@@ -185,22 +185,15 @@ class VictoryMinigame01ViewController: UIViewController {
                 self.present(activityViewController, animated: true, completion: nil)
             }
         case 2:
-            print("clico 2")
+            navigationController?.pushViewController(MenuViewController(), animated: true)
         default:
             return
         }
     }
     
-    @IBAction func showSimpleModal(_ sender: Any) {
-        let modalVC = ModalViewController()
-        modalVC.modalPresentationStyle = .overFullScreen // Define o estilo de apresentação da modal
-        present(modalVC, animated: true, completion: nil)
-    }
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         view.backgroundColor = UIColor(named: "backgroundColor")
         
