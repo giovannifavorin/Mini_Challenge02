@@ -185,7 +185,7 @@ class VictoryMinigame01ViewController: UIViewController {
                 self.present(activityViewController, animated: true, completion: nil)
             }
         case 2:
-            navigationController?.pushViewController(MenuViewController(), animated: true)
+            navigationController?.popToRootViewController(animated: true)
         default:
             return
         }
