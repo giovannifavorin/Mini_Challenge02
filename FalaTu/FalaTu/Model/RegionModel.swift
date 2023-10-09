@@ -9,6 +9,7 @@ struct RegionModel {
     var regionName: String
     var numOfStates: Int
     var numOfStatesUnlocked: Int
+    var numOfItensInRegion: Int
     var states: [StateModel]
 }
 
@@ -24,7 +25,9 @@ func createRegion(regionName: String, statesData: [(String, Int, [String: (Strin
     let states = statesData.map { createState(name: $0.0, numberOfItemsUnlocked: $0.1, wordsWithHints: $0.2) }
     let numOfStates = states.count
     let numOfStatesUnlocked = states.filter { $0.numberOfItemsUnlocked > 0 }.count
-    return RegionModel(regionName: regionName, numOfStates: numOfStates, numOfStatesUnlocked: numOfStatesUnlocked, states: states)
+    let numOfItemsInRegion = states.reduce(0) { $0 + $1.numberOfItemsUnlocked }
+    
+    return RegionModel(regionName: regionName, numOfStates: numOfStates, numOfStatesUnlocked: numOfStatesUnlocked, numOfItensInRegion: numOfItemsInRegion, states: states)
 }
 
 // Devolve uma palavra aleatória com exatamente 5 caracteres, sua dica, significado E O ESTADO QUE ELA PERTENCE
@@ -57,7 +60,7 @@ func incrementRandomStateItemsUnlocked(in region: inout RegionModel) {
 let regions_BR: [RegionModel] = [
     // NORTE
     createRegion(regionName: "Norte", statesData: [
-        ("Amazonas", 0,
+        ("Amazonas", 2,
          ["brabo": ("legal", "significa legal"),
           "testeAM2": ("dicaAM2", "significadoAM2")]),
         
@@ -73,7 +76,7 @@ let regions_BR: [RegionModel] = [
          ["testeAP1": ("dicaAP1", "significadoAP1"),
           "testeAP2": ("dicaAP2", "significadoAP2")]),
         
-        ("Acre", 0,
+        ("Acre", 2,
          ["testeAC1": ("dicaAC1", "significadoAC1"),
           "testeAC2": ("dicaAC2", "significadoAC2")]),
         

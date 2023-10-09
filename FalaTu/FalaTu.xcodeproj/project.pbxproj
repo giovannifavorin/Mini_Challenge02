@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2618337E2ACF65A80035F72A /* RegiaoNorteMapaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */; };
 		261833802ACF668C0035F72A /* MapaDivisoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */; };
+		261833892AD0A2520035F72A /* RegionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261833882AD0A2520035F72A /* RegionInformationView.swift */; };
+		2618338B2AD322680035F72A /* RegionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618338A2AD322680035F72A /* RegionDetails.swift */; };
 		26315BE62ABE29240048A370 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE52ABE29240048A370 /* InventoryView.swift */; };
 		26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE72ABE296A0048A370 /* InventoryViewController.swift */; };
 		26315BEA2ABF60850048A370 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BE92ABF60850048A370 /* StateModel.swift */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiaoNorteMapaView.swift; sourceTree = "<group>"; };
 		2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaDivisoesView.swift; sourceTree = "<group>"; };
+		261833882AD0A2520035F72A /* RegionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionInformationView.swift; sourceTree = "<group>"; };
+		2618338A2AD322680035F72A /* RegionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetails.swift; sourceTree = "<group>"; };
 		26315BE52ABE29240048A370 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		26315BE72ABE296A0048A370 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		26315BE92ABF60850048A370 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
@@ -144,6 +148,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261833872AD0A13F0035F72A /* MAPA TESTE */ = {
+			isa = PBXGroup;
+			children = (
+				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
+				2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */,
+				2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */,
+			);
+			path = "MAPA TESTE";
+			sourceTree = "<group>";
+		};
 		B808092D2ACB3D720063C31A /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,9 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				26315BE72ABE296A0048A370 /* InventoryViewController.swift */,
-				26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */,
-				2618337D2ACF65A80035F72A /* RegiaoNorteMapaView.swift */,
-				2618337F2ACF668C0035F72A /* MapaDivisoesView.swift */,
+				261833882AD0A2520035F72A /* RegionInformationView.swift */,
+				2618338A2AD322680035F72A /* RegionDetails.swift */,
+				261833872AD0A13F0035F72A /* MAPA TESTE */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -545,6 +559,7 @@
 				B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
 				B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */,
+				261833892AD0A2520035F72A /* RegionInformationView.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
 				D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */,
 				B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */,
@@ -559,6 +574,7 @@
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */,
 				B803C07C2AC5F14A000A1D66 /* MenuViewController.swift in Sources */,
+				2618338B2AD322680035F72A /* RegionDetails.swift in Sources */,
 				26315BEA2ABF60850048A370 /* StateModel.swift in Sources */,
 				B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */,
 				26315BE82ABE296A0048A370 /* InventoryViewController.swift in Sources */,
