@@ -127,6 +127,25 @@ let regions_BR: [RegionModel] = [
           "testeBA2": ("dicaBA2", "significadoBA2")])
     ]),
     
+    // CENTRO-OESTE
+    createRegion(regionName: "Centro-Oeste", statesData: [
+        ("Goiás", 0,
+         ["testeGO1": ("dicaGO1", "significadoGO1"),
+          "testeGO2": ("dicaGO2", "significadoGO2")]),
+        
+        ("Mato Grosso", 0,
+         ["testeMT1": ("dicaMT1", "significadoMT1"),
+          "testeMT2": ("dicaMT2", "significadoMT2")]),
+        
+        ("Mato Grosso do Sul", 0,
+         ["testeMS1": ("dicaMS1", "significadoMS1"),
+          "testeMS2": ("dicaMS2", "significadoMS2")]),
+        
+        ("Distrito Federal", 0,
+         ["testeDF1": ("dicaDF1", "significadoDF1"),
+          "testeDF2": ("dicaDF2", "significadoDF2")])
+    ]),
+    
     // SUDESTE
     createRegion(regionName: "Sudeste", statesData: [
         ("Minas Gerais", 0,
@@ -159,25 +178,6 @@ let regions_BR: [RegionModel] = [
         ("Rio Grande do Sul", 0,
          ["testeRS1": ("dicaRS1", "significadoRS1"),
           "testeRS2": ("dicaRS2", "significadoRS2")])
-    ]),
-    
-    // CENTRO-OESTE
-    createRegion(regionName: "Centro-Oeste", statesData: [
-        ("Goiás", 0,
-         ["testeGO1": ("dicaGO1", "significadoGO1"),
-          "testeGO2": ("dicaGO2", "significadoGO2")]),
-        
-        ("Mato Grosso", 0,
-         ["testeMT1": ("dicaMT1", "significadoMT1"),
-          "testeMT2": ("dicaMT2", "significadoMT2")]),
-        
-        ("Mato Grosso do Sul", 0,
-         ["testeMS1": ("dicaMS1", "significadoMS1"),
-          "testeMS2": ("dicaMS2", "significadoMS2")]),
-        
-        ("Distrito Federal", 0,
-         ["testeDF1": ("dicaDF1", "significadoDF1"),
-          "testeDF2": ("dicaDF2", "significadoDF2")])
     ])
 ]
 

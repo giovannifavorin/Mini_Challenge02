@@ -214,14 +214,14 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         let indexAnswer = Array(answer)
         
         guard let letter = guesses[rowIndex][indexPath.row], indexAnswer.contains(letter) else {
-            return .systemGray
+            return UIColor(named: "WrongLetter")
             
         }
         
         if indexAnswer[indexPath.row] == letter {
-            return .systemGreen
+            return UIColor(named: "GreenLetter")
         }
-        return .systemOrange
+        return UIColor(named: "OrangeLetter")
     }
 
     func sendButtonPressed() {
