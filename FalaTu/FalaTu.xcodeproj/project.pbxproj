@@ -50,6 +50,9 @@
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
 		B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8E47F782AD2E3C7008F5187 /* SnapKit */; };
 		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
+		D93A46CF2AD488E100CB127B /* CheckBoxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */; };
+		D93A46D02AD488E100CB127B /* ConfigPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */; };
+		D93A46D12AD488E100CB127B /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
@@ -121,6 +124,9 @@
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
 		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxConfig.swift; sourceTree = "<group>"; };
+		D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPopUpView.swift; sourceTree = "<group>"; };
+		D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -382,6 +388,16 @@
 			path = FalaTu/Games/WordOfDay/PopUp;
 			sourceTree = SOURCE_ROOT;
 		};
+		D93A46CB2AD4882B00CB127B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */,
+				D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */,
+				D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		D9691C162AB8C79E00A908E8 = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +411,7 @@
 			children = (
 				D9691C392AB8C82A00A908E8 /* System */,
 				D9691C302AB8C79F00A908E8 /* Info.plist */,
+				D93A46CB2AD4882B00CB127B /* Config */,
 				B808092D2ACB3D720063C31A /* Games */,
 				B80809332ACB3E490063C31A /* MainPage */,
 				B80809312ACB3DF00063C31A /* ConfigurationSettingsView */,
@@ -539,6 +556,7 @@
 				B808EF2C2AD07851005D5A5E /* FileCustonButton.swift in Sources */,
 				B84E50BB2AC36F8900A02945 /* Coordinator.swift in Sources */,
 				B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */,
+				D93A46D02AD488E100CB127B /* ConfigPopUpView.swift in Sources */,
 				B8368E222AD0832F00C38E83 /* UserInformationView.swift in Sources */,
 				B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */,
 				B8368E262AD0838A00C38E83 /* UserDefaults.swift in Sources */,
@@ -557,7 +575,9 @@
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
 				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
 				B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */,
+				D93A46CF2AD488E100CB127B /* CheckBoxConfig.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
+				D93A46D12AD488E100CB127B /* ConfigurationViewController.swift in Sources */,
 				B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */,
 				261833892AD0A2520035F72A /* RegionInformationView.swift in Sources */,
 				D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */,
