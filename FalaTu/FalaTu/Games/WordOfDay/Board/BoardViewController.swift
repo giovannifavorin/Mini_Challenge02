@@ -91,6 +91,7 @@ extension BoardViewController {
             let defaultBoxColor = UIColor(named: "backgroundColor") // cor dos quadrados enquanto digita antes de confirmar
             cell.configure(with: letter)
             cell.backgroundColor = datasource?.boxColor(at: indexPath) ?? defaultBoxColor // cor de fundo do quadrado
+            cell.label.textColor = UIColor(named: "colorLetters")
             
         }
         return cell
