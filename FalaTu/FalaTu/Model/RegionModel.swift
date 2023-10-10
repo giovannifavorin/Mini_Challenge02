@@ -37,10 +37,10 @@ func createRegion(regionName: String, statesData: [(String, Int, [String: (Strin
 // Devolve uma palavra aleatória com exatamente 5 caracteres, sua dica, significado E O ESTADO QUE ELA PERTENCE
 func getRandom_Word_Hint_Meaning() -> (word: String, hint: String, meaning: String, region: RegionModel)? {
     guard let randomRegion = regions_BR.randomElement(),
-        let randomState = randomRegion.states.randomElement() else {
-            return nil
+          let randomState = randomRegion.states.randomElement() else {
+        return nil
     }
-
+    
     if let (word, (hint, meaning)) = randomState.words.randomElement(), word.count == 5 {
         return (word, hint, meaning, randomRegion)
     } else {
@@ -99,11 +99,16 @@ func incrementWordsCorrectInRegion(in region: inout RegionModel) {
 
 // Criando instâncias de RegionModel para cada região com palavras associadas a cada estado
 let regions_BR: [RegionModel] = [
+    createRegion(regionName: "Brasil", statesData: [
+        ("Brasil", 5,//Verificar o q é esse 5
+         ["manja": ("Entendeu?", "Significa \"entender\" ou \"saber\"."),
+          "zicou": ("Azar", "Estar em apuros ou ter azar"),
+         ]),
+    ]),
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 5,
-         ["brabo": ("legal", "é utilizada para descrever algo ou alguém que é muito bom, habilidoso ou impressionante. Ela sugere um alto nível de excelência ou destaque em alguma área específica."),
-          "braba": ("dicaAM2", "significadoAM2")]),
+         ["brabo": ("legal", "é utilizada para descrever algo ou alguém que é muito bom, habilidoso ou impressionante. Ela sugere um alto nível de excelência ou destaque em alguma área específica.")]),
         
         ("Pará", 0,
          ["testePA1": ("dicaPA1", "significadoPA1"),
@@ -199,7 +204,7 @@ let regions_BR: [RegionModel] = [
           "testeES2": ("dicaES2", "significadoES2")]),
         
         ("Rio de Janeiro", 5,
-         ["testeRJ1": ("dicaRJ1", "significadoRJ1"),
+         ["truta": ("Usado para se referir a alguém", "É usado para se referir a um amigo."),
           "testeRJ2": ("dicaRJ2", "significadoRJ2")]),
         
         ("São Paulo", 8,
@@ -218,8 +223,8 @@ let regions_BR: [RegionModel] = [
           "testeSC2": ("dicaSC2", "significadoSC2")]),
         
         ("Rio Grande do Sul", 2,
-         ["testeRS1": ("dicaRS1", "significadoRS1"),
-          "testeRS2": ("dicaRS2", "significadoRS2")])
+         ["guriz": ("Meninos", "Gíria para \"meninos\" ou \"rapazes\""),
+          "olada": ("Ocasião", "Se refere a uma ocasião, oportunidade")])
     ])
 ]
 
