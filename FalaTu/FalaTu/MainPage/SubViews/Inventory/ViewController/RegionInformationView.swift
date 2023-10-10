@@ -15,15 +15,23 @@ class RegionInformationView: UIView {
         backgroundPattern.image = UIImage(named: "bgInventory")
         backgroundPattern.translatesAutoresizingMaskIntoConstraints = false
         backgroundPattern.contentMode = .scaleAspectFill
+        
+        // Adicionando sombra
+        backgroundPattern.layer.shadowColor = UIColor.gray.cgColor
+        backgroundPattern.layer.shadowOpacity = 0.3
+        backgroundPattern.layer.shadowOffset = CGSize(width: 0, height: 4)
+        backgroundPattern.layer.shadowRadius = 0.0
+        
         return backgroundPattern
     }()
+
 
     // Inventário label -> título
     lazy var labelInventario: UILabel = {
         let label = UILabel()
         label.text = "Inventário"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 32, weight: .heavy)
+        label.font = .systemFont(ofSize: 28, weight: .heavy)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,9 +49,8 @@ class RegionInformationView: UIView {
     }()
     
     // Imagem da região
-    private lazy var regionImage: UIImageView = {
+    lazy var regionImage: UIImageView = {
         let regionImage = UIImageView()
-        regionImage.image = UIImage(named: "NorteTopInventory")
         regionImage.translatesAutoresizingMaskIntoConstraints = false
         regionImage.contentMode = .scaleAspectFit
         return regionImage
@@ -52,16 +59,6 @@ class RegionInformationView: UIView {
     lazy var regionTopDetails: RegionDetails = {
         let view = RegionDetails()
         view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    // Borda para as topInfos
-    private lazy var borderView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderWidth = 5
-        view.layer.borderColor = UIColor.systemGray3.cgColor
-        view.layer.cornerRadius = 10
         return view
     }()
   
@@ -81,7 +78,6 @@ extension RegionInformationView: ViewModel {
         addSubview(labelInventario) // Título
         addSubview(labelRegioesBrasileiras) // Subtítulo
         addSubview(regionImage) // Imagem do estado
-        addSubview(borderView) // Borda para as top informations
         addSubview(regionTopDetails) // Informações de itens e estados
     }
     
@@ -90,30 +86,24 @@ extension RegionInformationView: ViewModel {
             backgroundPattern.topAnchor.constraint(equalTo: topAnchor),
             backgroundPattern.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundPattern.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundPattern.heightAnchor.constraint(equalToConstant: 300),
+            backgroundPattern.heightAnchor.constraint(equalToConstant: 258),
 
             labelInventario.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             labelInventario.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             labelRegioesBrasileiras.centerXAnchor.constraint(equalTo: centerXAnchor),
-            labelRegioesBrasileiras.topAnchor.constraint(equalTo: labelInventario.bottomAnchor, constant: 10), // Espaçamento entre título e subtítulo
+            labelRegioesBrasileiras.topAnchor.constraint(equalTo: labelInventario.bottomAnchor), // Espaçamento entre título e subtítulo
 
             regionImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             regionImage.topAnchor.constraint(equalTo: labelRegioesBrasileiras.bottomAnchor, constant: 10), // Espaçamento entre subtítulo e imagem
-
-            borderView.topAnchor.constraint(equalTo: backgroundPattern.bottomAnchor, constant: -10),
-            borderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
-            borderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
-            borderView.heightAnchor.constraint(equalToConstant: 80),
             
-            regionTopDetails.topAnchor.constraint(equalTo: borderView.topAnchor, constant: 15),
-            regionTopDetails.leadingAnchor.constraint(equalTo: borderView.leadingAnchor),
-            regionTopDetails.trailingAnchor.constraint(equalTo: borderView.trailingAnchor),
+            regionTopDetails.topAnchor.constraint(equalTo: backgroundPattern.bottomAnchor, constant: 35),
+            regionTopDetails.leadingAnchor.constraint(equalTo: leadingAnchor),
+            regionTopDetails.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
     
     func setupStyle() {
-        //borderView.backgroundColor = .clear
-        borderView.backgroundColor = .systemGray5
+    
     }
 }

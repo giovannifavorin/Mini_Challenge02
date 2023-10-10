@@ -45,6 +45,16 @@ class RegionDetails: UIView {
         return view
     }()
 
+    // Divider
+    let divider: UIView = {
+        let divider = UIView()
+        divider.backgroundColor = .clear
+        divider.layer.cornerRadius = 2
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = UIColor(named: "dividerColor ")
+        return divider
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -65,38 +75,44 @@ extension RegionDetails: ViewModel{
         
         addSubview(labelNumberItems)
         addSubview(labelNumberStates)
+        
+        addSubview(divider)
     }
     
     func addContrains() {
-
-
         NSLayoutConstraint.activate([
             // TEXTO ITENS
-            labelTextItems.topAnchor.constraint(equalTo: topAnchor),
+            labelTextItems.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             labelTextItems.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
             
             // TEXTO ESTADOS
-            labelTextStates.topAnchor.constraint(equalTo: topAnchor),
+            labelTextStates.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             labelTextStates.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -80),
 
             // NÚMERO DE ITENS DESBLOQUEADOS
-            labelNumberItems.topAnchor.constraint(equalTo: labelTextItems.bottomAnchor, constant: 10),
+            labelNumberItems.topAnchor.constraint(equalTo: labelTextItems.bottomAnchor),
             labelNumberItems.centerXAnchor.constraint(equalTo: labelTextItems.centerXAnchor),
             
             // NÚMERO DE ESTADOS DESBLOQUEADOS
-            labelNumberStates.topAnchor.constraint(equalTo: labelTextStates.bottomAnchor, constant: 10),
+            labelNumberStates.topAnchor.constraint(equalTo: labelTextStates.bottomAnchor),
             labelNumberStates.centerXAnchor.constraint(equalTo: labelTextStates.centerXAnchor),
+            
+            // DIVIDER
+            divider.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divider.topAnchor.constraint(equalTo: topAnchor),
+            divider.widthAnchor.constraint(equalToConstant: 1), // Largura do divider
+            divider.heightAnchor.constraint(equalToConstant: 50) // Altura do divider
         ])
     }
+
     
     func setupStyle() {
-        //backgroundColor = .white
     }
 }
 
 extension RegionDetails {
     public func configure(for region: RegionModel) {
         self.labelNumberItems.text = "\(region.numOfItensInRegion)" 
-        self.labelNumberStates.text = "\(region.numOfStatesUnlocked) / \(region.numOfStates)"
+        self.labelNumberStates.text = "\(region.numOfStatesUnlocked)/\(region.numOfStates)"
     }
 }

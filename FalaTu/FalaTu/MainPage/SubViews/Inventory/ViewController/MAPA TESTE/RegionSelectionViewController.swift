@@ -9,11 +9,79 @@ import UIKit
 
 class RegionSelectionViewController: UIViewController {
     
-//    let regionCoordinates: [String: CGPoint] = [
-//        "Norte": CGPoint(x: 100, y: 50),
-//        "Nordeste": CGPoint(x: 200, y: 100),
-//    ]
+    // Botões representando as regiões =====================================================
+    let button1: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Norte", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.tintColor = .white
+        button.tag = 0
+        return button
+    }()
+    
+    let button2: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Nordeste", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.tintColor = .white
+        button.tag = 1
+        return button
+    }()
+    
+    let button3: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Centro-Oeste", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.tintColor = .white
+        button.tag = 2
+        return button
+    }()
+    
+    let button4: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sudeste", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.tintColor = .white
+        button.tag = 3
+        return button
+    }()
+    
+    let button5: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sul", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.tintColor = .white
+        button.tag = 4
+        return button
+    }()
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        if let assetName = assetMapping[sender.tag] {
+            brazilImage.image = UIImage(named: assetName)
+        }
+        
+        // Atrasa a chamada à InventoryViewController por 1 segundo
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let inventoryViewController = InventoryViewController()
+            inventoryViewController.selectedRegion = regions_BR[sender.tag]
+            self.navigationController?.pushViewController(inventoryViewController, animated: true)
+        }
+    }
+    // Botões representando as regiões =====================================================
 
+    // Dicionário que mapeia tags de botões para nomes de assets
+        let assetMapping: [Int: String] = [
+            0: "brazilMapNORTE",
+            1: "brazilMapNORDESTE",
+            2: "brazilMapCENTROOESTE",
+            3: "brazilMapSUDESTE",
+            4: "brazilMapSUL"
+        ]
     
     private lazy var brazilImage: UIImageView = {
         let brazilImage = UIImageView()
@@ -31,37 +99,29 @@ class RegionSelectionViewController: UIViewController {
         return brazilImage
     }()
 
-//    func setupRegionButtons() {
-//        for (index, regions_BR) in regions_BR.enumerated() {
-//            let regionButton = UIButton()
-//            regionButton.translatesAutoresizingMaskIntoConstraints = false
-//            regionButton.setTitle(regions_BR.regionName, for: .normal)
-//            regionButton.addTarget(self, action: #selector(regionButtonTapped(sender:)), for: .touchUpInside)
-//            regionButton.tag = index
-//            
-//            NSLayoutConstraint.activate([
-//                regionButton.centerXAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: regionCoordinates.x),
-//                regionButton.centerYAnchor.constraint(equalTo: brazilImage.topAnchor, constant: regionCoordinates.y),
-//                // Adicione outras restrições conforme necessário (largura, altura, etc.)
-//            ])
-//        }
-//    }
+    private lazy var buttonBack: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "buttonBackPerfil"), for: .normal)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    @objc
+    private func backButtonTapped(_ sender: UIButton!) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
-
     }
- 
-    @objc func regionButtonTapped(sender: UIButton) {
-        let regionIndex = sender.tag
-        guard regionIndex < regions_BR.count else { return } // Verifique se o índice está dentro dos limites do array
-
-        let selectedRegion = regions_BR[regionIndex]
-        let inventoryViewController = InventoryViewController()
-        navigationController?.pushViewController(inventoryViewController, animated: true)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Restaurando a imagem do Brasil
+        brazilImage.image = UIImage(named: "brazilMap")
     }
-
 }
 
 extension RegionSelectionViewController: ViewControllerModel {
@@ -77,14 +137,57 @@ extension RegionSelectionViewController: ViewControllerModel {
             planetImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             planetImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             planetImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            // Botão 1 - Norte
+            button1.topAnchor.constraint(equalTo: brazilImage.topAnchor, constant: 60),
+            button1.leadingAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: 100),
             
+            // Botão 2 - Nordeste
+            button2.topAnchor.constraint(equalTo: brazilImage.topAnchor, constant: 100),
+            button2.leadingAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: 230),
             
+            // Botão 3 - Centro-Oeste
+            button3.topAnchor.constraint(equalTo: brazilImage.topAnchor, constant: 170),
+            button3.leadingAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: 130),
+            
+            // Botão 4 - Sudeste
+            button4.topAnchor.constraint(equalTo: brazilImage.topAnchor, constant: 200),
+            button4.leadingAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: 200),
+            
+            // Botão 5 - Sul
+            button5.topAnchor.constraint(equalTo: brazilImage.topAnchor, constant: 270),
+            button5.leadingAnchor.constraint(equalTo: brazilImage.leadingAnchor, constant: 160)
+        ])
+        
+        // Botão de sair
+        NSLayoutConstraint.activate([
+            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
     
     func addSubviews() {
         view.addSubview(planetImage)
         view.addSubview(brazilImage)
+        view.addSubview(buttonBack)
+
+        
+        view.addSubview(button1)
+        button1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+
+        view.addSubview(button2)
+        button2.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        
+        view.addSubview(button3)
+        button3.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        
+        view.addSubview(button4)
+        button4.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        
+        view.addSubview(button5)
+        button5.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
     func addStyle() {

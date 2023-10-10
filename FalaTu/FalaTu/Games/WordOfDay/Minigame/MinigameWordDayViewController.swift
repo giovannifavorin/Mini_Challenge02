@@ -246,10 +246,12 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
             
             // TESTE PARA PONTUAÇÃO
+            print("\n\nITENS NA REGIÃO ANTES \(answer_region.regionName) = \(answer_region.numOfItensInRegion)")
             incrementRandomStateItemsUnlocked(in: &answer_region)
             for state in answer_region.states {
-                print("ITENS NA REGIÃO \(state.numberOfItemsUnlocked)")
+                print("\(state.stateName) -> \(state.numberOfItemsUnlocked)")
             }
+            print("ITENS NA REGIÃO DEPOIS \(answer_region.regionName) = \(answer_region.numOfItensInRegion)")
             
             // CHAMADA VIEW DE VITÓRIA
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
