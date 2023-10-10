@@ -28,6 +28,15 @@ class InventoryViewController: UIViewController {
         return scroll
     }()
     
+    // Número de palavras naquela região (arrumar)
+    var labelWordsinRegion: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        
+        return label
+    }()
+    
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "buttonBackPerfil"), for: .normal)
@@ -56,10 +65,18 @@ class InventoryViewController: UIViewController {
         super.viewDidLoad()
         setupViewControllerModel()
         createAllStatesWithItems()
+        
+        if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
+            selectedRegion.numOfWordsCorrectInRegion = savedWordsCorrect
+            labelWordsinRegion.text = "Palavras na região: \(selectedRegion.numOfWordsCorrectInRegion)"
+        } else {
+            labelWordsinRegion.text = "Palavras na região: NÃO RECUPEROU"
+        }
     }
     
     private func createAllStatesWithItems() {
         var previousItemsStackView: UIStackView?
+        
         for state in selectedRegion.states {
         
             let itemsStackView = createItemsStackView(withStateName: state.stateName, numOfItemsUnlocked: state.numberOfItemsUnlocked)
@@ -85,6 +102,7 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
     
     func addSubviews() {
         view.addSubview(regionInfoView)
+        view.addSubview(labelWordsinRegion)
         view.addSubview(scrollView)
         view.addSubview(buttonBack)
     }
@@ -109,6 +127,11 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
             regionInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             regionInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             regionInfoView.heightAnchor.constraint(equalToConstant: 350),
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelWordsinRegion.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor),
+            labelWordsinRegion.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
         // Adicionar restrições para o scrollView abaixo da RegionInformationView
