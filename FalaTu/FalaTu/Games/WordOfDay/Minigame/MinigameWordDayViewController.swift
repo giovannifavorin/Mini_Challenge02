@@ -245,13 +245,31 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             endTimeWin = Date()
             timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
             
-            // TESTE PARA PONTUAÇÃO
-            print("\n\nITENS NA REGIÃO ANTES \(answer_region.regionName) = \(answer_region.numOfItensInRegion)")
-            incrementRandomStateItemsUnlocked(in: &answer_region)
-            for state in answer_region.states {
-                print("\(state.stateName) -> \(state.numberOfItemsUnlocked)")
+
+            // PONTUAÇÃO -> PALAVRAS NA REGIÃO
+            // Recupera o valor
+            if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
+                // recebe o valor armazenado
+                answer_region.numOfWordsCorrectInRegion = savedWordsCorrect
+                print("antes a região \(answer_region.regionName) tinha \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                for state in answer_region.states {
+                    print("antes o estado \(state.stateName) tinha \(state.numberOfItemsUnlocked) itens")
+                }
+                
+                // incrementa
+                incrementWordsCorrectInRegion(in: &answer_region)
+                // guarda o valor
+                UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
+                print("agora a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                for state in answer_region.states {
+                    print("agora o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
+                }
+            } else {
+                // incrementa
+                incrementWordsCorrectInRegion(in: &answer_region)
+                // guarda o valor
+                UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
             }
-            print("ITENS NA REGIÃO DEPOIS \(answer_region.regionName) = \(answer_region.numOfItensInRegion)")
             
             // CHAMADA VIEW DE VITÓRIA
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
