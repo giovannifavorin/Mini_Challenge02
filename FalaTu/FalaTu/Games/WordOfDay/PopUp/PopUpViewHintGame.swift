@@ -42,10 +42,10 @@ class PopUpViewHintGame: UIView {
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "CariocaHint")
+        image.image = UIImage(named: "Perfil_mascote")
         image.layer.masksToBounds = true
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 68.5
+        image.contentMode = .scaleAspectFit
+//        image.layer.cornerRadius = 68.5
 
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
