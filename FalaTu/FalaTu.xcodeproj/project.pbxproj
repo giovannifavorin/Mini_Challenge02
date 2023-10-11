@@ -49,7 +49,6 @@
 		B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */; };
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
 		B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8E47F782AD2E3C7008F5187 /* SnapKit */; };
-		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
 		D90730542AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */; };
 		D90730572AD725A9009FBC7D /* DelegateConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730562AD725A9009FBC7D /* DelegateConfigView.swift */; };
 		D90730592AD72813009FBC7D /* ModelAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730582AD72813009FBC7D /* ModelAppSettings.swift */; };
@@ -126,7 +125,6 @@
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
-		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigChecBoxButtonCuston.swift; sourceTree = "<group>"; };
 		D90730562AD725A9009FBC7D /* DelegateConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateConfigView.swift; sourceTree = "<group>"; };
 		D90730582AD72813009FBC7D /* ModelAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAppSettings.swift; sourceTree = "<group>"; };
@@ -747,7 +745,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -775,7 +773,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

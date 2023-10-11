@@ -9,14 +9,16 @@ import UIKit
 
 class TopButtonsView: UIView {
     
+    let screenWidth = UIScreen.main.bounds.size.width
+    
     // Exit Button
     lazy var exitButton: UIButton = {
         
         let button1 = UIButton(type: .custom)
         button1.setImage(UIImage(named: "ExitButton"), for: .normal)
         button1.translatesAutoresizingMaskIntoConstraints = false
-        button1.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        button1.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button1.widthAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
+        button1.heightAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
         return button1
     }()
 
@@ -25,8 +27,8 @@ class TopButtonsView: UIView {
         let button2 = UIButton(type: .custom)
         button2.setImage(UIImage(named: "TutorialButton"), for: .normal)
         button2.translatesAutoresizingMaskIntoConstraints = false
-        button2.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        button2.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button2.widthAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
+        button2.heightAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
         return button2
     }()
 
@@ -35,8 +37,8 @@ class TopButtonsView: UIView {
         let button3 = UIButton(type: .custom)
         button3.setImage(UIImage(named: "ConfigButton"), for: .normal)
         button3.translatesAutoresizingMaskIntoConstraints = false
-        button3.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        button3.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button3.widthAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
+        button3.heightAnchor.constraint(equalToConstant: screenWidth / 10).isActive = true
         return button3
     }()
     
@@ -63,6 +65,7 @@ extension TopButtonsView: ViewModel {
             exitButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             configButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             tutorialButton.trailingAnchor.constraint(equalTo: configButton.leadingAnchor, constant: -20),
+            
         ])
     }
     

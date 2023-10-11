@@ -72,35 +72,13 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
 // CONFIGS VIEW CONTROLLER =========================================================================
 extension MinigameWordDayViewController: ViewControllerModel {
     func addConstraints() {
-        NSLayoutConstraint.activate([
-            //background image
-            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
-            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            // Top Buttons
-            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            // Board View
-            boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
-            boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.48), // arrumar
-            
-            // Bottom Buttons
-            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
-            bottomButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            // Keyboard
-            keyboard.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 30),
-            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
+        
+        
     }
     
     func addSubviews() {
@@ -232,10 +210,11 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             return
         }
         
-        let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
+        let userAnwerArray = guesses[boardVC.currentRow].compactMap({ $0 })
+        let userAnswer = String(userAnwerArray)
 
         // ACERTO DE RESPOSTA ======================================================================
-        if String(userAnswer) == answer {
+        if userAnswer == answer {
             isRowSent[boardVC.currentRow] = true
             boardVC.boardView.collectionView.reloadData()
             // Desativa o botão após acerto
@@ -315,7 +294,82 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     
 }
 
+extension MinigameWordDayViewController {
+    
+    // constrains para iPhone
+    private func constrains_iPhone() {
+        print("Constrains_iPhone")
+        
+        NSLayoutConstraint.activate([
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Top Buttons
+            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Board View
+            boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
+            boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.48),
 
+            // Bottom Buttons
+            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
+            bottomButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Keyboard
+            keyboard.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 30),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+ 
+    }
+    
+    // constrains para iPad
+    private func constrains_iPad() {
+        print("Constrains_iPad")
+        
+        NSLayoutConstraint.activate([
+            //background image
+            imagebackground.topAnchor.constraint(equalTo: view.topAnchor),
+            imagebackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Top Buttons
+            topButtonsVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Board View
+            boardVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 200),
+            boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -200),
+            boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
+            boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
+            
+            // Bottom Buttons
+            bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
+            bottomButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomButtonsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Keyboard
+            keyboard.topAnchor.constraint(equalTo: bottomButtonsVC.view.bottomAnchor, constant: 30),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),            
+            keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
+        ])
+    }
+    
+
+}
 
 
 
