@@ -13,7 +13,7 @@ class TopButtonsView: UIView {
     lazy var exitButton: UIButton = {
         
         let button1 = UIButton(type: .custom)
-        button1.setImage(UIImage(named: "ExitButton"), for: .normal)
+        button1.setImage(UIImage(named: "button_exit"), for: .normal)
         button1.translatesAutoresizingMaskIntoConstraints = false
         button1.widthAnchor.constraint(equalToConstant: 40).isActive = true
         button1.heightAnchor.constraint(equalToConstant: 40).isActive = true

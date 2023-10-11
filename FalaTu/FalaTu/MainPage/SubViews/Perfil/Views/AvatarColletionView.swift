@@ -47,7 +47,7 @@ class AvatarColletionView: UIView {
 
 extension AvatarColletionView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listaImages.count*2
+        return listaImages.count*3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

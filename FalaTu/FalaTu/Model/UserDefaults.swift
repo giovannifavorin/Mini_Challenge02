@@ -35,7 +35,7 @@ extension UserDefaults{
                 return image
             } else {
                 print("Imagem inválida ou não encontrada, usando imagem padrão")
-                return UIImage(named: "1") ?? UIImage()
+                return UIImage(named: "arara") ?? UIImage()
             }
         }
         
