@@ -210,10 +210,11 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             return
         }
         
-        let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
+        let userAnwerArray = guesses[boardVC.currentRow].compactMap({ $0 })
+        let userAnswer = String(userAnwerArray)
 
         // ACERTO DE RESPOSTA ======================================================================
-        if String(userAnswer) == answer {
+        if userAnswer == answer {
             isRowSent[boardVC.currentRow] = true
             boardVC.boardView.collectionView.reloadData()
             // Desativa o botão após acerto

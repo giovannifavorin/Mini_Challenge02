@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: MinigameWordDayViewController())
+        window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
         window?.makeKeyAndVisible()
     }
 
