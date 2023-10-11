@@ -203,6 +203,47 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     }
     
     func sendButtonPressed() {
+        // Função para verificar se existe a palavra digitada =========================================
+        func verify(userAnswer: String) -> Bool {
+            // Primeiro, verifica se a palavra está no dicionário
+            if isWordInDictionary(userAnswer) {
+                print("Palavra encontrada no dicionário")
+                return true
+            }
+            
+            // Em seguida, verifica se a palavra está associada a algum estado em suas regiões
+            for region in regions_BR {
+                for state in region.states {
+                    let wordsWithHints = state.words
+                    if let (_, _) = wordsWithHints[userAnswer] {
+                        print("Palavra encontrada no estado \(state.stateName)")
+                        return true
+                    }
+                }
+            }
+            
+            // Se a palavra não foi encontrada em nenhum lugar, retorna falso
+            print("Palavra não encontrada em nenhum lugar")
+            return false
+        }
+
+        func isWordInDictionary(_ word: String) -> Bool {
+            if let path = Bundle.main.path(forResource: "dicionario-br-utf8", ofType: "txt") {
+                do {
+                    let content = try String(contentsOfFile: path, encoding: .utf8)
+                    let wordsList = content.components(separatedBy: "\n")
+                    return wordsList.contains(word)
+                } catch {
+                    print("Erro ao carregar o arquivo de lista de palavras.")
+                    return false
+                }
+            }
+            return false
+        }
+
+
+        
+        // COMEÇA VERIFICAÇÃO DA LINHA QUE ESTÁ SENDO ESCRITA ======================================
         guard boardVC.currentRow < guesses.count, guesses[boardVC.currentRow].compactMap( { $0 }).count == 5 else {
             print("\n\n\nlinha atual incompleta")
             print("linha atual: \(boardVC.currentRow)")
@@ -212,84 +253,89 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         
         let userAnwerArray = guesses[boardVC.currentRow].compactMap({ $0 })
         let userAnswer = String(userAnwerArray)
-
-        // ACERTO DE RESPOSTA ======================================================================
-        if userAnswer == answer {
-            isRowSent[boardVC.currentRow] = true
-            boardVC.boardView.collectionView.reloadData()
-            // Desativa o botão após acerto
-            bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
-            
-            // tempo
-            endTimeWin = Date()
-            timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
-            
-
-            // PONTUAÇÃO -> PALAVRAS NA REGIÃO
-            // Recupera o valor
-            if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
-                // recebe o valor armazenado
-                answer_region.numOfWordsCorrectInRegion = savedWordsCorrect
-                print("antes a região \(answer_region.regionName) tinha \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
-                for state in answer_region.states {
-                    print("antes o estado \(state.stateName) tinha \(state.numberOfItemsUnlocked) itens")
-                }
-                
-                // incrementa
-                incrementWordsCorrectInRegion(in: &answer_region)
-                // guarda o valor
-                UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
-                print("agora a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
-                for state in answer_region.states {
-                    print("agora o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
-                }
-            } else {
-                // incrementa
-                incrementWordsCorrectInRegion(in: &answer_region)
-                // guarda o valor
-                UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
-            }
-            
-            // CHAMADA VIEW DE VITÓRIA
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.victoryVC.wordOfDay = self.answer
-                self.victoryVC.meaningOfWord = self.meaning
-                self.victoryVC.timeTaken = self.timeElapsed
-                self.victoryVC.regionAnswer = self.answer_region
-                self.navigationController?.pushViewController(self.victoryVC, animated: true)
-            }
-            
-        // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
-        } else {
-            // tempo
-            endTimeDefeat = Date()
-            timeElapsed = endTimeDefeat?.timeIntervalSince(startTime ?? Date()) ?? 0
-            print("tempo até agora: \(timeElapsed!) segundos")
-            
-            // Se o jogador não acertar a resposta -> aquela fileira foi finalizada
-            isRowSent[boardVC.currentRow] = true
-            
-            // Enquanto houverem tentativas
-            if boardVC.currentRow < guesses.count - 1{
-                boardVC.currentRow += 1
-                boardVC.boardView.collectionView.reloadData()
-
-            // Quando chegar no limite de tentativas
-            } else {
-                // Mandou
+        let wordExists = verify(userAnswer: userAnswer)
+        
+        if wordExists {
+            // ACERTO DE RESPOSTA ======================================================================
+            if userAnswer == answer {
                 isRowSent[boardVC.currentRow] = true
                 boardVC.boardView.collectionView.reloadData()
-                // desativa o botão após perder tudo
+                // Desativa o botão após acerto
                 bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
-                // Se o jogador não acertar após 6 tentativas
+                
+                // tempo
+                endTimeWin = Date()
+                timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
+                
+
+                // PONTUAÇÃO -> PALAVRAS NA REGIÃO
+                // Recupera o valor
+                if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
+                    // recebe o valor armazenado
+                    answer_region.numOfWordsCorrectInRegion = savedWordsCorrect
+                    print("antes a região \(answer_region.regionName) tinha \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                    for state in answer_region.states {
+                        print("antes o estado \(state.stateName) tinha \(state.numberOfItemsUnlocked) itens")
+                    }
+                    
+                    // incrementa
+                    incrementWordsCorrectInRegion(in: &answer_region)
+                    // guarda o valor
+                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
+                    print("agora a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                    for state in answer_region.states {
+                        print("agora o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
+                    }
+                } else {
+                    // incrementa
+                    incrementWordsCorrectInRegion(in: &answer_region)
+                    // guarda o valor
+                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
+                }
+                
+                // CHAMADA VIEW DE VITÓRIA
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    // NÃO CONSEGUIU
-                    self.defeatVC.timeTaken = self.timeElapsed
-                    self.defeatVC.regionAnswer = self.answer_region
-                    self.navigationController?.pushViewController(self.defeatVC, animated: true)
+                    self.victoryVC.wordOfDay = self.answer
+                    self.victoryVC.meaningOfWord = self.meaning
+                    self.victoryVC.timeTaken = self.timeElapsed
+                    self.victoryVC.regionAnswer = self.answer_region
+                    self.navigationController?.pushViewController(self.victoryVC, animated: true)
+                }
+                
+            // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
+            } else {
+                // tempo
+                endTimeDefeat = Date()
+                timeElapsed = endTimeDefeat?.timeIntervalSince(startTime ?? Date()) ?? 0
+                print("tempo até agora: \(timeElapsed!) segundos")
+                
+                // Se o jogador não acertar a resposta -> aquela fileira foi finalizada
+                isRowSent[boardVC.currentRow] = true
+                
+                // Enquanto houverem tentativas
+                if boardVC.currentRow < guesses.count - 1{
+                    boardVC.currentRow += 1
+                    boardVC.boardView.collectionView.reloadData()
+
+                // Quando chegar no limite de tentativas
+                } else {
+                    // Mandou
+                    isRowSent[boardVC.currentRow] = true
+                    boardVC.boardView.collectionView.reloadData()
+                    // desativa o botão após perder tudo
+                    bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
+                    // Se o jogador não acertar após 6 tentativas
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        // NÃO CONSEGUIU
+                        self.defeatVC.timeTaken = self.timeElapsed
+                        self.defeatVC.regionAnswer = self.answer_region
+                        self.navigationController?.pushViewController(self.defeatVC, animated: true)
+                    }
                 }
             }
+        } else {
         }
+
     }
     
 }
