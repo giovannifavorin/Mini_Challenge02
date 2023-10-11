@@ -42,6 +42,7 @@
 		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
 		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
+		B8AC71702AD71D2100D2C6B8 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */; };
 		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
 		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
 		B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */; };
@@ -111,6 +112,7 @@
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = FalaTu/Games/WordOfDay/ModalViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C97F912AD32F9B008B6453 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */,
 				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B866D4E52ACC932300EF32AE /* End */,
 				B8D6DF2F2ACF2656009B08A9 /* PopUp */,
@@ -569,6 +572,7 @@
 				B8368E282AD086E500C38E83 /* PopUpViewController.swift in Sources */,
 				D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
+				B8AC71702AD71D2100D2C6B8 /* ModalViewController.swift in Sources */,
 				B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
@@ -701,7 +705,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -729,7 +733,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

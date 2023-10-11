@@ -32,7 +32,7 @@ class CreditView: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = UIColor(named: "colorLetters")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,7 +50,7 @@ class CreditView: UIViewController {
         label.text = "Desenvolvimento"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black // Defina a cor do texto
+        label.textColor = UIColor(named: "colorLetters") // Defina a cor do texto
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -60,7 +60,7 @@ class CreditView: UIViewController {
         label.text = "Giovanni Favorin- iOS Developer \nGustavo Horestee - iOS Developer \nLeonardo Mota - iOS Developer \nVictor Assis - iOS Developer \nMaria Clara Guimarães - UI/UX Designer"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 16) // Ajuste o tamanho e o estilo da fonte conforme necessário
-        label.textColor = .darkGray // Defina a cor do texto
+        label.textColor = UIColor(named: "colorLetters") // Defina a cor do texto
         label.numberOfLines = 0 // Para permitir várias linhas, se necessário
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -79,7 +79,7 @@ class CreditView: UIViewController {
         label.text = "Assets"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black // Defina a cor do texto
+        label.textColor = UIColor(named: "colorLetters") // Defina a cor do texto
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -89,18 +89,10 @@ class CreditView: UIViewController {
         label.text = "Word Game icon by Regara from Noun Project \n Fire icon by YANDI RS from Noun Project \n Edit icon by Idwar from Noun Project "
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 16) // Ajuste o tamanho e o estilo da fonte conforme necessário
-        label.textColor = .darkGray // Defina a cor do texto
+        label.textColor = UIColor(named: "colorLetters")
         label.numberOfLines = 0 // Para permitir várias linhas, se necessário
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    private lazy var divaderImage3: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "divader3") // Substitua com o nome da sua imagem
-        image.contentMode = .center
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
     }()
     
     private lazy var thirdBoldTextLabel: UILabel = {
@@ -108,7 +100,7 @@ class CreditView: UIViewController {
         label.text = "Agradecimentos"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black // Defina a cor do texto
+        label.textColor = UIColor(named: "colorLetters") // Defina a cor do texto
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -135,11 +127,10 @@ extension CreditView: ViewControllerModel {
         view.addSubview(divaderImage2)
         view.addSubview(secondBoldTextLabel) // Adicione a UILabel para o segundo texto em negrito
         view.addSubview(assetsLabel)
-        view.addSubview(divaderImage3)
     }
     
     func addStyle() {
-        // Adicione estilo ao seu gosto
+        view.backgroundColor = .systemBackground
     }
     
     func addConstraints() {
@@ -149,13 +140,13 @@ extension CreditView: ViewControllerModel {
             imagebackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             imagebackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            buttonBack.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             buttonBack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             buttonBack.widthAnchor.constraint(equalToConstant: 40),
             buttonBack.heightAnchor.constraint(equalToConstant: 40),
             
             // Restrições para posicionar a imageView do título abaixo da safeArea
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -680), // Abaixo da safeArea com um espaçamento de 20
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110), // Abaixo da safeArea com um espaçamento de 20
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor), // Centralizado horizontalmente
             
             // Restrições para posicionar a UILabel abaixo da imageView do título
@@ -181,8 +172,6 @@ extension CreditView: ViewControllerModel {
             secondBoldTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor), // Centralizado horizontalmente
             assetsLabel.topAnchor.constraint(equalTo: secondBoldTextLabel.bottomAnchor, constant: 20),
             assetsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            divaderImage3.topAnchor.constraint(equalTo: assetsLabel.bottomAnchor, constant: 20),
-            divaderImage3.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
