@@ -106,7 +106,7 @@ class CreditView: UIViewController {
     }()
     
     @objc private func actionButton(_ sender: UIButton!){
-        print("Botão Fechar pressionado")
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
