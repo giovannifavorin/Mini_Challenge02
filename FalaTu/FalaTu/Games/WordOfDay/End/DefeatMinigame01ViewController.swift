@@ -10,6 +10,11 @@ import SnapKit
 
 class DefeatMinigame01ViewController: UIViewController {
     
+    // tempo levado para acertar
+    public var timeTaken: Double! = nil
+    // Região de onde a palavra do dia é
+    public var regionAnswer: RegionModel! = nil
+    
     private lazy var background: UIImageView = {
         let background = UIImageView()
         background.image = UIImage(named: "pattern")
@@ -17,25 +22,59 @@ class DefeatMinigame01ViewController: UIViewController {
         return background
     }()
     
+    // TEMPO
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tempo"
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
+        
+        // Define a primeira parte do texto com um estilo específico
+        let attributedString = NSMutableAttributedString(string: "TEMPO\n",
+                                                         attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
+        
+        // Define a segunda parte do texto com um estilo diferente
+        let timeFormatted = String(format: "%.2f", timeTaken)
+        let timeTaken = NSAttributedString(string: "\(timeFormatted)",
+                                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
+        
+        // Adiciona as duas partes ao attributedString
+        attributedString.append(timeTaken)
+        
+        // Define o texto do label com o attributedString
+        label.attributedText = attributedString
+        
         return label
     }()
     
+    // REGIÃO
     private lazy var regionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Região"
+        label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
+        
+        // Define a primeira parte do texto com um estilo específico
+        let attributedString = NSMutableAttributedString(string: "REGIÃO\n",
+                                                         attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
+        
+        // Define a segunda parte do texto com um estilo diferente
+        let regionAnswer = NSAttributedString(string: "\(regionAnswer!.regionName.uppercased())",
+                                              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
+        
+        // Adiciona as duas partes ao attributedString
+        attributedString.append(regionAnswer)
+        
+        // Define o texto do label com o attributedString
+        label.attributedText = attributedString
+        
         return label
     }()
     
     private lazy var lostLabelTitle: UILabel = {
         let label = UILabel()
         label.text = "Não foi dessa vez, mano...!"
+        label.font = UIFont.systemFont(ofSize: 28)
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -44,6 +83,7 @@ class DefeatMinigame01ViewController: UIViewController {
     private lazy var lostLabelBody: UILabel = {
         let label = UILabel()
         label.text = "Acabaram suas chances. \n Tente novamente amanhã!"
+        label.font = UIFont.systemFont(ofSize: 28)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
@@ -116,7 +156,7 @@ class DefeatMinigame01ViewController: UIViewController {
                 self.present(activityViewController, animated: true, completion: nil)
             }
         case 2:
-            print("clico 2")
+            navigationController?.popToRootViewController(animated: true)
         default:
             return
         }
@@ -124,7 +164,6 @@ class DefeatMinigame01ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor(named: "backgroundColor")
         
         // Adicione os botões à stack view
@@ -178,12 +217,12 @@ class DefeatMinigame01ViewController: UIViewController {
         }
         
         timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
         
         regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
     }

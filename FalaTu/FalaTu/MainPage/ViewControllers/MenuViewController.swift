@@ -42,7 +42,6 @@ class MenuViewController: UIViewController {
         return logoView
     }()
     
-    
     private lazy var frameTop: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "MolduraTop")
@@ -58,7 +57,6 @@ class MenuViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
     
     ///Configuração do botao de inventário
     private lazy var inventoryButton: UIButton = {
@@ -98,8 +96,7 @@ class MenuViewController: UIViewController {
     
     private lazy var imagebackground: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "bg_home")
-        image.alpha = 0.3
+        image.image = UIImage(named: "pattern")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         return image
@@ -134,8 +131,6 @@ class MenuViewController: UIViewController {
         return DictionaryViewController()
     }()
     
-    
-    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillDisappear(animated)
@@ -149,6 +144,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
+        navigationItem.hidesBackButton = true
         
         self.perfilViewController.delegateUpdateButtonPerfil = self
     }
@@ -157,7 +153,7 @@ class MenuViewController: UIViewController {
     @objc private func didButton(_ sender: UIButton!) {
         switch sender.tag {
         case 1:
-            navigationController?.pushViewController(InventoryViewController(), animated: true)
+            navigationController?.pushViewController(regionSelectionViewController, animated: true)
         case 2:
             navigationController?.pushViewController(dictionaryViewController, animated: true)
         case 3:
@@ -304,7 +300,7 @@ extension MenuViewController{
                 //LOGO
                 logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.20),
                 logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoView.widthAnchor.constraint(equalToConstant: view.frame.width*0.40),
+                logoView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.40),
                 logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
                 
                 //CAROUSEL

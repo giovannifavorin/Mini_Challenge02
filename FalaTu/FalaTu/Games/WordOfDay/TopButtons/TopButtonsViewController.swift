@@ -28,7 +28,10 @@ class TopButtonsViewController: UIViewController {
     }
 
     @objc private func tutorialButtonAction(sender: UIButton) {
-        print("Tutorial Modal")
+        let vc = ModalViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        navigationController?.present(navVC, animated: true)
     }
 
     @objc 

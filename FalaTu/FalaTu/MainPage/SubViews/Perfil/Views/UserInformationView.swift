@@ -86,7 +86,7 @@ class UserInformationView: UIView {
         divider.backgroundColor = .clear
         divider.layer.cornerRadius = 2
         divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor(named: "dividerColor ")
+        divider.backgroundColor = UIColor(named: "dividerColor")
         return divider
     }()
     

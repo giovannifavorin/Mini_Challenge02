@@ -62,10 +62,7 @@ class PopUpViewPerfilImage: UIView {
     
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
-        button.setTitle("X", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
-        button.backgroundColor = .red
-        button.layer.cornerRadius = 25
+        button.setImage(UIImage(named: "closeButton"), for: .normal)
         button.tag = 10
         button.addTarget(self, action: #selector(actionBitton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -119,8 +116,8 @@ extension PopUpViewPerfilImage: ViewModel{
             
             buttonBack.centerYAnchor.constraint(equalTo: cellPopUp.topAnchor, constant: 10),
             buttonBack.centerXAnchor.constraint(equalTo: cellPopUp.trailingAnchor, constant: -3),
-            buttonBack.widthAnchor.constraint(equalToConstant: 50),
-            buttonBack.heightAnchor.constraint(equalToConstant: 50),
+            buttonBack.widthAnchor.constraint(equalToConstant: 60),
+            buttonBack.heightAnchor.constraint(equalToConstant: 60),
             
             labelAvatarBlocked.topAnchor.constraint(equalTo: cellPopUp.topAnchor, constant: 21),
             labelAvatarBlocked.centerXAnchor.constraint(equalTo: cellPopUp.centerXAnchor),
@@ -140,6 +137,7 @@ extension PopUpViewPerfilImage: ViewModel{
             buttonSelect.centerXAnchor.constraint(equalTo: labelState.centerXAnchor),
             buttonSelect.heightAnchor.constraint(equalToConstant: 54.77),
             buttonSelect.widthAnchor.constraint(equalToConstant: 235.34),
+            
             
         ])
 

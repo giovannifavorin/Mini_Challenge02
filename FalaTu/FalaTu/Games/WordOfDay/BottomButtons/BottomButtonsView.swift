@@ -60,7 +60,7 @@ extension BottomButtonsView: ViewModel {
         addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(tipButton)
         buttonStackView.addArrangedSubview(sendButton)
-        buttonStackView.addArrangedSubview(giveLetterButton)
+//        buttonStackView.addArrangedSubview(giveLetterButton)
 
     }
     
