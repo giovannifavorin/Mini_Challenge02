@@ -105,6 +105,7 @@ let regions_BR: [RegionModel] = [
           "zicou": ("Azar", "Estar em apuros ou ter azar"),
          ]),
     ]),
+    
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 5,
@@ -204,7 +205,7 @@ let regions_BR: [RegionModel] = [
           "testeES2": ("dicaES2", "significadoES2")]),
         
         ("Rio de Janeiro", 5,
-         ["truta": ("Usado para se referir a alguém", "É usado para se referir a um amigo."),
+         ["truta": ("Ei mano", "É usado para se referir a um amigo."),
           "testeRJ2": ("dicaRJ2", "significadoRJ2")]),
         
         ("São Paulo", 8,
