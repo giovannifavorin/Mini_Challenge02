@@ -9,6 +9,9 @@ import UIKit
 
 class TopButtonsViewController: UIViewController {
     
+    let screenWidth = UIScreen.main.bounds.size.width
+
+    
     private let topButtonsView = TopButtonsView()
 
     override func viewDidLoad() {
@@ -53,7 +56,7 @@ extension TopButtonsViewController: ViewControllerModel {
             topButtonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topButtonsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topButtonsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            topButtonsView.heightAnchor.constraint(equalToConstant: 40)
+            topButtonsView.heightAnchor.constraint(equalToConstant: screenWidth / 10)
         ])
     }
 }
