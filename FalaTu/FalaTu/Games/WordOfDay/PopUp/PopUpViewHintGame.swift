@@ -12,7 +12,6 @@ class PopUpViewHintGame: UIView {
     let size = UIScreen.main.bounds.size
     weak var delegateButton: DelegatePopUPhint?
     
-    
     private lazy var backGround: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "PopUphit")
@@ -53,11 +52,7 @@ class PopUpViewHintGame: UIView {
     
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
-        button.setTitle("X", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
-        button.backgroundColor = UIColor(named: "CancelColor")
-        button.layer.cornerRadius = 20
+        button.setImage(UIImage(named: "closeButton"), for: .normal)
         button.tag = 10
         button.addTarget(self, action: #selector(actionBitton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

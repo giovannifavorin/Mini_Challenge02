@@ -48,7 +48,6 @@
 		B8D2A59B2ACB593000C4F59A /* ModelMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */; };
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
 		B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8E47F782AD2E3C7008F5187 /* SnapKit */; };
-		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
 		D958A8602ABE07A400D8D098 /* MenuCollectioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */; };
 		D958A8622ABE115700D8D098 /* MenuColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958A8612ABE115700D8D098 /* MenuColletionView.swift */; };
 		D9691C232AB8C79E00A908E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C222AB8C79E00A908E8 /* AppDelegate.swift */; };
@@ -118,7 +117,6 @@
 		B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsViewController.swift; sourceTree = "<group>"; };
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
-		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D958A85F2ABE07A400D8D098 /* MenuCollectioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectioViewCell.swift; sourceTree = "<group>"; };
 		D958A8612ABE115700D8D098 /* MenuColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColletionView.swift; sourceTree = "<group>"; };
 		D9691C222AB8C79E00A908E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -427,7 +425,6 @@
 				B850DFC52ACB574B0021BAE3 /* Keyboard */,
 				B850DFC02ACB56FC0021BAE3 /* BottomButtons */,
 				B850DFBF2ACB56EB0021BAE3 /* Board */,
-				B8F763732AD03B64005A0AA1 /* ModalViewController.swift */,
 			);
 			path = WordOfDay;
 			sourceTree = "<group>";
@@ -555,7 +552,6 @@
 				B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */,
 				9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */,
 				D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */,
-				B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */,
 				B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */,
 				B8368E242AD0836200C38E83 /* PerfilViewController.swift in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,

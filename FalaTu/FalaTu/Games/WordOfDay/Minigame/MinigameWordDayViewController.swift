@@ -9,7 +9,7 @@ import UIKit
 
 class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate {
     var isRowSent: [Bool] = Array(repeating: false, count: 6) // numberOfSections é o número total de seções na sua coleção
-
+    
     //RESPOSTA CORRETA
     var answer: String = ""
     var hint: String = ""
@@ -89,7 +89,7 @@ extension MinigameWordDayViewController: ViewControllerModel {
             boardVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             boardVC.view.topAnchor.constraint(equalTo: topButtonsVC.view.bottomAnchor, constant: 20),
             boardVC.view.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.48), // arrumar
-
+            
             // Bottom Buttons
             bottomButtonsVC.view.topAnchor.constraint(equalTo: boardVC.view.bottomAnchor, constant: 15),
             bottomButtonsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -134,7 +134,7 @@ extension MinigameWordDayViewController: ViewControllerModel {
     }
     
     func addStyle() {
-         view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
 }
 
@@ -155,7 +155,7 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
             handleLetterInput(letter, inRow: boardVC.currentRow)
         }
     }
-
+    
     private func handleLetterInput(_ letter: Character, inRow row: Int) {
         // Ao clicar na tecla = update nos guesses
         if letter == "⌫" {
@@ -183,7 +183,7 @@ extension MinigameWordDayViewController: KeyboardViewDelegate {
 // PREENCHER QUADRO =========================================================================
 // SEND BUTTON =========================================================================
 extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControllerDatasource {
-
+    
     func tipButtonPressed() {
         let popUpHint: PopUpHintViewController = {
             let viewController = PopUpHintViewController()
@@ -196,7 +196,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         present(popUpHint, animated: false)
     }
     
-
+    
     
     var currentGuesses: [[Character?]] {
         return guesses
@@ -223,7 +223,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         }
         return UIColor(named: "OrangeLetter")
     }
-
+    
     func sendButtonPressed() {
         guard boardVC.currentRow < guesses.count, guesses[boardVC.currentRow].compactMap( { $0 }).count == 5 else {
             print("\n\n\nlinha atual incompleta")
@@ -231,7 +231,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             print("itens preenchidos: \(guesses[boardVC.currentRow].compactMap( { $0 }).count) = \(guesses[boardVC.currentRow].compactMap({ $0 }))")
             return
         }
-
+        
         let userAnswer = guesses[boardVC.currentRow].compactMap({ $0 })
 
         // ACERTO DE RESPOSTA ======================================================================
@@ -312,7 +312,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
             }
         }
     }
-
+    
 }
 
 
