@@ -228,7 +228,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         }
 
         func isWordInDictionary(_ word: String) -> Bool {
-            if let path = Bundle.main.path(forResource: "dicionario-br-utf8", ofType: "txt") {
+            if let path = Bundle.main.path(forResource: "br-utf8", ofType: "txt") {
                 do {
                     let content = try String(contentsOfFile: path, encoding: .utf8)
                     let wordsList = content.components(separatedBy: "\n")
@@ -334,6 +334,19 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 }
             }
         } else {
+            let alertController = UIAlertController(
+                    title: "Palavra Não Encontrada!",
+                    message: "A palavra que você digitou é inválida ou não existe...",
+                    preferredStyle: .alert
+                )
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                // Obtenha uma referência ao seu view controller atual e apresente o alerta
+                guard let currentViewController = UIApplication.shared.keyWindow?.rootViewController else {
+                    return
+                }
+                currentViewController.present(alertController, animated: true, completion: nil)
         }
 
     }
