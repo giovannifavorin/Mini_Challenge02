@@ -99,13 +99,15 @@ func incrementWordsCorrectInRegion(in region: inout RegionModel) {
 
 // Criando instâncias de RegionModel para cada região com palavras associadas a cada estado
 let regions_BR: [RegionModel] = [
+    
+    
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 5,
          ["brabo": ("legal", "é utilizada para descrever algo ou alguém que é muito bom, habilidoso ou impressionante. Ela sugere um alto nível de excelência ou destaque em alguma área específica.")]),
         
         ("Pará", 0,
-         ["testePA1": ("dicaPA1", "significadoPA1"),
+         ["Cunha": ("Moça", "Usado para designar mulheres e garotas."),
           "testePA2": ("dicaPA2", "significadoPA2")]),
         
         ("Roraima", 0,
@@ -144,19 +146,19 @@ let regions_BR: [RegionModel] = [
           "testeCE2": ("dicaCE2", "significadoCE2")]),
         
         ("Rio Grande do Norte", 0,
-         ["testeRN1": ("dicaRN1", "significadoRN1"),
+         ["Fuzuê": ("confusão", "Se refere a uma agitação, tumulto ou confusão, geralmente de natureza festiva ou barulhenta. Pode ser associada a situações em que há muita animação, movimento e barulho, como em festas, eventos agitados ou celebrações. Em resumo, fuzuê descreve um ambiente de agitação e diversão, muitas vezes com música, dança e comemoração."),
           "testeRN2": ("dicaRN2", "significadoRN2")]),
         
         ("Paraíba", 2,
-         ["testePB1": ("dicaPB1", "significadoPB1"),
+         ["Avoar": ("Aremessar", "Usada para se referir a Aremessar algo ou a jogar algo fora."),
           "testePB2": ("dicaPB2", "significadoPB2")]),
         
         ("Pernambuco", 0,
-         ["testePE1": ("dicaPE1", "significadoPE1"),
+         ["Jegue": ("Burro", "Usada para designar alguém que é considerada incapaz ou desprovida de inteligência"),
           "testePE2": ("dicaPE2", "significadoPE2")]),
         
         ("Alagoas", 6,
-         ["testeAL1": ("dicaAL1", "significadoAL1"),
+         ["Lomba": ("Engraçado", "Usado para dizer que algo é engraçado."),
           "testeAL2": ("dicaAL2", "significadoAL2")]),
         
         ("Sergipe", 0,
@@ -171,7 +173,7 @@ let regions_BR: [RegionModel] = [
     // CENTRO-OESTE
     createRegion(regionName: "Centro-Oeste", statesData: [
         ("Goiás", 8,
-         ["testeGO1": ("dicaGO1", "significadoGO1"),
+         ["Avesa": ("a toa", "É usada para designar alguém que é desocupado."),
           "testeGO2": ("dicaGO2", "significadoGO2")]),
         
         ("Mato Grosso", 0,
@@ -199,17 +201,19 @@ let regions_BR: [RegionModel] = [
         
         ("Rio de Janeiro", 5,
          ["truta": ("Ei mano", "É usado para se referir a um amigo."),
-          "testeRJ2": ("dicaRJ2", "significadoRJ2")]),
+          "Muque": ("Força", "músculo desenvolvido, resultante de exercícios físicos constantes, esp. o bíceps e o tríceps, que impulsionam ou sustentam a força dos membros superiores."),
+          "Migue": ("Mentira", "Usado quando quer dizer que alguém esta mentido.")
+         ]),
         
         ("São Paulo", 8,
-         ["testeSP1": ("dicaSP1", "significadoSP1"),
+         ["Moleza": ("Tranquilo", "Usada para se referir a algo que pode ser feito com facilidade."),
           "testeSP2": ("dicaSP2", "significadoSP2")])
     ]),
     
     // SUL
     createRegion(regionName: "Sul", statesData: [
         ("Paraná", 2,
-         ["testePR1": ("dicaPR1", "significadoPR1"),
+         ["ximas": ("chá", "Uma abreviação da palavra chimarram, chá da folha do mate."),
           "testePR2": ("dicaPR2", "significadoPR2")]),
         
         ("Santa Catarina", 0,
@@ -218,13 +222,22 @@ let regions_BR: [RegionModel] = [
         
         ("Rio Grande do Sul", 2,
          ["guriz": ("Meninos", "Gíria para \"meninos\" ou \"rapazes\""),
-          "olada": ("Ocasião", "Se refere a uma ocasião, oportunidade")])
+          "olada": ("Ocasião", "Se refere a uma ocasião, oportunidade"),
+          "Boita": ("Grande", "Usado dar o sentido de intensidade"),
+          "Bomba": ("Tem na padaria", "Bomba é um doce, uma massa coberta de chocolate."),
+          "Chiar": ("Barulho", "Usado para falar de algo ou alguém que faz muito barulho."),
+          "Cusco": ("Vira-lata", "Usado para se referir a cachorros pequenos ou sem raça."),
+          "Guris": ("Os rapazes", "Usado para se referir a crianças, mais especificamente a garotos. Também usado na expressão é os Guris.")
+         ])
     ]),
-    
+
     createRegion(regionName: "Brasil", statesData: [
-        ("Brasil", 5,
+        ("Brasil", 5,//Verificar o q é esse 5
          ["manja": ("Entendeu?", "Significa \"entender\" ou \"saber\"."),
           "zicou": ("Azar", "Estar em apuros ou ter azar"),
+          "bucha": ("Fraco", "Refere-se a alguém fraco que é facilmente derrubado, derrotado ou abatido."),
+          "pilha": ("anima?", "Usado para dizer quando esta disposto ou animado com algo."),
+          "Ruela": ("Rua pequena.", "Usado para designar uma rua pequena ou espaço estreito.")
          ]),
     ]),
 ]
