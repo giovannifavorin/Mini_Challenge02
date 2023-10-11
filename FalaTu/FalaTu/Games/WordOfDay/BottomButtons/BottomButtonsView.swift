@@ -72,5 +72,6 @@ extension BottomButtonsView: ViewModel {
     }
     
     func setupStyle() {
+        
     }
 }

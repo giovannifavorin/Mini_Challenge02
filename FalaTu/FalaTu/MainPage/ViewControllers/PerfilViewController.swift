@@ -82,36 +82,36 @@ class PerfilViewController: UIViewController {
                                                                 image: UIImage(named: "palavras")!)
         
        
-        listSelectAvatar?.append(AvatarModelData(name: "Gustavo",
+        listSelectAvatar?.append(AvatarModelData(name: "Arara",
                                                  region: "Brasília",
-                                                 image: UIImage(named: "1")
+                                                 image: UIImage(named: "arara")
                                                  ?? UIImage(named: "asset")!))
         
-        listSelectAvatar?.append(AvatarModelData(name: "Laura",
+        listSelectAvatar?.append(AvatarModelData(name: "Onca",
                                                  region: "Amazonas",
-                                                 image: UIImage(named: "2")
+                                                 image: UIImage(named: "onca")
                                                  ?? UIImage(named: "asset")!))
         
-        listSelectAvatar?.append(AvatarModelData(name: "João",
-                                                 region: "Bahia",
-                                                 image: UIImage(named: "3")
+        listSelectAvatar?.append(AvatarModelData(name: "Preguica",
+                                                 region: "São Paulo",
+                                                 image: UIImage(named: "preguica")
                                                  ?? UIImage(named: "asset")!))
         
-        listSelectAvatar?.append(AvatarModelData(name: "Valentina",
+        listSelectAvatar?.append(AvatarModelData(name: "Pavao",
                                                  region: "Rio Grande do Sul",
-                                                 image: UIImage(named: "4")
+                                                 image: UIImage(named: "pavao")
                                                  ?? UIImage(named: "asset")!))
-        
-        listSelectAvatar?.append(AvatarModelData(name: "Tuco",
-                                                 region: "Rio de Janeiro",
-                                                 image: UIImage(named: "5")
-                                                 ?? UIImage(named: "asset")!))
-        
-        listSelectAvatar?.append(AvatarModelData(name: "Carla",
-                                                 region: "Minas Gerais",
-                                                 image: UIImage(named: "6")
-                                                 ?? UIImage(named: "asset")!))
-        
+//        
+//        listSelectAvatar?.append(AvatarModelData(name: "Tuco",
+//                                                 region: "Rio de Janeiro",
+//                                                 image: UIImage(named: "5")
+//                                                 ?? UIImage(named: "asset")!))
+//        
+//        listSelectAvatar?.append(AvatarModelData(name: "Carla",
+//                                                 region: "Minas Gerais",
+//                                                 image: UIImage(named: "6")
+//                                                 ?? UIImage(named: "asset")!))
+//        
     
         
         self.perfilView.collectionView.configure(data: listSelectAvatar!)
@@ -159,9 +159,11 @@ extension PerfilViewController: DelegateUserPreferences{
                                      indentifier: index.row,
                                      name: name)
         case 1:
-            let result = defaults.regionNorte
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
+//            let result = defaults.regionNorte
+//            let isBlocked = result.isGreaterThanOrEqualTo5
+            let isBlocked = true
+            let numberOfHits = 5
+//            let numberOfHits = result.value
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,
@@ -170,9 +172,11 @@ extension PerfilViewController: DelegateUserPreferences{
                                     name: name)
             
         case 2:
-            let result = defaults.regionNordeste
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
+//            let result = defaults.regionNordeste
+//            let isBlocked = result.isGreaterThanOrEqualTo5
+//            let numberOfHits = result.value
+            let isBlocked = true
+            let numberOfHits = 5
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,
@@ -181,9 +185,11 @@ extension PerfilViewController: DelegateUserPreferences{
                                     name: name)
             
         case 3:
-            let result = defaults.regionSul
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
+//            let result = defaults.regionSul
+//            let isBlocked = result.isGreaterThanOrEqualTo5
+//            let numberOfHits = result.value
+            let isBlocked = true
+            let numberOfHits = 5
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,

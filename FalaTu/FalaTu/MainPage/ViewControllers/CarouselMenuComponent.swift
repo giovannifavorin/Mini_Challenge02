@@ -72,6 +72,7 @@ extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
                 let minigameWordDay = MinigameWordDayViewController()
                 navigationController?.pushViewController(minigameWordDay, animated: true)
             
+            
             case 1:
                 // Navigate to 'MultiplayerViewController' when tag is 1
                 let multplayer = MultiplayerViewController()

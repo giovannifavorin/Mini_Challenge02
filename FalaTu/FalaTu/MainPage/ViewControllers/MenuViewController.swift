@@ -188,7 +188,6 @@ extension MenuViewController: ViewControllerModel {
     }
     
     func addConstraints() {
-        
         if UIDevice.current.userInterfaceIdiom == .pad{
             contrainsiPad()
         }else if UIDevice.current.userInterfaceIdiom == .phone{

@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol DelegateConfigView: AnyObject{
-    func didBackbutton()
+    func didBackbutton(tag: Int)
     func didCheckButtonChangeThema()
 }
 

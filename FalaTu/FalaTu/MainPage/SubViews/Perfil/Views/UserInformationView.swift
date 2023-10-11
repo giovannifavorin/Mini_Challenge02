@@ -33,7 +33,7 @@ class UserInformationView: UIView {
     
    lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "1")
+        image.image = UIImage(named: "arara")
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 40

@@ -17,6 +17,8 @@ class PopUpViewHintGame: UIView {
         view.backgroundColor = UIColor(named: "PopUphit")
         view.clipsToBounds = true
         view.layer.cornerRadius = 20
+        view.layer.borderWidth = 5
+        view.layer.borderColor = UIColor(named: "stroke_popUpHint")?.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -44,8 +46,8 @@ class PopUpViewHintGame: UIView {
         image.image = UIImage(named: "Perfil_mascote")
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFit
-//        image.layer.cornerRadius = 68.5
-
+        image.layer.cornerRadius = 68.5
+        image.backgroundColor = UIColor(named: "BackGroundProfilePopUpHint")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -83,6 +85,54 @@ extension PopUpViewHintGame: ViewModel{
     }
     
     func addContrains() {
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            contrainsiPad()
+        }else if UIDevice.current.userInterfaceIdiom == .phone{
+            contrainsiPhone()
+        }
+    }
+    
+    func setupStyle() {
+        backgroundColor = .clear.withAlphaComponent(0.6)
+    }
+    
+    public func configure(hint: String){
+        self.labelWhichHint.text = "\"\(hint)\""
+    }
+}
+
+
+extension PopUpViewHintGame{
+    private func contrainsiPhone(){
+        NSLayoutConstraint.activate([
+            backGround.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backGround.centerYAnchor.constraint(equalTo: centerYAnchor),
+//            backGround.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            backGround.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backGround.heightAnchor.constraint(equalToConstant: 167),
+            backGround.widthAnchor.constraint(equalToConstant: size.width),
+            
+            imageView.topAnchor.constraint(equalTo: backGround.topAnchor, constant: 21),
+            imageView.leadingAnchor.constraint(equalTo: backGround.leadingAnchor, constant: 30),
+            imageView.heightAnchor.constraint(equalToConstant: 137),
+            imageView.widthAnchor.constraint(equalToConstant: 137),
+            
+            buttonBack.topAnchor.constraint(equalTo: backGround.topAnchor, constant: -15),
+            buttonBack.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
+            buttonBack.widthAnchor.constraint(equalToConstant: 40),
+            buttonBack.heightAnchor.constraint(equalToConstant: 40),
+            
+            labelHint.topAnchor.constraint(equalTo: backGround.topAnchor, constant: 48),
+            labelHint.trailingAnchor.constraint(equalTo: backGround.trailingAnchor, constant: -82),
+            
+            labelWhichHint.topAnchor.constraint(equalTo: labelHint.bottomAnchor, constant: 16),
+            labelWhichHint.centerXAnchor.constraint(equalTo: labelHint.centerXAnchor),
+            
+        ])
+    }
+    
+    
+    private func contrainsiPad(){
         NSLayoutConstraint.activate([
             backGround.centerXAnchor.constraint(equalTo: centerXAnchor),
             backGround.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -108,14 +158,6 @@ extension PopUpViewHintGame: ViewModel{
             labelWhichHint.centerXAnchor.constraint(equalTo: labelHint.centerXAnchor),
             
         ])
-    }
-    
-    func setupStyle() {
-        backgroundColor = .clear.withAlphaComponent(0.6)
-    }
-    
-    public func configure(hint: String){
-        self.labelWhichHint.text = "\"\(hint)\""
     }
 }
 

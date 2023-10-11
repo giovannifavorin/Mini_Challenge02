@@ -18,7 +18,16 @@ class ConfigPopUpView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
         button.backgroundColor = UIColor(named: "CancelColor")
         button.layer.cornerRadius = 20
-        button.tag = 11
+        button.tag = 0
+        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+       return button
+    }()
+    
+    private lazy var creditbutton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "button_credits"), for: .normal)
+        button.tag = 1
         button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
        return button
@@ -84,14 +93,14 @@ class ConfigPopUpView: UIView {
     
     @objc
     private func didButton(_ sender: UIButton!){
-        self.delegateConfigView?.didBackbutton()
+        self.delegateConfigView?.didBackbutton(tag: sender.tag)
     }
 }
 
 
 extension ConfigPopUpView: ViewModel{
     func addViews() {
-        addSubviewsEx(backGround, imageTopPopUp, buttonBack, labelTopPopUp, bottonImageForPopUp/*, checkVibrate*/, checkModeDark)
+        addSubviewsEx(backGround, imageTopPopUp, buttonBack, labelTopPopUp, bottonImageForPopUp/*, checkVibrate*/, checkModeDark, creditbutton)
     }
     
     func addContrains() {
@@ -134,6 +143,13 @@ extension ConfigPopUpView{
             bottonImageForPopUp.leadingAnchor.constraint(equalTo: backGround.leadingAnchor),
             bottonImageForPopUp.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
             bottonImageForPopUp.heightAnchor.constraint(equalToConstant: 125),
+            
+            
+            creditbutton.bottomAnchor.constraint(equalTo: backGround.bottomAnchor, constant: -35),
+            creditbutton.centerXAnchor.constraint(equalTo: backGround.centerXAnchor),
+            creditbutton.widthAnchor.constraint(equalToConstant: 200),
+            creditbutton.heightAnchor.constraint(equalToConstant: 60),
+
 
         ])
         

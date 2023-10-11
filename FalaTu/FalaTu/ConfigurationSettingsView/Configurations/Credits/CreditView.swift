@@ -112,6 +112,7 @@ class CreditView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
+        
     }
 }
 
