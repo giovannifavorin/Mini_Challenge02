@@ -57,14 +57,14 @@ extension TopButtonsView: ViewModel {
     func addViews() {
         addSubview(exitButton)
         addSubview(tutorialButton)
-        addSubview(configButton)
+//        addSubview(configButton)
     }
     
     func addContrains() {
         NSLayoutConstraint.activate([
             exitButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            configButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            tutorialButton.trailingAnchor.constraint(equalTo: configButton.leadingAnchor, constant: -20),
+            tutorialButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            tutorialButton.trailingAnchor.constraint(equalTo: configButton.leadingAnchor, constant: -20),
             
         ])
     }

@@ -73,7 +73,7 @@ class DefeatMinigame01ViewController: UIViewController {
     
     private lazy var lostLabelTitle: UILabel = {
         let label = UILabel()
-        label.text = "Não foi dessa vez, mano...!"
+        label.text = "Não foi dessa vez..."
         label.font = UIFont.systemFont(ofSize: 28)
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
