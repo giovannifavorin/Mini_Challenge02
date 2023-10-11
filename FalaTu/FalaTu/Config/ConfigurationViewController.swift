@@ -10,6 +10,10 @@ import UIKit
 
 class ConfigurationViewController: UIViewController {
 
+    private lazy var creditViewController: CreditView = {
+        return CreditView()
+    }()
+    
     private lazy var configPopUpView: ConfigPopUpView = {
         return ConfigPopUpView()
     }()
@@ -28,8 +32,16 @@ class ConfigurationViewController: UIViewController {
 }
 
 extension ConfigurationViewController: DelegateConfigView{
-    func didBackbutton() {
-        dismiss(animated: true)
+    func didBackbutton(tag: Int) {
+        switch tag{
+        case 0:
+            dismiss(animated: true)
+        case 1:
+//            dismiss(animated: true)
+            present(CreditView(), animated: true)
+        default:
+            fatalError("error in ConfigurationViewController -> didBackbutton ")
+        }
     }
     
     func updateInterfaceStyle(){
