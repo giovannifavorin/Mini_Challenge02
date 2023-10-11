@@ -45,19 +45,27 @@ class KeyCell: UICollectionViewCell {
     func configure(with letter: Character) {
         if letter == "⌫" {
             // BOTÃO DE APAGAR
-            label.font = .systemFont(ofSize: 24, weight: .medium)
+            let boldFont = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title1).pointSize)
+            let boldFontDescriptor = boldFont.fontDescriptor.withSymbolicTraits(.traitBold)
+            label.font = UIFont(descriptor: boldFontDescriptor!, size: boldFont.pointSize)
+            
+            label.adjustsFontForContentSizeCategory = true
             label.textColor = .white
             self.backgroundColor = .blue
             label.text = String(letter)
-            
-            // OUTROS BOTÕES
         } else {
-            label.font = .systemFont(ofSize: 16, weight: .bold)
+            // OUTROS BOTÕES
+            let boldFont = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title2).pointSize)
+            let boldFontDescriptor = boldFont.fontDescriptor.withSymbolicTraits(.traitBold)
+            label.font = UIFont(descriptor: boldFontDescriptor!, size: boldFont.pointSize)
+            
+            label.adjustsFontForContentSizeCategory = true
             label.textColor = .black
             label.text = String(letter).uppercased()
-            self.backgroundColor = .white 
+            self.backgroundColor = .white
         }
     }
+
 
     
     func configureColorCell(with color: UIColor) {

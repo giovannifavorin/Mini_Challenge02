@@ -65,7 +65,7 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         }
         let letter = keys[indexPath.section][indexPath.row]
         cell.configure(with: letter)
-        cell.configureStyle(cornerRadius: 4)
+        cell.configureStyle(cornerRadius: 5)
         
         return cell
     }
@@ -73,7 +73,13 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let margin: CGFloat = 20
         let screenWidth = collectionView.frame.size.width
-        let cellWidth = (screenWidth - margin) / 12
+        var cellWidth = (screenWidth - margin) / 12
+        // No iPad, cada tecla do teclado deve ter metade do tamanho
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            cellWidth = (screenWidth - margin) / 18
+        }
+        
+        
         return CGSize(width: cellWidth, height: cellWidth * 1.5)
     }
 
@@ -84,7 +90,12 @@ class KeyboardView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         var right: CGFloat = 1
 
         let margin: CGFloat = 20
-        let size: CGFloat = (collectionView.frame.size.width-margin) / 11
+        var size: CGFloat = (collectionView.frame.size.width-margin) / 11
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            size = (collectionView.frame.size.width-margin) / 16.5
+        }
+        
         let count: CGFloat = CGFloat(collectionView.numberOfItems(inSection: section))
 
         let inset: CGFloat = (collectionView.frame.size.width - (size * count) - (2 * count))/2

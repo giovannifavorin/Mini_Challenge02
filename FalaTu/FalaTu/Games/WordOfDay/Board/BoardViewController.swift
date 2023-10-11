@@ -97,21 +97,23 @@ extension BoardViewController {
         return cell
     }
     
-    
+    // Tamanho dos quadrados
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let margin: CGFloat = 20
-        let size: CGFloat = (collectionView.frame.size.width-margin)/5
+        let screenWidth = collectionView.frame.size.width
+       
+        var squareWidth = (screenWidth - margin) / 5  
         
-        return CGSize(width: size, height: size)
+        return CGSize(width: squareWidth, height: squareWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 2,
-                            left: 2,
-                            bottom: 2,
-                            right: 2)
+
+        
+        return UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
  
