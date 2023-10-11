@@ -99,13 +99,6 @@ func incrementWordsCorrectInRegion(in region: inout RegionModel) {
 
 // Criando instâncias de RegionModel para cada região com palavras associadas a cada estado
 let regions_BR: [RegionModel] = [
-    createRegion(regionName: "Brasil", statesData: [
-        ("Brasil", 5,//Verificar o q é esse 5
-         ["manja": ("Entendeu?", "Significa \"entender\" ou \"saber\"."),
-          "zicou": ("Azar", "Estar em apuros ou ter azar"),
-         ]),
-    ]),
-    
     // NORTE
     createRegion(regionName: "Norte", statesData: [
         ("Amazonas", 5,
@@ -226,6 +219,13 @@ let regions_BR: [RegionModel] = [
         ("Rio Grande do Sul", 2,
          ["guriz": ("Meninos", "Gíria para \"meninos\" ou \"rapazes\""),
           "olada": ("Ocasião", "Se refere a uma ocasião, oportunidade")])
-    ])
+    ]),
+    
+    createRegion(regionName: "Brasil", statesData: [
+        ("Brasil", 5,
+         ["manja": ("Entendeu?", "Significa \"entender\" ou \"saber\"."),
+          "zicou": ("Azar", "Estar em apuros ou ter azar"),
+         ]),
+    ]),
 ]
 
