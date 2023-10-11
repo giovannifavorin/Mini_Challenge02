@@ -74,6 +74,7 @@ class DefeatMinigame01ViewController: UIViewController {
     private lazy var lostLabelTitle: UILabel = {
         let label = UILabel()
         label.text = "Não foi dessa vez, mano...!"
+        label.font = UIFont.systemFont(ofSize: 28)
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -82,6 +83,7 @@ class DefeatMinigame01ViewController: UIViewController {
     private lazy var lostLabelBody: UILabel = {
         let label = UILabel()
         label.text = "Acabaram suas chances. \n Tente novamente amanhã!"
+        label.font = UIFont.systemFont(ofSize: 28)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
@@ -215,12 +217,12 @@ class DefeatMinigame01ViewController: UIViewController {
         }
         
         timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
         
         regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
     }

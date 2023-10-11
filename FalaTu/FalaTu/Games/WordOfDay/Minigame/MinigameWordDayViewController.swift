@@ -279,7 +279,6 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 self.victoryVC.regionAnswer = self.answer_region
                 self.navigationController?.pushViewController(self.victoryVC, animated: true)
             }
-
             
         // ERRO DE RESPOSTA (TENTATIVAS) ======================================================================
         } else {

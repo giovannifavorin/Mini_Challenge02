@@ -107,6 +107,7 @@ class VictoryMinigame01ViewController: UIViewController {
         label.text = "\(meaningOfWord!)"
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 24)
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -256,19 +257,19 @@ class VictoryMinigame01ViewController: UIViewController {
             make.width.equalTo(view.frame.width * 0.29)
         }
         
-        scoreBox2.snp.makeConstraints { make in /*SCORE BOX*/
+        scoreBox2.snp.makeConstraints { make in /*SCORE BOX2*/
             make.top.equalTo(meaningLabelBody.snp.bottom).offset(40)
             make.right.equalTo(scoreBoardBackground.snp.right).offset(-50)
             make.width.equalTo(view.frame.width * 0.29)
         }
         
         timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
         
         regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(14)
             make.centerX.equalToSuperview()
         }
     }
