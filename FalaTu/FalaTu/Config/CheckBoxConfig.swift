@@ -8,8 +8,8 @@
 import UIKit
 
 class CheckboxConfig: UIView {
-
-    var isChecked: Bool = false
+    
+    weak var delegateConfigView: DelegateConfigView?
     
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -29,10 +29,9 @@ class CheckboxConfig: UIView {
         return image
     }()
     
-    private lazy var checkImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "box-closed")
-                      ?? UIImage(named: "asset")!
+    private lazy var checkbutton: ConfigChecBoxButtonCuston = {
+        let image = ConfigChecBoxButtonCuston()
+        image.addTarget(self, action: #selector(didButtonConfig), for: .touchUpInside)
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -55,14 +54,11 @@ class CheckboxConfig: UIView {
         self.label.text = text
     }
     
-    public func toggle() {
-        self.isChecked = !isChecked
-        print("entrei no togle entao senti o toque")
-        if !isChecked {
-            checkImage.image = UIImage(named: "box-closed") ?? UIImage(named: "asset")!
-        } else {
-            checkImage.image = UIImage(named: "box-select") ?? UIImage(named: "asset")!
-        }
+    
+    @objc
+    private func didButtonConfig(_ sender: UIButton!){
+        self.delegateConfigView?.didCheckButtonChangeThema()
+        checkbutton.togleAsset()
     }
 }
 
@@ -71,7 +67,7 @@ extension CheckboxConfig: ViewModel{
     func addViews() {
         addSubview(label)
         addSubview(imageSimbol)
-        addSubview(checkImage)
+        addSubview(checkbutton)
     }
     
     func addContrains() {
@@ -82,15 +78,15 @@ extension CheckboxConfig: ViewModel{
             
             label.leadingAnchor.constraint(equalTo: imageSimbol.trailingAnchor, constant: 11),
             
-            checkImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            checkImage.centerYAnchor.constraint(equalTo: imageSimbol.centerYAnchor),
-            checkImage.heightAnchor.constraint(equalToConstant: 30),
-            checkImage.widthAnchor.constraint(equalToConstant: 30),
+            checkbutton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            checkbutton.centerYAnchor.constraint(equalTo: imageSimbol.centerYAnchor),
+            checkbutton.heightAnchor.constraint(equalToConstant: 30),
+            checkbutton.widthAnchor.constraint(equalToConstant: 30),
         ])
     }
     
     func setupStyle() {
-        
+        backgroundColor = .clear
     }
     
 }

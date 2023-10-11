@@ -118,8 +118,10 @@ class MenuViewController: UIViewController {
     }()
     
     /// View de configurações
-    private lazy var configViewController: ConfigViewController = {
-        return ConfigViewController()
+    private lazy var configViewController: ConfigurationViewController = {
+        let configurationViewController = ConfigurationViewController()
+        configurationViewController.modalPresentationStyle = .overFullScreen
+        return configurationViewController
     }()
     
     /// View de seleção de região do inventário
@@ -159,7 +161,7 @@ class MenuViewController: UIViewController {
         case 2:
             navigationController?.pushViewController(dictionaryViewController, animated: true)
         case 3:
-            navigationController?.pushViewController(configViewController, animated: true)
+            present(configViewController, animated: false)
         case 4:
             navigationController?.pushViewController(perfilViewController, animated: true)
         default:
@@ -180,7 +182,7 @@ extension MenuViewController: ViewControllerModel {
         view.addSubview(logoView)
         view.addSubview(inventoryButton)
         //        view.addSubview(dictionaryButton)
-        //        view.addSubview(configurationButton)
+        view.addSubview(configurationButton)
         //        view.sendSubviewToBack(imagebackground)
         view.addSubview(custonButtonPerfil)
     }
@@ -263,10 +265,10 @@ extension MenuViewController{
             //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             //
             //            //CONFIGURATION
-            //            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-            //            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
-            //            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-            //            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
+            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
             custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
             custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),

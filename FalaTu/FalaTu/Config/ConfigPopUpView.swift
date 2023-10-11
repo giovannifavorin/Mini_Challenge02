@@ -9,16 +9,17 @@ import UIKit
 
 class ConfigPopUpView: UIView {
 
+    weak var delegateConfigView: DelegateConfigView?
+    
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
         button.setTitle("X", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
         button.backgroundColor = UIColor(named: "CancelColor")
-//        button.backgroundColor = .red
         button.layer.cornerRadius = 20
         button.tag = 11
-//        button.addTarget(self, action: #selector(actionBitton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
        return button
     }()
@@ -48,7 +49,7 @@ class ConfigPopUpView: UIView {
         return label
     }()
     
-    private lazy var bottonView: UIView = {
+    private lazy var bottonImageForPopUp: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "bg_PopUpPerfil")
         view.clipsToBounds = true
@@ -58,13 +59,13 @@ class ConfigPopUpView: UIView {
         return view
     }()
     
-    private lazy var checkVibrate: CheckboxConfig = {
-        let check = CheckboxConfig(text: "Vibração")
-        check.translatesAutoresizingMaskIntoConstraints = false
-        return check
-    }()
+//    private lazy var checkVibrate: CheckboxConfig = {
+//        let check = CheckboxConfig(text: "Vibração")
+//        check.translatesAutoresizingMaskIntoConstraints = false
+//        return check
+//    }()
     
-    private lazy var checkModeDark: CheckboxConfig = {
+    lazy var checkModeDark: CheckboxConfig = {
         let check = CheckboxConfig(text: "Modo Escuro")
         check.translatesAutoresizingMaskIntoConstraints = false
         return check
@@ -73,7 +74,7 @@ class ConfigPopUpView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewModel()
-        didTapCheckboxWithTitle()
+        
     }
     
     
@@ -81,28 +82,16 @@ class ConfigPopUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func integrateTapGestures() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckboxWithTitle))
-        checkVibrate.addGestureRecognizer(gesture)
-    }
-    
-    @objc 
-    private func didTapCheckboxWithTitle() {
-        print("asdfhkjdlsnf,msnkdjskf")
-        checkVibrate.toggle()
-        
-        if checkVibrate.isChecked == true {
-            print("Unchecked")
-        } else {
-            print("Checked")
-        }
+    @objc
+    private func didButton(_ sender: UIButton!){
+        self.delegateConfigView?.didBackbutton()
     }
 }
 
 
 extension ConfigPopUpView: ViewModel{
     func addViews() {
-        addSubviewsEx(backGround, buttonBack/*, imageTopPopUp*/, labelTopPopUp, bottonView, checkVibrate, checkModeDark)
+        addSubviewsEx(backGround, imageTopPopUp, buttonBack, labelTopPopUp, bottonImageForPopUp/*, checkVibrate*/, checkModeDark)
     }
     
     func addContrains() {
@@ -114,8 +103,7 @@ extension ConfigPopUpView: ViewModel{
     }
     
     func setupStyle() {
-//        backgroundColor = .black.withAlphaComponent(0.6)
-        backgroundColor = .red
+        backgroundColor = .clear
     }
 }
 
@@ -133,28 +121,28 @@ extension ConfigPopUpView{
             buttonBack.widthAnchor.constraint(equalToConstant: 50),
             buttonBack.heightAnchor.constraint(equalToConstant: 50),
             
-//            imageTopPopUp.topAnchor.constraint(equalTo: backGround.topAnchor),
-//            imageTopPopUp.leadingAnchor.constraint(equalTo: backGround.leadingAnchor),
-//            imageTopPopUp.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
-//            imageTopPopUp.heightAnchor.constraint(equalToConstant: 20),
+            imageTopPopUp.topAnchor.constraint(equalTo: backGround.topAnchor),
+            imageTopPopUp.leadingAnchor.constraint(equalTo: backGround.leadingAnchor),
+            imageTopPopUp.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
+            imageTopPopUp.heightAnchor.constraint(equalToConstant: 20),
     
             
             labelTopPopUp.topAnchor.constraint(equalTo: backGround.topAnchor, constant: 34),
             labelTopPopUp.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            bottonView.bottomAnchor.constraint(equalTo: backGround.bottomAnchor),
-            bottonView.leadingAnchor.constraint(equalTo: backGround.leadingAnchor),
-            bottonView.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
-            bottonView.heightAnchor.constraint(equalToConstant: 125),
+            bottonImageForPopUp.bottomAnchor.constraint(equalTo: backGround.bottomAnchor),
+            bottonImageForPopUp.leadingAnchor.constraint(equalTo: backGround.leadingAnchor),
+            bottonImageForPopUp.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
+            bottonImageForPopUp.heightAnchor.constraint(equalToConstant: 125),
 
         ])
         
         
         NSLayoutConstraint.activate([
-            checkVibrate.centerYAnchor.constraint(equalTo: backGround.centerYAnchor),
-            checkVibrate.heightAnchor.constraint(equalToConstant: 100),
-            checkVibrate.leadingAnchor.constraint(equalTo: backGround.leadingAnchor, constant: 43),
-            checkVibrate.trailingAnchor.constraint(equalTo: backGround.trailingAnchor, constant: -43),
+//            checkVibrate.centerYAnchor.constraint(equalTo: backGround.centerYAnchor),
+//            checkVibrate.heightAnchor.constraint(equalToConstant: 100),
+//            checkVibrate.leadingAnchor.constraint(equalTo: backGround.leadingAnchor, constant: 43),
+//            checkVibrate.trailingAnchor.constraint(equalTo: backGround.trailingAnchor, constant: -43),
 
             checkModeDark.topAnchor.constraint(equalTo: labelTopPopUp.bottomAnchor, constant: 150),
             checkModeDark.heightAnchor.constraint(equalToConstant: 100),

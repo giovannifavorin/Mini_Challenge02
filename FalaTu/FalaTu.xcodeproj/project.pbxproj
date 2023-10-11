@@ -50,6 +50,9 @@
 		B8D6DF322ACF2656009B08A9 /* PopUpHintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */; };
 		B8E47F792AD2E3C7008F5187 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8E47F782AD2E3C7008F5187 /* SnapKit */; };
 		B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F763732AD03B64005A0AA1 /* ModalViewController.swift */; };
+		D90730542AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */; };
+		D90730572AD725A9009FBC7D /* DelegateConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730562AD725A9009FBC7D /* DelegateConfigView.swift */; };
+		D90730592AD72813009FBC7D /* ModelAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90730582AD72813009FBC7D /* ModelAppSettings.swift */; };
 		D93A46CF2AD488E100CB127B /* CheckBoxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */; };
 		D93A46D02AD488E100CB127B /* ConfigPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */; };
 		D93A46D12AD488E100CB127B /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */; };
@@ -124,6 +127,9 @@
 		B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMenuData.swift; sourceTree = "<group>"; };
 		B8D6DF302ACF2656009B08A9 /* PopUpHintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHintViewController.swift; sourceTree = "<group>"; };
 		B8F763732AD03B64005A0AA1 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigChecBoxButtonCuston.swift; sourceTree = "<group>"; };
+		D90730562AD725A9009FBC7D /* DelegateConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateConfigView.swift; sourceTree = "<group>"; };
+		D90730582AD72813009FBC7D /* ModelAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAppSettings.swift; sourceTree = "<group>"; };
 		D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxConfig.swift; sourceTree = "<group>"; };
 		D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPopUpView.swift; sourceTree = "<group>"; };
 		D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -388,12 +394,22 @@
 			path = FalaTu/Games/WordOfDay/PopUp;
 			sourceTree = SOURCE_ROOT;
 		};
+		D90730552AD72589009FBC7D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D90730562AD725A9009FBC7D /* DelegateConfigView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D93A46CB2AD4882B00CB127B /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				D90730552AD72589009FBC7D /* Protocols */,
 				D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */,
 				D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */,
 				D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */,
+				D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -431,6 +447,7 @@
 				D989DD832AC7073F00C282AB /* CoreDataManeger.swift */,
 				B8D2A59A2ACB593000C4F59A /* ModelMenuData.swift */,
 				B8368E252AD0838A00C38E83 /* UserDefaults.swift */,
+				D90730582AD72813009FBC7D /* ModelAppSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,10 +590,12 @@
 				D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */,
 				B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */,
 				B83FA81E2AC61F7600722C97 /* DictionaryViewController.swift in Sources */,
+				D90730572AD725A9009FBC7D /* DelegateConfigView.swift in Sources */,
 				B850DFC22ACB57190021BAE3 /* BottomButtonsView.swift in Sources */,
 				B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */,
 				D93A46CF2AD488E100CB127B /* CheckBoxConfig.swift in Sources */,
 				D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */,
+				D90730592AD72813009FBC7D /* ModelAppSettings.swift in Sources */,
 				D93A46D12AD488E100CB127B /* ConfigurationViewController.swift in Sources */,
 				B850DFC42ACB57340021BAE3 /* BottomButtonsViewController.swift in Sources */,
 				261833892AD0A2520035F72A /* RegionInformationView.swift in Sources */,
@@ -588,6 +607,7 @@
 				D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */,
 				B8F763742AD03B64005A0AA1 /* ModalViewController.swift in Sources */,
 				B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */,
+				D90730542AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift in Sources */,
 				B8368E242AD0836200C38E83 /* PerfilViewController.swift in Sources */,
 				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */,

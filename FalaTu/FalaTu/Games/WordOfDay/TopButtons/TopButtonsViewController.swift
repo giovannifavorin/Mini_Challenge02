@@ -11,6 +11,12 @@ class TopButtonsViewController: UIViewController {
     
     private let topButtonsView = TopButtonsView()
 
+    lazy var configurationViewController: ConfigurationViewController = {
+          let configurationViewController = ConfigurationViewController()
+          configurationViewController.modalPresentationStyle = .overFullScreen
+          return configurationViewController
+      }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllerModel()
@@ -25,9 +31,11 @@ class TopButtonsViewController: UIViewController {
         print("Tutorial Modal")
     }
 
-    @objc private func configButtonAction(sender: UIButton) {
-        print("Configuração")
-        navigationController?.pushViewController(ConfigViewController(), animated: true)
+    @objc 
+    private func configButtonAction(sender: UIButton) {
+       print("Configuração")
+       
+       present(configurationViewController, animated: true)
     }
 }
 
