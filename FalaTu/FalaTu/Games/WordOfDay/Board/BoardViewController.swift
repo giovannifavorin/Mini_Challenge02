@@ -103,7 +103,7 @@ extension BoardViewController {
         let margin: CGFloat = 20
         let screenWidth = collectionView.frame.size.width
        
-        var squareWidth = (screenWidth - margin) / 5  
+        let squareWidth = (screenWidth - margin) / 5  
         
         return CGSize(width: squareWidth, height: squareWidth)
     }
