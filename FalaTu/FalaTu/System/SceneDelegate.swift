@@ -8,7 +8,9 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    let defults = UserDefaults.standard
+    var isDarMode: Bool?
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,6 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
+        
+        updateInterfaceStyle()
+        
         window?.makeKeyAndVisible()
     }
 
@@ -46,7 +51,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
         CoreDataManager.coreDataManager.saveContext()
     }
+    
+    func updateInterfaceStyle(){
+        
+        let firstExecute = defults.isDarMode.firstExecute
+        
+        isDarMode = defults.isDarMode.isDarMode
 
+        if firstExecute == true{
+            defults.isDarMode.firstExecute = false
 
+        } else{
+            if !isDarMode!{
+                AppSettings.userInterfaceStyle = .light
+                
+            }else {
+                AppSettings.userInterfaceStyle = .dark
+                
+            }
+        }
+        
+        print("valor de serDefaults.isDarMode.firstExecute e : \(firstExecute)")
+        
+        let style = AppSettings.userInterfaceStyle
+        
+        UIApplication.shared.windows.forEach { window in
+            window.overrideUserInterfaceStyle = style
+        }
+        
+    }
 }
 

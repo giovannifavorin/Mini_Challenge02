@@ -30,6 +30,7 @@ class PopUpViewController: UIViewController {
         let image = popUpView.getImageValue()
         defaults.imageProfile = image
         self.delegado?.changeImage()
+        dismiss(animated: false)
     }
 }
 

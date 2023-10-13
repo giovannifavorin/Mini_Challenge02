@@ -76,6 +76,8 @@ class ConfigPopUpView: UIView {
     
     lazy var checkModeDark: CheckboxConfig = {
         let check = CheckboxConfig(text: "Modo Escuro")
+        check.checkbutton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
+        check.checkbutton.tag = 2
         check.translatesAutoresizingMaskIntoConstraints = false
         return check
     }()
@@ -83,7 +85,7 @@ class ConfigPopUpView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewModel()
-        
+        updateIConConfig()
     }
     
     
@@ -93,7 +95,23 @@ class ConfigPopUpView: UIView {
     
     @objc
     private func didButton(_ sender: UIButton!){
-        self.delegateConfigView?.didBackbutton(tag: sender.tag)
+
+        if sender.tag == 0 || sender.tag == 1{
+            //delegate que sai do pop up caso for 0 e se for 2 chama creditview
+            self.delegateConfigView?.didBackbutton(tag: sender.tag)
+            
+        } else if  sender.tag == 2{
+            self.delegateConfigView?.didCheckButtonChangeThema()
+            updateIConConfig()
+        }
+        else{
+            fatalError("error in didButton from ConfigPopUpView")
+        }
+    }
+    
+    func updateIConConfig(){
+        var user = UserDefaults.standard.isDarMode.isDarMode
+        self.checkModeDark.checkbutton.togleAsset(isChecked: user)
     }
 }
 

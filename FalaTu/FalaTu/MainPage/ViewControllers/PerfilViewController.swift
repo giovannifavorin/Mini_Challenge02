@@ -138,7 +138,6 @@ extension PerfilViewController: DelegateUserPreferences{
     func presentPopUP(index: IndexPath) {
         present(popUpViewController, animated: false)
         
-        
         guard let image = listSelectAvatar?[index.row].image,
               let state = listSelectAvatar?[index.row].region,
               let name = listSelectAvatar?[index.row].name
@@ -197,27 +196,27 @@ extension PerfilViewController: DelegateUserPreferences{
                                     indentifier: index.row,
                                     name: name)
             
-        case 4:
-            let result = defaults.regionSudeste
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
-            configurePopUpInRunTime(isBlocked: isBlocked,
-                                    numberOfHits: numberOfHits,
-                                    state: state,
-                                    image: image,
-                                    indentifier: index.row,
-                                    name: name)
-            
-        case 5:
-            let result = defaults.regionCentroOeste
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
-            configurePopUpInRunTime(isBlocked: isBlocked,
-                                    numberOfHits: numberOfHits,
-                                    state: state,
-                                    image: image,
-                                    indentifier: index.row,
-                                    name: name)
+//        case 4:
+//            let result = defaults.regionSudeste
+//            let isBlocked = result.isGreaterThanOrEqualTo5
+//            let numberOfHits = result.value
+//            configurePopUpInRunTime(isBlocked: isBlocked,
+//                                    numberOfHits: numberOfHits,
+//                                    state: state,
+//                                    image: image,
+//                                    indentifier: index.row,
+//                                    name: name)
+//            
+//        case 5:
+//            let result = defaults.regionCentroOeste
+//            let isBlocked = result.isGreaterThanOrEqualTo5
+//            let numberOfHits = result.value
+//            configurePopUpInRunTime(isBlocked: isBlocked,
+//                                    numberOfHits: numberOfHits,
+//                                    state: state,
+//                                    image: image,
+//                                    indentifier: index.row,
+//                                    name: name)
             
         default:
             break

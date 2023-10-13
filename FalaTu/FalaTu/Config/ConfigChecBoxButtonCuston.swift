@@ -8,7 +8,7 @@
 import UIKit
 
 class ConfigChecBoxButtonCuston: UIButton {
-
+    
     private var checkImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -16,9 +16,6 @@ class ConfigChecBoxButtonCuston: UIButton {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    
-    var isChecked: Bool = false
     
     
     init() {
@@ -34,16 +31,15 @@ class ConfigChecBoxButtonCuston: UIButton {
 
 extension ConfigChecBoxButtonCuston{
     
-    public func togleAsset(){
-        isChecked.toggle()
+    public func togleAsset(isChecked: Bool?){
+//        isChecked?.toggle()
 
-        if isChecked{
-            print("ativo")
-            //save togle
+        if isChecked!{
             checkImage.image = UIImage(named: "box-select") ?? UIImage(named: "asset")!
+            
         }else{
-            print("desativado")
             checkImage.image = UIImage(named: "box-closed") ?? UIImage(named: "asset")!
+
         }
     }
     

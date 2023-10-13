@@ -20,6 +20,8 @@ extension UserDefaults{
         case regionSudeste
         case regionCentroOeste
         case regionNordeste
+        case isDarMode
+        case firstExecute
     }
     
     
@@ -118,4 +120,17 @@ extension UserDefaults{
                 setValue(newValue, forKey: UserDefaultsKeys.regionNordeste.rawValue)
             }
         }
+    
+    
+    var isDarMode: (firstExecute: Bool, isDarMode: Bool){
+        get{
+            let firstExecute = value(forKey: UserDefaultsKeys.firstExecute.rawValue) as? Bool ?? true
+            let isDarMode = value(forKey: UserDefaultsKeys.isDarMode.rawValue) as? Bool ?? false
+            return (firstExecute, isDarMode)
+        }
+        set{
+            setValue(newValue.isDarMode, forKey: UserDefaultsKeys.isDarMode.rawValue)
+            setValue(newValue.firstExecute, forKey: UserDefaultsKeys.firstExecute.rawValue)
+        }
+    }
 }

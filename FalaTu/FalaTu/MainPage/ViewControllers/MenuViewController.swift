@@ -10,8 +10,8 @@ import UIKit
 // Main viewController
 class MenuViewController: UIViewController {
     
-    let defults = UserDefaults.standard
     let coreData = CoreDataManager.coreDataManager
+    let defults = UserDefaults.standard
     
     //Proportions for buttons
     let buttonsWidthPercentage: CGFloat = 0.15
@@ -86,11 +86,11 @@ class MenuViewController: UIViewController {
     private lazy var configurationButton: UIButton = {
         let configurationButton = UIButton(type: .custom)
         configurationButton.translatesAutoresizingMaskIntoConstraints = false
-        let configurationImage = UIImage(named: "button_credits")
+        let configurationImage = UIImage(named: "button_settings")
         configurationButton.setImage(configurationImage, for: .normal)
         configurationButton.contentMode = .scaleAspectFill
         configurationButton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
-        configurationButton.tag = 2
+        configurationButton.tag = 3
         return configurationButton
     }()
     
@@ -155,7 +155,7 @@ class MenuViewController: UIViewController {
         case 1:
             navigationController?.pushViewController(regionSelectionViewController, animated: true)
         case 2:
-            navigationController?.pushViewController(creditViewController, animated: true)
+            navigationController?.pushViewController(creditViewController, animated: true)//
         case 3:
             present(configViewController, animated: false)
         case 4:
@@ -258,10 +258,10 @@ extension MenuViewController{
 //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
                         //CONFIGURATION
-            configurationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            configurationButton.topAnchor.constraint(equalTo: inventoryButton.bottomAnchor, constant: 20),
-            configurationButton.widthAnchor.constraint(equalToConstant: 200),
-            configurationButton.heightAnchor.constraint(equalToConstant: 60),
+            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant:33),
+            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
             custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
             custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
@@ -321,10 +321,10 @@ extension MenuViewController{
             //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             //
             //            //CONFIGURATION
-            //            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
-            //            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant: 33),
-            //            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-            //            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+            configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
+            configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant:33),
+            configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+            configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
             custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
             custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),

@@ -10,6 +10,9 @@ import UIKit
 
 class ConfigurationViewController: UIViewController {
 
+    let userDefaults = UserDefaults.standard
+    var isDarMode: Bool?
+    
     private lazy var creditViewController: CreditView = {
         return CreditView()
     }()
@@ -26,8 +29,6 @@ class ConfigurationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configPopUpView.delegateConfigView = self
-        self.configPopUpView.checkModeDark.delegateConfigView = self
-
     }
 }
 
@@ -37,24 +38,43 @@ extension ConfigurationViewController: DelegateConfigView{
         case 0:
             dismiss(animated: true)
         case 1:
-//            dismiss(animated: true)
-            present(CreditView(), animated: true)
+            present(creditViewController, animated: true)
         default:
             fatalError("error in ConfigurationViewController -> didBackbutton ")
         }
     }
     
-    func updateInterfaceStyle(){
+    func updateInterfaceStyle() {
+        let currentIsDarMode = userDefaults.isDarMode.isDarMode
+        print("valor que veio do banco e: \(currentIsDarMode)")
+
+        let newIsDarMode = !currentIsDarMode
+
+        userDefaults.isDarMode.isDarMode = newIsDarMode
+
+        print("valor que salvei no banco: \(newIsDarMode)")
+
+        // Atualiza o estilo da interface com base no novo valor
+        if newIsDarMode {
+            AppSettings.userInterfaceStyle = .dark
+            print("Modo escuro")
+        } else {
+            AppSettings.userInterfaceStyle = .light
+            print("Modo claro")
+        }
+
+        // Aplica o novo estilo à interface
         let style = AppSettings.userInterfaceStyle
-        
+
         UIApplication.shared.windows.forEach { window in
             window.overrideUserInterfaceStyle = style
         }
     }
+
+
     
     func didCheckButtonChangeThema() {
         updateInterfaceStyle()
-        print("aaaaaadjfkdsfjghfdjklglhjkdfhsgljkafsdkngfdsm,ghjldfshlkgndflm,jgndfmgd")
     }
     
 }

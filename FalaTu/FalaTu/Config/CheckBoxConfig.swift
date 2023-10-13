@@ -8,9 +8,7 @@
 import UIKit
 
 class CheckboxConfig: UIView {
-    
-    weak var delegateConfigView: DelegateConfigView?
-    
+        
     private lazy var label: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Hore-Regular", size: 18)
@@ -29,14 +27,12 @@ class CheckboxConfig: UIView {
         return image
     }()
     
-    private lazy var checkbutton: ConfigChecBoxButtonCuston = {
-        let image = ConfigChecBoxButtonCuston()
-        image.addTarget(self, action: #selector(didButtonConfig), for: .touchUpInside)
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+    lazy var checkbutton: ConfigChecBoxButtonCuston = {
+        let button = ConfigChecBoxButtonCuston()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
-
     
     init(text: String){
         super.init(frame: .zero)
@@ -52,13 +48,6 @@ class CheckboxConfig: UIView {
     
     private func creatNewCheck(text: String){
         self.label.text = text
-    }
-    
-    
-    @objc
-    private func didButtonConfig(_ sender: UIButton!){
-        self.delegateConfigView?.didCheckButtonChangeThema()
-        checkbutton.togleAsset()
     }
 }
 
