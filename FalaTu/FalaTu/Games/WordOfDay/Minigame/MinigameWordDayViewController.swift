@@ -267,7 +267,6 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 endTimeWin = Date()
                 timeElapsed = endTimeWin?.timeIntervalSince(startTime ?? Date()) ?? 0
                 
-
                 // PONTUAÇÃO -> PALAVRAS NA REGIÃO
                 // Recupera o valor
                 if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
