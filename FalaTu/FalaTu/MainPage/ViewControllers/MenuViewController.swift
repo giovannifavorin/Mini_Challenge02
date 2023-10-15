@@ -326,6 +326,11 @@ extension MenuViewController{
             configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
             configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
             
+            configurationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            configurationButton.topAnchor.constraint(equalTo: inventoryButton.bottomAnchor, constant: 20),
+            configurationButton.widthAnchor.constraint(equalToConstant: 200),
+            configurationButton.heightAnchor.constraint(equalToConstant: 60),
+            
             custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
             custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
             custonButtonPerfil.heightAnchor.constraint(equalToConstant: 50),
