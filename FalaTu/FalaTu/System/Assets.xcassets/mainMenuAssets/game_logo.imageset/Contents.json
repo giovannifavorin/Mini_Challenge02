@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Fala,tu!Light.svg",
+      "filename" : "logoblack 1.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Fala,tu!Dark.svg",
+      "filename" : "logowhite.png",
       "idiom" : "universal"
     }
   ],
