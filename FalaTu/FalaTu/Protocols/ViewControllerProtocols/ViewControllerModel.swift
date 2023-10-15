@@ -42,7 +42,7 @@ extension ViewControllerModel {
 
 extension UIViewController{
     func addHapticFeedbackFromViewController(type: UINotificationFeedbackGenerator.FeedbackType){
-        let isVibrate = UserDefaults.standard.isVibrate
+        let isVibrate = UserDefaults.standard.isVibrate!
         
         if isVibrate{
             let generetor = UINotificationFeedbackGenerator()
@@ -55,7 +55,7 @@ extension UIImpactFeedbackGenerator {
     static func feedback(for type: UIImpactFeedbackGenerator.FeedbackStyle) {
         let isVibrate = UserDefaults.standard.isVibrate
         
-        if isVibrate {
+        if isVibrate! {
             let generator = UIImpactFeedbackGenerator(style: type)
             generator.prepare()
             generator.impactOccurred()

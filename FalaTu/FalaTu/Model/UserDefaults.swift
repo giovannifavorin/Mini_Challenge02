@@ -136,16 +136,13 @@ extension UserDefaults{
     }
     
     
-    var isVibrate: Bool {
+    var isVibrate: Bool? {
         get{
-            let value = bool(forKey: UserDefaultsKeys.isVibrate.rawValue) as? Bool ?? false
-            return value
-            
+            let value = value(forKey: UserDefaultsKeys.isVibrate.rawValue) as? Bool ?? true
+            return (value)
         }
         set{
             setValue(newValue, forKey: UserDefaultsKeys.isVibrate.rawValue)
-            
         }
     }
-    
 }
