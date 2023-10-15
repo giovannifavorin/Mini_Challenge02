@@ -139,8 +139,6 @@ extension PerfilViewController: DelegateUserPreferences{
 
     func presentPopUP(index: IndexPath) {
         
-        present(popUpViewController, animated: false)
-        
         guard let image = listSelectAvatar?[index.row].image,
               let state = listSelectAvatar?[index.row].region,
               let name = listSelectAvatar?[index.row].name
@@ -161,11 +159,10 @@ extension PerfilViewController: DelegateUserPreferences{
                                      indentifier: index.row,
                                      name: name)
         case 1:
-//            let result = defaults.regionNorte
-//            let isBlocked = result.isGreaterThanOrEqualTo5
-            let isBlocked = true
-            let numberOfHits = 5
-//            let numberOfHits = result.value
+            let result = defaults.regionNorte
+            let isBlocked = result.isGreaterThanOrEqualTo5
+            let numberOfHits = result.value
+
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,
@@ -174,11 +171,10 @@ extension PerfilViewController: DelegateUserPreferences{
                                     name: name)
             
         case 2:
-//            let result = defaults.regionNordeste
-//            let isBlocked = result.isGreaterThanOrEqualTo5
-//            let numberOfHits = result.value
-            let isBlocked = true
-            let numberOfHits = 5
+            let result = defaults.regionNordeste
+            let isBlocked = result.isGreaterThanOrEqualTo5
+            let numberOfHits = result.value
+
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,
@@ -187,11 +183,10 @@ extension PerfilViewController: DelegateUserPreferences{
                                     name: name)
             
         case 3:
-//            let result = defaults.regionSul
-//            let isBlocked = result.isGreaterThanOrEqualTo5
-//            let numberOfHits = result.value
-            let isBlocked = true
-            let numberOfHits = 5
+            let result = defaults.regionSul
+            let isBlocked = result.isGreaterThanOrEqualTo5
+            let numberOfHits = result.value
+                        
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
                                     state: state,
@@ -224,9 +219,13 @@ extension PerfilViewController: DelegateUserPreferences{
         default:
             break
         }
+        
+        present(popUpViewController, animated: false)
     }
     
     func configurePopUpInRunTime(isBlocked: Bool, numberOfHits: Int, state: String, image: UIImage, indentifier: Int, name: String){
+    
+        popUpViewController.popUpView.configureButton(isBlocked: isBlocked)
                 
         popUpViewController.popUpView.configure(labelAvatarBlocked: isBlocked ? "\(name)" : "Avatar\nBloqueado!",
                                                 labelWordHits: "\(numberOfHits) / 5 palavras",

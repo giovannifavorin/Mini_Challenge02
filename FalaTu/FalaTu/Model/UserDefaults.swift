@@ -60,11 +60,6 @@ extension UserDefaults{
                 let isGreaterThanOrEqualTo5 = storedValue >= 5
                 return (storedValue, isGreaterThanOrEqualTo5)
             }
-            
-            set {
-                let newValue = newValue.value // Obtém o novo valor do tuple
-                setValue(newValue, forKey: UserDefaultsKeys.regionNorte.rawValue)
-            }
         }
         
     
@@ -73,11 +68,6 @@ extension UserDefaults{
                 let storedValue = integer(forKey: UserDefaultsKeys.regionSul.rawValue)
                 let isGreaterThanOrEqualTo5 = storedValue >= 5
                 return (storedValue, isGreaterThanOrEqualTo5)
-            }
-            
-            set {
-                let newValue = newValue.value // Obtém o novo valor do tuple
-                setValue(newValue, forKey: UserDefaultsKeys.regionSul.rawValue)
             }
         }
         
@@ -88,11 +78,6 @@ extension UserDefaults{
                 let isGreaterThanOrEqualTo5 = storedValue >= 5
                 return (storedValue, isGreaterThanOrEqualTo5)
             }
-            
-            set {
-                let newValue = newValue.value // Obtém o novo valor do tuple
-                setValue(newValue, forKey: UserDefaultsKeys.regionSudeste.rawValue)
-            }
         }
         
     
@@ -102,11 +87,6 @@ extension UserDefaults{
                 let isGreaterThanOrEqualTo5 = storedValue >= 5
                 return (storedValue, isGreaterThanOrEqualTo5)
             }
-            
-            set {
-                let newValue = newValue.value // Obtém o novo valor do tuple
-                setValue(newValue, forKey: UserDefaultsKeys.regionCentroOeste.rawValue)
-            }
         }
         
     var regionNordeste: (value: Int, isGreaterThanOrEqualTo5: Bool) {
@@ -114,11 +94,6 @@ extension UserDefaults{
                 let storedValue = integer(forKey: UserDefaultsKeys.regionNordeste.rawValue)
                 let isGreaterThanOrEqualTo5 = storedValue >= 5
                 return (storedValue, isGreaterThanOrEqualTo5)
-            }
-            
-            set {
-                let newValue = newValue.value // Obtém o novo valor do tuple
-                setValue(newValue, forKey: UserDefaultsKeys.regionNordeste.rawValue)
             }
         }
     
@@ -144,5 +119,38 @@ extension UserDefaults{
         set{
             setValue(newValue, forKey: UserDefaultsKeys.isVibrate.rawValue)
         }
+    }
+    
+    
+    func addPointToRegion(region: String) {
+        
+        var regiaoUpCase: String = region.uppercased()
+        var regionKey: String = ""
+                
+        switch regiaoUpCase {
+        case "NORTE":
+            regionKey = UserDefaultsKeys.regionNorte.rawValue
+            
+        case "SUL":
+            regionKey = UserDefaultsKeys.regionSul.rawValue
+            
+        case "SUDESTE":
+            regionKey = UserDefaultsKeys.regionSudeste.rawValue
+            
+        case "CENTRO-OESTE":
+            regionKey = UserDefaultsKeys.regionCentroOeste.rawValue
+            
+        case "Nordeste":
+            regionKey = UserDefaultsKeys.regionNordeste.rawValue
+            
+        default:
+//            fatalError("erro: regiao e \(region)")
+            print("brasil")
+        }
+            
+        let currentValue = integer(forKey: regionKey)
+        
+        setValue(currentValue + 1, forKey: regionKey)
+        
     }
 }

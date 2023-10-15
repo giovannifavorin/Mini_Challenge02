@@ -27,8 +27,7 @@ class PopUpViewPerfilImage: UIView {
     
     private lazy var labelAvatarBlocked: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Hore.ttf", size: 32)
-        label.font = .systemFont(ofSize: 32, weight: .heavy)
+        label.font = UIFont(name: "Hore", size: 32)
         label.text = "Avatar\nBloqueado!"
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -171,8 +170,10 @@ extension PopUpViewPerfilImage{
             print("ativo")
             buttonSelect.isEnabled = true
             buttonSelect.backgroundColor = UIColor(named: "button_Select_Active")
+            buttonSelect.layer.borderColor = UIColor(named: "Border_button_Select")?.cgColor
             buttonSelect.setTitleColor(.white, for: .normal)
             UIImpactFeedbackGenerator.feedback(for: .medium)
+            
         }else {
             
             print("Bloqueado")
