@@ -17,6 +17,7 @@ class InventoryViewController: UIViewController {
         let regionInfoView = RegionInformationView()
         regionInfoView.regionImage.image = UIImage(named: "\(selectedRegion.regionName)TopInventory")
         regionInfoView.regionTopDetails.configure(for: selectedRegion)
+ 
         regionInfoView.translatesAutoresizingMaskIntoConstraints = false
         return regionInfoView
     }()
@@ -67,9 +68,11 @@ class InventoryViewController: UIViewController {
         setupViewControllerModel()
         createAllStatesWithItems()
         
-        if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
+        if let savedWordsCorrect = UserDefaults.standard.value(forKey: "\(selectedRegion.regionName)_numOfWordsCorrectInRegion") as? Int {
             selectedRegion.numOfWordsCorrectInRegion = savedWordsCorrect
             labelWordsinRegion.text = "Palavras na região: \(selectedRegion.numOfWordsCorrectInRegion)"
+            print("palavras na região: \(selectedRegion.numOfWordsCorrectInRegion)")
+            
         } else {
             labelWordsinRegion.text = "Palavras na região: NÃO RECUPEROU"
         }
@@ -79,24 +82,33 @@ class InventoryViewController: UIViewController {
         var previousItemsStackView: UIStackView?
         
         for state in selectedRegion.states {
-        
-            let itemsStackView = createItemsStackView(withStateName: state.stateName, numOfItemsUnlocked: state.numberOfItemsUnlocked)
+            let stateKey = "\(selectedRegion.regionName)_\(state.stateName)_numOfItemsUnlocked"
+            let numOfItemsUnlocked: Int
+            
+            if let savedItemsUnlocked = UserDefaults.standard.value(forKey: stateKey) as? Int {
+                numOfItemsUnlocked = savedItemsUnlocked
+            } else {
+                numOfItemsUnlocked = state.numberOfItemsUnlocked
+            }
+            
+            let itemsStackView = createItemsStackView(withStateName: state.stateName, numOfItemsUnlocked: numOfItemsUnlocked)
             scrollView.addSubview(itemsStackView)
-        
+            
             itemsStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+            
             NSLayoutConstraint.activate([
                 // Distância entre um estado e outro dentro do inventário
                 itemsStackView.topAnchor.constraint(equalTo: previousItemsStackView?.bottomAnchor ?? scrollView.topAnchor),
                 itemsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
-        
+            
             previousItemsStackView = itemsStackView
         }
-            
+        
         // Configurar ContentSize da ScrollView
         scrollView.contentSize = CGSize(width: view.frame.width, height: CGFloat(selectedRegion.states.count) * 260)
     }
+
 }
 
 extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate {

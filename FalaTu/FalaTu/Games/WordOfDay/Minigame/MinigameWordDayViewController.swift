@@ -269,34 +269,30 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 
                 // PONTUAÇÃO -> PALAVRAS NA REGIÃO
                 // Recupera o valor
-                if let savedWordsCorrect = UserDefaults.standard.value(forKey: "numOfWordsCorrectInRegion") as? Int {
-                    // recebe o valor armazenado
+                if let savedWordsCorrect = UserDefaults.standard.value(forKey: "\(answer_region.regionName)_numOfWordsCorrectInRegion") as? Int {
+                    // Recebe o valor armazenado
                     answer_region.numOfWordsCorrectInRegion = savedWordsCorrect
-                    print("antes a região \(answer_region.regionName) tinha \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                    print("Antes, a região \(answer_region.regionName) tinha \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
                     for state in answer_region.states {
-                        print("antes o estado \(state.stateName) tinha \(state.numberOfItemsUnlocked) itens")
+                        print("Antes, o estado \(state.stateName) tinha \(state.numberOfItemsUnlocked) itens")
                     }
-                    
-                    // incrementa
+
+                    // Incrementa
                     incrementWordsCorrectInRegion(in: &answer_region)
-                    // guarda o valor
-                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
-                    print("agora a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
-                    
-                    let result = UserDefaults.standard
-                    print("valor e: \(answer_region.regionName)")
-                    result.addPointToRegion(region: answer_region.regionName)
-                    
+                    // Guarda o valor
+                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "\(answer_region.regionName)_numOfWordsCorrectInRegion")
+                    print("Agora, a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
                     for state in answer_region.states {
-                        print("agora o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
+                        print("Agora, o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
                     }
+
                 } else {
-                    // incrementa
+                    // Incrementa
                     incrementWordsCorrectInRegion(in: &answer_region)
-                    // guarda o valor
-                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
-                    
+                    // Guarda o valor
+                    UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "\(answer_region.regionName)_numOfWordsCorrectInRegion")
                 }
+
                 
                 // CHAMADA VIEW DE VITÓRIA
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

@@ -112,7 +112,17 @@ extension RegionDetails: ViewModel{
 
 extension RegionDetails {
     public func configure(for region: RegionModel) {
-        self.labelNumberItems.text = "\(region.numOfItensInRegion)" 
-        self.labelNumberStates.text = "\(region.numOfStatesUnlocked)/\(region.numOfStates)"
+        var numOfStatesUnlocked = 0
+        
+        for state in region.states {
+            let stateKey = "\(region.regionName)_\(state.stateName)_numOfItemsUnlocked"
+            if let savedItemsUnlocked = UserDefaults.standard.value(forKey: stateKey) as? Int, savedItemsUnlocked > 0 {
+                numOfStatesUnlocked += 1
+            }
+        }
+        
+        self.labelNumberItems.text = "\(region.numOfItensInRegion)"
+        self.labelNumberStates.text = "\(numOfStatesUnlocked)/\(region.numOfStates)"
     }
 }
+
