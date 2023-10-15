@@ -22,7 +22,7 @@ extension UIView {
 //Funcao que ativa as vibracoes com base na preferencia do usuario.
 extension UIView{
     func addHapticFeedback(type: UINotificationFeedbackGenerator.FeedbackType){
-        let isVibrate = UserDefaults.standard.isVibrate
+        let isVibrate = UserDefaults.standard.isVibrate!
         
         if isVibrate{
             let generetor = UINotificationFeedbackGenerator()

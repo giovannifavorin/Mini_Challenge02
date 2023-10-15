@@ -37,7 +37,7 @@ class ConfigurationViewController: UIViewController {
 extension ConfigurationViewController: DelegateConfigView{
     func didCheckButtonVibrate() {
         let isVibrate = userDefaults.isVibrate
-        userDefaults.isVibrate = !isVibrate
+        userDefaults.isVibrate = !isVibrate!
     }
     
     

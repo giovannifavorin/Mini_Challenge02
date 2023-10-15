@@ -201,8 +201,8 @@ let regions_BR: [RegionModel] = [
         
         ("Rio de Janeiro", 5,
          ["truta": ("Ei mano", "É usado para se referir a um amigo."),
-          "Muque": ("Força", "músculo desenvolvido, resultante de exercícios físicos constantes, esp. o bíceps e o tríceps, que impulsionam ou sustentam a força dos membros superiores."),
-          "Migue": ("Mentira", "Usado quando quer dizer que alguém esta mentido.")
+          "muque": ("Força", "músculo desenvolvido, resultante de exercícios físicos constantes, esp. o bíceps e o tríceps, que impulsionam ou sustentam a força dos membros superiores."),
+          "migue": ("Mentira", "Usado quando quer dizer que alguém esta mentido.")
          ]),
         
         ("São Paulo", 8,
