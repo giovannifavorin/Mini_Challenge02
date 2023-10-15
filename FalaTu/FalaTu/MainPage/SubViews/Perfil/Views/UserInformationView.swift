@@ -87,6 +87,7 @@ class UserInformationView: UIView {
         divider.layer.cornerRadius = 2
         divider.translatesAutoresizingMaskIntoConstraints = false
         divider.backgroundColor = UIColor(named: "dividerColor")
+//        divider.backgroundColor = .white
         return divider
     }()
     
@@ -124,7 +125,6 @@ extension UserInformationView: ViewModel{
             configureItensForiPads()
             
         }else if UIDevice.current.userInterfaceIdiom == .phone{
-            print("Contrins para iphones ativas ")
             contrainsiPhone()
         }
     }
@@ -163,34 +163,33 @@ extension UserInformationView{
     private func contrainsiPhone(){
         
         NSLayoutConstraint.activate([
-            
             backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             backgroundImage.topAnchor.constraint(equalTo: topAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 25),
-            
-            imageView.widthAnchor.constraint(equalToConstant: 140),
+                
+            imageView.widthAnchor.constraint(equalToConstant: 200),
             imageView.heightAnchor.constraint(equalToConstant: 200),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 127),
-            
+                    
             viewBackgroundUserPreferences.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
             viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor),
             viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor),
             viewBackgroundUserPreferences.heightAnchor.constraint(equalToConstant: size.width*0.45),
-            
+                    
             myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 30),
             myTextField.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
             myTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45.5),
             myTextField.heightAnchor.constraint(equalToConstant: 35),
         ])
-        
+                
         NSLayoutConstraint.activate([
-            
+                    
             dividerName.topAnchor.constraint(equalTo: myTextField.bottomAnchor, constant: 5),
             dividerName.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: 45.5),
             dividerName.heightAnchor.constraint(equalToConstant: 2),
             dividerName.widthAnchor.constraint(equalToConstant: 304),
-            
+                    
             viewTotalGames.centerXAnchor.constraint(equalTo: viewBackgroundUserPreferences.centerXAnchor),
             viewTotalGames.topAnchor.constraint(equalTo: dividerName.bottomAnchor, constant: 30),
             viewTotalGames.widthAnchor.constraint(equalToConstant: 104),
@@ -214,22 +213,22 @@ extension UserInformationView{
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 20),
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor, constant: -3),
+            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            imageView.widthAnchor.constraint(equalToConstant: 140),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
             imageView.heightAnchor.constraint(equalToConstant: 200),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 127),
-            
-            viewBackgroundUserPreferences.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
-            viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor),
-            viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 10),
+
+            viewBackgroundUserPreferences.topAnchor.constraint(equalTo: topAnchor, constant: 380),
+            viewBackgroundUserPreferences.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 147.11),
+            viewBackgroundUserPreferences.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -147.11),
             viewBackgroundUserPreferences.heightAnchor.constraint(equalToConstant: size.width*0.3),
             
-            myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 30),
+            myTextField.topAnchor.constraint(equalTo: viewBackgroundUserPreferences.topAnchor, constant: 50),
             myTextField.leadingAnchor.constraint(equalTo: viewBackgroundUserPreferences.leadingAnchor, constant: size.width/9),
-            myTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -size.width/9),
+            myTextField.trailingAnchor.constraint(equalTo: dividerName.trailingAnchor),
             myTextField.heightAnchor.constraint(equalToConstant: 35),
         ])
         

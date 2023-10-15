@@ -299,6 +299,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                     self.victoryVC.meaningOfWord = self.meaning
                     self.victoryVC.timeTaken = self.timeElapsed
                     self.victoryVC.regionAnswer = self.answer_region
+                    self.addHapticFeedbackFromViewController(type: .success)
                     self.navigationController?.pushViewController(self.victoryVC, animated: true)
                 }
                 
@@ -329,6 +330,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                         // NÃO CONSEGUIU
                         self.defeatVC.timeTaken = self.timeElapsed
                         self.defeatVC.regionAnswer = self.answer_region
+                        UIImpactFeedbackGenerator.feedback(for: .rigid)
                         self.navigationController?.pushViewController(self.defeatVC, animated: true)
                     }
                 }
@@ -346,7 +348,10 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 guard let currentViewController = UIApplication.shared.keyWindow?.rootViewController else {
                     return
                 }
+            
+                self.addHapticFeedbackFromViewController(type: .error)
                 currentViewController.present(alertController, animated: true, completion: nil)
+                
         }
 
     }

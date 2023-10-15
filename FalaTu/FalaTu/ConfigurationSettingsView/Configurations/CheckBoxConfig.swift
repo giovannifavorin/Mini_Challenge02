@@ -8,12 +8,10 @@
 import UIKit
 
 class CheckboxConfig: UIView {
-    
-    weak var delegateConfigView: DelegateConfigView?
-    
+        
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Hore-Regular", size: 18)
+        label.font = UIFont(name: "Hore", size: 18)
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .black
@@ -25,23 +23,22 @@ class CheckboxConfig: UIView {
     private lazy var imageSimbol: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "asset")
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private lazy var checkbutton: ConfigChecBoxButtonCuston = {
-        let image = ConfigChecBoxButtonCuston()
-        image.addTarget(self, action: #selector(didButtonConfig), for: .touchUpInside)
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+    lazy var checkbutton: ConfigChecBoxButtonCuston = {
+        let button = ConfigChecBoxButtonCuston()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
-
     
-    init(text: String){
+    init(text: String, image: UIImage){
         super.init(frame: .zero)
     
-        creatNewCheck(text: text)
+        creatNewCheck(text: text, image: image)
         setupViewModel()
         
     }
@@ -50,15 +47,9 @@ class CheckboxConfig: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func creatNewCheck(text: String){
+    private func creatNewCheck(text: String, image: UIImage){
         self.label.text = text
-    }
-    
-    
-    @objc
-    private func didButtonConfig(_ sender: UIButton!){
-        self.delegateConfigView?.didCheckButtonChangeThema()
-        checkbutton.togleAsset()
+        self.imageSimbol.image = image
     }
 }
 
@@ -77,6 +68,7 @@ extension CheckboxConfig: ViewModel{
             imageSimbol.widthAnchor.constraint(equalToConstant: 30),
             
             label.leadingAnchor.constraint(equalTo: imageSimbol.trailingAnchor, constant: 11),
+            label.centerYAnchor.constraint(equalTo: imageSimbol.centerYAnchor),
             
             checkbutton.trailingAnchor.constraint(equalTo: trailingAnchor),
             checkbutton.centerYAnchor.constraint(equalTo: imageSimbol.centerYAnchor),

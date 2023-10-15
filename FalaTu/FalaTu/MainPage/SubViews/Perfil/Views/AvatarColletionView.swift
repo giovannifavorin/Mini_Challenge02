@@ -3,9 +3,7 @@ import UIKit
 class AvatarColletionView: UIView {
     
     private let size = UIScreen.main.bounds.size
-
     weak var delegatePopUp: DelegateUserPreferences?
-    
     private var listaImages: [AvatarModelData] = []
     
     private lazy var collectionView: UICollectionView = {
@@ -33,9 +31,7 @@ class AvatarColletionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViewModel()
-
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +58,8 @@ extension AvatarColletionView: UICollectionViewDelegate, UICollectionViewDataSou
             cell.imageView.image = image
         }else{
             let image = imageBlock.image
+            cell.imageView.backgroundColor = UIColor(named: "bg_calletionSelectAvatar")
+            cell.imageView.layer.borderWidth = 0
             cell.imageView.image = image
         }
         
@@ -112,7 +110,6 @@ extension AvatarColletionView{
 
 extension AvatarColletionView{
     private func contrainsiPhone(){
-        print("Contrins para iphones ativas ")
         NSLayoutConstraint.activate([
             
             imageBlock.heightAnchor.constraint(equalToConstant: 20),
@@ -130,11 +127,16 @@ extension AvatarColletionView{
         print("Contrins para iPads ativas")
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: size.width / 6, height: size.width / 6)
-        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 0)
+        layout.itemSize = .init(width: 100, height: 100)
+        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 14
         collectionView.collectionViewLayout = layout
         
         NSLayoutConstraint.activate([
+            
+            imageBlock.heightAnchor.constraint(equalToConstant: 20),
+            imageBlock.widthAnchor.constraint(equalToConstant: 20),
+            
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),

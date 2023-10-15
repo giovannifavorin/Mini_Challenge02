@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "cadeadoWhite.png",
+      "filename" : "􀒲.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "cadeadoWhite 1.png",
+      "filename" : "􀒲 1.svg",
       "idiom" : "universal"
     },
     {
@@ -21,7 +21,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "cadeadoBlack.png",
+      "filename" : "whitelock.svg",
       "idiom" : "universal"
     }
   ],

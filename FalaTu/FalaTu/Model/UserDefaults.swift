@@ -20,6 +20,9 @@ extension UserDefaults{
         case regionSudeste
         case regionCentroOeste
         case regionNordeste
+        case isDarMode
+        case firstExecute
+        case isVibrate
     }
     
     
@@ -118,4 +121,31 @@ extension UserDefaults{
                 setValue(newValue, forKey: UserDefaultsKeys.regionNordeste.rawValue)
             }
         }
+    
+    
+    var isDarMode: (firstExecute: Bool, isDarMode: Bool){
+        get{
+            let firstExecute = value(forKey: UserDefaultsKeys.firstExecute.rawValue) as? Bool ?? true
+            let isDarMode = value(forKey: UserDefaultsKeys.isDarMode.rawValue) as? Bool ?? false
+            return (firstExecute, isDarMode)
+        }
+        set{
+            setValue(newValue.isDarMode, forKey: UserDefaultsKeys.isDarMode.rawValue)
+            setValue(newValue.firstExecute, forKey: UserDefaultsKeys.firstExecute.rawValue)
+        }
+    }
+    
+    
+    var isVibrate: Bool {
+        get{
+            let value = bool(forKey: UserDefaultsKeys.isVibrate.rawValue) as? Bool ?? false
+            return value
+            
+        }
+        set{
+            setValue(newValue, forKey: UserDefaultsKeys.isVibrate.rawValue)
+            
+        }
+    }
+    
 }

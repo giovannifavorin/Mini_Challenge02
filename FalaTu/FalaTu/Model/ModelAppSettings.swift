@@ -9,5 +9,8 @@ import Foundation
 import UIKit
 
 struct AppSettings {
-    static var userInterfaceStyle: UIUserInterfaceStyle = /*.unspecified*/ .dark
+    static var userInterfaceStyle: UIUserInterfaceStyle = .light
 }
+
+//let generator = UINotificationFeedbackGenerator()
+//generator.notificationOccurred(.success)

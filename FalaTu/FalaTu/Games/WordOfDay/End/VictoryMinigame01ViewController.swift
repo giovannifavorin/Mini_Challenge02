@@ -185,8 +185,11 @@ class VictoryMinigame01ViewController: UIViewController {
                 activityViewController.popoverPresentationController?.sourceView = self.view // Para iPad
                 self.present(activityViewController, animated: true, completion: nil)
             }
+            
+            UIImpactFeedbackGenerator.feedback(for: .medium)
         case 2:
             navigationController?.popToRootViewController(animated: true)
+            self.addHapticFeedbackFromViewController(type: .success)
         default:
             return
         }

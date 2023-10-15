@@ -36,8 +36,7 @@ class PerfilMainView: UIView {
     
     private lazy var labelSelectAvatar: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
-//        label.font = UIFont(name: "Hero.ttf", size: 30)
+        label.font = UIFont(name: "Hero.ttf", size: 30)
         label.text = "Selecione seu avatar"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,9 +44,7 @@ class PerfilMainView: UIView {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        
         setupViewModel()
-
     }
     
     required init?(coder: NSCoder) {
@@ -76,7 +73,6 @@ extension PerfilMainView: ViewModel {
 
 extension PerfilMainView{
     private func contrainsiPhone(){
-        print("Contrins para iphones ativas ")
         NSLayoutConstraint.activate([
             
             labelPerfil.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -104,8 +100,6 @@ extension PerfilMainView{
     
     
     private func contrainsiPad(){
-        print("Contrins para iPads ativas")
-
         labelSelectAvatar.font = .systemFont(ofSize: 30, weight: .semibold)
         
         NSLayoutConstraint.activate([
@@ -122,13 +116,13 @@ extension PerfilMainView{
 
         NSLayoutConstraint.activate([
             // Restrições para labelSelectAvatar
-            labelSelectAvatar.topAnchor.constraint(equalTo: userInformationView.bottomAnchor, constant: 20),
-            labelSelectAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: size.width/9),
+            labelSelectAvatar.topAnchor.constraint(equalTo: userInformationView.bottomAnchor, constant: 65),
+            labelSelectAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 147.11),
            
             // Restrições para collectionView
             collectionView.topAnchor.constraint(equalTo: labelSelectAvatar.bottomAnchor, constant: 10),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -size.width/9),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: size.width/9),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -177.11),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 177.11),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }

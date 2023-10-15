@@ -16,7 +16,6 @@
 		26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */; };
 		26464AFB2AD73E3800340A0B /* br-utf8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26464AFA2AD73E3800340A0B /* br-utf8.txt */; };
 		2690BAA02AD4EB2100462621 /* PopUpInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2690BA9F2AD4EB2100462621 /* PopUpInventoryView.swift */; };
-		9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */; };
 		9C2C2CD02AC37D6B00E96DB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */; };
 		B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */; };
 		B801D9F72ACDDB6200693477 /* DefeatMinigame01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */; };
@@ -43,7 +42,7 @@
 		B850DFCC2ACB57A40021BAE3 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */; };
 		B850DFCE2ACB57C40021BAE3 /* Minigame01MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */; };
 		B87CA8282AC7492500291AF8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA8272AC7492500291AF8 /* CreditView.swift */; };
-		B8AC71702AD71D2100D2C6B8 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */; };
+		B8AC71702AD71D2100D2C6B8 /* TutorialModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC716F2AD71D2100D2C6B8 /* TutorialModalViewController.swift */; };
 		B8D2A5912ACB57EC00C4F59A /* MinigameWordDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */; };
 		B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */; };
 		B8D2A5962ACB582E00C4F59A /* TopButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A5952ACB582E00C4F59A /* TopButtonsViewController.swift */; };
@@ -67,6 +66,10 @@
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */; };
 		D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */; };
+		D9D642702ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9D6426C2ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf */; };
+		D9D642712ADA012100027B93 /* Alata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9D6426D2ADA012100027B93 /* Alata-Regular.ttf */; };
+		D9D642722ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9D6426E2ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf */; };
+		D9D642732ADA012100027B93 /* Hore.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9D6426F2ADA012100027B93 /* Hore.ttf */; };
 		D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FAB2742AD09E8A00F1658C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +96,6 @@
 		26315BF32AC372D90048A370 /* RegionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController.swift; sourceTree = "<group>"; };
 		26464AFA2AD73E3800340A0B /* br-utf8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "br-utf8.txt"; sourceTree = "<group>"; };
 		2690BA9F2AD4EB2100462621 /* PopUpInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpInventoryView.swift; sourceTree = "<group>"; };
-		9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		9C2C2CCF2AC37D6B00E96DB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B801D9F42ACDDB4E00693477 /* VictoryMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryMinigame01ViewController.swift; sourceTree = "<group>"; };
 		B801D9F62ACDDB6200693477 /* DefeatMinigame01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatMinigame01ViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +122,7 @@
 		B850DFCB2ACB57A40021BAE3 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 		B850DFCD2ACB57C40021BAE3 /* Minigame01MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame01MainView.swift; sourceTree = "<group>"; };
 		B87CA8272AC7492500291AF8 /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
-		B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = FalaTu/Games/WordOfDay/ModalViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8AC716F2AD71D2100D2C6B8 /* TutorialModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialModalViewController.swift; path = FalaTu/Games/WordOfDay/TutorialModalViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C97F912AD32F9B008B6453 /* FalaTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalaTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D2A5902ACB57EC00C4F59A /* MinigameWordDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameWordDayViewController.swift; sourceTree = "<group>"; };
 		B8D2A5932ACB581C00C4F59A /* TopButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,10 @@
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
 		D9AE14AD2AC0D90900173498 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
+		D9D6426C2ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rene Bieder - Galano Grotesque Alt DEMO Bold.otf"; sourceTree = "<group>"; };
+		D9D6426D2ADA012100027B93 /* Alata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alata-Regular.ttf"; sourceTree = "<group>"; };
+		D9D6426E2ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rene Bieder - Galano Grotesque DEMO Bold.otf"; sourceTree = "<group>"; };
+		D9D6426F2ADA012100027B93 /* Hore.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hore.ttf; sourceTree = "<group>"; };
 		D9FAB2742AD09E8A00F1658C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +178,7 @@
 		B808092E2ACB3D910063C31A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D90730552AD72589009FBC7D /* ProtocolsConfig */,
 				B80809302ACB3DB20063C31A /* ViewProtocols */,
 				B808092F2ACB3D9C0063C31A /* ViewControllerProtocols */,
 			);
@@ -199,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B83FA81A2AC61EB300722C97 /* Configurations */,
+				B84E50B72AC361DD00A02945 /* Credits */,
 			);
 			path = ConfigurationSettingsView;
 			sourceTree = "<group>";
@@ -280,8 +288,10 @@
 		B83FA81A2AC61EB300722C97 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				9C2C2CC92AC2097000E96DB0 /* ConfigViewController.swift */,
-				B84E50B72AC361DD00A02945 /* Credits */,
+				D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */,
+				D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */,
+				D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */,
+				D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -385,24 +395,12 @@
 			path = FalaTu/Games/WordOfDay/PopUp;
 			sourceTree = SOURCE_ROOT;
 		};
-		D90730552AD72589009FBC7D /* Protocols */ = {
+		D90730552AD72589009FBC7D /* ProtocolsConfig */ = {
 			isa = PBXGroup;
 			children = (
 				D90730562AD725A9009FBC7D /* DelegateConfigView.swift */,
 			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		D93A46CB2AD4882B00CB127B /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				D90730552AD72589009FBC7D /* Protocols */,
-				D93A46CC2AD488E100CB127B /* CheckBoxConfig.swift */,
-				D93A46CD2AD488E100CB127B /* ConfigPopUpView.swift */,
-				D93A46CE2AD488E100CB127B /* ConfigurationViewController.swift */,
-				D90730532AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift */,
-			);
-			path = Config;
+			path = ProtocolsConfig;
 			sourceTree = "<group>";
 		};
 		D9691C162AB8C79E00A908E8 = {
@@ -418,7 +416,6 @@
 			children = (
 				D9691C392AB8C82A00A908E8 /* System */,
 				D9691C302AB8C79F00A908E8 /* Info.plist */,
-				D93A46CB2AD4882B00CB127B /* Config */,
 				B808092D2ACB3D720063C31A /* Games */,
 				B80809332ACB3E490063C31A /* MainPage */,
 				B80809312ACB3DF00063C31A /* ConfigurationSettingsView */,
@@ -432,6 +429,7 @@
 		D9691C362AB8C7FB00A908E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9D642592ADA00B400027B93 /* Fonts */,
 				26464AFA2AD73E3800340A0B /* br-utf8.txt */,
 				9C2C2CCE2AC37D6B00E96DB0 /* Model.xcdatamodeld */,
 				26315BE92ABF60850048A370 /* StateModel.swift */,
@@ -457,7 +455,7 @@
 		D9AE14A72AC0D46E00173498 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
-				B8AC716F2AD71D2100D2C6B8 /* ModalViewController.swift */,
+				B8AC716F2AD71D2100D2C6B8 /* TutorialModalViewController.swift */,
 				B850DFCA2ACB57910021BAE3 /* Minigame */,
 				B866D4E52ACC932300EF32AE /* End */,
 				B8D6DF2F2ACF2656009B08A9 /* PopUp */,
@@ -483,6 +481,17 @@
 				B8368E202AD0831C00C38E83 /* Views */,
 			);
 			path = Perfil;
+			sourceTree = "<group>";
+		};
+		D9D642592ADA00B400027B93 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D9D6426D2ADA012100027B93 /* Alata-Regular.ttf */,
+				D9D6426F2ADA012100027B93 /* Hore.ttf */,
+				D9D6426C2ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf */,
+				D9D6426E2ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,8 +559,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D642732ADA012100027B93 /* Hore.ttf in Resources */,
 				D9FAB2752AD09E8A00F1658C /* Assets.xcassets in Resources */,
+				D9D642722ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf in Resources */,
 				26464AFB2AD73E3800340A0B /* br-utf8.txt in Resources */,
+				D9D642702ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf in Resources */,
+				D9D642712ADA012100027B93 /* Alata-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +614,6 @@
 				B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */,
 				D90730542AD70BC1009FBC7D /* ConfigChecBoxButtonCuston.swift in Sources */,
 				B8368E242AD0836200C38E83 /* PerfilViewController.swift in Sources */,
-				9C2C2CCA2AC2097000E96DB0 /* ConfigViewController.swift in Sources */,
 				B850DFC72ACB57600021BAE3 /* KeyboardView.swift in Sources */,
 				D9691C252AB8C79E00A908E8 /* SceneDelegate.swift in Sources */,
 				B801D9F52ACDDB4E00693477 /* VictoryMinigame01ViewController.swift in Sources */,
@@ -616,7 +628,7 @@
 				B8368E282AD086E500C38E83 /* PopUpViewController.swift in Sources */,
 				D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */,
 				26315BE62ABE29240048A370 /* InventoryView.swift in Sources */,
-				B8AC71702AD71D2100D2C6B8 /* ModalViewController.swift in Sources */,
+				B8AC71702AD71D2100D2C6B8 /* TutorialModalViewController.swift in Sources */,
 				B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */,
 				26315BF42AC372D90048A370 /* RegionSelectionViewController.swift in Sources */,
 				B850DFBE2ACB480A0021BAE3 /* BoardViewController.swift in Sources */,
@@ -749,7 +761,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
@@ -778,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TLC9D54B8V;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
