@@ -31,10 +31,12 @@ class BottomButtonsViewController: UIViewController {
     
     @objc private func tipButtonAction(sender: UIButton) {
         delegate?.tipButtonPressed()
+        self.addHapticFeedbackFromViewController(type: .warning)
     }
 
     @objc private func sendButtonAction(sender: UIButton) {
         delegate?.sendButtonPressed()
+        UIImpactFeedbackGenerator.feedback(for: .soft)
     }
 
 

@@ -28,7 +28,7 @@ class PopUpHintViewController: UIViewController {
 extension PopUpHintViewController: DelegatePopUPhint{
     func didButton() {
         dismiss(animated: false)
-
+        self.addHapticFeedbackFromViewController(type: .error)
     }
 }
 

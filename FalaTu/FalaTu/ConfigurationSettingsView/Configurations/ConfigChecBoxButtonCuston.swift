@@ -32,14 +32,13 @@ class ConfigChecBoxButtonCuston: UIButton {
 extension ConfigChecBoxButtonCuston{
     
     public func togleAsset(isChecked: Bool?){
-//        isChecked?.toggle()
-
+        
         if isChecked!{
             checkImage.image = UIImage(named: "box-select") ?? UIImage(named: "asset")!
             
         }else{
             checkImage.image = UIImage(named: "box-closed") ?? UIImage(named: "asset")!
-
+            
         }
     }
     

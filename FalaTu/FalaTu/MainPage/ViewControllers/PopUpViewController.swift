@@ -36,6 +36,7 @@ class PopUpViewController: UIViewController {
 
 extension PopUpViewController: DelegatePopUpView{
     func didButon(tag: Int) {
+        
         switch tag{
         case 10:
         

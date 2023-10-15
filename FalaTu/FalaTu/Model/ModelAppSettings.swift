@@ -11,3 +11,6 @@ import UIKit
 struct AppSettings {
     static var userInterfaceStyle: UIUserInterfaceStyle = .light
 }
+
+//let generator = UINotificationFeedbackGenerator()
+//generator.notificationOccurred(.success)

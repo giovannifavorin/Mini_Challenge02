@@ -151,6 +151,8 @@ class MenuViewController: UIViewController {
     
     /// Configuração das açoes dos botões
     @objc private func didButton(_ sender: UIButton!) {
+        inventoryButton.addHapticFeedback(type: .success)
+        
         switch sender.tag {
         case 1:
             navigationController?.pushViewController(regionSelectionViewController, animated: true)
@@ -193,7 +195,6 @@ extension MenuViewController: ViewControllerModel {
         }else if UIDevice.current.userInterfaceIdiom == .phone{
             contrainsiPhone()
         }
-        
     }
 }
 
@@ -247,7 +248,7 @@ extension MenuViewController{
             
             //INVENTORY
             inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
-            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40),
             inventoryButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
             inventoryButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: buttonsWidthPercentage),
             
@@ -284,14 +285,14 @@ extension MenuViewController{
             
             //frame image top
             frameTop.topAnchor.constraint(equalTo: view.topAnchor),
-            frameTop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            frameTop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -50),
+            frameTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 30),
             frameTop.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
             
             //frame image Botton
             frameBotton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            frameBotton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            frameBotton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            frameBotton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -50),
+            frameBotton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 30),
             frameBotton.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
             
             //LOGO

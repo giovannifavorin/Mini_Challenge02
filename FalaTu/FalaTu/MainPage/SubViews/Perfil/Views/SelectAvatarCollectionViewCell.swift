@@ -17,7 +17,9 @@ class SelectAvatarCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.clipsToBounds = true
         image.layer.cornerRadius = 15
-        image.backgroundColor = UIColor(named: "blockIconperfil")
+        image.backgroundColor = UIColor(named: "ColorBack_cellColletionPerfil")
+        image.layer.borderColor = UIColor(named: "ColorBack_cellColletionPerfilBprder")?.cgColor
+        image.layer.borderWidth = 4
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -55,7 +57,6 @@ extension SelectAvatarCollectionViewCell: ViewModel{
 
 extension SelectAvatarCollectionViewCell{
     private func contrainsiPhone(){
-        print("Contrins para iphones ativas ")
         NSLayoutConstraint.activate([
             
             imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
@@ -66,7 +67,6 @@ extension SelectAvatarCollectionViewCell{
     
     
     private func contrainsiPad(){
-        print("Contrins para iPads ativas")
         NSLayoutConstraint.activate([
             
             imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),

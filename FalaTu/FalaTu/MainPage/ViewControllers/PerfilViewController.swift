@@ -32,6 +32,7 @@ class PerfilViewController: UIViewController {
     @objc
     private func backButtonTapped(_ sender: UIButton!) {
         navigationController?.popViewController(animated: true)
+        self.addHapticFeedbackFromViewController(type: .error)
     }
     
     private lazy var popUpViewController: PopUpViewController = {
@@ -117,6 +118,7 @@ class PerfilViewController: UIViewController {
         self.perfilView.collectionView.configure(data: listSelectAvatar!)
     }
     
+    
     func setupUI(){
         navigationController?.setNavigationBarHidden(true, animated: true)
         view.addSubview(buttonBack)
@@ -136,6 +138,7 @@ extension PerfilViewController: DelegateUserPreferences{
     }
 
     func presentPopUP(index: IndexPath) {
+        
         present(popUpViewController, animated: false)
         
         guard let image = listSelectAvatar?[index.row].image,
@@ -224,9 +227,7 @@ extension PerfilViewController: DelegateUserPreferences{
     }
     
     func configurePopUpInRunTime(isBlocked: Bool, numberOfHits: Int, state: String, image: UIImage, indentifier: Int, name: String){
-        
-        popUpViewController.popUpView.configureButton(isBlocked: isBlocked)
-        
+                
         popUpViewController.popUpView.configure(labelAvatarBlocked: isBlocked ? "\(name)" : "Avatar\nBloqueado!",
                                                 labelWordHits: "\(numberOfHits) / 5 palavras",
                                                 labelState: "Estado: \(state)",

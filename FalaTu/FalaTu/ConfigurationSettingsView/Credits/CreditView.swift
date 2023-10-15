@@ -106,7 +106,8 @@ class CreditView: UIViewController {
     }()
     
     @objc private func actionButton(_ sender: UIButton!){
-        navigationController?.popToRootViewController(animated: true)
+        dismiss(animated: true)
+        self.addHapticFeedbackFromViewController(type: .error)
     }
     
     override func viewDidLoad() {

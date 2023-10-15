@@ -9,7 +9,7 @@ import UIKit
 
 
 class ConfigurationViewController: UIViewController {
-
+    
     let userDefaults = UserDefaults.standard
     var isDarMode: Bool?
     
@@ -17,9 +17,11 @@ class ConfigurationViewController: UIViewController {
         return CreditView()
     }()
     
+    
     private lazy var configPopUpView: ConfigPopUpView = {
         return ConfigPopUpView()
     }()
+    
     
     override func loadView() {
         super.loadView()
@@ -33,15 +35,29 @@ class ConfigurationViewController: UIViewController {
 }
 
 extension ConfigurationViewController: DelegateConfigView{
+    func didCheckButtonVibrate() {
+        let isVibrate = userDefaults.isVibrate
+        userDefaults.isVibrate = !isVibrate
+    }
+    
+    
     func didBackbutton(tag: Int) {
         switch tag{
         case 0:
-            dismiss(animated: true)
+            dismiss(animated: false)
+            self.addHapticFeedbackFromViewController(type: .error)
+            
         case 1:
-            present(creditViewController, animated: true)
+            present(creditViewController, animated: false)
+            self.addHapticFeedbackFromViewController(type: .success)
+            
         default:
             fatalError("error in ConfigurationViewController -> didBackbutton ")
         }
+    }
+    
+    func didCheckButtonChangeThema() {
+        updateInterfaceStyle()
     }
     
     func updateInterfaceStyle() {
@@ -70,13 +86,6 @@ extension ConfigurationViewController: DelegateConfigView{
             window.overrideUserInterfaceStyle = style
         }
     }
-
-
-    
-    func didCheckButtonChangeThema() {
-        updateInterfaceStyle()
-    }
-    
 }
 
 

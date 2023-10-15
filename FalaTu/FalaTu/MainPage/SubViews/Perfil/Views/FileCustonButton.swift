@@ -66,7 +66,6 @@ class CustonButton: UIButton {
             configureItensForiPads()
             
         }else if UIDevice.current.userInterfaceIdiom == .phone{
-            print("Contrins para iphones ativas ")
             contrainsiPhone()
         }
     }

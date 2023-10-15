@@ -7,14 +7,15 @@
 
 import UIKit
 
+
+
 class TopButtonsViewController: UIViewController {
     
     let screenWidth = UIScreen.main.bounds.size.width
 
-    
     private let topButtonsView = TopButtonsView()
 
-    lazy var configurationViewController: ConfigurationViewController = {
+     lazy var configurationViewController: ConfigurationViewController = {
           let configurationViewController = ConfigurationViewController()
           configurationViewController.modalPresentationStyle = .overFullScreen
           return configurationViewController
@@ -28,20 +29,21 @@ class TopButtonsViewController: UIViewController {
     @objc private func exitButtonAction(sender: UIButton) {
         print("Sair")
         navigationController?.popViewController(animated: true)
+        self.addHapticFeedbackFromViewController(type: .success)
+
     }
 
     @objc private func tutorialButtonAction(sender: UIButton) {
         let vc = ModalViewController()
-        let navVC = UINavigationController(rootViewController: vc)
-        
-        navigationController?.present(navVC, animated: true)
+        present(vc, animated: true)
+        self.addHapticFeedbackFromViewController(type: .warning)
     }
 
     @objc 
     private func configButtonAction(sender: UIButton) {
        print("Configuração")
-       
-       present(configurationViewController, animated: true)
+       present(configurationViewController, animated: false)
+       self.addHapticFeedbackFromViewController(type: .warning)
     }
 }
 
