@@ -15,7 +15,7 @@ class PerfilMainView: UIView {
         let label = UILabel()
         label.text = "Perfil"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 32, weight: .heavy)
+        label.font = UIFont(name: "Hore", size: 24)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,7 +36,7 @@ class PerfilMainView: UIView {
     
     private lazy var labelSelectAvatar: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Hero.ttf", size: 30)
+        label.font = UIFont(name: "Alata-Regular", size: 20)
         label.text = "Selecione seu avatar"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -100,7 +100,8 @@ extension PerfilMainView{
     
     
     private func contrainsiPad(){
-        labelSelectAvatar.font = .systemFont(ofSize: 30, weight: .semibold)
+        
+        
         
         NSLayoutConstraint.activate([
             
@@ -114,6 +115,7 @@ extension PerfilMainView{
             userInformationView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7)
         ])
 
+        
         NSLayoutConstraint.activate([
             // Restrições para labelSelectAvatar
             labelSelectAvatar.topAnchor.constraint(equalTo: userInformationView.bottomAnchor, constant: 65),

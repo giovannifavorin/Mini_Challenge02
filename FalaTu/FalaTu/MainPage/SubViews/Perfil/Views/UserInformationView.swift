@@ -51,8 +51,8 @@ class UserInformationView: UIView {
         field.keyboardType = .default
         field.placeholder = "Digite seu nome"
         field.text = "\(randomName ?? "Carlos")"
-//        field.font = UIFont(name: "Hore", size: 20)
-        field.font = .systemFont(ofSize: 20, weight: .heavy)
+
+        field.font = UIFont(name: "Hore", size: 24)
         field.delegate = self
         field.returnKeyType = .done
         field.translatesAutoresizingMaskIntoConstraints = false

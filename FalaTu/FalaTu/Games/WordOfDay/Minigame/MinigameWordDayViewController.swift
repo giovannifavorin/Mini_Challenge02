@@ -282,6 +282,11 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                     // guarda o valor
                     UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
                     print("agora a região \(answer_region.regionName) tem \(answer_region.numOfWordsCorrectInRegion) palavras acertadas")
+                    
+                    let result = UserDefaults.standard
+                    print("valor e: \(answer_region.regionName)")
+                    result.addPointToRegion(region: answer_region.regionName)
+                    
                     for state in answer_region.states {
                         print("agora o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
                     }
@@ -290,6 +295,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                     incrementWordsCorrectInRegion(in: &answer_region)
                     // guarda o valor
                     UserDefaults.standard.set(answer_region.numOfWordsCorrectInRegion, forKey: "numOfWordsCorrectInRegion")
+                    
                 }
                 
                 // CHAMADA VIEW DE VITÓRIA
@@ -430,8 +436,6 @@ extension MinigameWordDayViewController {
 
         ])
     }
-    
-
 }
 
 
