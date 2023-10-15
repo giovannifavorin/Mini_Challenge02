@@ -32,22 +32,21 @@ class VictoryMinigame01ViewController: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.adjustsFontForContentSizeCategory = true
-        
-        // Define a primeira parte do texto com um estilo específico
+
+        let minutes = Int(timeTaken) / 60
+        let seconds = Int(timeTaken) % 60
+        let timeString = String(format: "%02d:%02d", minutes, seconds)
+
         let attributedString = NSMutableAttributedString(string: "TEMPO\n",
                                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light)])
-        
-        // Define a segunda parte do texto com um estilo diferente
-        let timeFormatted = String(format: "%.2f", timeTaken)
-        let timeTaken = NSAttributedString(string: "\(timeFormatted)",
+
+        let timeTaken = NSAttributedString(string: timeString,
                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
-        
-        // Adiciona as duas partes ao attributedString
+
         attributedString.append(timeTaken)
-        
-        // Define o texto do label com o attributedString
+
         label.attributedText = attributedString
-        
+
         return label
     }()
     
