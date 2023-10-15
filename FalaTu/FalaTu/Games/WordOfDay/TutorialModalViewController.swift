@@ -2,10 +2,10 @@ import UIKit
 
 class ModalViewController: UIViewController {
     
-    private lazy var tutorial:UIImageView = {
+    private lazy var tutorial: UIImageView = {
         let modal = UIImageView(image: UIImage(named: "ModalLight"))
-        modal.translatesAutoresizingMaskIntoConstraints = false
         modal.contentMode = .scaleAspectFit
+        modal.translatesAutoresizingMaskIntoConstraints = false
         return modal
     }()
     
@@ -16,7 +16,5 @@ class ModalViewController: UIViewController {
         NSLayoutConstraint.activate([
             tutorial.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-//        tutorial.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
     }
 }

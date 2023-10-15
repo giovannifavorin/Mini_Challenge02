@@ -112,11 +112,14 @@ class RegionSelectionViewController: UIViewController {
             planetImage.image = UIImage(named: assetName)
         }
         
+        UIImpactFeedbackGenerator.feedback(for: .medium)
+
         // Atrasa a chamada à InventoryViewController por 1 segundo
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let inventoryViewController = InventoryViewController()
             inventoryViewController.selectedRegion = regions_BR[sender.tag]
             self.navigationController?.pushViewController(inventoryViewController, animated: true)
+            
             sender.isEnabled = true
             self.planetImage.image = UIImage(named: "planet")
             self.button1.isHidden = true
@@ -156,6 +159,7 @@ class RegionSelectionViewController: UIViewController {
     @objc
     private func backButtonTapped(_ sender: UIButton!) {
         navigationController?.popToRootViewController(animated: true)
+        self.addHapticFeedbackFromViewController(type: .error)
     }
 
     override func viewDidLoad() {

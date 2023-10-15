@@ -11,6 +11,7 @@ import Foundation
 protocol DelegateConfigView: AnyObject{
     func didBackbutton(tag: Int)
     func didCheckButtonChangeThema()
+    func didCheckButtonVibrate()
 }
 
 

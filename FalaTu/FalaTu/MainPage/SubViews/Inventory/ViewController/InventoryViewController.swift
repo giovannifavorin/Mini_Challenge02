@@ -48,6 +48,7 @@ class InventoryViewController: UIViewController {
     @objc
     private func backButtonTapped(_ sender: UIButton!) {
         navigationController?.popToRootViewController(animated: true)
+        self.addHapticFeedbackFromViewController(type: .error)
     }
     
     private lazy var popUpView: PopUpInventory = {
@@ -218,10 +219,12 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
         popUpVC.modalPresentationStyle = .overFullScreen
         popUpView.delegate = self
         
+        self.addHapticFeedbackFromViewController(type: .success)
         present(popUpVC, animated: true)
     }
     
     func didClosePopUp() {
         popUpVC.dismiss(animated: true)
+        self.addHapticFeedbackFromViewController(type: .error)
     }
 }

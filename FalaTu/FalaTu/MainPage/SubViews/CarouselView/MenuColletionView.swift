@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class MenuColletionView: UIView {
 
     let size = UIScreen.main.bounds.size
@@ -104,6 +105,7 @@ extension MenuColletionView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.addHapticFeedback(type: .success)
         self.delegate?.didButton(tag: indexPath.row)
     }
 }

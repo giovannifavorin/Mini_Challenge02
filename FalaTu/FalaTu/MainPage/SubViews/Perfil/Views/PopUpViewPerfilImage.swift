@@ -12,6 +12,7 @@ class PopUpViewPerfilImage: UIView {
     
     weak var delegatePopUp: DelegatePopUpView?
     
+    
     private lazy var cellPopUp: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "bg_PopUpPerfil")
@@ -22,6 +23,7 @@ class PopUpViewPerfilImage: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     
     private lazy var labelAvatarBlocked: UILabel = {
         let label = UILabel()
@@ -34,6 +36,7 @@ class PopUpViewPerfilImage: UIView {
         return label
     }()
     
+    
     private lazy var labelWordHits: UILabel = {
         let label = UILabel()
         label.text = "0 / 5 palavras"
@@ -41,6 +44,7 @@ class PopUpViewPerfilImage: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
@@ -52,6 +56,7 @@ class PopUpViewPerfilImage: UIView {
         return image
     }()
     
+    
     private lazy var labelState: UILabel = {
         let label = UILabel()
         label.text = "Estado: Amazonas"
@@ -59,6 +64,7 @@ class PopUpViewPerfilImage: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
@@ -95,6 +101,7 @@ class PopUpViewPerfilImage: UIView {
     
     @objc
     private func actionBitton(_ sender: UIButton!){
+        buttonBack.addHapticFeedback(type: .error)
         self.delegatePopUp?.didButon(tag: sender.tag)
     }
     
@@ -165,12 +172,15 @@ extension PopUpViewPerfilImage{
             buttonSelect.isEnabled = true
             buttonSelect.backgroundColor = UIColor(named: "button_Select_Active")
             buttonSelect.setTitleColor(.white, for: .normal)
+            UIImpactFeedbackGenerator.feedback(for: .medium)
         }else {
             
             print("Bloqueado")
             buttonSelect.backgroundColor = UIColor(named: "button_Select_Blocked")
             buttonSelect.setTitleColor(.black.withAlphaComponent(0.1), for: .normal)
+            buttonSelect.layer.borderColor = UIColor(named: "button_Select_Blocked")?.cgColor
             buttonSelect.isEnabled = false
+            buttonBack.addHapticFeedback(type: .error)
         }
     }
     

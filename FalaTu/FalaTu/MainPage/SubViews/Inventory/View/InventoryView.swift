@@ -11,9 +11,6 @@ class InventoryMainView: UIView {
 
     private var size = UIScreen.main.bounds.size
 
-    
-
-
     override init(frame: CGRect){
         super.init(frame: frame)
 

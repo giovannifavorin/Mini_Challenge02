@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 // Protocol for View Controller Model
@@ -38,4 +39,29 @@ extension ViewControllerModel {
         
     }
 }
+
+extension UIViewController{
+    func addHapticFeedbackFromViewController(type: UINotificationFeedbackGenerator.FeedbackType){
+        let isVibrate = UserDefaults.standard.isVibrate
+        
+        if isVibrate{
+            let generetor = UINotificationFeedbackGenerator()
+            generetor.notificationOccurred(type)
+        }
+    }
+}
+
+extension UIImpactFeedbackGenerator {
+    static func feedback(for type: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let isVibrate = UserDefaults.standard.isVibrate
+        
+        if isVibrate {
+            let generator = UIImpactFeedbackGenerator(style: type)
+            generator.prepare()
+            generator.impactOccurred()
+        }
+    }
+}
+
+
 
