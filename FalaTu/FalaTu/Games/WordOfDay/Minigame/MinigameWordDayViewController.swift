@@ -346,7 +346,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 alertController.addAction(okAction)
                 
                 // Obtenha uma referência ao seu view controller atual e apresente o alerta
-                guard let currentViewController = UIApplication.shared.keyWindow?.rootViewController else {
+                guard let currentViewController = UIApplication.shared.windows.first?.rootViewController else {
                     return
                 }
             
