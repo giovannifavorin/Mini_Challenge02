@@ -124,7 +124,7 @@ extension UserDefaults{
     
     func addPointToRegion(region: String) {
         
-        var regiaoUpCase: String = region.uppercased()
+        let regiaoUpCase: String = region.uppercased()
         var regionKey: String = ""
                 
         switch regiaoUpCase {

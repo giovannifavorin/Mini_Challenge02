@@ -23,23 +23,26 @@ class PopUpViewHintGame: UIView {
         return view
     }()
     
+    
     private lazy var labelHint: UILabel = {
         let label = UILabel()
         label.text = "Dica"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont(name: "Hore", size: 30)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    
     private lazy var labelWhichHint: UILabel = {
         let label = UILabel()
         label.text = "\"Tem em casa\""
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.font = UIFont(name: "Alata-Regular", size: 24)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
@@ -52,9 +55,11 @@ class PopUpViewHintGame: UIView {
         return image
     }()
     
+    
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "closeButton"), for: .normal)
+        button.setImage(UIImage(named: "backButtonAsset"), for: .normal)
+        button.contentMode = .scaleAspectFill
         button.tag = 10
         button.addTarget(self, action: #selector(actionBitton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +68,6 @@ class PopUpViewHintGame: UIView {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        
         setupViewModel()
     }
     
@@ -133,25 +137,26 @@ extension PopUpViewHintGame{
     
     
     private func contrainsiPad(){
+        
+        imageView.layer.cornerRadius = 85
+        
         NSLayoutConstraint.activate([
             backGround.centerXAnchor.constraint(equalTo: centerXAnchor),
             backGround.centerYAnchor.constraint(equalTo: centerYAnchor),
-//            backGround.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            backGround.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backGround.heightAnchor.constraint(equalToConstant: 167),
-            backGround.widthAnchor.constraint(equalToConstant: size.width),
+            backGround.heightAnchor.constraint(equalToConstant: 250),
+            backGround.widthAnchor.constraint(equalToConstant: size.width*0.6),
             
-            imageView.topAnchor.constraint(equalTo: backGround.topAnchor, constant: 21),
-            imageView.leadingAnchor.constraint(equalTo: backGround.leadingAnchor, constant: -17),
-            imageView.heightAnchor.constraint(equalToConstant: 137),
-            imageView.widthAnchor.constraint(equalToConstant: 137),
+            imageView.centerYAnchor.constraint(equalTo: backGround.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: backGround.leadingAnchor, constant: 17),
+            imageView.heightAnchor.constraint(equalToConstant: 170),
+            imageView.widthAnchor.constraint(equalToConstant: 170),
             
-            buttonBack.topAnchor.constraint(equalTo: backGround.topAnchor, constant: -15),
-            buttonBack.trailingAnchor.constraint(equalTo: backGround.trailingAnchor),
-            buttonBack.widthAnchor.constraint(equalToConstant: 40),
-            buttonBack.heightAnchor.constraint(equalToConstant: 40),
+            buttonBack.topAnchor.constraint(equalTo: backGround.topAnchor, constant: -20),
+            buttonBack.trailingAnchor.constraint(equalTo: backGround.trailingAnchor, constant: 10),
+            buttonBack.widthAnchor.constraint(equalToConstant: 50),
+            buttonBack.heightAnchor.constraint(equalToConstant: 50),
             
-            labelHint.topAnchor.constraint(equalTo: backGround.topAnchor, constant: 48),
+            labelHint.centerYAnchor.constraint(equalTo: backGround.centerYAnchor, constant: -30),
             labelHint.trailingAnchor.constraint(equalTo: backGround.trailingAnchor, constant: -116),
             
             labelWhichHint.topAnchor.constraint(equalTo: labelHint.bottomAnchor, constant: 16),

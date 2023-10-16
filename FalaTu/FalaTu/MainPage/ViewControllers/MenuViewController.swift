@@ -308,29 +308,24 @@ extension MenuViewController{
             carouselMenuComponent.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             //INVENTORY
-            inventoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.78),
-            //            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height * 0.2),
-            //            inventoryButton.leadingAnchor.constraint(equalTo: logoView.leadingAnchor),
-            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            inventoryButton.widthAnchor.constraint(equalToConstant: 100),
-            inventoryButton.heightAnchor.constraint(equalToConstant: 100),
+            inventoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -270),
+            inventoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: -50),
+            inventoryButton.widthAnchor.constraint(equalToConstant: 75),
+            inventoryButton.heightAnchor.constraint(equalToConstant: 75),
             
-            //            //DICTIONARY
-            //            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
-            //            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
-            //            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
-            //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-            //
-            //            //CONFIGURATION
+            
+        //            //DICTIONARY
+        //            dictionaryButton.trailingAnchor.constraint(equalTo: inventoryButton.leadingAnchor, constant: -33),
+        //            dictionaryButton.centerYAnchor.constraint(equalTo: inventoryButton.centerYAnchor),
+        //            dictionaryButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
+        //            dictionaryButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
+        //
+            
+            //CONFIGURATION
             configurationButton.bottomAnchor.constraint(equalTo: inventoryButton.bottomAnchor),
             configurationButton.leadingAnchor.constraint(equalTo: inventoryButton.trailingAnchor, constant:33),
             configurationButton.widthAnchor.constraint(equalTo: inventoryButton.widthAnchor),
             configurationButton.heightAnchor.constraint(equalTo: inventoryButton.heightAnchor),
-            
-            configurationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            configurationButton.topAnchor.constraint(equalTo: inventoryButton.bottomAnchor, constant: 20),
-            configurationButton.widthAnchor.constraint(equalToConstant: 200),
-            configurationButton.heightAnchor.constraint(equalToConstant: 60),
             
             custonButtonPerfil.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30),
             custonButtonPerfil.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
