@@ -13,8 +13,14 @@ class ModalViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tutorial)
         
+        view.backgroundColor = UIColor(named: "backgroundColor")
+        
         NSLayoutConstraint.activate([
-            tutorial.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tutorial.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            tutorial.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tutorial.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            tutorial.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
         ])
     }
 }
