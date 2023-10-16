@@ -114,8 +114,8 @@ class RegionSelectionViewController: UIViewController {
         
         UIImpactFeedbackGenerator.feedback(for: .medium)
 
-        // Atrasa a chamada à InventoryViewController por 1 segundo
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        // Atrasa a chamada à InventoryViewController por 0.5 segundo
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let inventoryViewController = InventoryViewController()
             inventoryViewController.selectedRegion = regions_BR[sender.tag]
             self.navigationController?.pushViewController(inventoryViewController, animated: true)
