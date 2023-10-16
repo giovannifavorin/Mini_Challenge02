@@ -15,6 +15,8 @@ class DefeatMinigame01ViewController: UIViewController {
     // Região de onde a palavra do dia é
     public var regionAnswer: RegionModel! = nil
     
+    private let coreDataManager = CoreDataManager.coreDataManager
+    
     private lazy var background: UIImageView = {
         let background = UIImageView()
         background.image = UIImage(named: "pattern")
@@ -144,6 +146,9 @@ class DefeatMinigame01ViewController: UIViewController {
     }()
     
     @objc private func didButton(_ sender: UIButton!) {
+        
+        coreDataManager.updateTotalDeJogos()
+        
         switch sender.tag {
         case 1:
             // Botão de compartilhar foi pressionado

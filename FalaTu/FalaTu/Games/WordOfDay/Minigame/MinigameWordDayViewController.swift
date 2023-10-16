@@ -9,6 +9,8 @@ import UIKit
 
 class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate {
     var isRowSent: [Bool] = Array(repeating: false, count: 6) // numberOfSections é o número total de seções na sua coleção
+    private let coreDataManager = CoreDataManager.coreDataManager
+    let userDefult = UserDefaults.standard
     
     //RESPOSTA CORRETA
     var answer: String = ""
@@ -33,6 +35,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
     let defeatVC = DefeatMinigame01ViewController()
     // tempo levado
     var timeElapsed: Double! = nil
+    
     
     // Background - padrão sem cores
     private lazy var imagebackground: UIImageView = {
@@ -61,7 +64,7 @@ class MinigameWordDayViewController: UIViewController, UICollectionViewDelegate 
             hint = random_Word_Hint_Meaning.hint
             meaning = random_Word_Hint_Meaning.meaning
             answer_region = random_Word_Hint_Meaning.region
-            print("Palavra: \(answer), significado: \(meaning)")
+            print("Palavra: \(answer), significado: \(meaning), regiao: \(answer_region.regionName)")
         } else {
             answer = "error"
             print("Erro ao obter palavra aleatória")
@@ -77,8 +80,6 @@ extension MinigameWordDayViewController: ViewControllerModel {
         } else if UIDevice.current.userInterfaceIdiom == .phone {
             constrains_iPhone()
         }
-        
-        
     }
     
     func addSubviews() {
@@ -204,6 +205,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
     
     func sendButtonPressed() {
         // Função para verificar se existe a palavra digitada =========================================
+                
         func verify(userAnswer: String) -> Bool {
             // Primeiro, verifica se a palavra está no dicionário
             if isWordInDictionary(userAnswer) {
@@ -285,6 +287,8 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                     for state in answer_region.states {
                         print("Agora, o estado \(state.stateName) tem \(state.numberOfItemsUnlocked) itens")
                     }
+                    
+                    userDefult.addPointToRegion(region: "\(answer_region.regionName)")
 
                 } else {
                     // Incrementa
@@ -296,6 +300,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                 
                 // CHAMADA VIEW DE VITÓRIA
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.coreDataManager.updatePalavrasAcertadas()
                     self.victoryVC.wordOfDay = self.answer
                     self.victoryVC.meaningOfWord = self.meaning
                     self.victoryVC.timeTaken = self.timeElapsed

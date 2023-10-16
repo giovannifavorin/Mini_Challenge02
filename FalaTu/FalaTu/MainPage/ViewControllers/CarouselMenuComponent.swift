@@ -63,7 +63,6 @@ extension CarouselMenuComponent: ViewControllerModel {
 
 // Extend the MenuCollectionViewController to conform to the DelegateViewModel protocol
 extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
-    
     // Handle button taps with different 'tag' values
     func didButton(tag: Int) {
         switch tag {
@@ -71,8 +70,7 @@ extension CarouselMenuComponent: DelegatebuttonColletionViewModel {
                 // Navigate to 'MinigameWordDayViewController' when tag is 0
                 let minigameWordDay = MinigameWordDayViewController()
                 navigationController?.pushViewController(minigameWordDay, animated: true)
-            
-            
+                
             case 1:
                 // Navigate to 'MultiplayerViewController' when tag is 1
                 let multplayer = MultiplayerViewController()

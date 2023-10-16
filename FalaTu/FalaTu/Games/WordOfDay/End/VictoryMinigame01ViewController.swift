@@ -19,6 +19,8 @@ class VictoryMinigame01ViewController: UIViewController {
     // Região de onde a palavra do dia é
     public var regionAnswer: RegionModel! = nil
     
+    private let coreDataManager = CoreDataManager.coreDataManager
+        
     private lazy var background: UIImageView = {
         let background = UIImageView()
         background.image = UIImage(named: "pattern")
@@ -173,7 +175,10 @@ class VictoryMinigame01ViewController: UIViewController {
         return stackView
     }()
     
-    @objc private func didButton(_ sender: UIButton!) {
+    @objc 
+    private func didButton(_ sender: UIButton!) {
+        coreDataManager.updateTotalDeJogos()
+        
         switch sender.tag {
         case 1:
             // Botão de compartilhar foi pressionado
@@ -184,8 +189,8 @@ class VictoryMinigame01ViewController: UIViewController {
                 activityViewController.popoverPresentationController?.sourceView = self.view // Para iPad
                 self.present(activityViewController, animated: true, completion: nil)
             }
-            
             UIImpactFeedbackGenerator.feedback(for: .medium)
+            
         case 2:
             navigationController?.popToRootViewController(animated: true)
             self.addHapticFeedbackFromViewController(type: .success)

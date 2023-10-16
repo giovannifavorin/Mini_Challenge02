@@ -27,7 +27,11 @@ class PerfilViewController: UIViewController {
         return button
     }()
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        configureSubViewWithData()
+    }
     
     @objc
     private func backButtonTapped(_ sender: UIButton!) {
@@ -47,9 +51,8 @@ class PerfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+            
         addDelegates()
-        configureSubViewWithData()
         setupUI()
     }
     
@@ -62,24 +65,25 @@ class PerfilViewController: UIViewController {
     private func configureSubViewWithData(){
         let perilfPreference = coreDataSingleton.fetchPerfil()
 
+
         let image = defaults.imageProfile
         
-        print("estou dsando print no valo image description:: \(image)")
+        print("estou dsando print no valo perilfPreference.jogostotais :: \(perilfPreference.jogostotais)")
         
         self.perfilView.userInformationView.cofigure(name: "\(perilfPreference.nome ?? "Carros 2")",
                                                      image: image)
         
         
         self.perfilView.userInformationView.viewOffensive.configure(labelText: "Ofensiva",
-                                                                    labelNumber: "10",
+                                                                    labelNumber: "\(perilfPreference.ofensiva)",
                                                                     image: UIImage(named: "ofensiva")!)
         
         self.perfilView.userInformationView.viewTotalGames.configure(labelText: "Total de Jogos",
-                                                                     labelNumber: "1",
+                                                                     labelNumber: "\(perilfPreference.jogostotais)",
                                                                      image: UIImage(named: "totalDeJogos")!)
         
         self.perfilView.userInformationView.viewWords.configure(labelText: "Palavras",
-                                                                labelNumber: "110",
+                                                                labelNumber: "\(perilfPreference.palavras)",
                                                                 image: UIImage(named: "palavras")!)
         
        

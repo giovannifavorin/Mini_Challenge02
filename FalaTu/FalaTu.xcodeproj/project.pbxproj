@@ -62,6 +62,7 @@
 		D9691C3C2AB8CEAE00A908E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */; };
 		D96BEFA22AD09973007CF2EA /* PopUpViewHintGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */; };
 		D989DD842AC7073F00C282AB /* CoreDataManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D989DD832AC7073F00C282AB /* CoreDataManeger.swift */; };
+		D9912A7E2ADDC3B200B7C3B7 /* IncrementeValueUpdateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912A7D2ADDC3B200B7C3B7 /* IncrementeValueUpdateSchedule.swift */; };
 		D9AE14A12AC0C57400173498 /* DelegatebuttonColletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */; };
 		D9AE14A52AC0D34F00173498 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */; };
 		D9AE14AC2AC0D57400173498 /* CarouselMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */; };
@@ -143,6 +144,7 @@
 		D9691C3B2AB8CEAE00A908E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D96BEFA12AD09973007CF2EA /* PopUpViewHintGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewHintGame.swift; sourceTree = "<group>"; };
 		D989DD832AC7073F00C282AB /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
+		D9912A7D2ADDC3B200B7C3B7 /* IncrementeValueUpdateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementeValueUpdateSchedule.swift; sourceTree = "<group>"; };
 		D9AE14A02AC0C57400173498 /* DelegatebuttonColletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatebuttonColletionViewModel.swift; sourceTree = "<group>"; };
 		D9AE14A42AC0D34F00173498 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		D9AE14AB2AC0D57400173498 /* CarouselMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMenuComponent.swift; sourceTree = "<group>"; };
@@ -269,20 +271,6 @@
 				D958A8612ABE115700D8D098 /* MenuColletionView.swift */,
 			);
 			path = CarouselView;
-			sourceTree = "<group>";
-		};
-		B8368E202AD0831C00C38E83 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B808EF292AD07832005D5A5E /* AvatarColletionView.swift */,
-				B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */,
-				B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */,
-				B8368E162AD078A100C38E83 /* PerfilMainView.swift */,
-				B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */,
-				B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */,
-				B8368E212AD0832F00C38E83 /* UserInformationView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B83FA81A2AC61EB300722C97 /* Configurations */ = {
@@ -478,7 +466,14 @@
 		D9CAC39D2AC3642300D2063C /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				B8368E202AD0831C00C38E83 /* Views */,
+				B808EF292AD07832005D5A5E /* AvatarColletionView.swift */,
+				B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */,
+				B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */,
+				B8368E162AD078A100C38E83 /* PerfilMainView.swift */,
+				B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */,
+				B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */,
+				B8368E212AD0832F00C38E83 /* UserInformationView.swift */,
+				D9912A7D2ADDC3B200B7C3B7 /* IncrementeValueUpdateSchedule.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -582,6 +577,7 @@
 				D93A46D02AD488E100CB127B /* ConfigPopUpView.swift in Sources */,
 				B8368E222AD0832F00C38E83 /* UserInformationView.swift in Sources */,
 				B8D2A5942ACB581C00C4F59A /* TopButtonsView.swift in Sources */,
+				D9912A7E2ADDC3B200B7C3B7 /* IncrementeValueUpdateSchedule.swift in Sources */,
 				B8368E262AD0838A00C38E83 /* UserDefaults.swift in Sources */,
 				B850DFBC2ACB479B0021BAE3 /* BoardView.swift in Sources */,
 				D9AE14AE2AC0D90900173498 /* ViewControllerModel.swift in Sources */,

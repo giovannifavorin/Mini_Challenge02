@@ -14,10 +14,16 @@ class CoreDataManager {
 
     let context = CoreDataManager.persistentContainer.viewContext
     
+    private var incrementer = IncrementeValueUpdateSchedule()
+    
     static let coreDataManager = CoreDataManager()
     
     private let namesDefaults: [String] = ["Fulano", "Ciclano", "Sasi", "Boitatá", "CurupiraYE"]
+    
     private var randomName: String?
+    
+    var ofensiveUpdateTimer: Timer?
+    
     
     static var persistentContainer: NSPersistentContainer = {
         
@@ -37,6 +43,9 @@ class CoreDataManager {
         randomName = namesDefaults.randomElement()
         
         initialPerfil()
+        setupOfensiveUpdateTimer()
+        
+        
     }
     
     func fetchPerfil() -> Perfil{
@@ -69,7 +78,19 @@ class CoreDataManager {
         saveContext()
     }
     
+    func updateTotalDeJogos(){
+        let perfil = fetchPerfil()
+        perfil.jogostotais = perfil.jogostotais + 1
+        saveContext()
+    }
     
+    func updatePalavrasAcertadas(){
+        let perfil = fetchPerfil()
+        perfil.palavras = perfil.palavras + 1
+        saveContext()
+    }
+    
+ 
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -144,5 +165,37 @@ class CoreDataManager {
         context.delete(perfil)
         saveContext()
     }
+    
+    
+    //MARK: - Verfica valor
+    
+    private func setupOfensiveUpdateTimer() {
+        ofensiveUpdateTimer = Timer.scheduledTimer(timeInterval: 24 * 60 * 60, target: self, selector: #selector(updateOfensive), userInfo: nil, repeats: true)
+    }
 
+    @objc 
+    func updateOfensive() {
+        let perfil = fetchPerfil()
+        perfil.ofensiva = perfil.ofensiva + 1
+        perfil.lastUpdateOfensive = Date()
+        saveContext()
+    }
+
+    func applicationDidBecomeActive() {
+        checkAndUpdateOfensiveIf24HoursPassed()
+    }
+
+    func checkAndUpdateOfensiveIf24HoursPassed() {
+        let perfil = fetchPerfil()
+
+        if let lastUpdateDate = perfil.lastUpdateOfensive {
+            let calendar = Calendar.current
+            if let twentyFourHoursAgo = calendar.date(byAdding: .hour, value: -24, to: Date()) {
+                if lastUpdateDate <= twentyFourHoursAgo {
+                    
+                    updateOfensive()
+                }
+            }
+        }
+    }
 }
