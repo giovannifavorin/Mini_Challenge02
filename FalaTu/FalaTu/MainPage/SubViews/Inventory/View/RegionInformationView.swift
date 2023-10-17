@@ -31,18 +31,20 @@ class RegionInformationView: UIView {
         let label = UILabel()
         label.text = "Inventário"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 28, weight: .heavy)
+        label.adjustsFontForContentSizeCategory = true
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Hore", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
         return label
     }()
+
     
     // Regiões brasileiras -> subtítulo
     lazy var labelRegioesBrasileiras: UILabel = {
         let label = UILabel()
         label.text = "Regiões brasileiras"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 16, weight: .light)
+        label.font = UIFont(name: "Poppins", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -53,6 +55,9 @@ class RegionInformationView: UIView {
         let regionImage = UIImageView()
         regionImage.translatesAutoresizingMaskIntoConstraints = false
         regionImage.contentMode = .scaleAspectFit
+        regionImage.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        regionImage.heightAnchor.constraint(equalToConstant: 160).isActive = true
+           
         return regionImage
     }()
     
@@ -82,6 +87,42 @@ extension RegionInformationView: ViewModel {
     }
     
     func addContrains() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
+    }
+    
+    func setupStyle() {
+    
+    }
+}
+
+extension RegionInformationView {
+    private func constrains_iPhone() {
+        NSLayoutConstraint.activate([
+            backgroundPattern.topAnchor.constraint(equalTo: topAnchor),
+            backgroundPattern.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundPattern.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundPattern.heightAnchor.constraint(equalToConstant: 300),
+
+            labelInventario.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            labelInventario.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+            labelRegioesBrasileiras.centerXAnchor.constraint(equalTo: centerXAnchor),
+            labelRegioesBrasileiras.topAnchor.constraint(equalTo: labelInventario.bottomAnchor), // Espaçamento entre título e subtítulo
+
+            regionImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            regionImage.topAnchor.constraint(equalTo: labelRegioesBrasileiras.bottomAnchor, constant: 10), // Espaçamento entre subtítulo e imagem
+            
+            regionTopDetails.topAnchor.constraint(equalTo: backgroundPattern.bottomAnchor, constant: 15),
+            regionTopDetails.leadingAnchor.constraint(equalTo: leadingAnchor),
+            regionTopDetails.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+    
+    private func constrains_iPad() {
         NSLayoutConstraint.activate([
             backgroundPattern.topAnchor.constraint(equalTo: topAnchor),
             backgroundPattern.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -92,18 +133,14 @@ extension RegionInformationView: ViewModel {
             labelInventario.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             labelRegioesBrasileiras.centerXAnchor.constraint(equalTo: centerXAnchor),
-            labelRegioesBrasileiras.topAnchor.constraint(equalTo: labelInventario.bottomAnchor), // Espaçamento entre título e subtítulo
+            labelRegioesBrasileiras.topAnchor.constraint(equalTo: labelInventario.bottomAnchor, constant: 20), // Espaçamento entre título e subtítulo
 
             regionImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            regionImage.topAnchor.constraint(equalTo: labelRegioesBrasileiras.bottomAnchor, constant: 10), // Espaçamento entre subtítulo e imagem
+            regionImage.topAnchor.constraint(equalTo: labelRegioesBrasileiras.bottomAnchor, constant: 30), // Espaçamento entre subtítulo e imagem
             
-            regionTopDetails.topAnchor.constraint(equalTo: backgroundPattern.bottomAnchor, constant: 35),
+            regionTopDetails.topAnchor.constraint(equalTo: backgroundPattern.bottomAnchor, constant: 110),
             regionTopDetails.leadingAnchor.constraint(equalTo: leadingAnchor),
             regionTopDetails.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-    }
-    
-    func setupStyle() {
-    
     }
 }

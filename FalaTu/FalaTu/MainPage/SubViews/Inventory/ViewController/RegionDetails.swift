@@ -13,7 +13,7 @@ class RegionDetails: UIView {
     private lazy var labelTextItems: UILabel = {
         let view = UILabel()
         view.text = "Itens"
-        view.font = UIFont.systemFont(ofSize: 14)
+        view.font = UIFont(name: "Poppins", size: UIFont.preferredFont(forTextStyle: .title3).pointSize)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -22,7 +22,7 @@ class RegionDetails: UIView {
     private lazy var labelTextStates: UILabel = {
         let view = UILabel()
         view.text = "Estados"
-        view.font = UIFont.systemFont(ofSize: 14)
+        view.font = UIFont(name: "Poppins", size: UIFont.preferredFont(forTextStyle: .title3).pointSize)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,7 +30,7 @@ class RegionDetails: UIView {
     // Label para Itens desbloqueados
     private lazy var labelNumberItems: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 24)
+        view.font = UIFont(name: "Hore", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
         view.textAlignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -39,7 +39,7 @@ class RegionDetails: UIView {
     // Label para número de estados desbloqueados
     private lazy var labelNumberStates: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 24)
+        view.font = UIFont(name: "Hore", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
         view.textAlignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -80,6 +80,21 @@ extension RegionDetails: ViewModel{
     }
     
     func addContrains() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
+        
+    }
+
+    
+    func setupStyle() {
+    }
+}
+
+extension RegionDetails {
+    private func constrains_iPhone() {
         NSLayoutConstraint.activate([
             // TEXTO ITENS
             labelTextItems.topAnchor.constraint(equalTo: topAnchor, constant: 5),
@@ -101,16 +116,36 @@ extension RegionDetails: ViewModel{
             divider.centerXAnchor.constraint(equalTo: centerXAnchor),
             divider.topAnchor.constraint(equalTo: topAnchor),
             divider.widthAnchor.constraint(equalToConstant: 1), // Largura do divider
-            divider.heightAnchor.constraint(equalToConstant: 50) // Altura do divider
+            divider.heightAnchor.constraint(equalToConstant: 65) // Altura do divider
         ])
     }
+    private func constrains_iPad() {
+        NSLayoutConstraint.activate([
+            // TEXTO ITENS
+            labelTextItems.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            labelTextItems.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200),
+            
+            // TEXTO ESTADOS
+            labelTextStates.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            labelTextStates.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -200),
 
-    
-    func setupStyle() {
+            // NÚMERO DE ITENS DESBLOQUEADOS
+            labelNumberItems.topAnchor.constraint(equalTo: labelTextItems.bottomAnchor),
+            labelNumberItems.centerXAnchor.constraint(equalTo: labelTextItems.centerXAnchor),
+            
+            // NÚMERO DE ESTADOS DESBLOQUEADOS
+            labelNumberStates.topAnchor.constraint(equalTo: labelTextStates.bottomAnchor),
+            labelNumberStates.centerXAnchor.constraint(equalTo: labelTextStates.centerXAnchor),
+            
+            // DIVIDER
+            divider.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divider.topAnchor.constraint(equalTo: topAnchor),
+            divider.widthAnchor.constraint(equalToConstant: 3), // Largura do divider
+            divider.heightAnchor.constraint(equalToConstant: 70) // Altura do divider
+        ])
     }
-}
-
-extension RegionDetails {
+    
+    
     public func configure(for region: RegionModel) {
         var numOfStatesUnlocked = 0
         var numOfItemsInRegion = 0

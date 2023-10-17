@@ -106,7 +106,7 @@ class InventoryViewController: UIViewController {
         }
         
         // Configurar ContentSize da ScrollView
-        scrollView.contentSize = CGSize(width: view.frame.width, height: CGFloat(selectedRegion.states.count) * 260)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: CGFloat(selectedRegion.states.count) * view.frame.width/1.5)
     }
 
 }
@@ -135,31 +135,11 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
 
     
     func addConstraints() {
-        NSLayoutConstraint.activate([
-            regionInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: -5),
-            regionInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            regionInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            regionInfoView.heightAnchor.constraint(equalToConstant: 350),
-        ])
-        
-        NSLayoutConstraint.activate([
-            labelWordsinRegion.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor),
-            labelWordsinRegion.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-        
-        // Adicionar restrições para o scrollView abaixo da RegionInformationView
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor, constant: 4),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        // Botão de sair
-        NSLayoutConstraint.activate([
-            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ])
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
     }
     
     func createItemsStackView(withStateName stateName: String, numOfItemsUnlocked numOfItems: Int) -> UIStackView {
@@ -206,7 +186,7 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
             if lineIndex == 0 {
                 let stateNameLabel = UILabel()
                 stateNameLabel.text = stateName
-                stateNameLabel.font = .boldSystemFont(ofSize: 24)
+                stateNameLabel.font = UIFont(name: "Hore", size: UIFont.preferredFont(forTextStyle: .title1).pointSize)
                 itemsStackView.addArrangedSubview(stateNameLabel)
             }
             
@@ -238,5 +218,63 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
     func didClosePopUp() {
         popUpVC.dismiss(animated: true)
         self.addHapticFeedbackFromViewController(type: .error)
+    }
+}
+
+extension InventoryViewController {
+    private func constrains_iPhone() {
+        NSLayoutConstraint.activate([
+            regionInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: -5),
+            regionInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            regionInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            regionInfoView.heightAnchor.constraint(equalToConstant: 390),
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelWordsinRegion.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor),
+            labelWordsinRegion.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
+        // Adicionar restrições para o scrollView abaixo da RegionInformationView
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor, constant: 4),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        // Botão de sair
+        NSLayoutConstraint.activate([
+            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ])
+    }
+    
+    private func constrains_iPad() {
+        NSLayoutConstraint.activate([
+            regionInfoView.topAnchor.constraint(equalTo: view.topAnchor),
+            regionInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            regionInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            regionInfoView.heightAnchor.constraint(equalToConstant: 470),
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelWordsinRegion.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor),
+            labelWordsinRegion.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
+        // Adicionar restrições para o scrollView abaixo da RegionInformationView
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: regionInfoView.bottomAnchor, constant: 4),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        // Botão de sair
+        NSLayoutConstraint.activate([
+            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+        ])
     }
 }
