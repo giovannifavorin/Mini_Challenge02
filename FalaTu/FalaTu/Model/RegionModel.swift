@@ -105,6 +105,7 @@ func incrementWordsCorrectInRegion(in region: inout RegionModel) {
         region.numOfWordsCorrectInRegion += 1
         // Guarda o valor
         UserDefaults.standard.set(region.numOfWordsCorrectInRegion, forKey: "\(region.regionName)_numOfWordsCorrectInRegion")
+        incrementRandomStateItemsUnlocked(in: &region)
     }
 }
 
