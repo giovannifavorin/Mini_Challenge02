@@ -113,15 +113,20 @@ extension RegionDetails: ViewModel{
 extension RegionDetails {
     public func configure(for region: RegionModel) {
         var numOfStatesUnlocked = 0
+        var numOfItemsInRegion = 0
         
         for state in region.states {
             let stateKey = "\(region.regionName)_\(state.stateName)_numOfItemsUnlocked"
+            // Recupera os estados desbloqueados
             if let savedItemsUnlocked = UserDefaults.standard.value(forKey: stateKey) as? Int, savedItemsUnlocked > 0 {
-                numOfStatesUnlocked += 1
+                numOfStatesUnlocked += 1 // incrementa o número de estados desbloqueados
+                numOfItemsInRegion += savedItemsUnlocked // soma o valor armazenado ao número de itens na região TOTAL
+            } else {
+                numOfItemsInRegion += state.numberOfItemsUnlocked // se não, pega o valor que está normalmente = 0
             }
         }
         
-        self.labelNumberItems.text = "\(region.numOfItensInRegion)"
+        self.labelNumberItems.text = "\(numOfItemsInRegion)"
         self.labelNumberStates.text = "\(numOfStatesUnlocked)/\(region.numOfStates)"
     }
 }
