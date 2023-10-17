@@ -160,7 +160,7 @@ let regions_BR: [RegionModel] = [
           "testeCE2": ("dicaCE2", "significadoCE2")]),
         
         ("Rio Grande do Norte", 0,
-         ["fuzue": ("Confusão", "Se refere a uma agitação, tumulto ou confusão, geralmente de natureza festiva ou barulhenta. Pode ser associada a situações em que há muita animação, movimento e barulho, como em festas, eventos agitados ou celebrações. Em resumo, fuzuê descreve um ambiente de agitação e diversão, muitas vezes com música, dança e comemoração."),
+         ["fuzue": ("Confusão", "Fuzuê refere-se a uma agitação ou tumulto festivo, com muito movimento, barulho e animação, comum em festas e celebrações, muitas vezes envolvendo música, dança e diversão."),
           "testeRN2": ("dicaRN2", "significadoRN2")]),
         
         ("Paraíba", 0,
