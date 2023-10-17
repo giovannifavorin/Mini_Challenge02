@@ -202,19 +202,24 @@ class VictoryMinigame01ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        view.backgroundColor = UIColor(named: "backgroundColor")
-        
+        setupViewModel()
+    }
+}
+
+
+extension VictoryMinigame01ViewController: ViewModel{
+    
+    func addViews() {
         // Adicione os botões à stack view
         buttonStackView.addArrangedSubview(shareButton)
         buttonStackView.addArrangedSubview(backButton)
         
         labelStackView.addArrangedSubview(phraseLabel)
-//        labelStackView.addArrangedSubview(meaningLabelBody)
         
         view.addSubview(background)
         view.addSubview(scoreBoardBackground)
         view.addSubview(buttonStackView)
+
         
         scoreBoardBackground.addSubview(scoreBox)
         scoreBoardBackground.addSubview(scoreBox2)
@@ -225,7 +230,86 @@ class VictoryMinigame01ViewController: UIViewController {
         
         scoreBox.addSubview(timeLabel)
         scoreBox2.addSubview(regionLabel)
+    }
+    
+    func addContrains() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
+    }
+    
+    func setupStyle() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
+
+    }
+}
+
+
+extension VictoryMinigame01ViewController{
+    private func constrains_iPad(){
+                
+        background.snp.makeConstraints { make in /*PLANO DE FUNDO*/
+            make.edges.equalToSuperview()
+        }
         
+        buttonStackView.snp.makeConstraints { make in /*BOTÕES*/
+            make.height.equalTo(60)
+            make.top.equalTo(scoreBoardBackground.snp.bottom).offset(40)
+            make.centerX.equalToSuperview().inset(10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        scoreBoardBackground.snp.makeConstraints { make in /*PLACAR*/
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.left.equalToSuperview().inset(10)
+        }
+        
+        
+        scoreBoardStars.snp.makeConstraints { make in /*ESTRELAS DO PLACAR*/
+            make.top.equalTo(scoreBoardBackground.snp.top).offset(80)
+            make.centerX.equalTo(scoreBoardBackground.snp.centerX)
+            make.width.equalTo(view.frame.width * 0.68)
+        }
+        
+        labelStackView.snp.makeConstraints { make in /*TÍTULO LABEL*/
+            make.top.equalTo(scoreBoardBackground.snp.top).offset(100)
+            make.centerX.equalTo(scoreBoardStars.snp.centerX)
+        }
+        
+        
+        meaningLabelBody.snp.makeConstraints { make in
+            make.top.equalTo(labelStackView.snp.bottom).offset(50)
+            make.left.equalTo(scoreBoardBackground).offset(190) // Adiciona padding à esquerda
+            make.right.equalTo(scoreBoardBackground).offset(-190) // Adiciona padding à direita
+        }
+        
+        scoreBox.snp.makeConstraints { make in /*SCORE BOX*/
+            make.top.equalTo(meaningLabelBody.snp.bottom).offset(80)
+            make.left.equalTo(scoreBoardBackground.snp.left).offset(120)
+            make.width.equalTo(view.frame.width * 0.29)
+        }
+        
+        scoreBox2.snp.makeConstraints { make in /*SCORE BOX2*/
+            make.top.equalTo(meaningLabelBody.snp.bottom).offset(80)
+            make.right.equalTo(scoreBoardBackground.snp.right).offset(-120)
+            make.width.equalTo(view.frame.width * 0.29)
+        }
+        
+        timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
+            make.top.equalToSuperview().offset(14)
+            make.centerX.equalToSuperview()
+        }
+        
+        regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
+            make.top.equalToSuperview().offset(14)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    
+    private func constrains_iPhone(){
         background.snp.makeConstraints { make in /*PLANO DE FUNDO*/
             make.edges.equalToSuperview()
         }
@@ -280,4 +364,5 @@ class VictoryMinigame01ViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
 }

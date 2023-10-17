@@ -35,6 +35,7 @@ class TopButtonsViewController: UIViewController {
 
     @objc private func tutorialButtonAction(sender: UIButton) {
         let vc = ModalViewController()
+//        vc.modalPresentationStyle = .custom
         present(vc, animated: true)
         self.addHapticFeedbackFromViewController(type: .warning)
     }

@@ -211,10 +211,10 @@ extension UserInformationView{
     private func contrainsiPad(){
         
         NSLayoutConstraint.activate([
-            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 290),
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImage.topAnchor.constraint(equalTo: topAnchor, constant: -3),
-            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            backgroundImage.heightAnchor.constraint(equalToConstant: size.height/2),
             
             imageView.widthAnchor.constraint(equalToConstant: 200),
             imageView.heightAnchor.constraint(equalToConstant: 200),

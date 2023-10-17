@@ -2,7 +2,7 @@
   "images" : [
     {
       "filename" : "ModalLight.svg",
-      "idiom" : "universal"
+      "idiom" : "iphone"
     },
     {
       "appearances" : [
@@ -12,7 +12,21 @@
         }
       ],
       "filename" : "ModalDark.svg",
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "Como Jogar.svg",
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Como Jogar-1.svg",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

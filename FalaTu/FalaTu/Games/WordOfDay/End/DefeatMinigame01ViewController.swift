@@ -168,8 +168,15 @@ class DefeatMinigame01ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "backgroundColor")
         
+        setupViewModel()
+    }
+}
+
+
+extension DefeatMinigame01ViewController: ViewModel{
+    
+    func addViews() {
         // Adicione os botões à stack view
         buttonStackView.addArrangedSubview(shareButton)
         buttonStackView.addArrangedSubview(backButton)
@@ -188,7 +195,70 @@ class DefeatMinigame01ViewController: UIViewController {
         
         scoreBox.addSubview(timeLabel)
         scoreBox2.addSubview(regionLabel)
+    }
+    
+    func addContrains() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            constrains_iPad()
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            constrains_iPhone()
+        }
+    }
+    
+    func setupStyle() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
+
+    }
+}
+
+
+extension DefeatMinigame01ViewController{
+    private func constrains_iPad(){
+                
+        background.snp.makeConstraints { make in /*PLANO DE FUNDO*/
+            make.edges.equalToSuperview()
+        }
         
+        buttonStackView.snp.makeConstraints { make in /*BOTÕES*/
+            make.height.equalTo(60)
+            make.top.equalTo(scoreBoardBackground.snp.bottom).offset(40)
+            make.centerX.equalToSuperview().inset(10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        scoreBoardBackground.snp.makeConstraints { make in /*PLACAR*/
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.left.equalToSuperview().inset(10)
+        }
+        
+        labelStackView.snp.makeConstraints { make in /*TÍTULO LABEL*/
+            make.top.equalToSuperview().offset(60)
+            make.centerX.equalToSuperview()
+        }
+        
+        scoreBox.snp.makeConstraints { make in /*SCORE BOX*/
+            make.top.equalToSuperview().offset(250)
+            make.left.equalTo(scoreBoardBackground.snp.left).offset(190)
+        }
+        
+        scoreBox2.snp.makeConstraints { make in /*SCORE BOX*/
+            make.top.equalToSuperview().offset(250)
+            make.right.equalTo(scoreBoardBackground.snp.right).offset(-190)
+        }
+        
+        timeLabel.snp.makeConstraints { make in /*TIME LABEL*/
+            make.top.equalToSuperview().offset(14)
+            make.centerX.equalToSuperview()
+        }
+        
+        regionLabel.snp.makeConstraints { make in /*REGION LABEL*/
+            make.top.equalToSuperview().offset(14)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    
+    private func constrains_iPhone(){
         background.snp.makeConstraints { make in /*PLANO DE FUNDO*/
             make.edges.equalToSuperview()
         }
@@ -231,3 +301,4 @@ class DefeatMinigame01ViewController: UIViewController {
         }
     }
 }
+
