@@ -235,7 +235,7 @@ extension MenuViewController{
             frameBotton.heightAnchor.constraint(equalToConstant: view.frame.height/5.5),
             
             //LOGO
-            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.16),
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.2),
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: logoWidthPercentage),
             logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: logoHeightPercentage),
