@@ -181,8 +181,9 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         return guesses
     }
     
-    
+
     func boxColor(at indexPath: IndexPath) -> UIColor? {
+
         let rowIndex = indexPath.section
         let count = guesses[rowIndex].compactMap({ $0 }).count
         
@@ -200,6 +201,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
         if indexAnswer[indexPath.row] == letter {
             return UIColor(named: "GreenLetter")
         }
+   
         return UIColor(named: "OrangeLetter")
     }
     
@@ -299,7 +301,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
 
                 
                 // CHAMADA VIEW DE VITÓRIA
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.coreDataManager.updatePalavrasAcertadas()
                     self.victoryVC.wordOfDay = self.answer
                     self.victoryVC.meaningOfWord = self.meaning
@@ -332,7 +334,7 @@ extension MinigameWordDayViewController: BottomButtonsDelegate, BoardViewControl
                     // desativa o botão após perder tudo
                     bottomButtonsVC.bottomButtonsView.sendButton.isEnabled = false
                     // Se o jogador não acertar após 6 tentativas
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         // NÃO CONSEGUIU
                         self.defeatVC.timeTaken = self.timeElapsed
                         self.defeatVC.regionAnswer = self.answer_region
