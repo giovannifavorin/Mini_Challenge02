@@ -96,11 +96,15 @@ class InventoryViewController: UIViewController {
             
             itemsStackView.translatesAutoresizingMaskIntoConstraints = false
             
-            NSLayoutConstraint.activate([
-                // Distância entre um estado e outro dentro do inventário
-                itemsStackView.topAnchor.constraint(equalTo: previousItemsStackView?.bottomAnchor ?? scrollView.topAnchor),
-                itemsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
+            // Verifica se previousItemsStackView não é nulo
+            if let previousItemsStackView = previousItemsStackView {
+                // Se previousItemsStackView não é nulo, use seu bottomAnchor como o topo do itemsStackView
+                itemsStackView.topAnchor.constraint(equalTo: previousItemsStackView.bottomAnchor, constant: 40).isActive = true
+            } else {
+                // Se previousItemsStackView for nulo, use o topo da scrollView como o topo do itemsStackView
+                itemsStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+            }
+            itemsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             
             previousItemsStackView = itemsStackView
         }
@@ -148,7 +152,7 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
         let itemsStackView = UIStackView()
         itemsStackView.axis = .vertical
         itemsStackView.spacing = screenWidth/42 // distância entre fileiras (3x o cornerRadius)
-        itemsStackView.distribution = .fillEqually
+        itemsStackView.distribution = .equalSpacing
         
         var unlockedItemCount = 0  // Variável para rastrear o número de itens desbloqueados
         
@@ -156,7 +160,7 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
             let lineStackView = UIStackView()
             lineStackView.axis = .horizontal
             lineStackView.spacing = screenWidth/42 // distância entre mesma fileira (3x o cornerRadius)
-            lineStackView.distribution = .fillEqually
+            lineStackView.distribution = .fill
             
             for itemIndex in 0..<4 {
                 let itemButton = UIButton()
@@ -224,10 +228,10 @@ extension InventoryViewController : ViewControllerModel, PopUpInventoryDelegate 
 extension InventoryViewController {
     private func constrains_iPhone() {
         NSLayoutConstraint.activate([
-            regionInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: -5),
+            regionInfoView.topAnchor.constraint(equalTo: view.topAnchor),
             regionInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             regionInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            regionInfoView.heightAnchor.constraint(equalToConstant: 390),
+            regionInfoView.heightAnchor.constraint(equalToConstant: 410),
         ])
         
         NSLayoutConstraint.activate([
@@ -245,7 +249,7 @@ extension InventoryViewController {
         
         // Botão de sair
         NSLayoutConstraint.activate([
-            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            buttonBack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             buttonBack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }

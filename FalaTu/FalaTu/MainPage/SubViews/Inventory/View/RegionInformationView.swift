@@ -105,9 +105,9 @@ extension RegionInformationView {
             backgroundPattern.topAnchor.constraint(equalTo: topAnchor),
             backgroundPattern.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundPattern.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundPattern.heightAnchor.constraint(equalToConstant: 300),
+            backgroundPattern.heightAnchor.constraint(equalToConstant: 320),
 
-            labelInventario.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            labelInventario.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             labelInventario.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             labelRegioesBrasileiras.centerXAnchor.constraint(equalTo: centerXAnchor),
