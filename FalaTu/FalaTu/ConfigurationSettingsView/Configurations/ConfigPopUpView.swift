@@ -34,18 +34,15 @@ class ConfigPopUpView: UIView {
        return button
     }()
     
-    
     lazy var checkModeDark: CheckboxConfig = {
         let check = CheckboxConfig(text: "Modo Escuro",
                                    image: UIImage(named: "darkmode")
                                    ?? UIImage(named: "asset")!)
-        
         check.checkbutton.addTarget(self, action: #selector(didButton), for: .touchUpInside)
         check.checkbutton.tag = 2
         check.translatesAutoresizingMaskIntoConstraints = false
         return check
     }()
-    
     
     private lazy var checkVibrate: CheckboxConfig = {
         let check = CheckboxConfig(text: "Vibração",

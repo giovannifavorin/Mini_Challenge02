@@ -23,6 +23,7 @@
 		B808EF2A2AD07832005D5A5E /* AvatarColletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF292AD07832005D5A5E /* AvatarColletionView.swift */; };
 		B808EF2C2AD07851005D5A5E /* FileCustonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */; };
 		B808EF2E2AD0786F005D5A5E /* ModeRagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */; };
+		B822BF0D2AE0A4560009D7DF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B822BF0C2AE0A4560009D7DF /* Localizable.xcstrings */; };
 		B8368E172AD078A100C38E83 /* PerfilMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E162AD078A100C38E83 /* PerfilMainView.swift */; };
 		B8368E192AD078B700C38E83 /* PopUpViewPerfilImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */; };
 		B8368E1B2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */; };
@@ -104,6 +105,7 @@
 		B808EF292AD07832005D5A5E /* AvatarColletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColletionView.swift; sourceTree = "<group>"; };
 		B808EF2B2AD07851005D5A5E /* FileCustonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCustonButton.swift; sourceTree = "<group>"; };
 		B808EF2D2AD0786F005D5A5E /* ModeRagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeRagingView.swift; sourceTree = "<group>"; };
+		B822BF0C2AE0A4560009D7DF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B8368E162AD078A100C38E83 /* PerfilMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilMainView.swift; sourceTree = "<group>"; };
 		B8368E182AD078B700C38E83 /* PopUpViewPerfilImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewPerfilImage.swift; sourceTree = "<group>"; };
 		B8368E1A2AD078C900C38E83 /* SelectAvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvatarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				D9691C222AB8C79E00A908E8 /* AppDelegate.swift */,
 				D9691C242AB8C79E00A908E8 /* SceneDelegate.swift */,
 				D9FAB2742AD09E8A00F1658C /* Assets.xcassets */,
+				B822BF0C2AE0A4560009D7DF /* Localizable.xcstrings */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				D9D642722ADA012100027B93 /* Rene Bieder - Galano Grotesque DEMO Bold.otf in Resources */,
 				26464AFB2AD73E3800340A0B /* br-utf8.txt in Resources */,
 				D9D642702ADA012100027B93 /* Rene Bieder - Galano Grotesque Alt DEMO Bold.otf in Resources */,
+				B822BF0D2AE0A4560009D7DF /* Localizable.xcstrings in Resources */,
 				D9D642712ADA012100027B93 /* Alata-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,7 +761,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
@@ -787,7 +791,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = TLC9D54B8V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";

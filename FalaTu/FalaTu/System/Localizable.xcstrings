@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "Vibração" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibração"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
