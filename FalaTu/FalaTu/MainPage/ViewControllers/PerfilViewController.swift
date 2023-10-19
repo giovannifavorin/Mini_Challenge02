@@ -61,6 +61,7 @@ class PerfilViewController: UIViewController {
         setupUI()
     }
     
+    
     private func addDelegates(){
         self.perfilView.userInformationView.delegateUserPreferences = self
         self.perfilView.collectionView.delegatePopUp = self
@@ -92,6 +93,7 @@ class PerfilViewController: UIViewController {
                                                               labelNumber: "\(profilePreferences.palavras)",
                                                               image: UIImage(named: "palavras")!)
     }
+    
     
     
     private func configureAvatarCollection() {

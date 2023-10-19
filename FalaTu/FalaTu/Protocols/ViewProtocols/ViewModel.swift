@@ -40,6 +40,7 @@ protocol ViewModel{
     
     //Defines the view styles, such as color, borders, etc.
     func setupStyle()
+    
 }
 
 //Calls all protocol methods
@@ -47,9 +48,14 @@ extension ViewModel{
     
     func setupViewModel(){
         addViews()
+        
         addContrains()
+        
         setupStyle()
     }
 }
+
+
+
 
 

@@ -40,6 +40,7 @@ class BoardView: UIView {
 }
 
 extension BoardView: ViewModel {
+    
     func addViews() {
         addSubview(collectionView)
         addSubview(borderedView)
