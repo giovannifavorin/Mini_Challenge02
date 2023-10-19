@@ -151,6 +151,7 @@ extension UserInformationView: UITextFieldDelegate{
         myTextField.resignFirstResponder()
         return true
     }
+    
     public func cofigure(name: String, image: UIImage){
         myTextField.text = name
         self.imageView.image = image

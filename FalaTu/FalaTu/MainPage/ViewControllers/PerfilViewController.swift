@@ -9,15 +9,17 @@ import UIKit
 
 class PerfilViewController: UIViewController {
     
+    weak var delegateUpdateButtonPerfil: DelegateUpdateInButtonPerfil?
     private let coreDataSingleton = CoreDataManager.coreDataManager
     private var listSelectAvatar: [AvatarModelData]? = []
     let defaults = UserDefaults.standard
-    weak var delegateUpdateButtonPerfil: DelegateUpdateInButtonPerfil?
+    
     
     private lazy var perfilView: PerfilMainView = {
         let view = PerfilMainView()
         return view
     }()
+    
     
     private lazy var buttonBack: UIButton = {
         let button = UIButton()
@@ -27,11 +29,12 @@ class PerfilViewController: UIViewController {
         return button
     }()
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         configureSubViewWithData()
     }
+    
     
     @objc
     private func backButtonTapped(_ sender: UIButton!) {
@@ -39,19 +42,21 @@ class PerfilViewController: UIViewController {
         self.addHapticFeedbackFromViewController(type: .error)
     }
     
+    
     private lazy var popUpViewController: PopUpViewController = {
        let view = PopUpViewController()
        view.modalPresentationStyle = .overFullScreen
        return view
     }()
 
+    
     override func loadView() {
         self.view = perfilView
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            
         addDelegates()
         setupUI()
     }
@@ -62,63 +67,41 @@ class PerfilViewController: UIViewController {
         self.popUpViewController.delegado = self
     }
     
-    private func configureSubViewWithData(){
-        let perilfPreference = coreDataSingleton.fetchPerfil()
+    
+    private func configureSubViewWithData() {
+        configureProfileData()
+        configureAvatarCollection()
+    }
+    
 
-
+    private func configureProfileData() {
+        let profilePreferences = coreDataSingleton.fetchPerfil()
         let image = defaults.imageProfile
         
-        print("estou dsando print no valo perilfPreference.jogostotais :: \(perilfPreference.jogostotais)")
-        
-        self.perfilView.userInformationView.cofigure(name: "\(perilfPreference.nome ?? "Carros 2")",
-                                                     image: image)
-        
-        
+        self.perfilView.userInformationView.cofigure(name: profilePreferences.nome ?? "Carros 2", image: image)
+
         self.perfilView.userInformationView.viewOffensive.configure(labelText: "Ofensiva",
-                                                                    labelNumber: "\(perilfPreference.ofensiva)",
-                                                                    image: UIImage(named: "ofensiva")!)
-        
+                                                                  labelNumber: "\(profilePreferences.ofensiva)",
+                                                                  image: UIImage(named: "ofensiva")!)
+
         self.perfilView.userInformationView.viewTotalGames.configure(labelText: "Total de Jogos",
-                                                                     labelNumber: "\(perilfPreference.jogostotais)",
-                                                                     image: UIImage(named: "totalDeJogos")!)
-        
+                                                                   labelNumber: "\(profilePreferences.jogostotais)",
+                                                                   image: UIImage(named: "totalDeJogos")!)
+
         self.perfilView.userInformationView.viewWords.configure(labelText: "Palavras",
-                                                                labelNumber: "\(perilfPreference.palavras)",
-                                                                image: UIImage(named: "palavras")!)
-        
-       
-        listSelectAvatar?.append(AvatarModelData(name: "Arara",
-                                                 region: "Brasília",
-                                                 image: UIImage(named: "arara")
-                                                 ?? UIImage(named: "asset")!))
-        
-        listSelectAvatar?.append(AvatarModelData(name: "Onca",
-                                                 region: "Amazonas",
-                                                 image: UIImage(named: "onca")
-                                                 ?? UIImage(named: "asset")!))
-        
-        listSelectAvatar?.append(AvatarModelData(name: "Preguica",
-                                                 region: "São Paulo",
-                                                 image: UIImage(named: "preguica")
-                                                 ?? UIImage(named: "asset")!))
-        
-        listSelectAvatar?.append(AvatarModelData(name: "Pavao",
-                                                 region: "Rio Grande do Sul",
-                                                 image: UIImage(named: "pavao")
-                                                 ?? UIImage(named: "asset")!))
-//        
-//        listSelectAvatar?.append(AvatarModelData(name: "Tuco",
-//                                                 region: "Rio de Janeiro",
-//                                                 image: UIImage(named: "5")
-//                                                 ?? UIImage(named: "asset")!))
-//        
-//        listSelectAvatar?.append(AvatarModelData(name: "Carla",
-//                                                 region: "Minas Gerais",
-//                                                 image: UIImage(named: "6")
-//                                                 ?? UIImage(named: "asset")!))
-//        
+                                                              labelNumber: "\(profilePreferences.palavras)",
+                                                              image: UIImage(named: "palavras")!)
+    }
     
-        
+    
+    private func configureAvatarCollection() {
+        listSelectAvatar = [
+            AvatarModelData(name: "Arara", region: "Brasília", image: UIImage(named: "arara") ?? UIImage(named: "asset")!),
+            AvatarModelData(name: "Onça", region: "Amazonas", image: UIImage(named: "onca") ?? UIImage(named: "asset")!),
+            AvatarModelData(name: "Preguiça", region: "São Paulo", image: UIImage(named: "preguica") ?? UIImage(named: "asset")!),
+            AvatarModelData(name: "Pavão", region: "Rio Grande do Sul", image: UIImage(named: "pavao") ?? UIImage(named: "asset")!)
+        ]
+
         self.perfilView.collectionView.configure(data: listSelectAvatar!)
     }
     
@@ -135,97 +118,43 @@ class PerfilViewController: UIViewController {
 }
 
 
+
 extension PerfilViewController: DelegateUserPreferences{
     func changeImage() {
         perfilView.userInformationView.imageView.image = defaults.imageProfile
         self.delegateUpdateButtonPerfil?.updateImage()
     }
 
+    
     func presentPopUP(index: IndexPath) {
-        
-        guard let image = listSelectAvatar?[index.row].image,
-              let state = listSelectAvatar?[index.row].region,
-              let name = listSelectAvatar?[index.row].name
-        else {
-            print("value nill in image from: 'PerfilViewController -> presentPopUP' ")
+        guard let avatarData = listSelectAvatar?[index.row] else {
+            print("value nil in image from: 'PerfilViewController -> presentPopUP'")
             return
         }
+
         
-       
-        switch index.row {
-        case 0:
-             let isBlocked = true
-             let numberOfHits = 5
-             configurePopUpInRunTime(isBlocked: isBlocked,
-                                     numberOfHits: numberOfHits,
-                                     state: state,
-                                     image: image,
-                                     indentifier: index.row,
-                                     name: name)
-        case 1:
-            let result = defaults.regionNorte
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
+        let configurations: [(isBlocked: Bool, numberOfHits: Int)] = [
+            (isBlocked: true, numberOfHits: 5),  // Caso 0
+            (isBlocked: defaults.regionNorte.isGreaterThanOrEqualTo5, numberOfHits: defaults.regionNorte.value),  // Caso 1
+            (isBlocked: defaults.regionNordeste.isGreaterThanOrEqualTo5, numberOfHits: defaults.regionNordeste.value),  // Caso 2
+            (isBlocked: defaults.regionSul.isGreaterThanOrEqualTo5, numberOfHits: defaults.regionSul.value)  // Caso 3
+        ]
+
+        
+        if index.row < configurations.count {
+            let (isBlocked, numberOfHits) = configurations[index.row]
 
             configurePopUpInRunTime(isBlocked: isBlocked,
                                     numberOfHits: numberOfHits,
-                                    state: state,
-                                    image: image,
+                                    state: avatarData.region,
+                                    image: avatarData.image,
                                     indentifier: index.row,
-                                    name: name)
-            
-        case 2:
-            let result = defaults.regionNordeste
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
+                                    name: avatarData.name)
 
-            configurePopUpInRunTime(isBlocked: isBlocked,
-                                    numberOfHits: numberOfHits,
-                                    state: state,
-                                    image: image,
-                                    indentifier: index.row,
-                                    name: name)
-            
-        case 3:
-            let result = defaults.regionSul
-            let isBlocked = result.isGreaterThanOrEqualTo5
-            let numberOfHits = result.value
-                        
-            configurePopUpInRunTime(isBlocked: isBlocked,
-                                    numberOfHits: numberOfHits,
-                                    state: state,
-                                    image: image,
-                                    indentifier: index.row,
-                                    name: name)
-            
-//        case 4:
-//            let result = defaults.regionSudeste
-//            let isBlocked = result.isGreaterThanOrEqualTo5
-//            let numberOfHits = result.value
-//            configurePopUpInRunTime(isBlocked: isBlocked,
-//                                    numberOfHits: numberOfHits,
-//                                    state: state,
-//                                    image: image,
-//                                    indentifier: index.row,
-//                                    name: name)
-//            
-//        case 5:
-//            let result = defaults.regionCentroOeste
-//            let isBlocked = result.isGreaterThanOrEqualTo5
-//            let numberOfHits = result.value
-//            configurePopUpInRunTime(isBlocked: isBlocked,
-//                                    numberOfHits: numberOfHits,
-//                                    state: state,
-//                                    image: image,
-//                                    indentifier: index.row,
-//                                    name: name)
-            
-        default:
-            break
+            present(popUpViewController, animated: false)
         }
-        
-        present(popUpViewController, animated: false)
     }
+
     
     func configurePopUpInRunTime(isBlocked: Bool, numberOfHits: Int, state: String, image: UIImage, indentifier: Int, name: String){
     
@@ -237,6 +166,7 @@ extension PerfilViewController: DelegateUserPreferences{
                                                 imageAvatarView: image,
                                                 tag: (indentifier))
     }
+    
      
     func configureNamePerfil(name: String) {
         self.delegateUpdateButtonPerfil?.updateName(name: name)
