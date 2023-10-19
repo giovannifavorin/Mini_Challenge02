@@ -402,8 +402,8 @@
 		D9691C212AB8C79E00A908E8 /* FalaTu */ = {
 			isa = PBXGroup;
 			children = (
-				D9691C392AB8C82A00A908E8 /* System */,
 				D9691C302AB8C79F00A908E8 /* Info.plist */,
+				D9691C392AB8C82A00A908E8 /* System */,
 				B808092D2ACB3D720063C31A /* Games */,
 				B80809332ACB3E490063C31A /* MainPage */,
 				B80809312ACB3DF00063C31A /* ConfigurationSettingsView */,
@@ -757,7 +757,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
@@ -787,7 +787,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5GYXF2FP9Y;
+				DEVELOPMENT_TEAM = 335BRL9A43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FalaTu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";

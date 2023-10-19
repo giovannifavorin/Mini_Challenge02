@@ -281,9 +281,10 @@ extension VictoryMinigame01ViewController{
         
         meaningLabelBody.snp.makeConstraints { make in
             make.top.equalTo(labelStackView.snp.bottom).offset(50)
-            make.left.equalTo(scoreBoardBackground).offset(190) // Adiciona padding à esquerda
-            make.right.equalTo(scoreBoardBackground).offset(-190) // Adiciona padding à direita
+            make.left.equalTo(scoreBoardBackground).offset(190)
+            make.right.equalTo(scoreBoardBackground).offset(-190) 
         }
+        
         
         scoreBox.snp.makeConstraints { make in /*SCORE BOX*/
             make.top.equalTo(meaningLabelBody.snp.bottom).offset(80)
