@@ -1,6 +1,19 @@
 {
   "sourceLanguage" : "pt-BR",
   "strings" : {
+    "%@" : {
+
+    },
+    "Configuração" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuration"
+          }
+        }
+      }
+    },
     "Vibração" : {
       "extractionState" : "manual",
       "localizations" : {

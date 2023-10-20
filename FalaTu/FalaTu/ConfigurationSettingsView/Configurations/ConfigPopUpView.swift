@@ -75,7 +75,7 @@ class ConfigPopUpView: UIView {
     
     private lazy var labelTopPopUp: UILabel = {
         let label = UILabel()
-        label.text = "Configuração"
+        label.text = String(localized: "Configuração")
         label.font = UIFont(name: "Hore", size: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -122,7 +122,7 @@ class ConfigPopUpView: UIView {
         }
     }
     
-    func updateIConConfig(){
+    func updateIConConfig() {
         self.addHapticFeedback(type: .success)
         let checkModeDarkButton = userDefault.isDarMode.isDarMode
         let checkModeVibrate = userDefault.isVibrate
@@ -132,7 +132,6 @@ class ConfigPopUpView: UIView {
         self.checkVibrate.checkbutton.togleAsset(isChecked: checkModeVibrate)
     }
 }
-
 
 extension ConfigPopUpView: ViewModel{
     func addViews() {
@@ -151,7 +150,7 @@ extension ConfigPopUpView: ViewModel{
         backgroundColor = .black.withAlphaComponent(0.6)
     }
 }
-
+ 
 
 extension ConfigPopUpView{
     private func contrainsiPhone(){

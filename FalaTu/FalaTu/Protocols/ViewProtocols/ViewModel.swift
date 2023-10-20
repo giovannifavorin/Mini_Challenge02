@@ -31,7 +31,7 @@ extension UIView{
     }
 }
 
-protocol ViewModel{
+protocol ViewModel {
     //Add views as subviews and define the hierarchy between them
     func addViews()
     

@@ -38,7 +38,11 @@ class CheckboxConfig: UIView {
     init(text: String, image: UIImage){
         super.init(frame: .zero)
     
-        creatNewCheck(text: text, image: image)
+        if #available(iOS 15, *) {
+            creatNewCheck(text: String(localized: "\(text)"), image: image)
+        } else {
+            // Fallback on earlier versions
+        }
         setupViewModel()
         
     }
